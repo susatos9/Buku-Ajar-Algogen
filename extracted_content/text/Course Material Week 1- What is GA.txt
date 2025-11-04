@@ -1,0 +1,334 @@
+Genetic Algorithm
+
+        Chapter 1 :
+       Introduction
+Tower games
+             Towers of Reus Project
+• Towers of Reus is a tower defense game project that gives a
+  demonstration of how Genetic Algorithms (GA) can be used to
+  balance game play.
+• Users can use the map editor packaged with the game to create
+  their maps where they have the option of adjusting game balancing
+  parameters.
+• Then user can load the level into the game and let the GA
+  component run it until it has the most optimal winning solution.
+• The user can then see if certain towers are too strong or too weak,
+  or even if the level is able to be beaten.
+• Then the user has the option of playing the game themselves to see
+  if they have the skills to win!
+Super Mario Bross Games
+Simple car with GA
+Simple car with GA
+Route of Snake to Mouse Using GA
+Robot with GA
+AND MANY MORE…
+Current
+reasearch
+on GA
+     What is Genetic Algorithms?
+• Genetic algorithms (GA) are one specific
+  method of evolutionary computing.
+
+• Evolutionary computing has been used in
+  engineering, particularly in optimization, to
+  solve computationally hard problems.
+Where is Genetic Algorithms?
+To prepare the journey
+
+OVERVIEW GENETIC ALGORITHMS
+Genetic Algorithm Is Not...
+
+
+
+
+      ...Gene coding
+     Genetic Algorithm Is...
+              … Computer algorithm
+That resides on principles of genetics and evolution
+Do you remember Evolution
+         Theory?
+                GA Concept (1 )         st
+
+• Genetic algorithm (GA) introduces the principle of
+  evolution
+  and genetics into search among possible solutions
+  to given problem.
+
+• The idea is to simulate the process in natural systems.
+
+• This is done by the creation within a machine of a
+  population of individuals represented by chromosomes,
+  in essence a set of character strings,that are analogous to
+  the DNA,that we have in our own chromosomes.
+                                                                21
+     The Genetic Algorithm (2 )               nd
+
+
+• Directed search algorithms based on the
+  mechanics of biological evolution
+
+• Developed by John Holland, University of
+  Michigan (1970’s)
+  – To understand the adaptive processes of natural
+    systems
+  – To design artificial systems software that retains
+    the robustness of natural systems
+   The Genetic Algorithm (cont.)
+
+• Provide efficient, effective techniques for
+  optimization and machine learning
+  applications
+
+• Widely-used today in business, scientific and
+  engineering circles
+                 Classes of Search Techniques
+
+                                                                            S e a rc h te c hnique s
+
+
+                        C alcu lu s-based tech n iqu es                                 G uide d ra ndom s e a rc h te c hnique s                      E n u m erative tech n iqu es
+
+
+               D irect m eth ods               In direct m eth ods          E volutiona ry a lgorithm s           S im u lated an n ealin g            D yn am ic program m in g
+
+
+F in on acci                       N ew ton                   E volu tion ary strategies        G e ne tic a lgorithm s
+
+
+                                                                                  Pa ra lle l                             S e que ntia l
+
+
+                                                                     C e ntra lize d       D is tribute d    S te a dy-s ta te     G e ne ra tiona l
+         Survival of the Fittest
+• The main principle of evolution used in GA
+  is “survival of the fittest”.
+• The good solution survive, while bad ones die.
+    Nature and GA...
+
+ Nature          Genetic algorithm
+
+
+Chromosome              String
+
+  Gene                 Character
+
+  Locus             String position
+
+ Genotype              Population
+
+Phenotype          Decoded structure
+Algorithmic Phases
+         Initialize the population
+
+ Select individuals for the mating pool
+
+          Perform crossover
+
+
+             Perform mutation
+
+
+  Insert offspring into the population
+
+
+
+                                     no
+                     Stop?
+
+                          yes
+
+               The End
+           Components of a GA
+A problem to solve, and ...
+• Encoding technique       (gene, chromosome)
+• Initialization procedure            (creation)
+• Evaluation function             (environment)
+• Selection of parents           (reproduction)
+• Genetic operators (mutation, recombination)
+• Parameter settings          (practice and art)
+                    Designing GA...
+ How to represent genomes?
+ How to define fitness function?
+ How to define the crossover operator?
+ How to define the mutation operator?
+How to generate next generation?
+ How to define stopping criteria?
+      Representing Genomes...
+
+       Representation                              Example
+
+            string                 1   0       1    1       1    0   0       1
+
+
+
+
+      array of strings           http avala yubc net ~apopovic
+
+
+
+                                                            or
+
+
+                                           >                             c
+tree - genetic programming
+                                 xor                    b
+
+                             a         b
+                 Crossover
+• Crossover is concept from genetics.
+• Crossover is sexual reproduction.
+• Crossover combines genetic material from two
+  parents, in order to produce superior offspring.
+• Few types of crossover:
+  – One-point
+  – Multiple point.
+  – Many more (next chapter)
+             Mutation...
+
+
+Parent   1   1   0   1   0   0   0   1
+
+
+
+
+Child    0   1   0   1   0   1   0   1
+         About Probabilities...
+• Average probability for individual to
+  crossover is, in most cases, about 80%.
+• Average probability for individual to mutate
+
+  is about 1-2%.
+• Probability of genetic operators
+  follow the probability in natural systems.
+• The better solutions reproduce more often.
+             Fitness Function
+
+• Fitness function is evaluation function, that
+  determines what solutions are better than others.
+• Fitness is computed for each individual.
+• Fitness function is application depended.
+                                Selection
+• The selection operation copies a single individual,
+  probabilistically selected based on fitness, into the
+  next generation of the population.
+
+• There are few possible ways to implement
+  selection:
+   – “Only the strongest survive”
+       • Choose the individuals with the highest fitness for next generation
+   – “Some weak solutions survive”
+       • Assign a probability that a particular individual will be selected for the next
+         generation
+       • More diversity
+       • Some bad solutions might have good parts!
+       Selection - Survival of The Strongest
+
+ Previous generation
+
+
+
+         0.93      0.51          0.72          0.31          0.12   0.64
+
+
+
+
+Next generation
+                          0.93          0.72          0.64
+     Selection - Some Weak Solutions Survive
+ Previous generation
+
+
+
+         0.93      0.51          0.72          0.31          0.12          0.64
+
+
+
+
+Next generation
+                          0.93          0.72          0.64          0.12
+       Mutation and Selection...
+
+                D
+
+
+
+
+D                          Phenotype        D
+                    Solution distribution
+
+
+
+    Phenotype                                   Phenotype
+    Selection                                   Mutation
+                  Stopping Criteria
+• Final problem is to decide
+  when to stop execution of algorithm.
+
+• There are two possible solutions to this problem:
+  – First approach:
+      • Stop after production of definite number of generations
+  – Second approach:
+      • Stop when the improvement in average fitness over two generations is
+         below a threshold
+   GA Vs. Ad-hoc Algorithms
+                  Genetic Algorithm       Ad-hoc Algorithms
+
+
+Speed           Slow *                        Generally fast
+
+
+Human work      Minimal                     Long and exhaustive
+
+                                      There are problems
+Applicability   General               that cannot be solved analytically
+
+Performance     Excellent                        Depends
+
+
+
+
+                                                          * Not necessary!
+          Problems With Gas
+• Sometimes GA is extremely slow, and much
+  slower than usual algorithms
+                 Advantages of Gas
+• Concept is easy to understand.
+• Minimum human involvement.
+• Computer is not learned how to use existing solution,
+  but to find new solution!
+• Modular, separate from application
+• Supports multi-objective optimization
+• Good for “noisy” environments
+• Always an answer; answer gets better with time !!!
+• Inherently parallel; easily distributed
+• Many ways to speed up and improve a GA-based application as knowledge
+  about problem domain is gained
+• Easy to exploit previous or alternate solutions
+              When to Use a GA
+• Alternate solutions are too slow or overly complicated
+• Need an exploratory tool to examine new approaches
+• Problem is similar to one that has already been
+  successfully solved by using a GA
+• Want to hybridize with an existing solution
+• Benefits of the GA technology meet key problem
+  requirements
+      Some GA Application Types
+Domain              Application Types
+Control             gas pipeline, pole balancing, missile evasion, pursuit
+
+Design              semiconductor layout, aircraft design, keyboard
+                    configuration, communication networks
+Scheduling          manufacturing, facility scheduling, resource allocation
+
+Robotics            trajectory planning
+
+Machine Learning    designing neural networks, improving classification
+                    algorithms, classifier systems
+Signal Processing   filter design
+
+Game Playing        poker, checkers, prisoner’s dilemma
+
+Combinatorial       set covering, travelling salesman, routing, bin packing,
+                    graph colouring and partitioning
+Optimization
+

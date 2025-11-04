@@ -1,0 +1,109 @@
+\documentclass[12pt,a4paper,openright]{book}
+
+% Packages
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{float}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{subcaption}
+
+% Page setup
+\geometry{margin=2.5cm}
+\setlength{\headheight}{27.05pt}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE,RO]{\thepage}
+\fancyhead[LO]{\rightmark}
+\fancyhead[RE]{\leftmark}
+
+% Title formatting
+\titleformat{\chapter}[display]
+{\normalfont\huge\bfseries}{\chaptertitlename\ \thechapter}{20pt}{\Huge}
+
+% Code styling
+\lstset{
+    language=Python,
+    basicstyle=\ttfamily\small,
+    keywordstyle=\color{blue},
+    commentstyle=\color{gray},
+    stringstyle=\color{red},
+    numbers=left,
+    numberstyle=\tiny,
+    frame=single,
+    breaklines=true,
+    tabsize=4
+}
+
+% Hyperref setup
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,
+    urlcolor=cyan,
+    pdftitle={Genetic Algorithms: Theory and Practice},
+    pdfauthor={Course Materials},
+    pdfsubject={Genetic Algorithms},
+    pdfkeywords={genetic algorithms, optimization, evolutionary computation}
+}
+
+% TikZ libraries
+\usetikzlibrary{shapes,arrows,positioning,calc}
+
+% Title page information
+\title{
+    \Huge\textbf{Genetic Algorithms}\\
+    \Large\textit{Theory and Practice}\\
+    \vspace{1cm}
+    \large A Comprehensive Guide to Evolutionary Optimization
+}
+\author{Course Materials Collection}
+\date{\today}
+
+\begin{document}
+
+% Title page
+\frontmatter
+\maketitle
+
+% Table of contents
+\tableofcontents
+\listoffigures
+\listoftables
+
+% Main content
+\mainmatter
+
+% Include chapters
+\input{chapters/chapter01-introduction}
+\input{chapters/chapter02-what-is-ga}
+\input{chapters/chapter03-ga-cycle-schema}
+\input{chapters/chapter04-encoding}
+\input{chapters/chapter05-selection}
+\input{chapters/chapter06-crossover}
+\input{chapters/chapter07-applications}
+\input{chapters/chapter08-mutation-update}
+
+% Appendices
+\appendix
+\input{chapters/appendix-algorithms}
+\input{chapters/appendix-examples}
+
+% Bibliography
+\backmatter
+\bibliographystyle{plain}
+\bibliography{references}
+
+\end{document}

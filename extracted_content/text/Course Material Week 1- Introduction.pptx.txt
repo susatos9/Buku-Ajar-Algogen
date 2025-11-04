@@ -1,0 +1,116 @@
+       Algoritma Genetika
+        Genetic Algorithm
+
+
+
+
+Aina Musdholifah, S.Kom., M.Kom, Ph.D
+Course Contract
+ •Coming to the class
+   • the latest by 15 mins after the class is started
+   • the attendance is not mandatory, instead of your right.
+
+ •QR Code for attendance will only be shown twice
+   • 5 minutes in the beginning of the class, and
+   • 5 minute the end of the class (if needed)
+
+ •Submitting assignment on time (no late submission)
+ •Be active in discussion
+ •Be considerate to others
+Capaian Pembelajaran -CPMK (Course Outcome – CO)
+                                                                                                   CPL (PLO)
+ CO                                     Description
+                                                                                         1       2     3     4       5
+CO1   Students are able to explain the basic principles of genetic algorithms,               √
+      evolutionary computing and combinatorial optimization problems
+CO2   Students are able to explain the operators and parameters of genetic                   √
+      algorithms
+CO3   Students are able to formulate a fitness function to solve a particular problem.               √     √
+
+CO4   Students are able to analyze and design problem solving using genetic                          √     √
+      algorithms and apply them to solve combinatorial and complex problems
+CO5   Students are able to present and present the results of implementing genetic                               √
+      algorithms to solve a particular case
+CO6   Students are able to explain research trends about genetic algorithms                          √           √
+ Content of GA Course
+Week                 Content                  CO     Week                  Content                CO
+       • Introduction to Genetic Algorithms           9     Applications of Genetic Algorithms    CO-4
+       • Overview of the process in the               10    Hybrid Genetic Algorithm              CO-6
+ 1       algorithm                            CO-1
+                                                            Project: Genetic Algorithm
+       • Cycle of Basic GA                            11                                          CO-5
+                                                            Implementation
+       • Holland's schema theorem.
+                                                            Project: Genetic Algorithm
+ 2     Encoding in Genetic Algorithm          CO-3    12                                          CO-5
+                                                            Implementation
+ 3     Selection                              CO-2          Project: Genetic Algorithm
+                                                      13                                          CO-6
+                                                            Implementation
+ 4     Crossover-1                            CO-2
+                                                      14    Trend research on Genetic Algorithm   CO-6
+ 5     Crossover-2                            CO-2
+                                                      15    Trend research on Genetic Algorithm   CO-6
+ 6     Mutation Process                       CO-2
+       • Genetic Algorithm Parameters
+ 7                                            CO-2
+       • Problem formulation
+Week                       Content             CO              Activity and Assessments   Percentage
+
+        • Introduction to Genetic Algorithms
+19/08                                          CO-1   Refreshing and Discussion               -
+        • GA Implementation
+        • Cycle of Basic GA
+26/08                                          CO-1   Quiz-1                                  2
+        • Holland's schema theorem.
+02/09   Encoding in Genetic Algorithm          CO-3   Quiz-2                                  2
+
+09/09   Selection                              CO-2   Quiz-3                                  2
+
+16/09   Crossover Part 1                       CO-2   Quiz-4                                  2
+
+23/09   Crossover Part 2                       CO-2   Quiz-5                                  2
+
+        Proposal Presentation (Problem
+30/09                                          CO-3   Presentation and Discussion          10+2,5
+        Formulation)
+                                                      Holland's schema and What is GA         5
+../10   UTS                                           GA Encoding                             5
+                                                      GA Operators                            5
+Week                       Content            CO            Activity and Assessments   Percentage
+
+        ●     Mutation
+21/10                                         CO-2   HW-1                                 2.5
+        ●     Genetic Algorithm Parameters
+28/10   Hybrid Genetic Algorithm              CO-5   HW-2                                 2.5
+
+04/11   Progress Report                       CO-4   Presentation and Discussion       10 + 2.5
+
+
+11/11   Applications of Genetic Algorithms    CO-5   HW                                    5
+
+
+18/11   Final Project Report                  CO-4   Presentation                         10
+
+
+
+25/11   Trend research on Genetic Algorithm   CO-6   Presentation of Lit Review            5
+
+
+02/12   Paper Report                          CO-5   Draft paper                          10
+
+                                              CO-2   GA Operator and Parameters            5
+…/12    UAS                                   CO-4   GA Design                             5
+                                              CO-6   Trend GA                              5
+Reference
+1. Gen, M., Cheng, R., 2000. Genetic Algorithms and Engineering
+   Optimization, John Wiley & Sons, Inc.
+
+2. Marczyk, A., 2004, Genetic Algorithm and Evolutionary
+   Computation
+
+3. Negnevitsky, M., 2002. Artificial Intelligence: A Guide to Intelligent
+   Systems, Addison-Wesley
+Select your work
+Materi GA
+

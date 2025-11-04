@@ -1,0 +1,184 @@
+\chapter{What is a Genetic Algorithm?}
+
+\section{Introduction}
+Genetic Algorithms (GAs) are search \begin{table}[H]
+\centering
+\begin{tabular}{cccc}
+\toprule
+Individual & Binary & Decimal & Fitness \\
+\midrule
+1 & 01101 & 13 & 169 \\
+2 & 11000 & 24 & 576 \\
+3 & 01000 & 8 & 64 \\
+4 & 10011 & 19 & 361 \\
+\bottomrule
+\end{tabular}
+\caption{Initial Population Example}
+\end{table}t mimic the process of natural selection. They belong to the larger class of evolutionary algorithms and are particularly useful for optimization and search problems.
+
+\section{Biological Inspiration}
+GAs are inspired by Charles Darwin's theory of natural evolution. In nature:
+\begin{itemize}
+    \item Individuals with better fitness have higher chances of survival
+    \item Successful traits are passed to offspring through reproduction
+    \item Genetic diversity is maintained through mutation
+    \item Population evolves over generations toward better adaptation
+\end{itemize}
+
+\section{Basic Terminology}
+\subsection{Genetic Algorithm Terms}
+\begin{itemize}
+    \item \textbf{Individual/Chromosome}: A candidate solution
+    \item \textbf{Gene}: A single element of an individual
+    \item \textbf{Allele}: The value of a gene
+    \item \textbf{Population}: Collection of individuals
+    \item \textbf{Generation}: One iteration of the algorithm
+    \item \textbf{Fitness}: Quality measure of an individual
+    \item \textbf{Genotype}: Encoded representation of a solution
+    \item \textbf{Phenotype}: Decoded representation of a solution
+\end{itemize}
+
+\section{Basic Structure of a Genetic Algorithm}
+
+\begin{algorithm}
+\caption{Basic Genetic Algorithm}
+\begin{algorithmic}
+\STATE Initialize population randomly
+\WHILE{termination condition not met}
+    \STATE Evaluate fitness of each individual
+    \STATE Select parents for reproduction
+    \STATE Apply crossover to create offspring
+    \STATE Apply mutation to offspring
+    \STATE Select survivors for next generation
+    \STATE Increment generation counter
+\ENDWHILE
+\STATE Return best individual found
+\end{algorithmic}
+\end{algorithm}
+
+\section{Key Components of GA}
+
+\subsection{Representation}
+The representation defines how solutions are encoded:
+\begin{itemize}
+    \item \textbf{Binary representation}: Solutions encoded as binary strings
+    \item \textbf{Real-valued representation}: Solutions as real numbers
+    \item \textbf{Permutation representation}: Solutions as ordered sequences
+    \item \textbf{Tree representation}: Solutions as tree structures
+\end{itemize}
+
+\subsection{Fitness Function}
+The fitness function evaluates the quality of each individual:
+\begin{equation}
+fitness(x) = f(x)
+\end{equation}
+
+For maximization problems, higher fitness values are better. For minimization problems, fitness is often defined as:
+\begin{equation}
+fitness(x) = \frac{1}{1 + f(x)}
+\end{equation}
+
+\subsection{Selection}
+Selection determines which individuals become parents:
+\begin{itemize}
+    \item \textbf{Roulette Wheel Selection}: Probability proportional to fitness
+    \item \textbf{Tournament Selection}: Best individual from random subset
+    \item \textbf{Rank Selection}: Selection based on fitness ranking
+\end{itemize}
+
+\subsection{Crossover (Recombination)}
+Crossover combines genetic material from two parents:
+\begin{itemize}
+    \item \textbf{One-point crossover}: Single crossover point
+    \item \textbf{Two-point crossover}: Two crossover points
+    \item \textbf{Uniform crossover}: Random selection from parents
+\end{itemize}
+
+\subsection{Mutation}
+Mutation introduces random changes to maintain diversity:
+\begin{itemize}
+    \item \textbf{Bit-flip mutation}: For binary representation
+    \item \textbf{Gaussian mutation}: For real-valued representation
+    \item \textbf{Swap mutation}: For permutation representation
+\end{itemize}
+
+\section{Example: Maximizing a Simple Function}
+
+Consider maximizing $f(x) = x^2$ where $x \in [0, 31]$.
+
+\subsection{Step 1: Representation}
+Use 5-bit binary strings: $x = 10110_2 = 22_{10}$
+
+\subsection{Step 2: Initial Population}
+\begin{table}[H]
+\centering
+\begin{tabular}{cccc}
+\toprule
+Individual & Binary & Decimal & Fitness \\
+\midrule
+1 & 01101 & 13 & 169 \\
+2 & 11000 & 24 & 576 \\
+3 & 01000 & 8 & 64 \\
+4 & 10011 & 19 & 361 \\
+\bottomrule
+\end{tabular}
+\caption{Initial Population Example}
+\end{table}
+
+\subsection{Step 3: Selection}
+Select individuals 2 and 4 (highest fitness) as parents.
+
+\subsection{Step 4: Crossover}
+Parents: 11000 and 10011
+Crossover point: position 3
+Offspring: 11011 (27) and 10000 (16)
+
+\subsection{Step 5: Mutation}
+Apply bit-flip mutation with low probability.
+
+\section{Advantages of Genetic Algorithms}
+\begin{itemize}
+    \item \textbf{Global search}: Can escape local optima
+    \item \textbf{Parallelizable}: Population-based approach
+    \item \textbf{Flexible}: Applicable to various problem types
+    \item \textbf{No gradient required}: Works with discontinuous functions
+    \item \textbf{Robust}: Handles noisy fitness functions
+\end{itemize}
+
+\section{Disadvantages of Genetic Algorithms}
+\begin{itemize}
+    \item \textbf{Computational cost}: May require many function evaluations
+    \item \textbf{Parameter tuning}: Many parameters to set
+    \item \textbf{No guarantee}: May not find global optimum
+    \item \textbf{Premature convergence}: Population may lose diversity
+\end{itemize}
+
+\section{When to Use Genetic Algorithms}
+GAs are particularly suitable when:
+\begin{itemize}
+    \item Search space is large and complex
+    \item Little is known about the problem structure
+    \item Traditional methods fail or are inappropriate
+    \item Multiple objectives need to be optimized
+    \item Robustness is more important than efficiency
+\end{itemize}
+
+\section{Variations of Genetic Algorithms}
+\begin{itemize}
+    \item \textbf{Steady-state GA}: Replace one individual per generation
+    \item \textbf{Parallel GA}: Multiple populations evolve simultaneously
+    \item \textbf{Hybrid GA}: Combine with local search methods
+    \item \textbf{Multi-objective GA}: Handle multiple objectives
+\end{itemize}
+
+\section{Chapter Summary}
+This chapter introduced genetic algorithms as optimization tools inspired by natural evolution. We covered the basic components, terminology, and a simple example. The key insight is that GAs use population-based search with selection, crossover, and mutation to evolve solutions toward optimality.
+
+\section{Key Concepts}
+\begin{itemize}
+    \item Biological inspiration and evolution metaphor
+    \item Basic GA structure and components
+    \item Representation, fitness, selection, crossover, mutation
+    \item Advantages and limitations of GAs
+    \item When to apply genetic algorithms
+\end{itemize}

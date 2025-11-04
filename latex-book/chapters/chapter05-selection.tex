@@ -1,0 +1,406 @@
+\chapter{Selection Methods in Genetic Algorithms}
+
+\section{Introduction to Selection}
+Selection is the process of choosing individuals from the current population to create the next generation. It drives the evolutionary process by favoring fitter individuals while maintaining population diversity. Selection pressure determines how strongly the population moves toward fitter regions of the search space.
+
+\section{Selection Pressure}
+Selection pressure is the degree to which better individuals are favored. It affects:
+\begin{itemize}
+    \item \textbf{High pressure}: Fast convergence but risk of premature convergence
+    \item \textbf{Low pressure}: Better exploration but slower convergence
+    \item \textbf{Optimal pressure}: Balance between exploration and exploitation
+\end{itemize}
+
+\section{Proportional Selection Methods}
+
+\subsection{Roulette Wheel Selection}
+Also known as fitness proportionate selection, individuals are selected with probability proportional to their fitness.
+
+\subsubsection{Algorithm}
+\begin{algorithm}
+\caption{Roulette Wheel Selection}
+\begin{algorithmic}
+\STATE Calculate total fitness: $F = \sum_{i=1}^{N} f_i$
+\STATE Generate random number: $r \sim U[0, F]$
+\STATE Set cumulative fitness: $sum = 0$
+\FOR{$i = 1$ to $N$}
+    \STATE $sum = sum + f_i$
+    \IF{$sum \geq r$}
+        \STATE Select individual $i$
+        \STATE \textbf{break}
+    \ENDIF
+\ENDFOR
+\end{algorithmic}
+\end{algorithm}
+
+\subsubsection{Selection Probability}
+The probability of selecting individual $i$ is:
+\begin{equation}
+P_i = \frac{f_i}{\sum_{j=1}^{N} f_j}
+\end{equation}
+
+\subsubsection{Example}
+\begin{table}[H]
+\centering
+\begin{tabular}{cccc}
+\toprule
+Individual & Fitness & Probability & Cumulative \\
+\midrule
+1 & 10 & 0.25 & 0.25 \\
+2 & 20 & 0.50 & 0.75 \\
+3 & 5 & 0.125 & 0.875 \\
+4 & 5 & 0.125 & 1.0 \\
+\midrule
+Total & 40 & 1.0 & \\
+\bottomrule
+\end{tabular}
+\caption{Roulette Wheel Selection Example}
+\end{table}
+
+If random number $r = 0.6$, individual 2 is selected.
+
+\subsubsection{Advantages}
+\begin{itemize}
+    \item Simple to implement
+    \item Fitness proportionate selection
+    \item All individuals have chance of selection
+\end{itemize}
+
+\subsubsection{Disadvantages}
+\begin{itemize}
+    \item Premature convergence with high fitness variance
+    \item Poor selection pressure with similar fitness values
+    \item Problems with negative fitness values
+    \item Scaling issues
+\end{itemize}
+
+\subsection{Stochastic Universal Sampling (SUS)}
+Improved version of roulette wheel selection that reduces variance.
+
+\subsubsection{Algorithm}
+\begin{algorithm}
+\caption{Stochastic Universal Sampling}
+\begin{algorithmic}
+\STATE Calculate total fitness: $F = \sum_{i=1}^{N} f_i$
+\STATE Calculate pointer distance: $distance = F / N$
+\STATE Generate random start: $start \sim U[0, distance]$
+\STATE Create pointers: $pointer_i = start + i \times distance$ for $i = 0, 1, \ldots, N-1$
+\FOR{each pointer}
+    \STATE Select individual using roulette wheel logic
+\ENDFOR
+\end{algorithmic}
+\end{algorithm}
+
+\subsubsection{Advantages over Roulette Wheel}
+\begin{itemize}
+    \item Lower variance
+    \item More uniform selection
+    \item Guaranteed expected number of selections
+\end{itemize}
+
+\section{Rank-based Selection}
+
+Rank-based selection assigns selection probabilities based on fitness rank rather than raw fitness values.
+
+\subsection{Linear Ranking}
+\begin{equation}
+P_i = \frac{1}{N} \left[ \eta^- + (\eta^+ - \eta^-) \frac{rank_i - 1}{N - 1} \right]
+\end{equation}
+
+where:
+\begin{itemize}
+    \item $rank_i$ is the rank of individual $i$ (1 = worst, $N$ = best)
+    \item $\eta^+$ is the expected number of copies for best individual
+    \item $\eta^-$ is the expected number of copies for worst individual
+    \item $\eta^+ + \eta^- = 2$ (to maintain population size)
+    \item Typically: $\eta^+ = 2.0$, $\eta^- = 0.0$
+\end{itemize}
+
+\subsection{Exponential Ranking}
+\begin{equation}
+P_i = \frac{1 - e^{-rank_i}}{c}
+\end{equation}
+
+where $c$ is a normalization constant ensuring $\sum P_i = 1$.
+
+\subsection{Advantages of Rank Selection}
+\begin{itemize}
+    \item Consistent selection pressure
+    \item Handles negative fitness values
+    \item Prevents premature convergence
+    \item Scale-independent
+\end{itemize}
+
+\subsection{Disadvantages}
+\begin{itemize}
+    \item Requires sorting population
+    \item Loss of fitness magnitude information
+    \item Computational overhead
+\end{itemize}
+
+\section{Tournament Selection}
+
+Tournament selection randomly selects $k$ individuals and chooses the best among them.
+
+\subsection{Binary Tournament}
+Most common form with $k = 2$.
+
+\begin{algorithm}
+\caption{Binary Tournament Selection}
+\begin{algorithmic}
+\STATE Randomly select individual $i$
+\STATE Randomly select individual $j$ (where $j \neq i$)
+\IF{$f_i > f_j$}
+    \STATE Select individual $i$
+\ELSE
+    \STATE Select individual $j$
+\ENDIF
+\end{algorithmic}
+\end{algorithm}
+
+\subsection{k-Tournament Selection}
+\begin{algorithm}
+\caption{k-Tournament Selection}
+\begin{algorithmic}
+\STATE Create empty tournament set $T$
+\FOR{$i = 1$ to $k$}
+    \STATE Randomly select individual and add to $T$
+\ENDFOR
+\STATE Select best individual from $T$
+\end{algorithmic}
+\end{algorithm}
+
+\subsection{Tournament Size Effects}
+\begin{itemize}
+    \item $k = 1$: Random selection (no pressure)
+    \item Small $k$: Low selection pressure
+    \item Large $k$: High selection pressure
+    \item $k = N$: Always selects best individual
+\end{itemize}
+
+\subsection{Selection Probability}
+For individual with rank $r$ out of $N$ (1 = worst, $N$ = best):
+\begin{equation}
+P_i = \frac{1}{N} \binom{N}{k} \sum_{j=0}^{r-1} \binom{j}{k-1} \binom{N-j-1}{0}
+\end{equation}
+
+For binary tournament ($k = 2$):
+\begin{equation}
+P_i = \frac{2r - 1}{N^2}
+\end{equation}
+
+\subsection{Advantages}
+\begin{itemize}
+    \item Simple implementation
+    \item No global fitness information needed
+    \item Adjustable selection pressure
+    \item Parallelizable
+    \item Handles negative fitness values
+\end{itemize}
+
+\subsection{Disadvantages}
+\begin{itemize}
+    \item May select same individual multiple times
+    \item Sensitive to tournament size parameter
+\end{itemize}
+
+\section{Truncation Selection}
+
+Select the top $\mu$ individuals from population of size $\lambda$.
+
+\subsection{Algorithm}
+\begin{algorithm}
+\caption{Truncation Selection}
+\begin{algorithmic}
+\STATE Sort population by fitness (descending)
+\STATE Select top $\mu$ individuals
+\STATE Create $\lambda - \mu$ offspring from selected parents
+\end{algorithmic}
+\end{algorithm}
+
+\subsection{Selection Ratio}
+\begin{equation}
+\text{Selection ratio} = \frac{\mu}{\lambda}
+\end{equation}
+
+Common values: 0.5 (select top 50%), 0.1 (select top 10%)
+
+\subsection{Advantages}
+\begin{itemize}
+    \item Simple and deterministic
+    \item High selection pressure
+    \item Efficient implementation
+\end{itemize}
+
+\subsection{Disadvantages}
+\begin{itemize}
+    \item High risk of premature convergence
+    \item Loss of diversity
+    \item All-or-nothing selection
+\end{itemize}
+
+\section{Boltzmann Selection}
+
+Selection probability based on Boltzmann distribution from statistical mechanics.
+
+\subsection{Formula}
+\begin{equation}
+P_i = \frac{e^{f_i/T}}{\sum_{j=1}^{N} e^{f_j/T}}
+\end{equation}
+
+where $T$ is the temperature parameter.
+
+\subsection{Temperature Schedule}
+\begin{itemize}
+    \item High $T$: Nearly uniform selection (exploration)
+    \item Low $T$: Strong selection pressure (exploitation)
+    \item Common schedule: $T(t) = T_0 \cdot \alpha^t$ where $\alpha < 1$
+\end{itemize}
+
+\subsection{Advantages}
+\begin{itemize}
+    \item Adaptive selection pressure
+    \item Good balance of exploration/exploitation
+    \item Prevents premature convergence
+\end{itemize}
+
+\subsection{Disadvantages}
+\begin{itemize}
+    \item Requires temperature scheduling
+    \item Computationally expensive (exponentials)
+    \item Parameter tuning required
+\end{itemize}
+
+\section{Elitist Selection}
+
+Ensures that the best individuals are preserved across generations.
+
+\subsection{Pure Elitism}
+Always copy the best individual(s) to the next generation.
+
+\subsection{Elitist Replacement}
+Replace worst individuals with best from previous generation if they're better.
+
+\subsection{Benefits}
+\begin{itemize}
+    \item Guarantees monotonic improvement
+    \item Prevents loss of good solutions
+    \item Faster convergence to local optima
+\end{itemize}
+
+\subsection{Drawbacks}
+\begin{itemize}
+    \item May reduce diversity
+    \item Risk of premature convergence
+    \item Can slow exploration
+\end{itemize}
+
+\section{Diversity-Preserving Selection}
+
+\subsection{Fitness Sharing}
+Reduce fitness of similar individuals to maintain diversity.
+
+\begin{equation}
+f'_i = \frac{f_i}{\sum_{j=1}^{N} sh(d_{ij})}
+\end{equation}
+
+where:
+\begin{equation}
+sh(d) = \begin{cases}
+1 - \left(\frac{d}{\sigma_{share}}\right)^\alpha & \text{if } d < \sigma_{share} \\
+0 & \text{otherwise}
+\end{cases}
+\end{equation}
+
+\subsection{Crowding}
+Replace similar individuals in the population.
+
+\subsection{Speciation}
+Maintain multiple sub-populations (species) simultaneously.
+
+\section{Multi-objective Selection}
+
+For problems with multiple conflicting objectives.
+
+\subsection{Pareto Dominance}
+Individual $\mathbf{x}$ dominates $\mathbf{y}$ if:
+\begin{itemize}
+    \item $\mathbf{x}$ is at least as good as $\mathbf{y}$ in all objectives
+    \item $\mathbf{x}$ is strictly better than $\mathbf{y}$ in at least one objective
+\end{itemize}
+
+\subsection{Non-dominated Sorting}
+\begin{enumerate}
+    \item Identify all non-dominated individuals (Rank 1)
+    \item Remove them and find next non-dominated set (Rank 2)
+    \item Continue until all individuals are ranked
+\end{enumerate}
+
+\subsection{NSGA-II Selection}
+Combines non-dominated sorting with crowding distance.
+
+\section{Selection Comparison}
+
+\begin{table}[H]
+\centering
+\scriptsize
+\begin{tabular}{lccccc}
+\toprule
+Method & Pressure & Diversity & Complexity & Scalability & Parameters \\
+\midrule
+Roulette Wheel & Variable & Poor & O(N) & Poor & None \\
+SUS & Variable & Good & O(N) & Poor & None \\
+Rank Linear & Constant & Good & O(N log N) & Good & $\eta^+, \eta^-$ \\
+Tournament & Adjustable & Good & O(1) & Excellent & $k$ \\
+Truncation & High & Poor & O(N log N) & Good & $\mu/\lambda$ \\
+Boltzmann & Adaptive & Excellent & O(N) & Good & $T(t)$ \\
+\bottomrule
+\end{tabular}
+\caption{Comparison of Selection Methods}
+\end{table}
+
+\section{Selection Guidelines}
+
+\subsection{Problem Characteristics}
+\begin{itemize}
+    \item \textbf{Unimodal}: High selection pressure (truncation, large tournament)
+    \item \textbf{Multimodal}: Moderate pressure (binary tournament, rank selection)
+    \item \textbf{Deceptive}: Low pressure with diversity preservation
+\end{itemize}
+
+\subsection{Population Size}
+\begin{itemize}
+    \item Small populations: Lower selection pressure
+    \item Large populations: Higher pressure acceptable
+\end{itemize}
+
+\subsection{Generation Number}
+\begin{itemize}
+    \item Early generations: Lower pressure for exploration
+    \item Later generations: Higher pressure for exploitation
+\end{itemize}
+
+\section{Hybrid Selection Strategies}
+
+\subsection{Adaptive Selection}
+Change selection method or parameters during evolution.
+
+\subsection{Multi-level Selection}
+Apply different selection at different levels (e.g., parent selection vs. survival selection).
+
+\subsection{Combined Methods}
+Use multiple selection methods simultaneously.
+
+\section{Chapter Summary}
+
+This chapter covered various selection methods in genetic algorithms. Selection balances exploration and exploitation, with different methods offering different selection pressures and characteristics. Tournament selection is often preferred for its simplicity and effectiveness, while rank-based methods provide consistent pressure. The choice depends on problem characteristics, population size, and desired convergence behavior.
+
+\section{Key Concepts}
+\begin{itemize}
+    \item Selection pressure and its effects
+    \item Proportional vs. rank-based selection
+    \item Tournament selection and its variants
+    \item Elitism and diversity preservation
+    \item Multi-objective selection methods
+    \item Guidelines for choosing selection methods
+\end{itemize}

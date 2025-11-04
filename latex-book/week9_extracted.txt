@@ -1,0 +1,1113 @@
+
+============================================================
+Page 1
+============================================================
+Genetic Algorithm: 
+Mutation, Update Generation, 
+and GA Parameters
+Aina Musdholifah, S.Kom., M.Kom, Ph.D.
+
+============================================================
+Page 2
+============================================================
+How to solve problem using GA ?
+•Generate Population ..done
+•Encoding 🡪 Chromosome…done
+•Define Fitness Function …done
+•Define GA Operator 
+• Selection …done
+• Cross Over …done
+• Mutation
+•Generation Update
+
+============================================================
+Page 3
+============================================================
+Mutasi
+⚫Setelah tahap rekombinasi terhadap semua pasangan kromosom 
+pada mating pool yang menghasilkan N (ukuran populasi) kromosom, 
+maka GA menjalankan operator mutasi terhadap setiap kromosom 
+tersebut. 
+⚫Banyak metode mutasi yang telah diusulkan. 
+⚫Masing-masing metode memiliki ciri khusus dan mungkin saja hanya 
+bisa digunakan pada jenis representasi tertentu.
+⚫Misalnya, mutasi untuk representasi permutasi memerlukan metode 
+khusus yang menjamin kromosom hasil mutasi tetap valid. 
+
+============================================================
+Page 4
+============================================================
+Mutasi
+•Proses mengubah nilai dari satu atau beberapa gen dalam suatu genome
+•Proses mengubah isi alel gen pada suatu lokus dengan alel lain
+•Mutasi menghindari konvergensi prematur, yaitu pencapaian suatu 
+nilai/hasil yang belum atau bukan maksimal
+•Populasi baru hasil mutasi belum tentu lebih baik dari populasi sebelumnya
+
+============================================================
+Page 5
+============================================================
+Mutasi pada EAs
+•Mutasi untuk representasi Biner
+•Mutasi untuk representasi Integer
+•Mutasi untuk representasi Real
+•Mutasi untuk representasi Permutasi
+Mutasi: bisa lebih baik?
+• Bisa. Mengapa?
+• Representasi individu pada EAs jauh lebih sederhana
+• Mutasi sebagian kecil gen mungkin menghasilkan individu yang lebih baik
+
+============================================================
+Page 6
+============================================================
+Mutasi untuk Representasi Biner
+Membalik bit: 1 → 0 dan sebaliknya.
+
+============================================================
+Page 7
+============================================================
+Mutasi untuk representasi Integer
+•Membalik nilai integer
+•Pemilihan nilai secara acak
+•Mutasi Creep (Perlahan)
+
+============================================================
+Page 8
+============================================================
+Mutasi untuk Representasi Integer
+Membalik nilai integer
+Penggunaan operasi matematis : +, -, *,/ untuk merubah nilai 
+
+============================================================
+Page 9
+============================================================
+Mutasi untuk Representasi Integer
+Pemilihan nilai secara acak
+
+============================================================
+Page 10
+============================================================
+Mutasi untuk Representasi Integer
+Mutasi Creep (Perlahan)
+
+============================================================
+Page 11
+============================================================
+Mutasi untuk Representasi Real
+•Representasi real memiliki karakteristik yang berbeda dengan biner 
+ataupun integer. 
+•Nilai-nilai gen pada representasi real bersifat kontinyu sedangkan 
+representasi biner dan integer bersifat diskrit. 
+•Oleh karena itu, representasi real memerlukan mutasi khusus yang 
+berbeda dengan sebelumnya.
+
+============================================================
+Page 12
+============================================================
+Mutasi untuk Representasi Real
+•Mutasi Uniform
+Nilai-nilai xi didapat dari pembangkitan bilangan secara acak dengan 
+distribusi seragam (uniform distribution)
+•Mutasi Non-uniform dengan distribusi tetap
+Mutasi jenis ini paling umum digunakan. Caranya mirip dengan 
+metode Creep pada representasi integer. Bedanya di sini digunakan 
+penambahan nilai real (bukan integer).
+
+============================================================
+Page 13
+============================================================
+Mutasi untuk Rep. Permutasi
+• Mutasi pada representasi permutasi harus menghasilkan kromosom yang valid. 
+• Sehingga, proses mutasi dilakukan dengan suatu cara tertentu yang menjamin 
+kromosom hasil mutasi tetap valid. 
+• Banyak cara yang bisa digunakan, diantaranya adalah:
+• Mutasi pertukaran (Swap Mutation)
+• Mutasi penyisipan (Insert Mutation)
+• Mutasi pengacakan (Scramble Mutation)
+• Mutasi pembalikan (Inversion Mutation)
+
+============================================================
+Page 14
+============================================================
+Contoh: 
+• Pemilihan dua posisi gen secara acak menghasilkan posisi 2 dan 7. 
+• Sehingga gen bernilai 5 dipertukarkan dengan gen bernilai 8.
+Mutasi pertukaran (Swap Mutation)
+
+============================================================
+Page 15
+============================================================
+Contoh: 
+• Pemilihan dua posisi gen secara acak menghasilkan posisi 2 dan 7.
+• Kemudian gen bernilai 8 disisipkan setelah gen bernilai 5.
+Mutasi penyisipan (Insert Mutation)
+
+============================================================
+Page 16
+============================================================
+Contoh:
+•Pemilihan segmen kromosom menghasilkan {5, 2, 7, 6}. 
+•Kemudian pengacakan gen dalam segmen menghasilkan {2, 6, 5, 7}
+Mutasi pengacakan (Scramble Mutation)
+
+============================================================
+Page 17
+============================================================
+Contoh:
+•Pemilihan segmen kromosom menghasilkan {5, 2, 7, 6}. 
+•Kemudian pembalikan posisi gen dalam segmen tersebut menghasilkan 
+{6, 7, 2, 5}.
+Mutasi pembalikan (Inversion Mutation)
+
+============================================================
+Page 18
+============================================================
+Latihan
+•Diketahui sepasang parent berikut:
+•Lakukan partial map crossover (PMX) dengan cut point crossover 
+adalah 2 dan 5!
+•Kemudian lakukan inversion mutation dengan mutation segment 
+adalah locus 2 sampai dengan 5!
+1
+2
+7
+3
+4
+9
+8
+6
+5
+5
+4
+3
+9
+1
+2
+6
+8
+7
+
+============================================================
+Page 19
+============================================================
+Latihan
+• Lakukan partial map crossover (PMX) dengan cut point crossover adalah 2 dan 5!
+1
+2
+7
+3
+4
+9
+8
+6
+5
+5
+4
+3
+9
+1
+2
+6
+8
+7
+2
+7
+3
+4
+5
+2
+7
+3
+4
+1
+6
+8
+9
+Mapping untuk offspring-1:
+• 9(4) → 3(4) → 3(3) → 7(3) → 7(8) : 
+9 di posisi ke-9
+• 1(5) → 4(5) → 4(2) → 2(2) → 2(6):  
+1 di posisi ke- 6
+
+============================================================
+Page 20
+============================================================
+Latihan
+• Lakukan partial map crossover (PMX) dengan cut point crossover adalah 2 dan 5!
+1
+2
+7
+3
+4
+9
+8
+6
+5
+5
+4
+3
+9
+1
+2
+6
+8
+7
+4
+3
+9
+1
+2
+4
+3
+9
+1
+7
+8
+6
+5
+Mapping untuk offspring-2:
+• 2(2) → 4(2) → 4(5) → 1(5) → 1(1) : 
+2 di posisi ke-1
+• 7(3) → 3(3) → 3(4) → 9(4) → 9(5):  
+7 di posisi ke- 5
+
+============================================================
+Page 21
+============================================================
+Latihan
+•Kemudian lakukan inversion mutation dengan mutation segment 
+adalah locus 2 sampai dengan 5!
+5
+2
+7
+3
+4
+1
+6
+8
+9
+2
+4
+3
+9
+1
+7
+8
+6
+5
+5
+4
+3
+7
+2
+1
+6
+8
+9
+2
+1
+9
+3
+4
+7
+8
+6
+5
+
+============================================================
+Page 22
+============================================================
+Video
+
+============================================================
+Page 23
+============================================================
+UPDATE GENERASI / SELEKSI 
+SURVIVOR
+Setelah proses seleksi, crossover dan mutasi pada suatu populasi generasi, maka dilakukan 
+update generasi untuk menentukan genome yang masih bertahan(survive) pada populasi 
+tersebut.
+
+============================================================
+Page 24
+============================================================
+Update Generasi (Holland)
+Genome yang dipilih/dianggap survive adalah genome hasil/offspring, 
+sedangkan genome parents dianggap mati (keluar) dari populasi
+Ketika ada populasi baru populasi awal dianggap hilang baik yang 
+sudah pernah melakukan mutasi atau belum
+
+============================================================
+Page 25
+============================================================
+Continuous Update
+Memungkinkan berkumpulnya genome offspring dan parents dalam 
+satu generasi
+Dipilih secara acak baik itu dari gen offspring maupun parents
+
+============================================================
+Page 26
+============================================================
+Generational Model
+•Suatu populasi berukuran N kromosom/individu pada suatu generasi 
+diganti dengan N individu baru pada generasi berikutnya. 
+•Untuk menjaga kromosom terbaik, digunakan Elitism.
+
+============================================================
+Page 27
+============================================================
+Steady State Update
+Memilih 2 genome sebagai parents dari genome offspring digunakan untuk 
+mengganti :
+Orangtua
+Genome terjelek dari populasi
+Genome tertua dari populasi
+Pada model ini, tidak semua kromosom diganti. Penggantian dilakukan hanya 
+pada sejumlah kromosom tertentu, misal M. Dimana M < N.
+
+============================================================
+Page 28
+============================================================
+Video
+
+============================================================
+Page 29
+============================================================
+Next…
+•GA Parameters
+
+============================================================
+Page 30
+============================================================
+PARAMETER 
+UTAMA GA
+Probabilitas Crossover (Pc)
+Probabilitas Mutasi (Pm)
+
+============================================================
+Page 31
+============================================================
+1. Probabilitas Crossover (Pc)
+Probabilitas genome parents melakukan proses 
+crossover
+Pc = 100% → semua genome offspring dihasilkan dari 
+proses crossover
+Pc = 0% → tidak pernah terjadi crossover
+Pc biasanya berkisar antara (65 s/d 90) % untuk 
+menghasilkan keturunan yang baik
+
+============================================================
+Page 32
+============================================================
+2.
+Probabilitas Mutasi (Pm)
+Probabilitas gen dalam genome offspring melakukan proses mutasi
+Pm=100% → seluruh genome dirubah
+Pm=0% → tidak ada genome yang diubah
+Pm biasanya diambil sebagai rata-rata mutasi=1/pjg genome. 
+Nilai 0.5 % - 1 % dianggap sesuai untuk menghasilkan generasi yang 
+baik
+
+============================================================
+Page 33
+============================================================
+PARAMETER GA
+Stopping Criteria (Sc)
+Ukuran Populasi (N)
+Cacah Generasi (G)
+
+============================================================
+Page 34
+============================================================
+1. Stopping Criteria (SC)
+• 
+
+============================================================
+Page 35
+============================================================
+2.
+Ukuran Populasi (N)
+N proporsional terhadap volume ruang pencarian (search space problem)
+Kecil 🡪 sulit mencapai global optimal → local optimal 
+Mendekati ukuran search space problem → komputasi berat dan tidak sesuai 
+dengan konsep evolusi GA
+Experiment-based
+
+============================================================
+Page 36
+============================================================
+3.
+Cacah Generasi (G)
+Propositional dengan ukuran populasi dan ukuran ruang 
+pencarian
+Misalkan:
+• N=100 dan Ukuran ruang pencarian mendekati 105 maka 
+• G = 100
+Experiment-based
+
+============================================================
+Page 37
+============================================================
+Setting parameter GA
+•Tidak ada panduan yang pasti
+•Hanya dengan Intuisi dan Experiment-based
+•Umumnya:
+• Representasi kromosom = biner/integer/real/permutasi
+• Jumlah bit per variabel → presisi yang diinginkan
+• Ukuran Populasi = N = 50 - 100
+• Probabilitas Crossover (Pc) = 0,8
+• Probabilitas Mutasi (Pm) = 1/NL sampai 1/L
+N = Ukuran Populasi
+L = Panjang Kromosom (Jumlah Gen)
+
+============================================================
+Page 38
+============================================================
+Observasi parameter GA
+• Minimasi fungsi h = x1
+2 + x2
+2,   x1 dan x2 elemen [-10, 10]
+• Fitness = 1/(x1
+2 + x2
+2 + 0.001)
+• Ukuran Populasi 
+= [50 100 200]
+• Jumlah bit    = [10 50 90]
+• Prob Rekombinasi = [0.5 0.7 0.9]
+• Prob Mutasi = [0.5/JumGen 1/JumGen 2/JumGen]
+• Jumlah Individu maksimum = 20000 (fairness)
+• Jumlah running/percobaan = 30 (valid)
+
+============================================================
+Page 39
+============================================================
+No Observasi
+Ukuran populasi
+ Jumlah bit
+Probabilitas Pdh Silang
+Probabilitas Mutasi 
+Rata-rata Fitness 
+terbaik
+Rata-rata Jml Individu 
+yang dievaluasi
+1
+50
+10
+0,5
+0,0250
+839,5544749
+20000,0000
+2
+50
+10
+0,5
+0,0500
+839,5544749
+20000,0000
+3
+50
+10
+0,5
+0,1000
+611,0770624
+20000,0000
+4
+50
+10
+0,7
+0,0250
+839,5544749
+20000,0000
+5
+50
+10
+0,7
+0,0500
+839,5544749
+20000,0000
+6
+50
+10
+0,7
+0,1000
+528,7161733
+20000,0000
+7
+50
+10
+0,9
+0,0250
+839,5544749
+20000,0000
+8
+50
+10
+0,9
+0,0500
+839,5544749
+20000,0000
+9
+50
+10
+0,9
+0,1000
+622,2201392
+20000,0000
+10
+50
+50
+0,5
+0,0050
+1000,0000000
+8301,6667
+11
+50
+50
+0,5
+0,0100
+1000,0000000
+20000,0000
+12
+50
+50
+0,5
+0,0200
+999,9987777
+20000,0000
+13
+50
+50
+0,7
+0,0050
+1000,0000000
+8013,3333
+14
+50
+50
+0,7
+0,0100
+1000,0000000
+20000,0000
+15
+50
+50
+0,7
+0,0200
+999,9982015
+20000,0000
+16
+50
+50
+0,9
+0,0050
+1000,0000000
+8133,3333
+17
+50
+50
+0,9
+0,0100
+1000,0000000
+20000,0000
+18
+50
+50
+0,9
+0,0200
+999,9988782
+20000,0000
+19
+50
+90
+0,5
+0,0028
+1000,0000000
+8361,6667
+20
+50
+90
+0,5
+0,0056
+1000,0000000
+8796,6667
+21
+50
+90
+0,5
+0,0111
+1000,0000000
+20000,0000
+22
+50
+90
+0,7
+0,0028
+1000,0000000
+8151,6667
+23
+50
+90
+0,7
+0,0056
+1000,0000000
+8780,0000
+24
+50
+90
+0,7
+0,0111
+1000,0000000
+20000,0000
+25
+50
+90
+0,9
+0,0028
+1000,0000000
+7538,3333
+26
+50
+90
+0,9
+0,0056
+1000,0000000
+8995,0000
+27
+50
+90
+0,9
+0,0111
+1000,0000000
+20000,0000
+28
+100
+10
+0,5
+0,0250
+839,5544749
+20000,0000
+29
+100
+10
+0,5
+0,0500
+839,5544749
+20000,0000
+30
+100
+10
+0,5
+0,1000
+599,4452769
+20000,0000
+Paket parameter terbaik ☺
+
+============================================================
+Page 40
+============================================================
+No Observasi
+Ukuran populasi
+ Jumlah bit
+Probabilitas Pdh Silang
+Probabilitas Mutasi 
+Rata-rata Fitness 
+terbaik
+Rata-rata Jml Individu 
+yang dievaluasi
+31
+100
+10
+0,7
+0,0250
+839,5544749
+20000,0000
+32
+100
+10
+0,7
+0,0500
+839,5544749
+20000,0000
+33
+100
+10
+0,7
+0,1000
+575,8472869
+20000,0000
+34
+100
+10
+0,9
+0,0250
+839,5544749
+20000,0000
+35
+100
+10
+0,9
+0,0500
+839,5544749
+20000,0000
+36
+100
+10
+0,9
+0,1000
+559,6804844
+20000,0000
+37
+100
+50
+0,5
+0,0050
+1000,0000000
+15246,6667
+38
+100
+50
+0,5
+0,0100
+1000,0000000
+20000,0000
+39
+100
+50
+0,5
+0,0200
+999,9986429
+20000,0000
+40
+100
+50
+0,7
+0,0050
+1000,0000000
+14416,6667
+41
+100
+50
+0,7
+0,0100
+1000,0000000
+20000,0000
+42
+100
+50
+0,7
+0,0200
+999,9988459
+20000,0000
+43
+100
+50
+0,9
+0,0050
+1000,0000000
+13390,0000
+44
+100
+50
+0,9
+0,0100
+1000,0000000
+20000,0000
+45
+100
+50
+0,9
+0,0200
+999,9987118
+20000,0000
+46
+100
+90
+0,5
+0,0028
+1000,0000000
+15010,0000
+47
+100
+90
+0,5
+0,0056
+1000,0000000
+16056,6667
+48
+100
+90
+0,5
+0,0111
+1000,0000000
+20000,0000
+49
+100
+90
+0,7
+0,0028
+1000,0000000
+14580,0000
+50
+100
+90
+0,7
+0,0056
+1000,0000000
+15430,0000
+51
+100
+90
+0,7
+0,0111
+1000,0000000
+19860,0000
+52
+100
+90
+0,9
+0,0028
+1000,0000000
+13346,6667
+53
+100
+90
+0,9
+0,0056
+1000,0000000
+15390,0000
+54
+100
+90
+0,9
+0,0111
+1000,0000000
+20000,0000
+55
+200
+10
+0,5
+0,0250
+839,5544749
+20000,0000
+56
+200
+10
+0,5
+0,0500
+839,5544749
+20000,0000
+57
+200
+10
+0,5
+0,1000
+599,0108676
+20000,0000
+58
+200
+10
+0,7
+0,0250
+839,5544749
+20000,0000
+59
+200
+10
+0,7
+0,0500
+828,6149185
+20000,0000
+60
+200
+10
+0,7
+0,1000
+557,3828866
+20000,0000
+
+============================================================
+Page 41
+============================================================
+No Observasi
+Ukuran populasi
+ Jumlah bit
+Probabilitas Pdh Silang
+Probabilitas Mutasi 
+Rata-rata Fitness 
+terbaik
+Rata-rata Jml Individu 
+yang dievaluasi
+61
+200
+10
+0,9
+0,0250
+839,5544749
+20000,0000
+62
+200
+10
+0,9
+0,0500
+839,5544749
+20000,0000
+63
+200
+10
+0,9
+0,1000
+539,1055371
+20000,0000
+64
+200
+50
+0,5
+0,0050
+1000,0000000
+20000,0000
+65
+200
+50
+0,5
+0,0100
+999,9999995
+20000,0000
+66
+200
+50
+0,5
+0,0200
+999,9986789
+20000,0000
+67
+200
+50
+0,7
+0,0050
+1000,0000000
+19966,6667
+68
+200
+50
+0,7
+0,0100
+999,9999997
+20000,0000
+69
+200
+50
+0,7
+0,0200
+999,9947933
+20000,0000
+70
+200
+50
+0,9
+0,0050
+1000,0000000
+19986,6667
+71
+200
+50
+0,9
+0,0100
+999,9999996
+20000,0000
+72
+200
+50
+0,9
+0,0200
+999,9939550
+20000,0000
+73
+200
+90
+0,5
+0,0028
+999,9999988
+19966,6667
+74
+200
+90
+0,5
+0,0056
+999,9999999
+20000,0000
+75
+200
+90
+0,5
+0,0111
+999,9999976
+20000,0000
+76
+200
+90
+0,7
+0,0028
+999,9999995
+20000,0000
+77
+200
+90
+0,7
+0,0056
+1000,0000000
+20000,0000
+78
+200
+90
+0,7
+0,0111
+999,9999979
+20000,0000
+79
+200
+90
+0,9
+0,0028
+1000,0000000
+19866,6667
+80
+200
+90
+0,9
+0,0056
+1000,0000000
+19993,3333
+81
+200
+90
+0,9
+0,0111
+999,9999988
+20000,0000
+
+============================================================
+Page 42
+============================================================
+
+============================================================
+Page 43
+============================================================
+
+============================================================
+Page 44
+============================================================
+
+============================================================
+Page 45
+============================================================
+Kesimpulan
+• Individu pada GA yang sifatnya numerik, terdapat 
+empat representasi berbeda: 
+• Biner,
+• Integer, 
+• Real, dan 
+• Permutasi.
+• Operasi Seleksi Orang tua dan Seleksi Survivor 
+tidak bergantung pada representasi individu. 
+• Rekombinasi dan Mutasi harus dipilih sesuai 
+dengan representasi individu.

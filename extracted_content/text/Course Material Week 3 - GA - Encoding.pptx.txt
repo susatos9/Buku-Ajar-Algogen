@@ -1,0 +1,212 @@
+Week                       Content             CO              Activity and Assessments   Percentage
+
+        • Introduction to Genetic Algorithms
+19/08                                          CO-1   Refreshing and Discussion               -
+        • GA Implementation
+        • Cycle of Basic GA
+26/08                                          CO-1   Quiz-1                                  2
+        • Holland's schema theorem.
+02/09   Encoding in Genetic Algorithm          CO-3   Quiz-2                                  2
+
+09/09   Selection                              CO-2   Quiz-3                                  2
+
+16/09   Crossover Part 1                       CO-2   Quiz-4                                  2
+
+23/09   Crossover Part 2                       CO-2   Quiz-5                                  2
+
+        Proposal Presentation (Problem
+30/09                                          CO-3   Presentation and Discussion          10+2,5
+        Formulation)
+                                                      Holland's schema and What is GA         5
+../10   UTS                                           GA Encoding                             5
+                                                      GA Operators                            5
+Week                       Content            CO            Activity and Assessments   Percentage
+
+        ●     Mutation
+21/10                                         CO-2   HW-1                                 2.5
+        ●     Genetic Algorithm Parameters
+28/10   Hybrid Genetic Algorithm              CO-5   HW-2                                 2.5
+
+04/11   Progress Report                       CO-4   Presentation and Discussion       10 + 2.5
+
+
+11/11   Applications of Genetic Algorithms    CO-5   HW                                    5
+
+
+18/11   Final Project Report                  CO-4   Presentation                         10
+
+
+
+25/11   Trend research on Genetic Algorithm   CO-6   Presentation of Lit Review            5
+
+
+02/12   Paper Report                          CO-5   Draft paper                          10
+
+                                              CO-2   GA Operator and Parameters            5
+…/12    UAS                                   CO-4   GA Design                             5
+                                              CO-6   Trend GA                              5
+        Population Initialization:
+   Encoding and Fitness Function
+
+
+
+
+by Aina Musdholifah, S.Kom., M.Kom, Ph.D
+                           Next…
+
+• How to Generate Population
+• Encoding
+  -Encoding -
+Genetic Algorithm
+Solving problem using GA
+
+•Create encoding design:
+           Individu → Chromosome
+
+•Formulate fitness function
+
+•Define GA operators
+Encoding individu → chromosome
+•An individual is encoding into a chromosome through
+ appropriate method.
+
+•Four encoding types:
+  •Binary
+  •Integer
+  •Real
+  •Permutation
+Encoding
+
+⦿ Marek Obitko (1998) have different classification of encoding
+  methods. He divide encoding methods into four groups, i.e:
+
+     ⦿ Binary Encoding (Pengkodean biner)
+
+     ⦿ Permutation Encoding
+
+     ⦿ Value Encoding
+
+     ⦿ Tree Encoding
+Efﬁcient Encoding
+
+• Complete
+   • if every point in the search space can be coded
+• Closed
+   • if all individuals produced by the application of genetic operators can be coded to
+     a valid phenotype.
+• Proximity
+   • If used encoding methods can increase slowly the parameters are guaranteed
+• Short Scheme
+   • If the parameters of the similar problem are also encoded in similar genotype
+Kriteria… (cont.)
+
+• Kemampuan
+   • Jika panjang genotype adalah minimum
+• Von-Isomorphism
+   • Jika setiap genotype merepresentasikan genotype solusi yang unik
+• Modularitas
+   • Ketika solusi parsial (model/blok bangunan) ditulis hanya sekali & suatu
+     mekanisme tersedia sehingga mereka dapat didefinisikan untuk sembarang titik
+     dalam pengkodean
+Binary Encoding
+
+• The most common encoding
+
+• First used in genetic algorithms by Holland
+
+• Each chromosome is expressed in rows of bits 0 or 1
+
+• Examples of chromosomes with binary coding
+Binary Encoding (cont.)
+• There are many possibilities for chromosomes even with a small
+  number of alleles, i.e. 0 or 1
+
+• Suitable problem: Knapsack problem
+
+
+
+
+• Disadvantage: often not suitable for many problems and the correction
+  process must be carried out after the evolution process (crossover and /
+  mutation)
+       Permutation Encoding
+
+• Can be used in ordering problems (ordering problem)
+
+
+• Each chromosome is a sequence of numbers stating the numbers in
+a sequence
+
+• Only useful for sorting problems, for example: trading, Routes, etc.
+
+
+• Example:
+          Value Encoding
+
+• Can be used for problems that have complicated values
+
+• Each chromosome is a sequence of values, where the value can be
+  anything related to the problem
+
+• It is suitable for certain problems, for example looking for weights on NN
+
+• Example:
+                             Tree Encoding
+• Widely used to compile programs /
+  expressions in genetic programming
+• Each chromosome is a tree of
+  several objects, such as functions or
+  commands in the programming
+  language
+
+• Example problem: lookup a value
+  function based on a given value
+• Example:
+FITNESS FUNCTION
+solving problem using GA
+
+• Create encoding design:
+              Individu → Chromosome
+
+• Formulate fitness function
+
+• Define GA operators
+Fitness Function
+
+• Genetic Algorithms are defined as a machine learning model that
+  decreases all evolutionary behavior in nature from a population
+  abstracting the solution to an optimization problem that is selected,
+  crossover and mutated according to its relative fitness value.
+• Evolution function, expresses the performance of a genome to a
+  population
+• Fitness function is the performance influenced by other genomes and
+  objective function that describes the optimization problem
+• Fitness function = fi / f
+   • fi: function / evaluation value of genome-i
+   • f: average evaluation value in a population
+       Example 1
+• Knapsack problem
+Problem Formulation
+Encoding and Fitness Function
+Example 2
+Example 2 (cont.)
+Example 2 (cont.)
+Quiz-1
+
+•
+Quiz-2
+
+•
+Quiz-3
+Quiz-4
+
+A wood craftsman wants to make a tube-shaped decoration without a lid.
+The tube is expected to hold a liquid of not less than 200. Help the
+craftsman to design the tube with minimal materials.
+
+Formulate the problem then how is the coding and the fitness function!
+Recording
+Selection
+
+NEXT…
+

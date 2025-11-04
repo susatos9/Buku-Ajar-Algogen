@@ -1,0 +1,187 @@
+Week                       Content             CO              Activity and Assessments   Percentage
+
+        • Introduction to Genetic Algorithms
+19/08                                          CO-1   Refreshing and Discussion               -
+        • GA Implementation
+        • Cycle of Basic GA
+26/08                                          CO-1   Quiz-1                                  2
+        • Holland's schema theorem.
+02/09   Encoding in Genetic Algorithm          CO-3   Quiz-2                                  2
+
+09/09   Selection                              CO-2   Quiz-3                                  2
+
+16/09   Crossover Part 1                       CO-2   Quiz-4                                  2
+
+23/09   Crossover Part 2                       CO-2   Quiz-5                                  2
+
+        Proposal Presentation (Problem
+30/09                                          CO-3   Presentation and Discussion          10+2,5
+        Formulation)
+                                                      Holland's schema and What is GA         5
+../10   UTS                                           GA Encoding                             5
+                                                      GA Operators                            5
+Week                       Content            CO            Activity and Assessments   Percentage
+
+        ●     Mutation
+21/10                                         CO-2   HW-1                                 2.5
+        ●     Genetic Algorithm Parameters
+28/10   Hybrid Genetic Algorithm              CO-5   HW-2                                 2.5
+
+04/11   Progress Report                       CO-4   Presentation and Discussion       10 + 2.5
+
+
+11/11   Applications of Genetic Algorithms    CO-5   HW                                    5
+
+
+18/11   Final Project Report                  CO-4   Presentation                         10
+
+
+
+25/11   Trend research on Genetic Algorithm   CO-6   Presentation of Lit Review            5
+
+
+02/12   Paper Report                          CO-5   Draft paper                          10
+
+                                              CO-2   GA Operator and Parameters            5
+…/12    UAS                                   CO-4   GA Design                             5
+                                              CO-6   Trend GA                              5
+Genetic Algorithm: Selection
+
+
+
+
+             Aina Musdholifah, S.Kom., M.Kom, Ph.D.
+How to solve problem using GA ?
+• Generate Population ..done
+• Encoding → Chromosome…done
+• Define Fitness Function …done
+• Define GA Operator
+  • Selection
+  • Cross Over
+  • Mutation
+Selection
+ • During each successive generation, a proportion of the existing population
+   is selected to breed a new generation.
+
+ • Individual solutions are selected through a fitness-based process, where
+   fitter solutions (as measured by a fitness function) are typically more likely
+   to be selected.
+
+ • There some of Methods that can be used :
+    • Fitness Proportionate Selection (FPS)
+         • Roulette wheel
+         • Baker’s SUS (Stochastic Universal Sampling)
+    • Rank-Based Selection
+         • Linear Ranking
+         • Non-linear ranking
+    • Tournament Selection
+FPS: Roulette Wheel
+
+
+• The simplest selection scheme is roulette-wheel selection, also called stochastic sampling with
+  replacement.
+
+• This is a stochastic algorithm and involves the following technique:
+    • The individuals are mapped to contiguous segments of a line, such that each individual's
+      segment is equal in size to its fitness.
+    • A random number is generated and the individual whose segment spans the random
+      number is selected.
+    • The process is repeated until the desired number of individuals is obtained (called mating
+      population).
+
+• This technique is analogous to a roulette wheel with each slice proportional in size to the fitness.
+•
+FPS: Roulette Wheel
+
+
+
+
+kromosom
+K1         2/8 = ¼ = 0,25
+K2         1/8 = 0,125
+K3         1/8 = 0,125
+K4         4/8 = 0,5
+Total      1
+Example (FPS: RW)
+   Table shows the selection probability for 11 individuals. Individual 1 is the most fit individual and occupies
+   the largest interval, whereas individual 10 as the second least fit individual has the smallest interval on the
+   line. Individual 11, the least fit interval, has a fitness value of 0 and get no chance for reproduction
+
+
+
+
+The roulette-wheel selection algorithm provides a zero bias but does not guarantee minimum spread.
+FPS: Baker’s SUS (Stochastic Universal
+Sampling)
+• Stochastic universal sampling[Bak87] provides zero
+  bias and minimum spread.
+
+• The individuals are mapped to contiguous segments of
+  a line, such that each individual's segment is equal in
+  size to its fitness exactly as in roulette-wheel selection.
+
+• Here equally spaced pointers are placed over the line
+  as many as there are individuals to be selected.
+                                                           [Bak87] Baker, J. E.: Reducing Bias and Inefficiency in the Selection Algorithm. In [ICGA2], pp. 14-21, 1987.
+• Consider NPointer the number of individuals to be
+  selected, then the distance between the pointers are
+  1/NPointer and the position of the first pointer is given
+  by a randomly generated number in the range [0,
+  1/NPointer].
+Example (FPS: B’SUS)
+      Tournament Selection
+ • In tournament selection, a number Tour of individuals is chosen randomly from the population
+   and the best individual from this group is selected as parent.
+ • This process is repeated as often as individuals must be chosen.
+ • These selected parents produce uniform at random offspring.
+ • The parameter for tournament selection is the tournament size Tour.
+ • Tour takes values ranging from 2 to Nind (number of individuals in population).
+ • Relation between tournament size and selection intensity:
+                Tournament Size                       1          2          3           5          10           30
+                Selection intensity                   0       0.56        0.85       1.15         1.53         2.04
+
+
+
+[GD91] Goldberg, D. E. and Deb, K.: A Comparative Analysis of Selection Schemes Used in Genetic Algorithms. In [FGA1], pp. 69-93, 1991
+[BT95] Blickle, T. and Thiele, L.: A Comparison of Selection Schemes used in Genetic Algorithms (2. Edition). TIK Report No. 11, Computer Engineering and Communication Networks Lab
+(TIK), Swiss Federal Institute of Technology (ETH) Zürich, Switzerland, 1995.
+http://www.tik.ee.ethz.ch/Publications/TIK-Reports/TIK-Report11abstract.html.
+Disadvantages of Baker’s SUS
+Disadvantages of Baker’s SUS
+To Handle disadvantages of Baker’s SUS
+
+  •Linear Scaling
+  •Window Scaling
+  •Sigma Scaling
+   Linear Scaling
+❏ Tujuannya menjaga agar perbedaan antar fitness tidak terlalu ekstrem, tapi
+  tetap mempertahankan urutan ranking.
+❏ Mengalikan fitness dengan faktor tertentu.
+
+
+❏ f = fitness value individual i
+    i
+❏ a and b is selected so that
+❏                  , in which   is expectation value the best
+  chromosome was selected as a parent
+❏     = 1,2 … 2,0
+   Window Scaling
+❏ Tujuannya memperjelas perbedaan nilai fitness semua kromosom yang
+  mirip.
+❏ Menggeser nilai fitness dengan mengurangi nilai fitness minimum dalam
+  populasi.
+   Sigma Scaling
+❏ Menyesuaikan fitness berdasarkan rata-rata dan standar deviasi
+  (σ) populasi.
+❏ Individu dengan fitness di atas rata-rata akan tetap punya
+  peluang lebih besar, tapi tidak berlebihan.
+
+
+
+   ❏ c = small integers (usually equal to 2)
+   ❏ Nilai fitness f diskalakan menggunakan rerata dan standar
+
+     deviasi
+Next…
+• Crossover
+

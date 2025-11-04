@@ -1,0 +1,269 @@
+Week                          Content       CO              Activity and Assessments
+                                                     Quiz     HW      Presentation     UTS
+         1. Cakupan AI
+20 Aug   2. What is CI                      CO1                                         5
+         3. Pengenalan Algoritma Genetika
+         1. Teorema skema holland
+27 Aug   2. Pengkodean Algoritma Genetika   CO2      2,5                                5
+         3. Formulasi Fungsi Fitness
+         1. Project (proposal)
+03 Sep                                      CO2      2,5                   5
+         2. Proses Seleksi
+
+10 Sep   Proses Crossover                   CO2       5                                 5
+
+         1. Proses Mutasi
+17 Sep   2. Update Generasi                 CO2                                         5
+         3. Parameter Algoritma Genetika
+24 Sep   ACO dan PSO                        CO2                5
+01 Oct   Project (Presentation)             CO2                5           5
+                                             Total    10       10          10          20
+Week                         Content           CO              Activity and Assessments
+                                                        Quiz     HW      Presentation     UAS
+
+22 Oct   What is Machine Learning              CO3                                         5
+
+29 Oct   Linear classiﬁcation dan regression   CO4      2,5                               2,5
+
+05 Nov   Traditional Machine Learning          CO4      2,5                               2,5
+
+12 Nov   Project                               CO5                            5
+
+19 Nov   Deep Learning                         CO5      2,5                                5
+26 Nov   Metode dan Matrik Evaluasi            CO6      2,5                                5
+03 Dec   Project                               CO5                10          5
+                                                Total    10       10          10          20
+Genetic Algorithm: Crossover
+
+
+
+
+             Aina Musdholifah, S.Kom., M.Kom, Ph.D.
+How to solve problem using GA ?
+• Generate Population ... done
+• Encoding → Chromosome or individu … done
+• Define Fitness Function … done
+• Define GA Operator
+  • Selection … done
+  • Cross Over
+  • Mutation
+Crossover
+• Taking partial / alela sequence
+  fragments of DNA genome to be
+  incorporated into the offspring
+
+• Crossover operator in GA represent
+  what happens in the real world
+
+⚫ Many methods have been proposed
+⚫ Each method has speciﬁc
+  characteristics and may be only be
+  used on certain types of
+  representation. For example, cross
+  over to the permutation representation
+  is speciﬁc to the problem in
+  permutation.
+Crossover for
+Binary Representation
+
+Integer Representation
+
+Real Representation
+
+Permutation Representation
+   Crossover for Binary Representation
+
+1-point crossover
+
+
+Multipoint crossover
+
+
+Uniform crossover
+1-point crossover
+Multipoint
+crossover
+Uniform Crossover
+uniform crossover
+P1 : 0 0 0 0 0 0 0 0
+P2 : 1 1 1 1 1 1 1 1
+
+
+Uniform Crossover with pattern 00100110
+
+
+
+
+                                   Off 1: 0 0 1 0 0 1 1 0
+                                   Off 2: 1 1 0 1 1 0 0 1
+   Crossover For Integer Representation
+
+
+1-point crossover
+
+
+Multipoint crossover
+
+
+uniform crossover
+Crossover For Integer Representation
+Crossover For Real Representation
+
+        We can understand that the three methods Cross over in previous slide can be used for binary and
+        integer representation.
+
+
+
+        This is due to both representations have the values of the genes in a finite interval. The values of the
+        genes in the binary representation is 0 or 1.
+
+
+
+        On the representation of integers, may be there is little variation in the value for each gene. For
+        example, integer representation used to represent real numbers only have 10 possible values for each
+        genes.
+
+
+
+        What if each gene may have a value that has real representation? For a real representation, cross over
+        can be done in two ways: discrete and intermediate
+Crossover For Real Representation: Discrete
+
+
+            The methods to select position of genes is Cross over multi points
+            or Cross over uniform.
+
+
+
+            Each gene in offspring z derived from one parent (x, y) with equal
+            probability, zi = xi or yi.
+    Crossover For Real Representation: Intermediate
+•
+Cross over Intermediate
+
+   single arithmetic crossover,
+
+
+   simple arithmetic crossover, and
+
+
+   whole arithmetic crossover.
+                Single arithmetic crossover
+             Suppose two parent of chromosomes expressed as:
+
+
+
+
+Select 1 gen randomly, for example k. Then, both the child will be produced by:
+Single arithmetic crossover
+                Simple arithmetic crossover
+             Suppose two parent of chromosomes expressed as:
+
+
+
+
+Select 1 gen randomly, for example k. Then, both the child will be produced by:
+Simple arithmetic crossover
+Whole arithmetic crossover
+Whole arithmetic crossover
+    Crossover For Permutation Representation
+• Cross over to permutation representation will be used to solve
+  permutation problem, for example Travelling Salesman Problem (TSP)
+
+• In TSP, permutation representation using gen position as the order of
+  the city. Cross over to binary representation, integer representation
+  and real representation can not be used for this representation.
+
+• Why not?
+         Crossover for Permutation Representation
+
+
+Order crossover
+
+
+Partially mapped crossover
+
+
+Cycle crossover
+
+
+Edge Recombination
+Permutation Representation: Order crossover
+
+
+                                           Choose 2 cut points
+   Observes that order is
+      important, not
+    necessarily position.
+
+                                  Copy between cut points to offspring
+
+       How it works:
+
+                                Starting from 2nd cut point in one parent,
+                                 fill missing cities in order they appear in
+                                               another parent
+Order crossover (illustration)
+example
+
+
+
+
+      1   2   3   4   5   6   7   8   3   4   5
+
+
+      2   4   6   8   7   5   3   1   6   8   7
+Partially mapped crossover
+
+Portion of one parent is mapped to a portion of another parent
+
+
+Remaining info is exchanged
+
+
+How it works:
+
+1. Choose two random cut points
+2. Define mapping
+3. Copy mapping section (between cut points) to offspring
+4. Fill in remainder of offspring using mapping
+PMX example
+      • Step 1
+
+
+
+
+      • Step 2
+
+
+
+
+      • Step 3
+Another example of pmx co
+Cycle crossover
+• Creates an offspring where every position is occupied by a corresponding
+  element from one of the parents using two cycles, crossed and the direction
+  alternately.
+
+• The Cycle Crossover operator identifies a number of so-called cycles between two
+  parent chromosomes. Then, to form Child 1, cycle one is copied from parent 1,
+  cycle 2 from parent 2, cycle 3 from parent 1, and so on.
+Cycle crossover
+Edge Crossover
+• Creates a path (offspring) that is similar to a set of existing paths (parents) by
+  looking at the edges rather than the vertices.
+• Edge Map
+   • For each node, gives list of other nodes to which it has an edge in either parent
+Algorithm of Edge Crossover
+                        Offspring-1.
+                        The offspring-2 is
+                        produced in the
+                        same way.
+Daftar edge terpendek   Because it is
+                        random, The
+                        offspring-2 can
+                        be different from
+                        The offspring-1.
+Next…
+• Mutation
+
