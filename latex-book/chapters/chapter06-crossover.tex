@@ -1,7 +1,7 @@
 \chapter{Crossover (Recombination) in Genetic Algorithms}
 
 \section{Introduction to Crossover}
-Crossover, also known as recombination, is the primary genetic operator in genetic algorithms. It combines genetic material from two or more parent solutions to create offspring, potentially inheriting beneficial traits from multiple parents. Crossover exploits existing solutions to explore new regions of the search space.
+Crossover, also known as recombination, is the primary genetic operator in genetic algorithms~\cite{holland1975adaptation, goldberg1989genetic, mitchell1996introduction}. It combines genetic material from two or more parent solutions to create offspring, potentially inheriting beneficial traits from multiple parents. Crossover exploits existing solutions to explore new regions of the search space.
 
 \section{Biological Inspiration}
 In nature, sexual reproduction combines genetic material from two parents:
@@ -33,7 +33,7 @@ Crossover is typically applied with probability $p_c$ (usually 0.6-0.9):
 \section{Binary Crossover Operators}
 
 \subsection{Definition and Function of Crossover Operator}
-Crossover is a genetic operator used to vary the arrangement of chromosomes from one generation to the next. The crossover method used depends on the encoding method applied.
+Crossover is a genetic operator used to vary the arrangement of chromosomes from one generation to the next~\cite{geeksforgeeks_crossover, tutorialspoint_crossover, course_week4_crossover}. The crossover method used depends on the encoding method applied.
 
 Crossover occurs in three stages:
 \begin{enumerate}
@@ -129,7 +129,7 @@ Crossover points at positions 2 and 5.
 \end{itemize}
 
 \subsection{Uniform Crossover}
-Each gene is independently chosen from either parent.
+Each gene is independently chosen from either parent~\cite{spears1993crossover, eshelman1991chc}.
 
 In uniform crossover, each gene (bit) is randomly selected from one of the corresponding genes on the parent chromosome. This selection process is done independently for each gene position. This method can be analogized to tossing a coin. If the result is "head", the gene is taken from parent 1; if the result is "tail", the gene is taken from parent 2.
 
@@ -362,7 +362,7 @@ $u_i \sim U[0,1]$ and $\eta_c$ is the distribution index.
 \section{Permutation Crossover Operators}
 
 \subsection{Order Crossover (OX)}
-Preserves relative order of elements from one parent.
+Preserves relative order of elements from one parent~\cite{oliver1987study, larranaga1999genetic}.
 
 \subsubsection{Algorithm}
 \begin{algorithm}
@@ -383,7 +383,7 @@ Preserves relative order of elements from one parent.
 \end{align}
 
 \subsection{Partially Mapped Crossover (PMX)}
-Creates mapping between elements in the crossover segment.
+Creates mapping between elements in the crossover segment~\cite{goldberg1989genetic, larranaga1999genetic}.
 
 \subsubsection{Algorithm}
 \begin{algorithm}
@@ -404,7 +404,7 @@ Creates mapping between elements in the crossover segment.
 \end{align}
 
 \subsection{Cycle Crossover (CX)}
-Preserves absolute positions of elements from both parents.
+Preserves absolute positions of elements from both parents~\cite{oliver1987study, reeves1993modern}.
 
 \subsubsection{Algorithm}
 \begin{algorithm}
@@ -474,7 +474,7 @@ Adjust crossover parameters based on:
 \end{itemize}
 
 \subsection{Multiple Parent Crossover}
-Combine genetic material from more than two parents:
+Combine genetic material from more than two parents~\cite{elsayed2011ga, yassen2012multi, fajrin2020multi, chen2013multiple}:
 \begin{itemize}
     \item \textbf{Scanning crossover}: Scan through multiple parents
     \item \textbf{Voting crossover}: Majority vote among parents
@@ -530,7 +530,7 @@ Application rate & High (0.6-0.9) & Low (0.001-0.1) \\
 Population effect & Homogenization & Diversification \\
 \bottomrule
 \end{tabular}
-\caption{Crossover vs. Mutation Comparison}
+\caption{Crossover vs. Mutation Comparison~\cite{spears1993crossover, schaffer1989study}}
 \end{table}
 
 \section{Chapter Summary}

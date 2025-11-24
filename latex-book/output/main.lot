@@ -11,7 +11,7 @@
 \contentsline {table}{\numberline {5.2}{\ignorespaces Roulette Wheel Selection Example}}{40}{table.caption.15}%
 \contentsline {table}{\numberline {5.3}{\ignorespaces Comparison of Selection Methods}}{48}{table.caption.19}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {6.1}{\ignorespaces Crossover vs. Mutation Comparison}}{65}{table.caption.29}%
+\contentsline {table}{\numberline {6.1}{\ignorespaces Crossover vs. Mutation Comparison~\cite {spears1993crossover, schaffer1989study}}}{65}{table.caption.29}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \contentsline {table}{\numberline {8.1}{\ignorespaces GA Parameter Observation Results}}{80}{table.caption.37}%

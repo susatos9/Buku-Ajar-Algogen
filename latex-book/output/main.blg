@@ -2,47 +2,54 @@ This is BibTeX, Version 0.99d (TeX Live 2023/Debian)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: main.aux
 The style file: plain.bst
-I found no \citation commands---while reading file main.aux
 Database file #1: references.bib
-You've used 0 entries,
+Warning--to sort, need author or key in course_week2
+Warning--to sort, need author or key in obitko_selection
+Warning--to sort, need author or key in course_week4_crossover
+Warning--to sort, need author or key in course_week9
+Warning--empty journal in de1975analysis
+Warning--empty journal in haupt2004practical
+Warning--empty journal in michalewicz1996genetic
+Warning--empty journal in smith1998replacement
+You've used 49 entries,
             2118 wiz_defined-function locations,
-            497 strings with 3991 characters,
-and the built_in function-call counts, 18 in all, are:
-= -- 0
-> -- 0
-< -- 0
-+ -- 0
-- -- 0
-* -- 2
-:= -- 7
-add.period$ -- 0
-call.type$ -- 0
-change.case$ -- 0
+            750 strings with 11617 characters,
+and the built_in function-call counts, 14225 in all, are:
+= -- 1410
+> -- 571
+< -- 7
++ -- 242
+- -- 182
+* -- 844
+:= -- 2346
+add.period$ -- 151
+call.type$ -- 49
+change.case$ -- 229
 chr.to.int$ -- 0
-cite$ -- 0
-duplicate$ -- 0
-empty$ -- 1
-format.name$ -- 0
-if$ -- 1
+cite$ -- 57
+duplicate$ -- 569
+empty$ -- 1202
+format.name$ -- 182
+if$ -- 3009
 int.to.chr$ -- 0
-int.to.str$ -- 0
-missing$ -- 0
-newline$ -- 3
-num.names$ -- 0
-pop$ -- 0
+int.to.str$ -- 49
+missing$ -- 50
+newline$ -- 252
+num.names$ -- 90
+pop$ -- 319
 preamble$ -- 1
-purify$ -- 0
+purify$ -- 189
 quote$ -- 0
-skip$ -- 1
+skip$ -- 398
 stack$ -- 0
-substring$ -- 0
-swap$ -- 0
-text.length$ -- 0
+substring$ -- 823
+swap$ -- 102
+text.length$ -- 7
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 0
-warning$ -- 0
-while$ -- 0
-width$ -- 0
-write$ -- 2
-(There was 1 error message)
+type$ -- 174
+warning$ -- 8
+while$ -- 141
+width$ -- 51
+write$ -- 521
+(There were 8 warnings)

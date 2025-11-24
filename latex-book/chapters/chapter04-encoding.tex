@@ -1,7 +1,7 @@
 \chapter{Genetic Algorithm Encoding}
 
 \section{Introduction to Encoding}
-Encoding (also called representation) is the process of transforming problem solutions into a form that genetic algorithms can manipulate. The choice of encoding significantly impacts GA performance and is one of the most critical design decisions.
+Encoding (also called representation) is the process of transforming problem solutions into a form that genetic algorithms can manipulate~\cite{goldberg1989genetic, michalewicz1996genetic}. The choice of encoding significantly impacts GA performance and is one of the most critical design decisions.
 
 \section{Requirements for Good Encoding}
 
@@ -19,7 +19,7 @@ Small changes in genotype should correspond to small changes in phenotype, ensur
 
 \section{Binary Encoding}
 
-Binary encoding is the most traditional and widely studied representation in genetic algorithms.
+Binary encoding is the most traditional and widely studied representation in genetic algorithms~\cite{holland1975adaptation, goldberg1989genetic}.
 
 \subsection{Basic Binary Encoding}
 Solutions are represented as fixed-length binary strings.
@@ -133,7 +133,7 @@ However, this openness can be one of the weaknesses of this encoding method. The
 
 \section{Gray Code Encoding}
 
-Gray code addresses the Hamming cliff problem by ensuring adjacent values differ by only one bit.
+Gray code addresses the Hamming cliff problem by ensuring adjacent values differ by only one bit~\cite{haupt2004practical, michalewicz1996genetic}.
 
 \subsection{Binary to Gray Code Conversion}
 \begin{algorithm}
@@ -179,7 +179,7 @@ Decimal & Binary & Gray Code \\
 
 \section{Real-valued Encoding}
 
-Real-valued encoding directly represents solutions as vectors of real numbers.
+Real-valued encoding directly represents solutions as vectors of real numbers~\cite{back1996evolutionary, michalewicz1996genetic}.
 
 \subsection{Representation}
 Individual: $\mathbf{x} = (x_1, x_2, \ldots, x_n)$ where $x_i \in \mathbb{R}$

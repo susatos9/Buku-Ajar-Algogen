@@ -43,12 +43,12 @@ Selection pressure is the degree to which better individuals are favored. It aff
 
 \section{Fitness Proportionate Selection (FPS)}
 
-The Genetic Algorithm developed by Holland uses Fitness Proportionate Selection (FPS), where the expected value of an individual (i.e., the expected number of times that individual will be selected for reproduction) is calculated as that individual's fitness divided by the population's average fitness.
+The Genetic Algorithm developed by Holland uses Fitness Proportionate Selection (FPS)~\cite{holland1975adaptation, goldberg1989genetic}, where the expected value of an individual (i.e., the expected number of times that individual will be selected for reproduction) is calculated as that individual's fitness divided by the population's average fitness.
 
 In this method, each individual can be selected as a parent with a probability proportional to its fitness value. Therefore, individuals with higher fitness have greater opportunities to reproduce and spread their characteristics to the next generation. Thus, this method provides selection pressure on fitter individuals in the population, thus driving evolution toward better individuals over time.
 
 \subsection{Roulette Wheel Selection}
-Also known as fitness proportionate selection, individuals are selected with probability proportional to their fitness.
+Also known as fitness proportionate selection, individuals are selected with probability proportional to their fitness~\cite{goldberg1989genetic, obitko_selection, algorithmafternoon_selection}.
 
 The simplest selection schema is roulette-wheel selection, also called stochastic sampling with replacement. This is a stochastic algorithm and involves the following technique:
 
@@ -149,10 +149,10 @@ If random number $r = 0.6$, individual 2 is selected.
 \end{itemize}
 
 \subsection{Stochastic Universal Sampling (SUS)}
-Improved version of roulette wheel selection that reduces variance.
+Improved version of roulette wheel selection that reduces variance~\cite{baker1987reducing}.
 
 \subsubsection{Baker's SUS}
-Stochastic Universal Sampling (SUS) provides zero bias and minimum spread. Individuals are mapped to contiguous segments on a line, where the size of each segment equals its fitness value, exactly as in roulette-wheel selection. In this method, equally spaced pointers are placed on the line equal to the number of individuals to be selected.
+Stochastic Universal Sampling (SUS) provides zero bias and minimum spread~\cite{baker1987reducing}. Individuals are mapped to contiguous segments on a line, where the size of each segment equals its fitness value, exactly as in roulette-wheel selection. In this method, equally spaced pointers are placed on the line equal to the number of individuals to be selected.
 
 Let NPointer be the number of individuals to be selected, then the distance between pointers is $1/N_{Pointer}$, and the position of the first pointer is determined by a random number generated in the range $[0, 1/N_{Pointer}]$.
 
@@ -190,7 +190,7 @@ Stochastic universal sampling ensures offspring selection that is closer to the 
 
 \section{Rank-based Selection}
 
-Rank-based selection assigns selection probabilities based on fitness rank rather than raw fitness values.
+Rank-based selection assigns selection probabilities based on fitness rank rather than raw fitness values~\cite{grefenstette1986optimization, algorithmafternoon_ranked}.
 
 \subsection{Overview}
 Ranked-Based Selection introduces a different approach to selection in Genetic Algorithms. Instead of directly using fitness values to determine selection probability, individuals in the population are first sorted (ranked) based on their fitness values, then each individual is assigned a rank. The selection probability is then calculated based on that rank, not the actual fitness value.
@@ -244,10 +244,10 @@ where $c$ is a normalization constant ensuring $\sum P_i = 1$.
 
 \section{Tournament Selection}
 
-Tournament selection randomly selects $k$ individuals and chooses the best among them.
+Tournament selection randomly selects $k$ individuals and chooses the best among them~\cite{goldberg1989genetic, baeldung_tournament}.
 
 \subsection{Overview}
-Tournament selection is a strong and widely used selection mechanism in Genetic Algorithms because it can maintain a balance between diversity maintenance and selective pressure. Unlike roulette-wheel selection, which directly depends on an individual's fitness relative to the total population fitness, tournament selection works by holding "tournaments" among subsets of individuals, and the winner of each tournament is selected for reproduction.
+Tournament selection is a strong and widely used selection mechanism in Genetic Algorithms because it can maintain a balance between diversity maintenance and selective pressure~\cite{baeldung_tournament}. Unlike roulette-wheel selection, which directly depends on an individual's fitness relative to the total population fitness, tournament selection works by holding "tournaments" among subsets of individuals, and the winner of each tournament is selected for reproduction.
 
 The main concept of tournament selection is quite simple: instead of considering the entire population at once, a subset of individuals is randomly selected to compete with each other. The individual with the highest fitness in that "tournament" is then selected. This process is repeated until the desired number of individuals for reproduction is reached.
 

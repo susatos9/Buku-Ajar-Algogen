@@ -1,7 +1,7 @@
 \chapter{Mutation and Generation Update}
 \label{ch:mutation-update}
 
-In the previous chapters, we have covered the fundamental operations of Genetic Algorithms (GA) including encoding, fitness evaluation, selection, and crossover. This chapter completes the discussion of GA operators by examining \textbf{mutation} and \textbf{generation update mechanisms}. These operations are crucial for maintaining genetic diversity and ensuring the algorithm's ability to explore the search space effectively.
+In the previous chapters, we have covered the fundamental operations of Genetic Algorithms (GA) including encoding, fitness evaluation, selection, and crossover. This chapter completes the discussion of GA operators by examining \textbf{mutation} and \textbf{generation update mechanisms}~\cite{course_week9, tutorialspoint_mutation}. These operations are crucial for maintaining genetic diversity and ensuring the algorithm's ability to explore the search space effectively.
 
 \section{Introduction to Mutation}
 
@@ -16,7 +16,7 @@ After the recombination (crossover) stage has been applied to all pairs of chrom
 
 \subsection{What is Mutation?}
 
-Mutation is the process of changing the value of one or more genes in a genome. More specifically, it involves:
+Mutation is the process of changing the value of one or more genes in a genome~\cite{goldberg1989genetic, mitchell1996introduction, back1996evolutionary}. More specifically, it involves:
 
 \begin{itemize}
     \item Changing the allele of a gene at a specific locus with another allele
@@ -39,7 +39,7 @@ In biological evolution, mutation is typically considered harmful because comple
 
 \section{Mutation for Different Representations}
 
-Many mutation methods have been proposed in the literature. Each method has special characteristics and may only be applicable to certain types of representations. The choice of mutation operator must be compatible with the chromosome encoding scheme.
+Many mutation methods have been proposed in the literature~\cite{michalewicz1996genetic, back1996evolutionary, haupt2004practical}. Each method has special characteristics and may only be applicable to certain types of representations. The choice of mutation operator must be compatible with the chromosome encoding scheme.
 
 \subsection{Mutation for Binary Representation}
 \label{sec:binary-mutation}
@@ -238,7 +238,7 @@ After selection, crossover, and mutation operations have been applied to a popul
 \subsection{Holland's Original Model (Generational Replacement)}
 \label{sec:holland-update}
 
-In Holland's original GA:
+In Holland's original GA~\cite{holland1975adaptation, goldberg1989genetic}:
 
 \begin{itemize}
     \item All offspring replace the entire parent population
@@ -258,7 +258,7 @@ In Holland's original GA:
 \subsection{Generational Model with Elitism}
 \label{sec:elitism}
 
-A population of size $N$ chromosomes in one generation is replaced by $N$ new individuals in the next generation. However, to preserve the best solutions:
+A population of size $N$ chromosomes in one generation is replaced by $N$ new individuals in the next generation~\cite{de1975analysis, whitley1994genetic}. However, to preserve the best solutions:
 
 \begin{itemize}
     \item The best $k$ chromosomes (elites) from the parent generation are copied directly to the next generation
@@ -283,7 +283,7 @@ A population of size $N$ chromosomes in one generation is replaced by $N$ new in
 \subsection{Steady-State Update}
 \label{sec:steady-state}
 
-In the steady-state model:
+In the steady-state model~\cite{whitley1994genetic, smith1998replacement}:
 
 \begin{itemize}
     \item Not all chromosomes are replaced in each generation
@@ -321,7 +321,7 @@ In continuous update:
 
 \section{GA Parameters}
 
-The performance of a Genetic Algorithm heavily depends on proper parameter settings. The main parameters that need to be configured are:
+The performance of a Genetic Algorithm heavily depends on proper parameter settings~\cite{grefenstette1986optimization, schaffer1989study, de1975analysis}. The main parameters that need to be configured are:
 
 \subsection{Crossover Probability ($P_c$)}
 \label{sec:crossover-probability}
@@ -414,7 +414,7 @@ The number of generations should be proportional to population size and search s
 \subsection{General Parameter Setting Guidelines}
 \label{sec:parameter-guidelines}
 
-\textbf{Important Note:} There are no definitive rules for setting GA parameters. Parameter selection relies on:
+\textbf{Important Note:} There are no definitive rules for setting GA parameters~\cite{wolpert1997no, grefenstette1986optimization}. Parameter selection relies on:
 
 \begin{itemize}
     \item Intuition and experience

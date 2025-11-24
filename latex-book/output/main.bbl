@@ -1,3 +1,292 @@
-\begin{thebibliography}{}
+\begin{thebibliography}{10}
+
+\bibitem{course_week2}
+Course material week 2 - cycle of genetic algorithm and holland schema.
+\newblock Course material.
+
+\bibitem{course_week4_crossover}
+Course material week 4 - crossover.
+\newblock Course material.
+
+\bibitem{course_week9}
+Course material week 9 - mutation and update generation.
+\newblock Course material.
+
+\bibitem{obitko_selection}
+Selection - introduction to genetic algorithms - tutorial with interactive java
+  applets.
+\newblock
+  \url{https://www.obitko.com/tutorials/genetic-algorithms/selection.php}.
+\newblock Retrieved September 30, 2025.
+
+\bibitem{algorithmafternoon_selection}
+{Algorithm Afternoon}.
+\newblock Chapter 4 - selection strategies.
+\newblock
+  \url{https://algorithmafternoon.com/books/genetic_algorithm/chapter04/}.
+\newblock Retrieved September 30, 2025.
+
+\bibitem{algorithmafternoon_ranked}
+{Algorithm Afternoon}.
+\newblock Ranked selection genetic algorithm.
+\newblock
+  \url{https://algorithmafternoon.com/genetic/ranked_selection_genetic_algorithm/}.
+\newblock Retrieved September 30, 2025.
+
+\bibitem{back1996evolutionary}
+Thomas B{\"a}ck.
+\newblock {\em Evolutionary algorithms in theory and practice: evolution
+  strategies, evolutionary programming, genetic algorithms}.
+\newblock Oxford University Press, Oxford, UK, 1996.
+
+\bibitem{baeldung_tournament}
+{Baeldung on Computer Science}.
+\newblock Tournament selection in genetic algorithms.
+\newblock \url{https://www.baeldung.com/cs/ga-tournament-selection}.
+\newblock Retrieved September 30, 2025.
+
+\bibitem{baker1987reducing}
+James~E Baker.
+\newblock Reducing bias and inefficiency in the selection algorithm.
+\newblock {\em Proceedings of the second international conference on genetic
+  algorithms}, pages 14--21, 1987.
+
+\bibitem{chen2013multiple}
+Shih-Hsin Chen, Min-Chih Chen, Pei-Chann Chang, and V.~Mani.
+\newblock Multiple parents crossover operators: A new approach removes the
+  overlapping solutions for sequencing problems.
+\newblock {\em Applied Mathematical Modelling}, 37(5):2737--2746, 2013.
+
+\bibitem{de1975analysis}
+Kenneth~A De~Jong.
+\newblock An analysis of the behavior of a class of genetic adaptive systems.
+\newblock 1975.
+\newblock PhD thesis.
+
+\bibitem{deb2001multi}
+Kalyanmoy Deb.
+\newblock {\em Multi-objective optimization using evolutionary algorithms}.
+\newblock John Wiley \& Sons, Chichester, UK, 2001.
+
+\bibitem{deb2002fast}
+Kalyanmoy Deb, Amrit Pratap, Sameer Agarwal, and TAMT Meyarivan.
+\newblock A fast and elitist multiobjective genetic algorithm: Nsga-ii.
+\newblock {\em IEEE transactions on evolutionary computation}, 6(2):182--197,
+  2002.
+
+\bibitem{eiben2015introduction}
+Agoston~E Eiben and James~E Smith.
+\newblock {\em Introduction to evolutionary computing}.
+\newblock Springer, 2nd edition, 2015.
+
+\bibitem{elsayed2011ga}
+S.~M. Elsayed, R.~A. Sarker, and D.~L. Essam.
+\newblock {GA} with a new multi-parent crossover for constrained optimization.
+\newblock In {\em 2011 IEEE Congress of Evolutionary Computation (CEC)}, pages
+  857--864, New Orleans, LA, USA, 2011.
+
+\bibitem{eshelman1991chc}
+Larry~J Eshelman.
+\newblock The chc adaptive search algorithm: How to have safe search when
+  engaging in nontraditional genetic recombination.
+\newblock {\em Foundations of genetic algorithms}, 1:265--283, 1991.
+
+\bibitem{fajrin2020multi}
+A.~M. Fajrin and C.~Fatichah.
+\newblock Multi-parent order crossover mechanism of genetic algorithm for
+  minimizing violation of soft constraint on course timetabling problem.
+\newblock {\em Register: Jurnal Ilmiah Teknologi Sistem Informasi},
+  6(1):43--51, 2020.
+
+\bibitem{fogel1995evolutionary}
+David~B Fogel.
+\newblock Evolutionary programming: an introduction and some current
+  directions.
+\newblock {\em Statistics and computing}, 5(2):103--109, 1995.
+
+\bibitem{fogel2006evolutionary}
+David~B Fogel.
+\newblock {\em Evolutionary computation: toward a new philosophy of machine
+  intelligence}.
+\newblock John Wiley \& Sons, 3rd edition, 2006.
+
+\bibitem{geeksforgeeks_crossover}
+{GeeksforGeeks}.
+\newblock Crossover in genetic algorithm.
+\newblock
+  \url{https://www.geeksforgeeks.org/machine-learning/crossover-in-genetic-algorithm/}.
+\newblock Retrieved November 3, 2025.
+
+\bibitem{gen2007genetic}
+Mitsuo Gen and Runwei Cheng.
+\newblock {\em Genetic algorithms and engineering optimization}.
+\newblock Wiley-Interscience, 2007.
+
+\bibitem{goldberg1989genetic}
+David~E Goldberg.
+\newblock {\em Genetic algorithms in search, optimization, and machine
+  learning}.
+\newblock Addison-Wesley, Reading, MA, 1989.
+
+\bibitem{grefenstette1986optimization}
+John~J Grefenstette.
+\newblock Optimization of control parameters for genetic algorithms.
+\newblock {\em IEEE Transactions on systems, man, and cybernetics},
+  16(1):122--128, 1986.
+
+\bibitem{gu2022hybrid}
+H.~Gu, H.~C. Lam, and Y.~Zinder.
+\newblock A hybrid genetic algorithm for scheduling jobs sharing multiple
+  resources under uncertainty.
+\newblock {\em EURO Journal on Computational Optimization}, 10:100050, 2022.
+
+\bibitem{haupt2004practical}
+Randy~L Haupt and Sue~Ellen Haupt.
+\newblock Practical genetic algorithms.
+\newblock 2004.
+
+\bibitem{holland1975adaptation}
+John~H Holland.
+\newblock {\em Adaptation in natural and artificial systems}.
+\newblock University of Michigan Press, Ann Arbor, MI, 1975.
+
+\bibitem{horn1994niched}
+Jeffrey Horn, Nicholas Nafpliotis, and David~E Goldberg.
+\newblock A niched pareto genetic algorithm for multiobjective optimization.
+\newblock {\em Proceedings of the first IEEE conference on evolutionary
+  computation}, pages 82--87, 1994.
+
+\bibitem{koza1992genetic}
+John~R Koza.
+\newblock {\em Genetic programming: on the programming of computers by means of
+  natural selection}.
+\newblock MIT Press, Cambridge, MA, 1992.
+
+\bibitem{larranaga1999genetic}
+Pedro Larra{\~n}aga, Cindy~MH Kuijpers, Roberto~H Murga, I{\~n}aki Inza, and
+  Sejla Dizdarevic.
+\newblock Genetic algorithms for the travelling salesman problem: a review of
+  representations and operators.
+\newblock {\em Artificial intelligence review}, 13(2):129--170, 1999.
+
+\bibitem{majhi2025novel}
+N.~Majhi and R.~Mishra.
+\newblock A novel hybrid genetic algorithm and nelder-mead approach and it's
+  application for parameter estimation.
+\newblock {\em F1000Research}, 13:1073, 2025.
+
+\bibitem{michalewicz1996genetic}
+Zbigniew Michalewicz.
+\newblock Genetic algorithms+ data structures= evolution programs.
+\newblock 1996.
+
+\bibitem{mitchell1996introduction}
+Melanie Mitchell.
+\newblock {\em An introduction to genetic algorithms}.
+\newblock MIT Press, Cambridge, MA, 1996.
+
+\bibitem{montana1989training}
+David~J Montana and Lawrence Davis.
+\newblock Training feedforward neural networks using genetic algorithms.
+\newblock {\em Proceedings of the Eleventh international joint conference on
+  Artificial intelligence}, 1:762--767, 1989.
+
+\bibitem{murad2025hybrid}
+S.~H. Murad, N.~B. Tayfor, N.~H. Mahmood, and L.~Arman.
+\newblock Hybrid genetic algorithms-driven optimization of machine learning
+  models for heart disease prediction.
+\newblock {\em MethodsX}, 15:103510, 2025.
+
+\bibitem{oliver1987study}
+IM~Oliver, DJ~Smith, and John~RC Holland.
+\newblock A study of permutation crossover operators on the traveling salesman
+  problem.
+\newblock {\em Proceedings of the Second International Conference on Genetic
+  Algorithms}, pages 224--230, 1987.
+
+\bibitem{reeves1998genetic}
+Colin Reeves and Takeshi Yamada.
+\newblock Genetic algorithms, path relinking and the flowshop sequencing
+  problem.
+\newblock {\em Evolutionary Computation}, 6(1):45--60, 1998.
+
+\bibitem{reeves1993modern}
+Colin~R Reeves.
+\newblock {\em Modern heuristic techniques for combinatorial problems}.
+\newblock John Wiley \& Sons, New York, 1993.
+
+\bibitem{schaffer1989study}
+J~David Schaffer, Rich~A Caruana, Larry~J Eshelman, and Rajarshi Das.
+\newblock A study of control parameters affecting online performance of genetic
+  algorithms for function optimization.
+\newblock {\em Proceedings of the third international conference on genetic
+  algorithms}, pages 51--60, 1989.
+
+\bibitem{shams2025resolving}
+E.~Shams.
+\newblock Resolving the exploration-exploitation dilemma in evolutionary
+  algorithms: A novel human-centered framework.
+\newblock {\em arXiv preprint}, 2025.
+
+\bibitem{sivanandam2008introduction}
+S.~N. Sivanandam and S.~N. Deepa.
+\newblock {\em Introduction to genetic algorithms}.
+\newblock Springer, 2008.
+
+\bibitem{smith1998replacement}
+J.~Smith and F.~Vavak.
+\newblock Replacement strategies in steady state genetic algorithms: Static
+  environments.
+\newblock pages 219--234, 1998.
+
+\bibitem{spears1993crossover}
+William~M Spears.
+\newblock Crossover or mutation?
+\newblock {\em Foundations of genetic algorithms}, 2:221--237, 1993.
+
+\bibitem{srinivas1994genetic}
+Mandavilli Srinivas and Lalit~M Patnaik.
+\newblock Genetic algorithms: a survey.
+\newblock {\em Computer}, 27(6):17--26, 1994.
+
+\bibitem{tutorialspoint_crossover}
+{Tutorialspoint}.
+\newblock Genetic algorithms - crossover.
+\newblock
+  \url{https://www.tutorialspoint.com/genetic_algorithms/genetic_algorithms_crossover.htm}.
+\newblock Retrieved November 3, 2025.
+
+\bibitem{tutorialspoint_mutation}
+{Tutorialspoint}.
+\newblock Genetic algorithms - mutation.
+\newblock
+  \url{https://www.tutorialspoint.com/genetic_algorithms/genetic_algorithms_mutation.htm}.
+\newblock Retrieved November 22, 2025.
+
+\bibitem{whitley1994genetic}
+Darrell Whitley.
+\newblock A genetic algorithm tutorial.
+\newblock {\em Statistics and computing}, 4(2):65--85, 1994.
+
+\bibitem{wolpert1997no}
+David~H Wolpert and William~G Macready.
+\newblock No free lunch theorems for optimization.
+\newblock {\em IEEE transactions on evolutionary computation}, 1(1):67--82,
+  1997.
+
+\bibitem{yassen2012multi}
+E.~T. Yassen, M.~Ayob, M.~Z.~A. Nazri, and N.~R. Sabar.
+\newblock Multi-parent insertion crossover for vehicle routing problem with
+  time windows.
+\newblock In {\em 2012 4th Conference on Data Mining and Optimization (DMO)},
+  pages 103--108, Langkawi, Malaysia, 2012.
+
+\bibitem{yildiz2023novel}
+Betul~Sultan Y{\i}ld{\i}z, S.~Kumar, Natee Panagant, P.~Mehta, S.~M. Sait,
+  Ali~Riza Y{\i}ld{\i}z, Nantiwat Pholdee, Sujin Bureerat, and Seyedali
+  Mirjalili.
+\newblock A novel hybrid arithmetic optimization algorithm for solving
+  constrained optimization problems.
+\newblock {\em Knowledge-Based Systems}, 271:110554, 2023.
 
 \end{thebibliography}

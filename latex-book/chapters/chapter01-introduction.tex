@@ -58,7 +58,7 @@ Traditional optimization methods include:
 \end{itemize}
 
 \section{Introduction to Evolutionary Computation}
-Evolutionary computation is a family of algorithms inspired by biological evolution. These algorithms use mechanisms such as:
+Evolutionary computation is a family of algorithms inspired by biological evolution~\cite{holland1975adaptation, eiben2015introduction}. These algorithms use mechanisms such as:
 \begin{itemize}
     \item \textbf{Selection}: Survival of the fittest
     \item \textbf{Reproduction}: Creating offspring
@@ -77,18 +77,18 @@ Evolutionary computation is a family of algorithms inspired by biological evolut
 
 \section{Types of Evolutionary Algorithms}
 \begin{itemize}
-    \item \textbf{Genetic Algorithms (GA)}: Inspired by natural selection
-    \item \textbf{Evolution Strategies (ES)}: Focus on real-valued optimization
-    \item \textbf{Evolutionary Programming (EP)}: Emphasis on behavioral evolution
-    \item \textbf{Genetic Programming (GP)}: Evolution of computer programs
+    \item \textbf{Genetic Algorithms (GA)}: Inspired by natural selection~\cite{holland1975adaptation, goldberg1989genetic}
+    \item \textbf{Evolution Strategies (ES)}: Focus on real-valued optimization~\cite{back1996evolutionary}
+    \item \textbf{Evolutionary Programming (EP)}: Emphasis on behavioral evolution~\cite{fogel1995evolutionary, fogel2006evolutionary}
+    \item \textbf{Genetic Programming (GP)}: Evolution of computer programs~\cite{koza1992genetic}
 \end{itemize}
 
 \section{Applications of Evolutionary Computation}
-Evolutionary algorithms have been successfully applied to:
+Evolutionary algorithms have been successfully applied to~\cite{gen2007genetic, sivanandam2008introduction, eiben2015introduction}:
 \begin{itemize}
-    \item Engineering design optimization
-    \item Machine learning and neural network training
-    \item Scheduling and timetabling
+    \item Engineering design optimization~\cite{yildiz2023novel}
+    \item Machine learning and neural network training~\cite{montana1989training, murad2025hybrid}
+    \item Scheduling and timetabling~\cite{gu2022hybrid, fajrin2020multi}
     \item Financial modeling
     \item Bioinformatics
     \item Game playing and strategy
@@ -117,10 +117,10 @@ Another example of genetic algorithm application is the Travelling Salesman Prob
 
 Genetic Algorithms are becoming increasingly popular in industrial engineering, management science, and operations research due to their capability in handling complex optimization problems. Many real-world engineering problems are too complex, non-linear, or contain intricate constraints that are difficult to solve with conventional methods. Genetic Algorithms offer a robust and widely applicable method for stochastic search and optimization.
 
-Rather than searching for a single solution point, Genetic Algorithms work on a population of solutions and only require the objective function (fitness) value without requiring derivatives or deep prior knowledge about the search space. This makes Genetic Algorithms highly suitable for problems such as:
+Rather than searching for a single solution point, Genetic Algorithms work on a population of solutions and only require the objective function (fitness) value without requiring derivatives or deep prior knowledge about the search space~\cite{mitchell1996introduction, goldberg1989genetic}. This makes Genetic Algorithms highly suitable for problems such as:
 
 \subsection{Scheduling}
-Scheduling problems, such as course scheduling, factory production scheduling (Job Shop Scheduling), or flight scheduling, are combinatorial optimization problems characterized by a large number of tasks, limited resources, and strict time constraints. In this context, GA chromosomes represent one task sequence or allocation (schedule). The fitness function is designed to minimize criteria such as total completion time (makespan), amount of delays, or operational costs. Genetic Algorithms can navigate discrete and large solution spaces very efficiently, searching for the best task sequence that meets all complex constraints.
+Scheduling problems, such as course scheduling~\cite{fajrin2020multi}, factory production scheduling (Job Shop Scheduling)~\cite{gu2022hybrid, reeves1998genetic}, or flight scheduling, are combinatorial optimization problems characterized by a large number of tasks, limited resources, and strict time constraints. In this context, GA chromosomes represent one task sequence or allocation (schedule). The fitness function is designed to minimize criteria such as total completion time (makespan), amount of delays, or operational costs. Genetic Algorithms can navigate discrete and large solution spaces very efficiently, searching for the best task sequence that meets all complex constraints.
 
 \subsection{Telecommunication Network Design}
 In network design, Genetic Algorithms are used to optimize topology, capacity, and node or router placement to achieve the best performance. The goal is often to minimize network construction costs while maximizing service quality, such as minimizing delay or maximizing throughput. Chromosomes can encode connection configurations between nodes or technology choices. Because each configuration change can significantly impact overall network performance, Genetic Algorithms are very useful for exploring various possible network architectures that are mathematically difficult to solve with traditional methods.
@@ -141,10 +141,10 @@ Newly generated individuals, called offspring $C(t)$, are then evaluated for the
 Although the Simple Generational Genetic Algorithm serves as the basic framework, various modifications have been developed to improve performance in dealing with problem complexity. Some of these modifications include:
 
 \subsection{Hybrid GA}
-Hybrid GA (HGA) combines Genetic Algorithms with conventional local search techniques. In a hybrid approach, Genetic Algorithms perform global exploration across the population, while local search is used for refinement around promising solutions. This approach often outperforms single methods because it leverages the complementary advantages of both search techniques.
+Hybrid GA (HGA) combines Genetic Algorithms with conventional local search techniques~\cite{majhi2025novel, murad2025hybrid}. In a hybrid approach, Genetic Algorithms perform global exploration across the population, while local search is used for refinement around promising solutions. This approach often outperforms single methods because it leverages the complementary advantages of both search techniques.
 
 \subsection{Adaptive GA}
-Adaptive GA (AGA) is a Genetic Algorithm where strategic parameters (such as crossover or mutation probabilities) are dynamically adjusted during the evolution process, often using feedback from population performance to balance exploitation and exploration effectively.
+Adaptive GA (AGA) is a Genetic Algorithm where strategic parameters (such as crossover or mutation probabilities) are dynamically adjusted during the evolution process, often using feedback from population performance to balance exploitation and exploration effectively~\cite{shams2025resolving, srinivas1994genetic}.
 
 \subsection{Parallel GA}
 Parallel Genetic Algorithms divide the population into different sub-populations across various processors, allowing periodic information exchange (migration) to increase diversity and convergence speed.
