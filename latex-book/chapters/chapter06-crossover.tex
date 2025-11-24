@@ -32,6 +32,28 @@ Crossover is typically applied with probability $p_c$ (usually 0.6-0.9):
 
 \section{Binary Crossover Operators}
 
+\subsection{Definition and Function of Crossover Operator}
+Crossover is a genetic operator used to vary the arrangement of chromosomes from one generation to the next. The crossover method used depends on the encoding method applied.
+
+Crossover occurs in three stages:
+\begin{enumerate}
+    \item The reproduction operator randomly selects a pair of individual strings for the mating process.
+    \item A cross site is randomly selected along the length of the string.
+    \item The values after the cross site are exchanged between the two strings to form new offspring.
+\end{enumerate}
+
+In binary chromosome representation, each individual in the population is represented as a sequence of bits (0 and 1) that express a potential solution to a problem.
+
+\subsection{One-Point Crossover}
+Single-point crossover is the simplest form of crossover. One crossover position is randomly selected, then the part of the two parents after that position is exchanged to form two new offspring. The strings resulting from this process have Positional Bias characteristics.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.7\textwidth]{figures/buku_ajar_page_24.png}
+\caption{Single-Point Crossover for binary chromosomes}
+\label{fig:binary_single_point}
+\end{figure}
+
 \subsection{One-Point Crossover}
 Single crossover point divides chromosomes into two segments.
 
@@ -67,6 +89,17 @@ Crossover point at position 1.
 \subsection{Two-Point Crossover}
 Two crossover points create three segments.
 
+Multi-point crossover has a mechanism like single-point crossover; the difference is the number of randomly selected positions. In Multi-point crossover, a number N of positions are randomly selected along the length of the chromosome. These positions are exchanged to form two new offspring.
+
+The objectives of multi-point crossover include increasing genetic diversity in the population, reducing positional bias, and increasing the chances of recombination from various schemas or different solution blocks. However, using too many cut points can become too disruptive, as it can damage already good gene combinations (coadapted alleles).
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.7\textwidth]{figures/buku_ajar_page_25.png}
+\caption{Multi-point Crossover for binary chromosomes}
+\label{fig:binary_multi_point}
+\end{figure}
+
 \subsubsection{Algorithm}
 \begin{algorithm}
 \caption{Two-Point Crossover}
@@ -97,6 +130,17 @@ Crossover points at positions 2 and 5.
 
 \subsection{Uniform Crossover}
 Each gene is independently chosen from either parent.
+
+In uniform crossover, each gene (bit) is randomly selected from one of the corresponding genes on the parent chromosome. This selection process is done independently for each gene position. This method can be analogized to tossing a coin. If the result is "head", the gene is taken from parent 1; if the result is "tail", the gene is taken from parent 2.
+
+This method provides equal opportunity for each gene to be inherited from one of the parents, thereby increasing genetic diversity and eliminating positional bias that typically appears in single-point crossover or multi-point crossover.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.7\textwidth]{figures/buku_ajar_page_25.png}
+\caption{Uniform Crossover for binary chromosomes}
+\label{fig:binary_uniform}
+\end{figure}
 
 \subsubsection{Algorithm}
 \begin{algorithm}
@@ -143,10 +187,117 @@ Generalization with $k$ crossover points.
     \item As $k$ increases, approaches uniform crossover
 \end{itemize}
 
+\section{Integer Chromosome Crossover}
+
+Unlike binary chromosomes that use bits 0 and 1, integer representation is more suitable for problems involving discrete parameters or numerical values that have quantitative meaning, such as scheduling, sequencing, or combinatorial optimization.
+
+\subsection{Single-Point Crossover for Integer}
+Single-Point Crossover is the simplest form of crossover. One crossover position is randomly selected, then the part of the two parents after that position is exchanged to form two new offspring. The strings resulting from this process have Positional Bias characteristics.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.7\textwidth]{figures/buku_ajar_page_28.png}
+\caption{Single-Point Crossover for integer chromosomes}
+\label{fig:integer_single_point}
+\end{figure}
+
+\subsection{Multi-point Crossover for Integer}
+Multi-point crossover has a mechanism like single-point crossover; the difference is the number of randomly selected positions. In Multi-point crossover, a number N of positions are randomly selected along the length of the chromosome. These positions are exchanged to form two new offspring.
+
+The objectives of multi-point crossover include increasing genetic diversity in the population, reducing positional bias, and increasing the chances of recombination from various schemas or different solution blocks. However, using too many cut points can become too disruptive, as it can damage already good gene combinations (coadapted alleles).
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.7\textwidth]{figures/buku_ajar_page_28.png}
+\caption{Multi-point Crossover for integer chromosomes}
+\label{fig:integer_multi_point}
+\end{figure}
+
+\subsection{Uniform Crossover for Integer}
+In uniform crossover, each gene is randomly selected from one of the corresponding genes on the parent chromosome. This selection process is done independently for each gene position. This method can be analogized to tossing a coin. If the result is "head", the gene is taken from parent 1; if the result is "tail", the gene is taken from parent 2.
+
+This method provides equal opportunity for each gene to be inherited from one of the parents, thereby increasing genetic diversity and eliminating positional bias that typically appears in single-point crossover or multi-point crossover.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.7\textwidth]{figures/buku_ajar_page_29.png}
+\caption{Uniform Crossover for integer chromosomes}
+\label{fig:integer_uniform}
+\end{figure}
+
 \section{Real-Valued Crossover Operators}
+
+Crossover on real chromosomes is a genetic recombination process in Genetic Algorithms applied to chromosomes represented in real number form (floating-point representation). This representation is commonly used to solve continuous optimization problems, where decision variables have values within a certain range and are not limited to integers or binary.
+
+Unlike crossover on binary or integer chromosomes, the crossover mechanism for real chromosomes involves arithmetic operations on gene values between parents. This method allows the creation of offspring with gene values that are between or around the parent gene values, thus maintaining the continuity and stability of the evolution process.
 
 \subsection{Arithmetic Crossover}
 Linear combination of parent vectors.
+
+\subsubsection{Single Arithmetic Crossover}
+\begin{enumerate}
+    \item Two parents are represented as:
+    \begin{itemize}
+        \item Parent 1: $\langle x_1, \ldots, x_n \rangle$
+        \item Parent 2: $\langle y_1, \ldots, y_n \rangle$
+    \end{itemize}
+    \item Randomly select one gene ($k$) to undergo crossover operation
+    \item The result is two offspring formed based on a linear combination of the $k$-th gene of those parents with control parameter $\alpha$, where $0 \leq \alpha \leq 1$:
+    \begin{itemize}
+        \item Offspring 1: $\langle x_1, \ldots, x_{k-1}, \alpha \cdot y_k + (1-\alpha) \cdot x_k, x_{k+1}, \ldots, x_n \rangle$
+        \item Offspring 2: $\langle y_1, \ldots, y_{k-1}, \alpha \cdot x_k + (1-\alpha) \cdot y_k, y_{k+1}, \ldots, y_n \rangle$
+    \end{itemize}
+\end{enumerate}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.7\textwidth]{figures/buku_ajar_page_31.png}
+\caption{Single Arithmetic Crossover for real chromosomes}
+\label{fig:real_single_arithmetic}
+\end{figure}
+
+\subsubsection{Simple Arithmetic Crossover}
+\begin{enumerate}
+    \item Two parents are represented as:
+    \begin{itemize}
+        \item Parent 1: $\langle x_1, \ldots, x_n \rangle$
+        \item Parent 2: $\langle y_1, \ldots, y_n \rangle$
+    \end{itemize}
+    \item Randomly select one gene ($k$) to become the crossover boundary point
+    \item The result is two offspring formed based on a linear combination from gene $k+1$ to gene $n$ with control parameter $\alpha$, where $0 \leq \alpha \leq 1$:
+    \begin{itemize}
+        \item Offspring 1: $\langle x_1, \ldots, x_k, \alpha \cdot y_{k+1} + (1-\alpha) \cdot x_{k+1}, \ldots, \alpha \cdot y_n + (1-\alpha) \cdot x_n \rangle$
+        \item Offspring 2: $\langle y_1, \ldots, y_k, \alpha \cdot x_{k+1} + (1-\alpha) \cdot y_{k+1}, \ldots, \alpha \cdot x_n + (1-\alpha) \cdot y_n \rangle$
+    \end{itemize}
+\end{enumerate}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.7\textwidth]{figures/buku_ajar_page_32.png}
+\caption{Simple Arithmetic Crossover for real chromosomes}
+\label{fig:real_simple_arithmetic}
+\end{figure}
+
+\subsubsection{Whole Arithmetic Crossover}
+\begin{enumerate}
+    \item Two parents are represented as:
+    \begin{itemize}
+        \item Parent 1: $\langle x_1, \ldots, x_n \rangle$
+        \item Parent 2: $\langle y_1, \ldots, y_n \rangle$
+    \end{itemize}
+    \item For each gene $i$ ($i = 1, 2, \ldots, n$), offspring are formed with a linear combination of genes from both parents with control parameter $\alpha$, where $0 \leq \alpha \leq 1$:
+    \begin{itemize}
+        \item Offspring 1: $z_i^1 = \alpha \cdot y_i + (1-\alpha) \cdot x_i$
+        \item Offspring 2: $z_i^2 = \alpha \cdot x_i + (1-\alpha) \cdot y_i$
+    \end{itemize}
+\end{enumerate}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.7\textwidth]{figures/buku_ajar_page_32.png}
+\caption{Whole Arithmetic Crossover for real chromosomes}
+\label{fig:real_whole_arithmetic}
+\end{figure}
 
 \subsubsection{Whole Arithmetic Crossover}
 \begin{align}

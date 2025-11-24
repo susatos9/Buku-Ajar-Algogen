@@ -1,7 +1,37 @@
 \chapter{Selection Methods in Genetic Algorithms}
 
 \section{Introduction to Selection}
-Selection is the process of choosing individuals from the current population to create the next generation. It drives the evolutionary process by favoring fitter individuals while maintaining population diversity. Selection pressure determines how strongly the population moves toward fitter regions of the search space.
+
+\subsection{Definition and Function of Selection Operator}
+Selection is the process of choosing individuals from the population to become parents in the crossover process. This process determines which individuals will produce offspring in the next generation and how many offspring will be produced.
+
+The main goal of selection is to give greater opportunities to individuals with higher fitness to be selected, with the hope that the offspring produced will also have higher fitness. Thus, selection functions as a mechanism that drives Genetic Algorithms toward optimal solutions through improving population quality from generation to generation.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.75\textwidth]{figures/buku_ajar_page_16.png}
+\caption{Basic selection process in Genetic Algorithms}
+\label{fig:selection_basic_process}
+\end{figure}
+
+\subsection{Selection Pressure}
+Selection pressure is a measure of how much individuals with higher fitness are favored for selection compared to other individuals. The higher the selection pressure, the greater the chance that the best individuals are selected. This pressure plays an important role because it drives Genetic Algorithms to continuously improve the average fitness of the population from one generation to the next.
+
+The magnitude of selection pressure greatly affects the convergence rate of Genetic Algorithms. If the pressure is high, Genetic Algorithms will reach solutions faster, but there is a risk of stopping too quickly at a wrong solution (premature convergence). Conversely, if the pressure is too low, the evolution process becomes slow because the best individuals are not spread enough.
+
+Therefore, balance is needed. Selection must be strong enough to accelerate the search for solutions, but also maintain population diversity so that variation in the population is not lost. In this way, Genetic Algorithms can avoid premature convergence and still have the opportunity to find optimal or near-optimal solutions.
+
+\subsection{Types of Selection Operators}
+The main types of selection operators include:
+\begin{enumerate}
+    \item Fitness Proportionate Selection (FPS)
+    \begin{itemize}
+        \item Roulette Wheel Selection
+        \item Baker's SUS (Stochastic Universal Sampling)
+    \end{itemize}
+    \item Rank-Based Selection
+    \item Tournament Selection
+\end{enumerate}
 
 \section{Selection Pressure}
 Selection pressure is the degree to which better individuals are favored. It affects:
@@ -11,10 +41,54 @@ Selection pressure is the degree to which better individuals are favored. It aff
     \item \textbf{Optimal pressure}: Balance between exploration and exploitation
 \end{itemize}
 
-\section{Proportional Selection Methods}
+\section{Fitness Proportionate Selection (FPS)}
+
+The Genetic Algorithm developed by Holland uses Fitness Proportionate Selection (FPS), where the expected value of an individual (i.e., the expected number of times that individual will be selected for reproduction) is calculated as that individual's fitness divided by the population's average fitness.
+
+In this method, each individual can be selected as a parent with a probability proportional to its fitness value. Therefore, individuals with higher fitness have greater opportunities to reproduce and spread their characteristics to the next generation. Thus, this method provides selection pressure on fitter individuals in the population, thus driving evolution toward better individuals over time.
 
 \subsection{Roulette Wheel Selection}
 Also known as fitness proportionate selection, individuals are selected with probability proportional to their fitness.
+
+The simplest selection schema is roulette-wheel selection, also called stochastic sampling with replacement. This is a stochastic algorithm and involves the following technique:
+
+Individuals are mapped to contiguous segments on a line, where the size of each segment is equal to that individual's fitness value. A random number is generated, and the individual whose segment spans that random number is selected. This process is repeated until the desired number of individuals is reached, called the mating population. This technique is analogous to a roulette wheel, where each slice is proportional in size to the fitness value.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{cccc}
+\toprule
+Number of Individual & Fitness Value & Selection Probability & Interval \\
+\midrule
+1 & 2.0 & 0.18 & [0.00, 0.18] \\
+2 & 1.8 & 0.16 & [0.18, 0.34] \\
+3 & 1.6 & 0.15 & [0.34, 0.49] \\
+4 & 1.4 & 0.13 & [0.49, 0.62] \\
+5 & 1.2 & 0.11 & [0.62, 0.73] \\
+6 & 1.0 & 0.09 & [0.73, 0.82] \\
+7 & 0.8 & 0.07 & [0.82, 0.89] \\
+8 & 0.6 & 0.06 & [0.89, 0.95] \\
+9 & 0.4 & 0.03 & [0.95, 0.98] \\
+10 & 0.2 & 0.02 & [0.98, 1.00] \\
+11 & 0.0 & 0.0 & -- \\
+\bottomrule
+\end{tabular}
+\caption{Selection probability and fitness value (from Buku Ajar)}
+\label{tab:selection_probability}
+\end{table}
+
+Table \ref{tab:selection_probability} shows the selection probabilities for 11 individuals, with linear ranking with selective pressure of 2, along with their fitness values. Individual 1 is the individual with the highest fitness and occupies the largest interval, while individual 10 as the individual with the second lowest fitness has the smallest interval on the line. Individual 11, with the lowest fitness, has fitness value = 0 and gets no chance for reproduction.
+
+To select the mating population, a number of uniformly distributed random numbers (uniformly distributed between 0.0 and 1.0) are generated independently.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.85\textwidth]{figures/buku_ajar_page_18.png}
+\caption{Roulette-wheel selection process with sample trials}
+\label{fig:roulette_wheel_selection}
+\end{figure}
+
+The disadvantage of roulette-wheel selection is that although it provides zero bias, it does not guarantee minimum spread.
 
 \subsubsection{Algorithm}
 \begin{algorithm}
@@ -77,6 +151,22 @@ If random number $r = 0.6$, individual 2 is selected.
 \subsection{Stochastic Universal Sampling (SUS)}
 Improved version of roulette wheel selection that reduces variance.
 
+\subsubsection{Baker's SUS}
+Stochastic Universal Sampling (SUS) provides zero bias and minimum spread. Individuals are mapped to contiguous segments on a line, where the size of each segment equals its fitness value, exactly as in roulette-wheel selection. In this method, equally spaced pointers are placed on the line equal to the number of individuals to be selected.
+
+Let NPointer be the number of individuals to be selected, then the distance between pointers is $1/N_{Pointer}$, and the position of the first pointer is determined by a random number generated in the range $[0, 1/N_{Pointer}]$.
+
+For example, to select 6 individuals, the distance between pointers is $1/6 = 0.167$.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.85\textwidth]{figures/buku_ajar_page_19.png}
+\caption{Stochastic universal sampling with equally spaced pointers}
+\label{fig:sus_selection}
+\end{figure}
+
+Stochastic universal sampling ensures offspring selection that is closer to the expected values compared to roulette-wheel selection.
+
 \subsubsection{Algorithm}
 \begin{algorithm}
 \caption{Stochastic Universal Sampling}
@@ -101,6 +191,20 @@ Improved version of roulette wheel selection that reduces variance.
 \section{Rank-based Selection}
 
 Rank-based selection assigns selection probabilities based on fitness rank rather than raw fitness values.
+
+\subsection{Overview}
+Ranked-Based Selection introduces a different approach to selection in Genetic Algorithms. Instead of directly using fitness values to determine selection probability, individuals in the population are first sorted (ranked) based on their fitness values, then each individual is assigned a rank. The selection probability is then calculated based on that rank, not the actual fitness value.
+
+This rank-based approach helps reduce problems associated with direct fitness-based selection, such as premature convergence and domination by a few very fit individuals in the early stages of the optimization process. By assigning ranks and using them for selection, Ranked-Based Selection provides more balanced and controlled selection pressure, allowing better exploration of the search space and maintaining diversity in the population.
+
+Rankings are typically assigned linearly or exponentially, where the best individual receives the highest rank and the worst individual receives the lowest rank. Selection probability is then calculated based on that ranking using a predetermined formula or mapping function. This mapping function can be adjusted to control selection pressure, where higher pressure will favor individuals with the highest ranks, while lower pressure provides a more even distribution of selection probabilities.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.8\textwidth]{figures/buku_ajar_page_20.png}
+\caption{How the situation changes after converting fitness to order number (rank)}
+\label{fig:rank_based_selection}
+\end{figure}
 
 \subsection{Linear Ranking}
 \begin{equation}
@@ -141,6 +245,29 @@ where $c$ is a normalization constant ensuring $\sum P_i = 1$.
 \section{Tournament Selection}
 
 Tournament selection randomly selects $k$ individuals and chooses the best among them.
+
+\subsection{Overview}
+Tournament selection is a strong and widely used selection mechanism in Genetic Algorithms because it can maintain a balance between diversity maintenance and selective pressure. Unlike roulette-wheel selection, which directly depends on an individual's fitness relative to the total population fitness, tournament selection works by holding "tournaments" among subsets of individuals, and the winner of each tournament is selected for reproduction.
+
+The main concept of tournament selection is quite simple: instead of considering the entire population at once, a subset of individuals is randomly selected to compete with each other. The individual with the highest fitness in that "tournament" is then selected. This process is repeated until the desired number of individuals for reproduction is reached.
+
+This method has several advantages: tournament selection maintains diversity because individuals with low fitness still have the opportunity to participate in tournaments. Additionally, this method allows selective pressure to be adjusted by setting the tournament size.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.7\textwidth]{figures/buku_ajar_page_21.png}
+\caption{Tournament selection mechanism}
+\label{fig:tournament_selection}
+\end{figure}
+
+\subsection{Tournament Selection Mechanism}
+\begin{enumerate}
+    \item Determine tournament size ($k$), i.e., the number of individuals participating in each tournament.
+    \item Randomly select $k$ individuals from the population.
+    \item Compare the fitness values of these individuals and select the individual with the highest fitness as the winner.
+    \item Add the winner to the mating pool.
+    \item Repeat steps 2–4 until the desired number of individuals is reached.
+\end{enumerate}
 
 \subsection{Binary Tournament}
 Most common form with $k = 2$.

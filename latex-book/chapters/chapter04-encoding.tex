@@ -68,7 +68,68 @@ For multiple variables, concatenate individual encodings:
     \item Fixed precision may be inadequate
     \item Long strings for high precision
     \item Epistasis between variables
+    \item Not natural for many problems with real-valued features
+    \item Often requires correction after genetic operations
 \end{itemize}
+
+\section{Overview of Encoding Types}
+
+\subsection{Problem Identification and Formulation}
+One thing to consider when using genetic algorithms is how we represent the data we are studying. Therefore, we must determine which encoding is most suitable for the problem we face. Like other search or learning methods, how encoding is done on candidate solutions is one of, if not the most important factor in the success of the genetic algorithm itself. Most genetic algorithm applications use bit strings with predetermined length and order. However, recently many experiments have been conducted with other types of encoding.
+
+\subsection{What is Encoding}
+Encoding is the process of representing individual genes. This process can be done with bits, numbers, trees, arrays, lists, or any other object. The encoding is primarily dependent on how the related object is solved. For example, encoding can be done with integers or real numbers.
+
+\subsection{Encoding Type Categories}
+
+\subsubsection{1. Binary Encoding}
+Binary encoding, i.e., bit strings, is the simplest and most widely used type of encoding. Many renowned researchers use binary encoding in their problems, for example Holland, as in the Holland schema. Each chromosome is encoded as a binary string. Each bit in it represents a feature or characteristic of that solution. Binary encoding can store a lot of information with a minimal number of alleles (e.g., 0 or 1, compared to decimal which has many alleles).
+
+Here are some examples of chromosomes with binary encoding:
+\begin{itemize}
+    \item Chromosome 1: 1 1 0 1 0 0 0 1 1 0 1 0
+    \item Chromosome 2: 0 1 1 1 1 1 1 1 1 1 0 0
+\end{itemize}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.7\textwidth]{figures/buku_ajar_page_12.png}
+\caption{Binary encoding examples and characteristics}
+\label{fig:binary_encoding_example}
+\end{figure}
+
+On the other hand, this encoding is not natural and difficult to implement for most problems that generally have features in the form of real numbers, and corrections often have to be made after genetic operations are completed.
+
+\subsubsection{2. Value Encoding}
+Problems generally have complex values. Values like these are quite difficult to represent in binary form. This is where value encoding is used. Each chromosome is a string of values, where the value in each string itself can be anything related to the problem. This includes integers, letters, real numbers, and other values.
+
+Here are some examples of chromosomes with value encoding:
+\begin{itemize}
+    \item Chromosome A: 1.2324, 5.3242, 0.4556, 2.3293, 2.4545
+    \item Chromosome B: ABDJEIFJDHDIERJFDLDFLEGT
+    \item Chromosome C: (back), (back), (right), (forward), (left)
+\end{itemize}
+
+\subsubsection{3. Permutation Encoding}
+There are some special problems that do not look at chromosomes from their individual gene values. They look at the position of occurrence of each gene, as in ordering problems. Each gene can be an integer or real, representing numbers in a sequence.
+
+Here are some examples of chromosomes with permutation encoding:
+\begin{itemize}
+    \item Chromosome A: 1 5 3 2 6 4 7 9 8
+    \item Chromosome B: 8 5 6 7 2 3 1 4 9
+\end{itemize}
+
+\subsubsection{4. Tree Encoding}
+Tree encoding is most often used in program expressions that constantly change in genetic programming. Each chromosome is a tree of an object such as a function or command from a programming language. Tree encoding has a number of advantages, one of which is enabling an open search space, because basically trees of any size can be formed through crossover and mutation.
+
+However, this openness can be one of the weaknesses of this encoding method. The formed tree can become too large without being controlled, thus hindering the formation of more structured and hierarchical solution candidates. In addition, the resulting tree tends to be difficult to interpret and simplify due to its large size.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.8\textwidth]{figures/buku_ajar_page_13.png}
+\caption{Various encoding types: Value, Permutation, and Tree encoding}
+\label{fig:encoding_types}
+\end{figure}
 
 \section{Gray Code Encoding}
 

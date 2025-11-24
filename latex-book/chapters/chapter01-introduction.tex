@@ -94,8 +94,63 @@ Evolutionary algorithms have been successfully applied to:
     \item Game playing and strategy
 \end{itemize}
 
+\section{Simple Examples of Genetic Algorithm Applications}
+
+Genetic Algorithms possess an extraordinary capability in finding optimal solutions for problems with vast search spaces.
+
+\subsection{Maximizing a Quadratic Function}
+A classic example often used to illustrate how Genetic Algorithms work is the problem of maximizing a simple quadratic function, such as $f(x) = x^2$ in the range $0 \leq x \leq 31$. In this case, the optimal solution is clear: $x = 31$, yielding $f(x) = 961$. However, this problem is used to demonstrate how Genetic Algorithms, despite starting with a random population (for example, four 5-bit binary chromosomes), can gradually combine features (building blocks) from existing solutions to achieve better results.
+
+Through cycles of selection, crossover, and mutation, Genetic Algorithms show how both the maximum and average performance of the population increases from one generation to the next. Within a few generations, individuals representing $x = 31$ (binary 11111) will dominate the population.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.7\textwidth]{figures/buku_ajar_page_4.png}
+\caption{Illustration of GA cycle and variations}
+\label{fig:ga_intro_cycle}
+\end{figure}
+
+\subsection{Travelling Salesman Problem}
+Another example of genetic algorithm application is the Travelling Salesman Problem (TSP), where Genetic Algorithms are used to find the shortest route visiting a number of cities—a highly complex combinatorial optimization problem.
+
+\section{Genetic Algorithms for Real-World Problems}
+
+Genetic Algorithms are becoming increasingly popular in industrial engineering, management science, and operations research due to their capability in handling complex optimization problems. Many real-world engineering problems are too complex, non-linear, or contain intricate constraints that are difficult to solve with conventional methods. Genetic Algorithms offer a robust and widely applicable method for stochastic search and optimization.
+
+Rather than searching for a single solution point, Genetic Algorithms work on a population of solutions and only require the objective function (fitness) value without requiring derivatives or deep prior knowledge about the search space. This makes Genetic Algorithms highly suitable for problems such as:
+
+\subsection{Scheduling}
+Scheduling problems, such as course scheduling, factory production scheduling (Job Shop Scheduling), or flight scheduling, are combinatorial optimization problems characterized by a large number of tasks, limited resources, and strict time constraints. In this context, GA chromosomes represent one task sequence or allocation (schedule). The fitness function is designed to minimize criteria such as total completion time (makespan), amount of delays, or operational costs. Genetic Algorithms can navigate discrete and large solution spaces very efficiently, searching for the best task sequence that meets all complex constraints.
+
+\subsection{Telecommunication Network Design}
+In network design, Genetic Algorithms are used to optimize topology, capacity, and node or router placement to achieve the best performance. The goal is often to minimize network construction costs while maximizing service quality, such as minimizing delay or maximizing throughput. Chromosomes can encode connection configurations between nodes or technology choices. Because each configuration change can significantly impact overall network performance, Genetic Algorithms are very useful for exploring various possible network architectures that are mathematically difficult to solve with traditional methods.
+
+\subsection{VLSI Design (Very Large Scale Integration)}
+VLSI is the process of designing semiconductor chips with millions of transistors. Genetic Algorithms are highly relevant in two main sub-problems: placement and routing. In the placement problem, Genetic Algorithms optimize the position of circuit blocks on the chip to minimize total wire length and avoid overlaps. In routing, Genetic Algorithms search for the best path to connect all circuit pins without violating physical constraints. The high dimensionality and geometric constraints (such as area, power, and timing) make the VLSI search space explosive, making Genetic Algorithms a feasible search technique for generating near-optimal layouts.
+
+\section{Genetic Algorithm Flow}
+
+Genetic algorithms maintain a population of individuals, denoted as $P(t)$ for generation $t$, where each individual represents a potential solution to the problem at hand. This cycle runs iteratively through steps that mimic the evolution process.
+
+After the initial population $P(0)$ is initialized and its fitness evaluated, the selection process begins, where fitter individuals are probabilistically selected to enter the mating pool. Selected individuals then undergo stochastic transformation through genetic operators. The crossover operator is responsible for exploiting the best information from parents, while mutation is tasked with exploring the search space by introducing new genetic material.
+
+Newly generated individuals, called offspring $C(t)$, are then evaluated for their fitness. A new population $P(t+1)$ is formed by selecting fitter individuals from both the parent and offspring populations through a replacement scheme. This process is repeated for several generations until the algorithm converges, pointing to the best individual, which is expected to represent an optimal or suboptimal solution to the problem.
+
+\section{Genetic Algorithm Variations}
+
+Although the Simple Generational Genetic Algorithm serves as the basic framework, various modifications have been developed to improve performance in dealing with problem complexity. Some of these modifications include:
+
+\subsection{Hybrid GA}
+Hybrid GA (HGA) combines Genetic Algorithms with conventional local search techniques. In a hybrid approach, Genetic Algorithms perform global exploration across the population, while local search is used for refinement around promising solutions. This approach often outperforms single methods because it leverages the complementary advantages of both search techniques.
+
+\subsection{Adaptive GA}
+Adaptive GA (AGA) is a Genetic Algorithm where strategic parameters (such as crossover or mutation probabilities) are dynamically adjusted during the evolution process, often using feedback from population performance to balance exploitation and exploration effectively.
+
+\subsection{Parallel GA}
+Parallel Genetic Algorithms divide the population into different sub-populations across various processors, allowing periodic information exchange (migration) to increase diversity and convergence speed.
+
 \section{Chapter Summary}
-This chapter introduced the fundamental concepts of optimization and evolutionary computation. We explored the limitations of traditional optimization methods and highlighted the advantages of evolutionary approaches. The next chapter will delve deeper into genetic algorithms, which are one of the most popular and widely used evolutionary algorithms.
+This chapter introduced the fundamental concepts of optimization and evolutionary computation. We explored the limitations of traditional optimization methods and highlighted the advantages of evolutionary approaches. We also examined specific examples of GA applications including function optimization, TSP, scheduling, network design, and VLSI design. The GA flow and various modifications were discussed to provide a comprehensive understanding of genetic algorithms.
 
 \section{Key Concepts}
 \begin{itemize}

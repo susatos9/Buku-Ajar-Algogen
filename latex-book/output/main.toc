@@ -11,364 +11,406 @@
 \contentsline {subsection}{\numberline {1.5.1}Advantages of Evolutionary Approaches}{3}{subsection.1.5.1}%
 \contentsline {section}{\numberline {1.6}Types of Evolutionary Algorithms}{3}{section.1.6}%
 \contentsline {section}{\numberline {1.7}Applications of Evolutionary Computation}{3}{section.1.7}%
-\contentsline {section}{\numberline {1.8}Chapter Summary}{3}{section.1.8}%
-\contentsline {section}{\numberline {1.9}Key Concepts}{4}{section.1.9}%
-\contentsline {section}{\numberline {1.10}Further Reading}{4}{section.1.10}%
-\contentsline {chapter}{\numberline {2}What is a Genetic Algorithm?}{5}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Introduction}{5}{section.2.1}%
-\contentsline {section}{\numberline {2.2}Biological Inspiration}{5}{section.2.2}%
-\contentsline {section}{\numberline {2.3}Basic Terminology}{5}{section.2.3}%
-\contentsline {subsection}{\numberline {2.3.1}Genetic Algorithm Terms}{5}{subsection.2.3.1}%
-\contentsline {section}{\numberline {2.4}Basic Structure of a Genetic Algorithm}{6}{section.2.4}%
-\contentsline {section}{\numberline {2.5}Key Components of GA}{6}{section.2.5}%
-\contentsline {subsection}{\numberline {2.5.1}Representation}{6}{subsection.2.5.1}%
-\contentsline {subsection}{\numberline {2.5.2}Fitness Function}{6}{subsection.2.5.2}%
-\contentsline {subsection}{\numberline {2.5.3}Selection}{7}{subsection.2.5.3}%
-\contentsline {subsection}{\numberline {2.5.4}Crossover (Recombination)}{7}{subsection.2.5.4}%
-\contentsline {subsection}{\numberline {2.5.5}Mutation}{7}{subsection.2.5.5}%
-\contentsline {section}{\numberline {2.6}Example: Maximizing a Simple Function}{7}{section.2.6}%
-\contentsline {subsection}{\numberline {2.6.1}Step 1: Representation}{7}{subsection.2.6.1}%
-\contentsline {subsection}{\numberline {2.6.2}Step 2: Initial Population}{7}{subsection.2.6.2}%
-\contentsline {subsection}{\numberline {2.6.3}Step 3: Selection}{7}{subsection.2.6.3}%
-\contentsline {subsection}{\numberline {2.6.4}Step 4: Crossover}{8}{subsection.2.6.4}%
-\contentsline {subsection}{\numberline {2.6.5}Step 5: Mutation}{8}{subsection.2.6.5}%
-\contentsline {section}{\numberline {2.7}Advantages of Genetic Algorithms}{8}{section.2.7}%
-\contentsline {section}{\numberline {2.8}Disadvantages of Genetic Algorithms}{8}{section.2.8}%
-\contentsline {section}{\numberline {2.9}When to Use Genetic Algorithms}{8}{section.2.9}%
-\contentsline {section}{\numberline {2.10}Variations of Genetic Algorithms}{9}{section.2.10}%
-\contentsline {section}{\numberline {2.11}Chapter Summary}{9}{section.2.11}%
-\contentsline {section}{\numberline {2.12}Key Concepts}{9}{section.2.12}%
-\contentsline {chapter}{\numberline {3}GA Cycle and Holland Schema Theory}{11}{chapter.3}%
-\contentsline {section}{\numberline {3.1}The Genetic Algorithm Cycle}{11}{section.3.1}%
-\contentsline {subsection}{\numberline {3.1.1}Detailed GA Cycle}{12}{subsection.3.1.1}%
-\contentsline {subsection}{\numberline {3.1.2}Phase 1: Initialization}{12}{subsection.3.1.2}%
-\contentsline {subsection}{\numberline {3.1.3}Phase 2: Evaluation}{12}{subsection.3.1.3}%
-\contentsline {subsection}{\numberline {3.1.4}Phase 3: Termination Check}{12}{subsection.3.1.4}%
-\contentsline {subsection}{\numberline {3.1.5}Phase 4: Selection}{13}{subsection.3.1.5}%
-\contentsline {subsection}{\numberline {3.1.6}Phase 5: Crossover}{13}{subsection.3.1.6}%
-\contentsline {subsection}{\numberline {3.1.7}Phase 6: Mutation}{13}{subsection.3.1.7}%
-\contentsline {subsection}{\numberline {3.1.8}Phase 7: Replacement}{13}{subsection.3.1.8}%
-\contentsline {section}{\numberline {3.2}Holland Schema Theory}{13}{section.3.2}%
-\contentsline {subsection}{\numberline {3.2.1}What is a Schema?}{14}{subsection.3.2.1}%
-\contentsline {subsection}{\numberline {3.2.2}Schema Properties}{14}{subsection.3.2.2}%
-\contentsline {subsubsection}{Order of a Schema}{14}{subsection.3.2.2}%
-\contentsline {subsubsection}{Defining Length}{14}{equation.3.2.1}%
-\contentsline {subsection}{\numberline {3.2.3}Schema Theorem (Fundamental Theorem)}{14}{subsection.3.2.3}%
-\contentsline {subsubsection}{Selection Effect}{14}{subsection.3.2.3}%
-\contentsline {subsubsection}{Crossover Effect}{15}{equation.3.2.3}%
-\contentsline {subsubsection}{Mutation Effect}{15}{equation.3.2.4}%
-\contentsline {subsubsection}{Combined Schema Theorem}{15}{equation.3.2.5}%
-\contentsline {subsection}{\numberline {3.2.4}Building Block Hypothesis}{15}{subsection.3.2.4}%
-\contentsline {subsubsection}{Characteristics of Good Building Blocks}{15}{subsection.3.2.4}%
-\contentsline {section}{\numberline {3.3}Implicit Parallelism}{15}{section.3.3}%
-\contentsline {section}{\numberline {3.4}Deception and Schema Theory}{16}{section.3.4}%
-\contentsline {subsection}{\numberline {3.4.1}Deceptive Problems}{16}{subsection.3.4.1}%
-\contentsline {subsection}{\numberline {3.4.2}Overcoming Deception}{16}{subsection.3.4.2}%
-\contentsline {section}{\numberline {3.5}Practical Implications}{16}{section.3.5}%
-\contentsline {subsection}{\numberline {3.5.1}Encoding Design}{16}{subsection.3.5.1}%
-\contentsline {subsection}{\numberline {3.5.2}Parameter Settings}{16}{subsection.3.5.2}%
-\contentsline {section}{\numberline {3.6}Limitations of Schema Theory}{16}{section.3.6}%
-\contentsline {section}{\numberline {3.7}Modern Extensions}{17}{section.3.7}%
-\contentsline {subsection}{\numberline {3.7.1}Walsh Analysis}{17}{subsection.3.7.1}%
-\contentsline {subsection}{\numberline {3.7.2}Fitness Landscapes}{17}{subsection.3.7.2}%
-\contentsline {subsection}{\numberline {3.7.3}No Free Lunch Theorem}{17}{subsection.3.7.3}%
-\contentsline {section}{\numberline {3.8}Chapter Summary}{17}{section.3.8}%
-\contentsline {section}{\numberline {3.9}Key Concepts}{17}{section.3.9}%
-\contentsline {chapter}{\numberline {4}Genetic Algorithm Encoding}{19}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Introduction to Encoding}{19}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Requirements for Good Encoding}{19}{section.4.2}%
-\contentsline {subsection}{\numberline {4.2.1}Completeness}{19}{subsection.4.2.1}%
-\contentsline {subsection}{\numberline {4.2.2}Soundness}{19}{subsection.4.2.2}%
-\contentsline {subsection}{\numberline {4.2.3}Non-redundancy}{19}{subsection.4.2.3}%
-\contentsline {subsection}{\numberline {4.2.4}Locality}{19}{subsection.4.2.4}%
-\contentsline {section}{\numberline {4.3}Binary Encoding}{19}{section.4.3}%
-\contentsline {subsection}{\numberline {4.3.1}Basic Binary Encoding}{20}{subsection.4.3.1}%
-\contentsline {subsection}{\numberline {4.3.2}Decoding Binary Strings}{20}{subsection.4.3.2}%
-\contentsline {subsection}{\numberline {4.3.3}Multi-variable Binary Encoding}{20}{subsection.4.3.3}%
-\contentsline {subsection}{\numberline {4.3.4}Advantages of Binary Encoding}{20}{subsection.4.3.4}%
-\contentsline {subsection}{\numberline {4.3.5}Disadvantages of Binary Encoding}{20}{subsection.4.3.5}%
-\contentsline {section}{\numberline {4.4}Gray Code Encoding}{21}{section.4.4}%
-\contentsline {subsection}{\numberline {4.4.1}Binary to Gray Code Conversion}{21}{subsection.4.4.1}%
-\contentsline {subsection}{\numberline {4.4.2}Gray Code to Binary Conversion}{21}{subsection.4.4.2}%
-\contentsline {subsection}{\numberline {4.4.3}Example: 4-bit Gray Code}{21}{subsection.4.4.3}%
-\contentsline {section}{\numberline {4.5}Real-valued Encoding}{21}{section.4.5}%
-\contentsline {subsection}{\numberline {4.5.1}Representation}{21}{subsection.4.5.1}%
-\contentsline {subsection}{\numberline {4.5.2}Advantages}{22}{subsection.4.5.2}%
-\contentsline {subsection}{\numberline {4.5.3}Disadvantages}{22}{subsection.4.5.3}%
-\contentsline {subsection}{\numberline {4.5.4}Real-valued Crossover Operators}{22}{subsection.4.5.4}%
-\contentsline {subsubsection}{Arithmetic Crossover}{22}{subsection.4.5.4}%
-\contentsline {subsubsection}{BLX-$\alpha $ Crossover}{22}{equation.4.5.3}%
-\contentsline {subsection}{\numberline {4.5.5}Real-valued Mutation Operators}{22}{subsection.4.5.5}%
-\contentsline {subsubsection}{Gaussian Mutation}{22}{subsection.4.5.5}%
-\contentsline {subsubsection}{Non-uniform Mutation}{23}{equation.4.5.5}%
-\contentsline {section}{\numberline {4.6}Integer Encoding}{23}{section.4.6}%
-\contentsline {subsection}{\numberline {4.6.1}Representation}{23}{subsection.4.6.1}%
-\contentsline {subsection}{\numberline {4.6.2}Integer Crossover}{23}{subsection.4.6.2}%
-\contentsline {subsection}{\numberline {4.6.3}Integer Mutation}{23}{subsection.4.6.3}%
-\contentsline {section}{\numberline {4.7}Permutation Encoding}{23}{section.4.7}%
-\contentsline {subsection}{\numberline {4.7.1}Representation}{23}{subsection.4.7.1}%
-\contentsline {subsection}{\numberline {4.7.2}Permutation Crossover Operators}{24}{subsection.4.7.2}%
-\contentsline {subsubsection}{Order Crossover (OX)}{24}{subsection.4.7.2}%
-\contentsline {subsubsection}{Partially Mapped Crossover (PMX)}{24}{equation.4.7.11}%
-\contentsline {subsubsection}{Cycle Crossover (CX)}{24}{Item.9}%
-\contentsline {subsection}{\numberline {4.7.3}Permutation Mutation Operators}{24}{subsection.4.7.3}%
-\contentsline {subsubsection}{Swap Mutation}{24}{subsection.4.7.3}%
-\contentsline {subsubsection}{Insert Mutation}{24}{subsection.4.7.3}%
-\contentsline {subsubsection}{Inversion Mutation}{24}{subsection.4.7.3}%
-\contentsline {subsubsection}{Scramble Mutation}{24}{subsection.4.7.3}%
-\contentsline {section}{\numberline {4.8}Tree Encoding}{24}{section.4.8}%
-\contentsline {subsection}{\numberline {4.8.1}Applications}{25}{subsection.4.8.1}%
-\contentsline {subsection}{\numberline {4.8.2}Representation}{25}{subsection.4.8.2}%
-\contentsline {subsection}{\numberline {4.8.3}Tree Crossover}{25}{subsection.4.8.3}%
-\contentsline {subsection}{\numberline {4.8.4}Tree Mutation}{25}{subsection.4.8.4}%
-\contentsline {section}{\numberline {4.9}Problem-specific Encodings}{25}{section.4.9}%
-\contentsline {subsection}{\numberline {4.9.1}Graph Coloring}{25}{subsection.4.9.1}%
-\contentsline {subsection}{\numberline {4.9.2}Job Scheduling}{25}{subsection.4.9.2}%
-\contentsline {subsection}{\numberline {4.9.3}Neural Network Weights}{25}{subsection.4.9.3}%
-\contentsline {section}{\numberline {4.10}Choosing the Right Encoding}{26}{section.4.10}%
-\contentsline {subsection}{\numberline {4.10.1}Factors to Consider}{26}{subsection.4.10.1}%
-\contentsline {subsection}{\numberline {4.10.2}Guidelines}{26}{subsection.4.10.2}%
-\contentsline {section}{\numberline {4.11}Chapter Summary}{26}{section.4.11}%
-\contentsline {section}{\numberline {4.12}Key Concepts}{26}{section.4.12}%
-\contentsline {chapter}{\numberline {5}Selection Methods in Genetic Algorithms}{27}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Introduction to Selection}{27}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Selection Pressure}{27}{section.5.2}%
-\contentsline {section}{\numberline {5.3}Proportional Selection Methods}{27}{section.5.3}%
-\contentsline {subsection}{\numberline {5.3.1}Roulette Wheel Selection}{27}{subsection.5.3.1}%
-\contentsline {subsubsection}{Algorithm}{27}{subsection.5.3.1}%
-\contentsline {subsubsection}{Selection Probability}{27}{ALC@unique.28}%
-\contentsline {subsubsection}{Example}{28}{equation.5.3.1}%
-\contentsline {subsubsection}{Advantages}{28}{table.caption.8}%
-\contentsline {subsubsection}{Disadvantages}{28}{table.caption.8}%
-\contentsline {subsection}{\numberline {5.3.2}Stochastic Universal Sampling (SUS)}{28}{subsection.5.3.2}%
-\contentsline {subsubsection}{Algorithm}{29}{subsection.5.3.2}%
-\contentsline {subsubsection}{Advantages over Roulette Wheel}{29}{ALC@unique.35}%
-\contentsline {section}{\numberline {5.4}Rank-based Selection}{29}{section.5.4}%
-\contentsline {subsection}{\numberline {5.4.1}Linear Ranking}{29}{subsection.5.4.1}%
-\contentsline {subsection}{\numberline {5.4.2}Exponential Ranking}{29}{subsection.5.4.2}%
-\contentsline {subsection}{\numberline {5.4.3}Advantages of Rank Selection}{30}{subsection.5.4.3}%
-\contentsline {subsection}{\numberline {5.4.4}Disadvantages}{30}{subsection.5.4.4}%
-\contentsline {section}{\numberline {5.5}Tournament Selection}{30}{section.5.5}%
-\contentsline {subsection}{\numberline {5.5.1}Binary Tournament}{30}{subsection.5.5.1}%
-\contentsline {subsection}{\numberline {5.5.2}k-Tournament Selection}{30}{subsection.5.5.2}%
-\contentsline {subsection}{\numberline {5.5.3}Tournament Size Effects}{31}{subsection.5.5.3}%
-\contentsline {subsection}{\numberline {5.5.4}Selection Probability}{31}{subsection.5.5.4}%
-\contentsline {subsection}{\numberline {5.5.5}Advantages}{31}{subsection.5.5.5}%
-\contentsline {subsection}{\numberline {5.5.6}Disadvantages}{31}{subsection.5.5.6}%
-\contentsline {section}{\numberline {5.6}Truncation Selection}{31}{section.5.6}%
-\contentsline {subsection}{\numberline {5.6.1}Algorithm}{31}{subsection.5.6.1}%
-\contentsline {subsection}{\numberline {5.6.2}Selection Ratio}{31}{subsection.5.6.2}%
-\contentsline {subsection}{\numberline {5.6.3}Advantages}{32}{subsection.5.6.3}%
-\contentsline {subsection}{\numberline {5.6.4}Disadvantages}{32}{subsection.5.6.4}%
-\contentsline {section}{\numberline {5.7}Boltzmann Selection}{32}{section.5.7}%
-\contentsline {subsection}{\numberline {5.7.1}Formula}{32}{subsection.5.7.1}%
-\contentsline {subsection}{\numberline {5.7.2}Temperature Schedule}{32}{subsection.5.7.2}%
-\contentsline {subsection}{\numberline {5.7.3}Advantages}{32}{subsection.5.7.3}%
-\contentsline {subsection}{\numberline {5.7.4}Disadvantages}{33}{subsection.5.7.4}%
-\contentsline {section}{\numberline {5.8}Elitist Selection}{33}{section.5.8}%
-\contentsline {subsection}{\numberline {5.8.1}Pure Elitism}{33}{subsection.5.8.1}%
-\contentsline {subsection}{\numberline {5.8.2}Elitist Replacement}{33}{subsection.5.8.2}%
-\contentsline {subsection}{\numberline {5.8.3}Benefits}{33}{subsection.5.8.3}%
-\contentsline {subsection}{\numberline {5.8.4}Drawbacks}{33}{subsection.5.8.4}%
-\contentsline {section}{\numberline {5.9}Diversity-Preserving Selection}{33}{section.5.9}%
-\contentsline {subsection}{\numberline {5.9.1}Fitness Sharing}{33}{subsection.5.9.1}%
-\contentsline {subsection}{\numberline {5.9.2}Crowding}{34}{subsection.5.9.2}%
-\contentsline {subsection}{\numberline {5.9.3}Speciation}{34}{subsection.5.9.3}%
-\contentsline {section}{\numberline {5.10}Multi-objective Selection}{34}{section.5.10}%
-\contentsline {subsection}{\numberline {5.10.1}Pareto Dominance}{34}{subsection.5.10.1}%
-\contentsline {subsection}{\numberline {5.10.2}Non-dominated Sorting}{34}{subsection.5.10.2}%
-\contentsline {subsection}{\numberline {5.10.3}NSGA-II Selection}{34}{subsection.5.10.3}%
-\contentsline {section}{\numberline {5.11}Selection Comparison}{34}{section.5.11}%
-\contentsline {section}{\numberline {5.12}Selection Guidelines}{34}{section.5.12}%
-\contentsline {subsection}{\numberline {5.12.1}Problem Characteristics}{34}{subsection.5.12.1}%
-\contentsline {subsection}{\numberline {5.12.2}Population Size}{35}{subsection.5.12.2}%
-\contentsline {subsection}{\numberline {5.12.3}Generation Number}{35}{subsection.5.12.3}%
-\contentsline {section}{\numberline {5.13}Hybrid Selection Strategies}{35}{section.5.13}%
-\contentsline {subsection}{\numberline {5.13.1}Adaptive Selection}{35}{subsection.5.13.1}%
-\contentsline {subsection}{\numberline {5.13.2}Multi-level Selection}{35}{subsection.5.13.2}%
-\contentsline {subsection}{\numberline {5.13.3}Combined Methods}{35}{subsection.5.13.3}%
-\contentsline {section}{\numberline {5.14}Chapter Summary}{35}{section.5.14}%
-\contentsline {section}{\numberline {5.15}Key Concepts}{35}{section.5.15}%
-\contentsline {chapter}{\numberline {6}Crossover (Recombination) in Genetic Algorithms}{37}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Introduction to Crossover}{37}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Biological Inspiration}{37}{section.6.2}%
-\contentsline {section}{\numberline {6.3}Crossover Principles}{37}{section.6.3}%
-\contentsline {subsection}{\numberline {6.3.1}Exploration vs. Exploitation}{37}{subsection.6.3.1}%
-\contentsline {subsection}{\numberline {6.3.2}Crossover Probability}{37}{subsection.6.3.2}%
-\contentsline {section}{\numberline {6.4}Binary Crossover Operators}{38}{section.6.4}%
-\contentsline {subsection}{\numberline {6.4.1}One-Point Crossover}{38}{subsection.6.4.1}%
-\contentsline {subsubsection}{Algorithm}{38}{subsection.6.4.1}%
-\contentsline {subsubsection}{Example}{38}{ALC@unique.54}%
-\contentsline {subsubsection}{Characteristics}{38}{equation.6.4.4}%
-\contentsline {subsection}{\numberline {6.4.2}Two-Point Crossover}{38}{subsection.6.4.2}%
-\contentsline {subsubsection}{Algorithm}{38}{subsection.6.4.2}%
-\contentsline {subsubsection}{Example}{39}{ALC@unique.58}%
-\contentsline {subsubsection}{Advantages}{39}{equation.6.4.8}%
-\contentsline {subsection}{\numberline {6.4.3}Uniform Crossover}{39}{subsection.6.4.3}%
-\contentsline {subsubsection}{Algorithm}{39}{subsection.6.4.3}%
-\contentsline {subsubsection}{Example with Mask}{39}{ALC@unique.66}%
-\contentsline {subsubsection}{Properties}{40}{equation.6.4.13}%
-\contentsline {subsection}{\numberline {6.4.4}Multi-Point Crossover}{40}{subsection.6.4.4}%
-\contentsline {subsubsection}{Characteristics}{40}{subsection.6.4.4}%
-\contentsline {section}{\numberline {6.5}Real-Valued Crossover Operators}{40}{section.6.5}%
-\contentsline {subsection}{\numberline {6.5.1}Arithmetic Crossover}{40}{subsection.6.5.1}%
-\contentsline {subsubsection}{Whole Arithmetic Crossover}{40}{subsection.6.5.1}%
-\contentsline {subsubsection}{Simple Arithmetic Crossover}{40}{equation.6.5.15}%
-\contentsline {subsubsection}{Single Arithmetic Crossover}{40}{equation.6.5.15}%
-\contentsline {subsubsection}{Example}{41}{equation.6.5.15}%
-\contentsline {subsection}{\numberline {6.5.2}BLX-$\alpha $ Crossover (Blend Crossover)}{41}{subsection.6.5.2}%
-\contentsline {subsubsection}{Algorithm}{41}{subsection.6.5.2}%
-\contentsline {subsubsection}{Parameters}{41}{Item.16}%
-\contentsline {subsection}{\numberline {6.5.3}SBX (Simulated Binary Crossover)}{41}{subsection.6.5.3}%
-\contentsline {subsubsection}{Formula}{41}{subsection.6.5.3}%
-\contentsline {section}{\numberline {6.6}Permutation Crossover Operators}{42}{section.6.6}%
-\contentsline {subsection}{\numberline {6.6.1}Order Crossover (OX)}{42}{subsection.6.6.1}%
-\contentsline {subsubsection}{Algorithm}{42}{subsection.6.6.1}%
-\contentsline {subsubsection}{Example}{42}{ALC@unique.69}%
-\contentsline {subsection}{\numberline {6.6.2}Partially Mapped Crossover (PMX)}{42}{subsection.6.6.2}%
-\contentsline {subsubsection}{Algorithm}{42}{subsection.6.6.2}%
-\contentsline {subsubsection}{Example}{42}{ALC@unique.72}%
-\contentsline {subsection}{\numberline {6.6.3}Cycle Crossover (CX)}{42}{subsection.6.6.3}%
-\contentsline {subsubsection}{Algorithm}{43}{subsection.6.6.3}%
-\contentsline {subsection}{\numberline {6.6.4}Edge Recombination Crossover}{43}{subsection.6.6.4}%
-\contentsline {subsubsection}{Algorithm}{43}{subsection.6.6.4}%
-\contentsline {section}{\numberline {6.7}Crossover Analysis}{43}{section.6.7}%
-\contentsline {subsection}{\numberline {6.7.1}Schema Disruption}{43}{subsection.6.7.1}%
-\contentsline {subsubsection}{One-Point Crossover}{43}{subsection.6.7.1}%
-\contentsline {subsubsection}{Two-Point Crossover}{43}{equation.6.7.31}%
-\contentsline {subsubsection}{Uniform Crossover}{43}{equation.6.7.32}%
-\contentsline {subsection}{\numberline {6.7.2}Building Block Preservation}{44}{subsection.6.7.2}%
-\contentsline {section}{\numberline {6.8}Advanced Crossover Techniques}{44}{section.6.8}%
-\contentsline {subsection}{\numberline {6.8.1}Adaptive Crossover}{44}{subsection.6.8.1}%
-\contentsline {subsection}{\numberline {6.8.2}Multiple Parent Crossover}{44}{subsection.6.8.2}%
-\contentsline {subsection}{\numberline {6.8.3}Problem-Specific Crossover}{44}{subsection.6.8.3}%
-\contentsline {section}{\numberline {6.9}Crossover Guidelines}{44}{section.6.9}%
-\contentsline {subsection}{\numberline {6.9.1}Choosing Crossover Type}{44}{subsection.6.9.1}%
-\contentsline {subsection}{\numberline {6.9.2}Parameter Setting}{45}{subsection.6.9.2}%
-\contentsline {subsection}{\numberline {6.9.3}Empirical Testing}{45}{subsection.6.9.3}%
-\contentsline {section}{\numberline {6.10}Crossover vs. Mutation}{45}{section.6.10}%
-\contentsline {section}{\numberline {6.11}Chapter Summary}{45}{section.6.11}%
-\contentsline {section}{\numberline {6.12}Key Concepts}{45}{section.6.12}%
-\contentsline {chapter}{\numberline {7}Real-World Applications and Visual Examples}{47}{chapter.7}%
-\contentsline {section}{\numberline {7.1}Game AI and Entertainment}{47}{section.7.1}%
-\contentsline {subsection}{\numberline {7.1.1}Super Mario Bros Level Learning}{47}{subsection.7.1.1}%
-\contentsline {subsection}{\numberline {7.1.2}Tower Defense Game Balancing}{47}{subsection.7.1.2}%
-\contentsline {section}{\numberline {7.2}Pathfinding and Navigation}{48}{section.7.2}%
-\contentsline {subsection}{\numberline {7.2.1}Maze Navigation}{48}{subsection.7.2.1}%
-\contentsline {subsection}{\numberline {7.2.2}Robot Navigation}{48}{subsection.7.2.2}%
-\contentsline {section}{\numberline {7.3}Evolution Simulation}{48}{section.7.3}%
-\contentsline {subsection}{\numberline {7.3.1}Simulated Evolution of Creatures}{48}{subsection.7.3.1}%
-\contentsline {section}{\numberline {7.4}Human Analogy Examples}{49}{section.7.4}%
-\contentsline {subsection}{\numberline {7.4.1}Evolution of Movement}{49}{subsection.7.4.1}%
-\contentsline {subsection}{\numberline {7.4.2}Work Journey Optimization}{49}{subsection.7.4.2}%
-\contentsline {section}{\numberline {7.5}Academic Context}{49}{section.7.5}%
-\contentsline {subsection}{\numberline {7.5.1}GA in Computational Intelligence}{49}{subsection.7.5.1}%
-\contentsline {section}{\numberline {7.6}Historical Perspective}{50}{section.7.6}%
-\contentsline {subsection}{\numberline {7.6.1}Natural Selection Theories}{50}{subsection.7.6.1}%
-\contentsline {section}{\numberline {7.7}Summary}{50}{section.7.7}%
-\contentsline {chapter}{\numberline {8}Mutation and Generation Update}{51}{chapter.8}%
-\contentsline {section}{\numberline {8.1}Introduction to Mutation}{51}{section.8.1}%
-\contentsline {subsection}{\numberline {8.1.1}What is Mutation?}{51}{subsection.8.1.1}%
-\contentsline {subsection}{\numberline {8.1.2}Mutation in Evolutionary Algorithms vs. Biological Evolution}{52}{subsection.8.1.2}%
-\contentsline {section}{\numberline {8.2}Mutation for Different Representations}{52}{section.8.2}%
-\contentsline {subsection}{\numberline {8.2.1}Mutation for Binary Representation}{52}{subsection.8.2.1}%
-\contentsline {subsubsection}{Bit-Flip Mutation}{52}{subsection.8.2.1}%
-\contentsline {subsection}{\numberline {8.2.2}Mutation for Integer Representation}{53}{subsection.8.2.2}%
-\contentsline {subsubsection}{Integer Value Flipping}{53}{subsection.8.2.2}%
-\contentsline {subsubsection}{Random Value Selection}{53}{subsection.8.2.2}%
-\contentsline {subsubsection}{Creep Mutation}{53}{subsection.8.2.2}%
-\contentsline {subsection}{\numberline {8.2.3}Mutation for Real-Valued Representation}{53}{subsection.8.2.3}%
-\contentsline {subsubsection}{Uniform Mutation}{53}{subsection.8.2.3}%
-\contentsline {subsubsection}{Non-Uniform Mutation with Fixed Distribution}{54}{equation.8.2.1}%
-\contentsline {subsection}{\numberline {8.2.4}Mutation for Permutation Representation}{54}{subsection.8.2.4}%
-\contentsline {subsubsection}{Swap Mutation}{54}{subsection.8.2.4}%
-\contentsline {subsubsection}{Insert Mutation}{55}{ALC@unique.93}%
-\contentsline {subsubsection}{Scramble Mutation}{55}{ALC@unique.93}%
-\contentsline {subsubsection}{Inversion Mutation}{55}{ALC@unique.93}%
-\contentsline {section}{\numberline {8.3}Generation Update Mechanisms}{55}{section.8.3}%
-\contentsline {subsection}{\numberline {8.3.1}Holland's Original Model (Generational Replacement)}{55}{subsection.8.3.1}%
-\contentsline {subsection}{\numberline {8.3.2}Generational Model with Elitism}{56}{subsection.8.3.2}%
-\contentsline {subsection}{\numberline {8.3.3}Steady-State Update}{56}{subsection.8.3.3}%
-\contentsline {subsection}{\numberline {8.3.4}Continuous Update}{57}{subsection.8.3.4}%
-\contentsline {section}{\numberline {8.4}GA Parameters}{57}{section.8.4}%
-\contentsline {subsection}{\numberline {8.4.1}Crossover Probability ($P_c$)}{57}{subsection.8.4.1}%
-\contentsline {subsection}{\numberline {8.4.2}Mutation Probability ($P_m$)}{58}{subsection.8.4.2}%
-\contentsline {subsection}{\numberline {8.4.3}Population Size ($N$)}{58}{subsection.8.4.3}%
-\contentsline {subsection}{\numberline {8.4.4}Number of Generations ($G$)}{59}{subsection.8.4.4}%
-\contentsline {subsection}{\numberline {8.4.5}General Parameter Setting Guidelines}{59}{subsection.8.4.5}%
-\contentsline {section}{\numberline {8.5}Parameter Observation Study}{59}{section.8.5}%
-\contentsline {subsection}{\numberline {8.5.1}Test Problem}{60}{subsection.8.5.1}%
-\contentsline {subsection}{\numberline {8.5.2}Experimental Setup}{60}{subsection.8.5.2}%
-\contentsline {subsection}{\numberline {8.5.3}Sample Results}{60}{subsection.8.5.3}%
-\contentsline {section}{\numberline {8.6}Summary and Conclusions}{61}{section.8.6}%
-\contentsline {section}{\numberline {8.7}Exercises}{62}{section.8.7}%
-\contentsline {chapter}{\numberline {A}Algorithm Implementations}{65}{appendix.A}%
-\contentsline {section}{\numberline {A.1}Basic Genetic Algorithm Implementation}{65}{section.A.1}%
-\contentsline {subsection}{\numberline {A.1.1}Python Implementation}{65}{subsection.A.1.1}%
-\contentsline {section}{\numberline {A.2}Real-Valued Genetic Algorithm}{69}{section.A.2}%
-\contentsline {section}{\numberline {A.3}Traveling Salesman Problem GA}{72}{section.A.3}%
-\contentsline {section}{\numberline {A.4}NSGA-II for Multi-Objective Optimization}{77}{section.A.4}%
-\contentsline {chapter}{\numberline {B}Practical Examples and Case Studies}{85}{appendix.B}%
-\contentsline {section}{\numberline {B.1}Function Optimization Problems}{85}{section.B.1}%
-\contentsline {subsection}{\numberline {B.1.1}OneMax Problem}{85}{subsection.B.1.1}%
-\contentsline {subsubsection}{Problem Definition}{85}{subsection.B.1.1}%
-\contentsline {subsubsection}{Expected Performance}{85}{equation.B.1.1}%
-\contentsline {subsubsection}{GA Configuration}{85}{equation.B.1.1}%
-\contentsline {subsection}{\numberline {B.1.2}Sphere Function}{86}{subsection.B.1.2}%
-\contentsline {subsubsection}{Problem Definition}{86}{subsection.B.1.2}%
-\contentsline {subsubsection}{Characteristics}{86}{equation.B.1.2}%
-\contentsline {subsection}{\numberline {B.1.3}Rastrigin Function}{86}{subsection.B.1.3}%
-\contentsline {subsubsection}{Problem Definition}{86}{subsection.B.1.3}%
-\contentsline {subsubsection}{Characteristics}{86}{equation.B.1.3}%
-\contentsline {subsubsection}{GA Challenges}{86}{equation.B.1.3}%
-\contentsline {subsection}{\numberline {B.1.4}Rosenbrock Function}{87}{subsection.B.1.4}%
-\contentsline {subsubsection}{Problem Definition}{87}{subsection.B.1.4}%
-\contentsline {subsubsection}{Characteristics}{87}{equation.B.1.4}%
-\contentsline {section}{\numberline {B.2}Combinatorial Optimization Problems}{87}{section.B.2}%
-\contentsline {subsection}{\numberline {B.2.1}Traveling Salesman Problem (TSP)}{87}{subsection.B.2.1}%
-\contentsline {subsubsection}{Problem Description}{87}{subsection.B.2.1}%
-\contentsline {subsubsection}{Mathematical Formulation}{87}{subsection.B.2.1}%
-\contentsline {subsubsection}{GA Representation}{87}{equation.B.2.8}%
-\contentsline {subsubsection}{Specialized Operators}{88}{equation.B.2.8}%
-\contentsline {subsubsection}{Performance Tips}{88}{equation.B.2.8}%
-\contentsline {subsection}{\numberline {B.2.2}Knapsack Problem}{88}{subsection.B.2.2}%
-\contentsline {subsubsection}{Problem Description}{88}{subsection.B.2.2}%
-\contentsline {subsubsection}{0/1 Knapsack Formulation}{88}{subsection.B.2.2}%
-\contentsline {subsubsection}{GA Approach}{88}{equation.B.2.11}%
-\contentsline {subsubsection}{Penalty Function Example}{88}{equation.B.2.11}%
-\contentsline {section}{\numberline {B.3}Real-World Applications}{89}{section.B.3}%
-\contentsline {subsection}{\numberline {B.3.1}Neural Network Training}{89}{subsection.B.3.1}%
-\contentsline {subsubsection}{Problem Setup}{89}{subsection.B.3.1}%
-\contentsline {subsubsection}{Representation}{89}{subsection.B.3.1}%
-\contentsline {subsubsection}{Fitness Function}{89}{subsection.B.3.1}%
-\contentsline {subsubsection}{Advantages over Backpropagation}{89}{equation.B.3.13}%
-\contentsline {subsection}{\numberline {B.3.2}Feature Selection}{89}{subsection.B.3.2}%
-\contentsline {subsubsection}{Problem Description}{89}{subsection.B.3.2}%
-\contentsline {subsubsection}{GA Approach}{89}{subsection.B.3.2}%
-\contentsline {subsubsection}{Multi-objective Formulation}{89}{subsection.B.3.2}%
-\contentsline {subsection}{\numberline {B.3.3}Job Shop Scheduling}{90}{subsection.B.3.3}%
-\contentsline {subsubsection}{Problem Description}{90}{subsection.B.3.3}%
-\contentsline {subsubsection}{Representation Options}{90}{subsection.B.3.3}%
-\contentsline {subsubsection}{Constraints}{90}{Item.60}%
-\contentsline {section}{\numberline {B.4}Parameter Tuning Guidelines}{90}{section.B.4}%
-\contentsline {subsection}{\numberline {B.4.1}Population Size}{90}{subsection.B.4.1}%
-\contentsline {subsection}{\numberline {B.4.2}Crossover and Mutation Rates}{90}{subsection.B.4.2}%
-\contentsline {subsection}{\numberline {B.4.3}Selection Pressure}{91}{subsection.B.4.3}%
-\contentsline {section}{\numberline {B.5}Performance Analysis}{91}{section.B.5}%
-\contentsline {subsection}{\numberline {B.5.1}Convergence Metrics}{91}{subsection.B.5.1}%
-\contentsline {subsection}{\numberline {B.5.2}Statistical Testing}{91}{subsection.B.5.2}%
-\contentsline {subsection}{\numberline {B.5.3}Comparison with Other Methods}{91}{subsection.B.5.3}%
-\contentsline {section}{\numberline {B.6}Common Pitfalls and Solutions}{91}{section.B.6}%
-\contentsline {subsection}{\numberline {B.6.1}Premature Convergence}{91}{subsection.B.6.1}%
-\contentsline {subsection}{\numberline {B.6.2}Slow Convergence}{92}{subsection.B.6.2}%
-\contentsline {subsection}{\numberline {B.6.3}Constraint Handling Issues}{92}{subsection.B.6.3}%
-\contentsline {section}{\numberline {B.7}Advanced Techniques}{93}{section.B.7}%
-\contentsline {subsection}{\numberline {B.7.1}Hybrid Genetic Algorithms}{93}{subsection.B.7.1}%
-\contentsline {subsection}{\numberline {B.7.2}Adaptive Parameter Control}{93}{subsection.B.7.2}%
-\contentsline {subsection}{\numberline {B.7.3}Parallel Genetic Algorithms}{93}{subsection.B.7.3}%
-\contentsline {section}{\numberline {B.8}Implementation Best Practices}{93}{section.B.8}%
-\contentsline {subsection}{\numberline {B.8.1}Code Organization}{93}{subsection.B.8.1}%
-\contentsline {subsection}{\numberline {B.8.2}Testing and Validation}{93}{subsection.B.8.2}%
-\contentsline {subsection}{\numberline {B.8.3}Documentation}{94}{subsection.B.8.3}%
-\contentsline {section}{\numberline {B.9}Chapter Summary}{94}{section.B.9}%
-\contentsline {section}{\numberline {B.10}Key Takeaways}{94}{section.B.10}%
+\contentsline {section}{\numberline {1.8}Simple Examples of Genetic Algorithm Applications}{3}{section.1.8}%
+\contentsline {subsection}{\numberline {1.8.1}Maximizing a Quadratic Function}{4}{subsection.1.8.1}%
+\contentsline {subsection}{\numberline {1.8.2}Travelling Salesman Problem}{4}{subsection.1.8.2}%
+\contentsline {section}{\numberline {1.9}Genetic Algorithms for Real-World Problems}{4}{section.1.9}%
+\contentsline {subsection}{\numberline {1.9.1}Scheduling}{4}{subsection.1.9.1}%
+\contentsline {subsection}{\numberline {1.9.2}Telecommunication Network Design}{5}{subsection.1.9.2}%
+\contentsline {subsection}{\numberline {1.9.3}VLSI Design (Very Large Scale Integration)}{5}{subsection.1.9.3}%
+\contentsline {section}{\numberline {1.10}Genetic Algorithm Flow}{5}{section.1.10}%
+\contentsline {section}{\numberline {1.11}Genetic Algorithm Variations}{6}{section.1.11}%
+\contentsline {subsection}{\numberline {1.11.1}Hybrid GA}{6}{subsection.1.11.1}%
+\contentsline {subsection}{\numberline {1.11.2}Adaptive GA}{6}{subsection.1.11.2}%
+\contentsline {subsection}{\numberline {1.11.3}Parallel GA}{6}{subsection.1.11.3}%
+\contentsline {section}{\numberline {1.12}Chapter Summary}{6}{section.1.12}%
+\contentsline {section}{\numberline {1.13}Key Concepts}{6}{section.1.13}%
+\contentsline {section}{\numberline {1.14}Further Reading}{7}{section.1.14}%
+\contentsline {chapter}{\numberline {2}What is a Genetic Algorithm?}{9}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Introduction}{9}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Biological Inspiration}{9}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Basic Terminology}{9}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}Genetic Algorithm Terms}{9}{subsection.2.3.1}%
+\contentsline {section}{\numberline {2.4}Basic Structure of a Genetic Algorithm}{10}{section.2.4}%
+\contentsline {section}{\numberline {2.5}Key Components of GA}{10}{section.2.5}%
+\contentsline {subsection}{\numberline {2.5.1}Representation}{10}{subsection.2.5.1}%
+\contentsline {subsection}{\numberline {2.5.2}Fitness Function}{10}{subsection.2.5.2}%
+\contentsline {subsection}{\numberline {2.5.3}Selection}{11}{subsection.2.5.3}%
+\contentsline {subsection}{\numberline {2.5.4}Crossover (Recombination)}{11}{subsection.2.5.4}%
+\contentsline {subsection}{\numberline {2.5.5}Mutation}{11}{subsection.2.5.5}%
+\contentsline {section}{\numberline {2.6}Example: Maximizing a Simple Function}{11}{section.2.6}%
+\contentsline {subsection}{\numberline {2.6.1}Step 1: Representation}{11}{subsection.2.6.1}%
+\contentsline {subsection}{\numberline {2.6.2}Step 2: Initial Population}{11}{subsection.2.6.2}%
+\contentsline {subsection}{\numberline {2.6.3}Step 3: Selection}{11}{subsection.2.6.3}%
+\contentsline {subsection}{\numberline {2.6.4}Step 4: Crossover}{12}{subsection.2.6.4}%
+\contentsline {subsection}{\numberline {2.6.5}Step 5: Mutation}{12}{subsection.2.6.5}%
+\contentsline {section}{\numberline {2.7}Advantages of Genetic Algorithms}{12}{section.2.7}%
+\contentsline {section}{\numberline {2.8}Disadvantages of Genetic Algorithms}{12}{section.2.8}%
+\contentsline {section}{\numberline {2.9}When to Use Genetic Algorithms}{12}{section.2.9}%
+\contentsline {section}{\numberline {2.10}Variations of Genetic Algorithms}{13}{section.2.10}%
+\contentsline {section}{\numberline {2.11}Chapter Summary}{13}{section.2.11}%
+\contentsline {section}{\numberline {2.12}Key Concepts}{13}{section.2.12}%
+\contentsline {chapter}{\numberline {3}GA Cycle and Holland Schema Theory}{15}{chapter.3}%
+\contentsline {section}{\numberline {3.1}The Genetic Algorithm Cycle}{15}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Detailed GA Cycle}{16}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}Phase 1: Initialization}{16}{subsection.3.1.2}%
+\contentsline {subsection}{\numberline {3.1.3}Phase 2: Evaluation}{16}{subsection.3.1.3}%
+\contentsline {subsection}{\numberline {3.1.4}Phase 3: Termination Check}{16}{subsection.3.1.4}%
+\contentsline {subsection}{\numberline {3.1.5}Phase 4: Selection}{17}{subsection.3.1.5}%
+\contentsline {subsection}{\numberline {3.1.6}Phase 5: Crossover}{17}{subsection.3.1.6}%
+\contentsline {subsection}{\numberline {3.1.7}Phase 6: Mutation}{17}{subsection.3.1.7}%
+\contentsline {subsection}{\numberline {3.1.8}Phase 7: Replacement}{17}{subsection.3.1.8}%
+\contentsline {section}{\numberline {3.2}Holland Schema Theory}{17}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}What is a Schema?}{18}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Schema Properties}{18}{subsection.3.2.2}%
+\contentsline {subsubsection}{Order of a Schema}{18}{subsection.3.2.2}%
+\contentsline {subsubsection}{Defining Length}{18}{equation.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.3}Schema Theorem (Fundamental Theorem)}{18}{subsection.3.2.3}%
+\contentsline {subsubsection}{Selection Effect}{19}{subsection.3.2.3}%
+\contentsline {subsubsection}{Crossover Effect}{19}{equation.3.2.3}%
+\contentsline {subsubsection}{Mutation Effect}{19}{equation.3.2.4}%
+\contentsline {subsubsection}{Combined Schema Theorem}{20}{equation.3.2.5}%
+\contentsline {subsection}{\numberline {3.2.4}Building Block Hypothesis}{20}{subsection.3.2.4}%
+\contentsline {subsubsection}{Characteristics of Good Building Blocks}{20}{subsection.3.2.4}%
+\contentsline {subsection}{\numberline {3.2.5}Role of Schema Order in Genetic Algorithms}{20}{subsection.3.2.5}%
+\contentsline {subsubsection}{Pattern Specificity Level}{20}{subsection.3.2.5}%
+\contentsline {subsubsection}{Survival Probability in Evolution}{20}{subsection.3.2.5}%
+\contentsline {subsubsection}{Relationship with Selection}{21}{subsection.3.2.5}%
+\contentsline {subsection}{\numberline {3.2.6}Relationship Between Holland Schema and Genome}{21}{subsection.3.2.6}%
+\contentsline {subsection}{\numberline {3.2.7}Schema Functions in Genetic Algorithms}{21}{subsection.3.2.7}%
+\contentsline {section}{\numberline {3.3}Implicit Parallelism}{21}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Deception and Schema Theory}{22}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}Deceptive Problems}{22}{subsection.3.4.1}%
+\contentsline {subsection}{\numberline {3.4.2}Overcoming Deception}{22}{subsection.3.4.2}%
+\contentsline {section}{\numberline {3.5}Practical Implications}{22}{section.3.5}%
+\contentsline {subsection}{\numberline {3.5.1}Encoding Design}{22}{subsection.3.5.1}%
+\contentsline {subsection}{\numberline {3.5.2}Parameter Settings}{22}{subsection.3.5.2}%
+\contentsline {section}{\numberline {3.6}Limitations of Schema Theory}{22}{section.3.6}%
+\contentsline {section}{\numberline {3.7}Modern Extensions}{23}{section.3.7}%
+\contentsline {subsection}{\numberline {3.7.1}Walsh Analysis}{23}{subsection.3.7.1}%
+\contentsline {subsection}{\numberline {3.7.2}Fitness Landscapes}{23}{subsection.3.7.2}%
+\contentsline {subsection}{\numberline {3.7.3}No Free Lunch Theorem}{23}{subsection.3.7.3}%
+\contentsline {section}{\numberline {3.8}Chapter Summary}{23}{section.3.8}%
+\contentsline {section}{\numberline {3.9}Key Concepts}{23}{section.3.9}%
+\contentsline {chapter}{\numberline {4}Genetic Algorithm Encoding}{25}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Introduction to Encoding}{25}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Requirements for Good Encoding}{25}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Completeness}{25}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Soundness}{25}{subsection.4.2.2}%
+\contentsline {subsection}{\numberline {4.2.3}Non-redundancy}{25}{subsection.4.2.3}%
+\contentsline {subsection}{\numberline {4.2.4}Locality}{25}{subsection.4.2.4}%
+\contentsline {section}{\numberline {4.3}Binary Encoding}{25}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Basic Binary Encoding}{26}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}Decoding Binary Strings}{26}{subsection.4.3.2}%
+\contentsline {subsection}{\numberline {4.3.3}Multi-variable Binary Encoding}{26}{subsection.4.3.3}%
+\contentsline {subsection}{\numberline {4.3.4}Advantages of Binary Encoding}{26}{subsection.4.3.4}%
+\contentsline {subsection}{\numberline {4.3.5}Disadvantages of Binary Encoding}{26}{subsection.4.3.5}%
+\contentsline {section}{\numberline {4.4}Overview of Encoding Types}{27}{section.4.4}%
+\contentsline {subsection}{\numberline {4.4.1}Problem Identification and Formulation}{27}{subsection.4.4.1}%
+\contentsline {subsection}{\numberline {4.4.2}What is Encoding}{27}{subsection.4.4.2}%
+\contentsline {subsection}{\numberline {4.4.3}Encoding Type Categories}{27}{subsection.4.4.3}%
+\contentsline {subsubsection}{1. Binary Encoding}{27}{subsection.4.4.3}%
+\contentsline {subsubsection}{2. Value Encoding}{27}{figure.caption.9}%
+\contentsline {subsubsection}{3. Permutation Encoding}{28}{figure.caption.9}%
+\contentsline {subsubsection}{4. Tree Encoding}{28}{figure.caption.9}%
+\contentsline {section}{\numberline {4.5}Gray Code Encoding}{28}{section.4.5}%
+\contentsline {subsection}{\numberline {4.5.1}Binary to Gray Code Conversion}{28}{subsection.4.5.1}%
+\contentsline {subsection}{\numberline {4.5.2}Gray Code to Binary Conversion}{29}{subsection.4.5.2}%
+\contentsline {subsection}{\numberline {4.5.3}Example: 4-bit Gray Code}{30}{subsection.4.5.3}%
+\contentsline {section}{\numberline {4.6}Real-valued Encoding}{30}{section.4.6}%
+\contentsline {subsection}{\numberline {4.6.1}Representation}{30}{subsection.4.6.1}%
+\contentsline {subsection}{\numberline {4.6.2}Advantages}{30}{subsection.4.6.2}%
+\contentsline {subsection}{\numberline {4.6.3}Disadvantages}{30}{subsection.4.6.3}%
+\contentsline {subsection}{\numberline {4.6.4}Real-valued Crossover Operators}{30}{subsection.4.6.4}%
+\contentsline {subsubsection}{Arithmetic Crossover}{30}{subsection.4.6.4}%
+\contentsline {subsubsection}{BLX-$\alpha $ Crossover}{31}{equation.4.6.3}%
+\contentsline {subsection}{\numberline {4.6.5}Real-valued Mutation Operators}{31}{subsection.4.6.5}%
+\contentsline {subsubsection}{Gaussian Mutation}{31}{subsection.4.6.5}%
+\contentsline {subsubsection}{Non-uniform Mutation}{31}{equation.4.6.5}%
+\contentsline {section}{\numberline {4.7}Integer Encoding}{31}{section.4.7}%
+\contentsline {subsection}{\numberline {4.7.1}Representation}{31}{subsection.4.7.1}%
+\contentsline {subsection}{\numberline {4.7.2}Integer Crossover}{31}{subsection.4.7.2}%
+\contentsline {subsection}{\numberline {4.7.3}Integer Mutation}{32}{subsection.4.7.3}%
+\contentsline {section}{\numberline {4.8}Permutation Encoding}{32}{section.4.8}%
+\contentsline {subsection}{\numberline {4.8.1}Representation}{32}{subsection.4.8.1}%
+\contentsline {subsection}{\numberline {4.8.2}Permutation Crossover Operators}{32}{subsection.4.8.2}%
+\contentsline {subsubsection}{Order Crossover (OX)}{32}{subsection.4.8.2}%
+\contentsline {subsubsection}{Partially Mapped Crossover (PMX)}{32}{equation.4.8.11}%
+\contentsline {subsubsection}{Cycle Crossover (CX)}{32}{Item.9}%
+\contentsline {subsection}{\numberline {4.8.3}Permutation Mutation Operators}{32}{subsection.4.8.3}%
+\contentsline {subsubsection}{Swap Mutation}{32}{subsection.4.8.3}%
+\contentsline {subsubsection}{Insert Mutation}{33}{subsection.4.8.3}%
+\contentsline {subsubsection}{Inversion Mutation}{33}{subsection.4.8.3}%
+\contentsline {subsubsection}{Scramble Mutation}{33}{subsection.4.8.3}%
+\contentsline {section}{\numberline {4.9}Tree Encoding}{33}{section.4.9}%
+\contentsline {subsection}{\numberline {4.9.1}Applications}{33}{subsection.4.9.1}%
+\contentsline {subsection}{\numberline {4.9.2}Representation}{33}{subsection.4.9.2}%
+\contentsline {subsection}{\numberline {4.9.3}Tree Crossover}{33}{subsection.4.9.3}%
+\contentsline {subsection}{\numberline {4.9.4}Tree Mutation}{33}{subsection.4.9.4}%
+\contentsline {section}{\numberline {4.10}Problem-specific Encodings}{34}{section.4.10}%
+\contentsline {subsection}{\numberline {4.10.1}Graph Coloring}{34}{subsection.4.10.1}%
+\contentsline {subsection}{\numberline {4.10.2}Job Scheduling}{34}{subsection.4.10.2}%
+\contentsline {subsection}{\numberline {4.10.3}Neural Network Weights}{34}{subsection.4.10.3}%
+\contentsline {section}{\numberline {4.11}Choosing the Right Encoding}{34}{section.4.11}%
+\contentsline {subsection}{\numberline {4.11.1}Factors to Consider}{34}{subsection.4.11.1}%
+\contentsline {subsection}{\numberline {4.11.2}Guidelines}{34}{subsection.4.11.2}%
+\contentsline {section}{\numberline {4.12}Chapter Summary}{34}{section.4.12}%
+\contentsline {section}{\numberline {4.13}Key Concepts}{35}{section.4.13}%
+\contentsline {chapter}{\numberline {5}Selection Methods in Genetic Algorithms}{37}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Introduction to Selection}{37}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}Definition and Function of Selection Operator}{37}{subsection.5.1.1}%
+\contentsline {subsection}{\numberline {5.1.2}Selection Pressure}{37}{subsection.5.1.2}%
+\contentsline {subsection}{\numberline {5.1.3}Types of Selection Operators}{38}{subsection.5.1.3}%
+\contentsline {section}{\numberline {5.2}Selection Pressure}{38}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Fitness Proportionate Selection (FPS)}{38}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1}Roulette Wheel Selection}{38}{subsection.5.3.1}%
+\contentsline {subsubsection}{Algorithm}{39}{figure.caption.14}%
+\contentsline {subsubsection}{Selection Probability}{39}{ALC@unique.28}%
+\contentsline {subsubsection}{Example}{40}{equation.5.3.1}%
+\contentsline {subsubsection}{Advantages}{40}{table.caption.15}%
+\contentsline {subsubsection}{Disadvantages}{40}{table.caption.15}%
+\contentsline {subsection}{\numberline {5.3.2}Stochastic Universal Sampling (SUS)}{40}{subsection.5.3.2}%
+\contentsline {subsubsection}{Baker's SUS}{41}{subsection.5.3.2}%
+\contentsline {subsubsection}{Algorithm}{41}{figure.caption.16}%
+\contentsline {subsubsection}{Advantages over Roulette Wheel}{41}{ALC@unique.35}%
+\contentsline {section}{\numberline {5.4}Rank-based Selection}{41}{section.5.4}%
+\contentsline {subsection}{\numberline {5.4.1}Overview}{42}{subsection.5.4.1}%
+\contentsline {subsection}{\numberline {5.4.2}Linear Ranking}{42}{subsection.5.4.2}%
+\contentsline {subsection}{\numberline {5.4.3}Exponential Ranking}{42}{subsection.5.4.3}%
+\contentsline {subsection}{\numberline {5.4.4}Advantages of Rank Selection}{43}{subsection.5.4.4}%
+\contentsline {subsection}{\numberline {5.4.5}Disadvantages}{43}{subsection.5.4.5}%
+\contentsline {section}{\numberline {5.5}Tournament Selection}{43}{section.5.5}%
+\contentsline {subsection}{\numberline {5.5.1}Overview}{43}{subsection.5.5.1}%
+\contentsline {subsection}{\numberline {5.5.2}Tournament Selection Mechanism}{44}{subsection.5.5.2}%
+\contentsline {subsection}{\numberline {5.5.3}Binary Tournament}{44}{subsection.5.5.3}%
+\contentsline {subsection}{\numberline {5.5.4}k-Tournament Selection}{44}{subsection.5.5.4}%
+\contentsline {subsection}{\numberline {5.5.5}Tournament Size Effects}{44}{subsection.5.5.5}%
+\contentsline {subsection}{\numberline {5.5.6}Selection Probability}{45}{subsection.5.5.6}%
+\contentsline {subsection}{\numberline {5.5.7}Advantages}{45}{subsection.5.5.7}%
+\contentsline {subsection}{\numberline {5.5.8}Disadvantages}{45}{subsection.5.5.8}%
+\contentsline {section}{\numberline {5.6}Truncation Selection}{45}{section.5.6}%
+\contentsline {subsection}{\numberline {5.6.1}Algorithm}{45}{subsection.5.6.1}%
+\contentsline {subsection}{\numberline {5.6.2}Selection Ratio}{45}{subsection.5.6.2}%
+\contentsline {subsection}{\numberline {5.6.3}Advantages}{46}{subsection.5.6.3}%
+\contentsline {subsection}{\numberline {5.6.4}Disadvantages}{46}{subsection.5.6.4}%
+\contentsline {section}{\numberline {5.7}Boltzmann Selection}{46}{section.5.7}%
+\contentsline {subsection}{\numberline {5.7.1}Formula}{46}{subsection.5.7.1}%
+\contentsline {subsection}{\numberline {5.7.2}Temperature Schedule}{46}{subsection.5.7.2}%
+\contentsline {subsection}{\numberline {5.7.3}Advantages}{46}{subsection.5.7.3}%
+\contentsline {subsection}{\numberline {5.7.4}Disadvantages}{46}{subsection.5.7.4}%
+\contentsline {section}{\numberline {5.8}Elitist Selection}{47}{section.5.8}%
+\contentsline {subsection}{\numberline {5.8.1}Pure Elitism}{47}{subsection.5.8.1}%
+\contentsline {subsection}{\numberline {5.8.2}Elitist Replacement}{47}{subsection.5.8.2}%
+\contentsline {subsection}{\numberline {5.8.3}Benefits}{47}{subsection.5.8.3}%
+\contentsline {subsection}{\numberline {5.8.4}Drawbacks}{47}{subsection.5.8.4}%
+\contentsline {section}{\numberline {5.9}Diversity-Preserving Selection}{47}{section.5.9}%
+\contentsline {subsection}{\numberline {5.9.1}Fitness Sharing}{47}{subsection.5.9.1}%
+\contentsline {subsection}{\numberline {5.9.2}Crowding}{47}{subsection.5.9.2}%
+\contentsline {subsection}{\numberline {5.9.3}Speciation}{47}{subsection.5.9.3}%
+\contentsline {section}{\numberline {5.10}Multi-objective Selection}{48}{section.5.10}%
+\contentsline {subsection}{\numberline {5.10.1}Pareto Dominance}{48}{subsection.5.10.1}%
+\contentsline {subsection}{\numberline {5.10.2}Non-dominated Sorting}{48}{subsection.5.10.2}%
+\contentsline {subsection}{\numberline {5.10.3}NSGA-II Selection}{48}{subsection.5.10.3}%
+\contentsline {section}{\numberline {5.11}Selection Comparison}{48}{section.5.11}%
+\contentsline {section}{\numberline {5.12}Selection Guidelines}{48}{section.5.12}%
+\contentsline {subsection}{\numberline {5.12.1}Problem Characteristics}{48}{subsection.5.12.1}%
+\contentsline {subsection}{\numberline {5.12.2}Population Size}{48}{subsection.5.12.2}%
+\contentsline {subsection}{\numberline {5.12.3}Generation Number}{49}{subsection.5.12.3}%
+\contentsline {section}{\numberline {5.13}Hybrid Selection Strategies}{49}{section.5.13}%
+\contentsline {subsection}{\numberline {5.13.1}Adaptive Selection}{49}{subsection.5.13.1}%
+\contentsline {subsection}{\numberline {5.13.2}Multi-level Selection}{49}{subsection.5.13.2}%
+\contentsline {subsection}{\numberline {5.13.3}Combined Methods}{49}{subsection.5.13.3}%
+\contentsline {section}{\numberline {5.14}Chapter Summary}{49}{section.5.14}%
+\contentsline {section}{\numberline {5.15}Key Concepts}{49}{section.5.15}%
+\contentsline {chapter}{\numberline {6}Crossover (Recombination) in Genetic Algorithms}{51}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Introduction to Crossover}{51}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Biological Inspiration}{51}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Crossover Principles}{51}{section.6.3}%
+\contentsline {subsection}{\numberline {6.3.1}Exploration vs. Exploitation}{51}{subsection.6.3.1}%
+\contentsline {subsection}{\numberline {6.3.2}Crossover Probability}{51}{subsection.6.3.2}%
+\contentsline {section}{\numberline {6.4}Binary Crossover Operators}{52}{section.6.4}%
+\contentsline {subsection}{\numberline {6.4.1}Definition and Function of Crossover Operator}{52}{subsection.6.4.1}%
+\contentsline {subsection}{\numberline {6.4.2}One-Point Crossover}{52}{subsection.6.4.2}%
+\contentsline {subsection}{\numberline {6.4.3}One-Point Crossover}{52}{subsection.6.4.3}%
+\contentsline {subsubsection}{Algorithm}{53}{subsection.6.4.3}%
+\contentsline {subsubsection}{Example}{53}{ALC@unique.54}%
+\contentsline {subsubsection}{Characteristics}{53}{equation.6.4.4}%
+\contentsline {subsection}{\numberline {6.4.4}Two-Point Crossover}{53}{subsection.6.4.4}%
+\contentsline {subsubsection}{Algorithm}{53}{figure.caption.21}%
+\contentsline {subsubsection}{Example}{54}{ALC@unique.58}%
+\contentsline {subsubsection}{Advantages}{54}{equation.6.4.8}%
+\contentsline {subsection}{\numberline {6.4.5}Uniform Crossover}{54}{subsection.6.4.5}%
+\contentsline {subsubsection}{Algorithm}{55}{figure.caption.22}%
+\contentsline {subsubsection}{Example with Mask}{55}{ALC@unique.66}%
+\contentsline {subsubsection}{Properties}{55}{equation.6.4.13}%
+\contentsline {subsection}{\numberline {6.4.6}Multi-Point Crossover}{56}{subsection.6.4.6}%
+\contentsline {subsubsection}{Characteristics}{56}{subsection.6.4.6}%
+\contentsline {section}{\numberline {6.5}Integer Chromosome Crossover}{56}{section.6.5}%
+\contentsline {subsection}{\numberline {6.5.1}Single-Point Crossover for Integer}{56}{subsection.6.5.1}%
+\contentsline {subsection}{\numberline {6.5.2}Multi-point Crossover for Integer}{56}{subsection.6.5.2}%
+\contentsline {subsection}{\numberline {6.5.3}Uniform Crossover for Integer}{56}{subsection.6.5.3}%
+\contentsline {section}{\numberline {6.6}Real-Valued Crossover Operators}{57}{section.6.6}%
+\contentsline {subsection}{\numberline {6.6.1}Arithmetic Crossover}{57}{subsection.6.6.1}%
+\contentsline {subsubsection}{Single Arithmetic Crossover}{58}{subsection.6.6.1}%
+\contentsline {subsubsection}{Simple Arithmetic Crossover}{59}{figure.caption.26}%
+\contentsline {subsubsection}{Whole Arithmetic Crossover}{60}{figure.caption.27}%
+\contentsline {subsubsection}{Whole Arithmetic Crossover}{60}{figure.caption.28}%
+\contentsline {subsubsection}{Simple Arithmetic Crossover}{60}{equation.6.6.15}%
+\contentsline {subsubsection}{Single Arithmetic Crossover}{60}{equation.6.6.15}%
+\contentsline {subsubsection}{Example}{60}{equation.6.6.15}%
+\contentsline {subsection}{\numberline {6.6.2}BLX-$\alpha $ Crossover (Blend Crossover)}{60}{subsection.6.6.2}%
+\contentsline {subsubsection}{Algorithm}{61}{subsection.6.6.2}%
+\contentsline {subsubsection}{Parameters}{61}{Item.35}%
+\contentsline {subsection}{\numberline {6.6.3}SBX (Simulated Binary Crossover)}{61}{subsection.6.6.3}%
+\contentsline {subsubsection}{Formula}{61}{subsection.6.6.3}%
+\contentsline {section}{\numberline {6.7}Permutation Crossover Operators}{61}{section.6.7}%
+\contentsline {subsection}{\numberline {6.7.1}Order Crossover (OX)}{61}{subsection.6.7.1}%
+\contentsline {subsubsection}{Algorithm}{61}{subsection.6.7.1}%
+\contentsline {subsubsection}{Example}{61}{ALC@unique.69}%
+\contentsline {subsection}{\numberline {6.7.2}Partially Mapped Crossover (PMX)}{62}{subsection.6.7.2}%
+\contentsline {subsubsection}{Algorithm}{62}{subsection.6.7.2}%
+\contentsline {subsubsection}{Example}{62}{ALC@unique.72}%
+\contentsline {subsection}{\numberline {6.7.3}Cycle Crossover (CX)}{62}{subsection.6.7.3}%
+\contentsline {subsubsection}{Algorithm}{62}{subsection.6.7.3}%
+\contentsline {subsection}{\numberline {6.7.4}Edge Recombination Crossover}{62}{subsection.6.7.4}%
+\contentsline {subsubsection}{Algorithm}{62}{subsection.6.7.4}%
+\contentsline {section}{\numberline {6.8}Crossover Analysis}{63}{section.6.8}%
+\contentsline {subsection}{\numberline {6.8.1}Schema Disruption}{63}{subsection.6.8.1}%
+\contentsline {subsubsection}{One-Point Crossover}{63}{subsection.6.8.1}%
+\contentsline {subsubsection}{Two-Point Crossover}{63}{equation.6.8.31}%
+\contentsline {subsubsection}{Uniform Crossover}{63}{equation.6.8.32}%
+\contentsline {subsection}{\numberline {6.8.2}Building Block Preservation}{63}{subsection.6.8.2}%
+\contentsline {section}{\numberline {6.9}Advanced Crossover Techniques}{63}{section.6.9}%
+\contentsline {subsection}{\numberline {6.9.1}Adaptive Crossover}{63}{subsection.6.9.1}%
+\contentsline {subsection}{\numberline {6.9.2}Multiple Parent Crossover}{64}{subsection.6.9.2}%
+\contentsline {subsection}{\numberline {6.9.3}Problem-Specific Crossover}{64}{subsection.6.9.3}%
+\contentsline {section}{\numberline {6.10}Crossover Guidelines}{64}{section.6.10}%
+\contentsline {subsection}{\numberline {6.10.1}Choosing Crossover Type}{64}{subsection.6.10.1}%
+\contentsline {subsection}{\numberline {6.10.2}Parameter Setting}{64}{subsection.6.10.2}%
+\contentsline {subsection}{\numberline {6.10.3}Empirical Testing}{64}{subsection.6.10.3}%
+\contentsline {section}{\numberline {6.11}Crossover vs. Mutation}{65}{section.6.11}%
+\contentsline {section}{\numberline {6.12}Chapter Summary}{65}{section.6.12}%
+\contentsline {section}{\numberline {6.13}Key Concepts}{65}{section.6.13}%
+\contentsline {chapter}{\numberline {7}Real-World Applications and Visual Examples}{67}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Game AI and Entertainment}{67}{section.7.1}%
+\contentsline {subsection}{\numberline {7.1.1}Super Mario Bros Level Learning}{67}{subsection.7.1.1}%
+\contentsline {subsection}{\numberline {7.1.2}Tower Defense Game Balancing}{67}{subsection.7.1.2}%
+\contentsline {section}{\numberline {7.2}Pathfinding and Navigation}{68}{section.7.2}%
+\contentsline {subsection}{\numberline {7.2.1}Maze Navigation}{68}{subsection.7.2.1}%
+\contentsline {subsection}{\numberline {7.2.2}Robot Navigation}{68}{subsection.7.2.2}%
+\contentsline {section}{\numberline {7.3}Evolution Simulation}{68}{section.7.3}%
+\contentsline {subsection}{\numberline {7.3.1}Simulated Evolution of Creatures}{68}{subsection.7.3.1}%
+\contentsline {section}{\numberline {7.4}Human Analogy Examples}{69}{section.7.4}%
+\contentsline {subsection}{\numberline {7.4.1}Evolution of Movement}{69}{subsection.7.4.1}%
+\contentsline {subsection}{\numberline {7.4.2}Work Journey Optimization}{69}{subsection.7.4.2}%
+\contentsline {section}{\numberline {7.5}Academic Context}{69}{section.7.5}%
+\contentsline {subsection}{\numberline {7.5.1}GA in Computational Intelligence}{69}{subsection.7.5.1}%
+\contentsline {section}{\numberline {7.6}Historical Perspective}{70}{section.7.6}%
+\contentsline {subsection}{\numberline {7.6.1}Natural Selection Theories}{70}{subsection.7.6.1}%
+\contentsline {section}{\numberline {7.7}Summary}{70}{section.7.7}%
+\contentsline {chapter}{\numberline {8}Mutation and Generation Update}{71}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Introduction to Mutation}{71}{section.8.1}%
+\contentsline {subsection}{\numberline {8.1.1}What is Mutation?}{71}{subsection.8.1.1}%
+\contentsline {subsection}{\numberline {8.1.2}Mutation in Evolutionary Algorithms vs. Biological Evolution}{72}{subsection.8.1.2}%
+\contentsline {section}{\numberline {8.2}Mutation for Different Representations}{72}{section.8.2}%
+\contentsline {subsection}{\numberline {8.2.1}Mutation for Binary Representation}{72}{subsection.8.2.1}%
+\contentsline {subsubsection}{Bit-Flip Mutation}{72}{subsection.8.2.1}%
+\contentsline {subsection}{\numberline {8.2.2}Mutation for Integer Representation}{73}{subsection.8.2.2}%
+\contentsline {subsubsection}{Integer Value Flipping}{73}{subsection.8.2.2}%
+\contentsline {subsubsection}{Random Value Selection}{73}{subsection.8.2.2}%
+\contentsline {subsubsection}{Creep Mutation}{73}{subsection.8.2.2}%
+\contentsline {subsection}{\numberline {8.2.3}Mutation for Real-Valued Representation}{73}{subsection.8.2.3}%
+\contentsline {subsubsection}{Uniform Mutation}{73}{subsection.8.2.3}%
+\contentsline {subsubsection}{Non-Uniform Mutation with Fixed Distribution}{74}{equation.8.2.1}%
+\contentsline {subsection}{\numberline {8.2.4}Mutation for Permutation Representation}{74}{subsection.8.2.4}%
+\contentsline {subsubsection}{Swap Mutation}{74}{subsection.8.2.4}%
+\contentsline {subsubsection}{Insert Mutation}{75}{ALC@unique.93}%
+\contentsline {subsubsection}{Scramble Mutation}{75}{ALC@unique.93}%
+\contentsline {subsubsection}{Inversion Mutation}{75}{ALC@unique.93}%
+\contentsline {section}{\numberline {8.3}Generation Update Mechanisms}{75}{section.8.3}%
+\contentsline {subsection}{\numberline {8.3.1}Holland's Original Model (Generational Replacement)}{75}{subsection.8.3.1}%
+\contentsline {subsection}{\numberline {8.3.2}Generational Model with Elitism}{76}{subsection.8.3.2}%
+\contentsline {subsection}{\numberline {8.3.3}Steady-State Update}{76}{subsection.8.3.3}%
+\contentsline {subsection}{\numberline {8.3.4}Continuous Update}{77}{subsection.8.3.4}%
+\contentsline {section}{\numberline {8.4}GA Parameters}{77}{section.8.4}%
+\contentsline {subsection}{\numberline {8.4.1}Crossover Probability ($P_c$)}{77}{subsection.8.4.1}%
+\contentsline {subsection}{\numberline {8.4.2}Mutation Probability ($P_m$)}{78}{subsection.8.4.2}%
+\contentsline {subsection}{\numberline {8.4.3}Population Size ($N$)}{78}{subsection.8.4.3}%
+\contentsline {subsection}{\numberline {8.4.4}Number of Generations ($G$)}{79}{subsection.8.4.4}%
+\contentsline {subsection}{\numberline {8.4.5}General Parameter Setting Guidelines}{79}{subsection.8.4.5}%
+\contentsline {section}{\numberline {8.5}Parameter Observation Study}{79}{section.8.5}%
+\contentsline {subsection}{\numberline {8.5.1}Test Problem}{80}{subsection.8.5.1}%
+\contentsline {subsection}{\numberline {8.5.2}Experimental Setup}{80}{subsection.8.5.2}%
+\contentsline {subsection}{\numberline {8.5.3}Sample Results}{80}{subsection.8.5.3}%
+\contentsline {section}{\numberline {8.6}Summary and Conclusions}{81}{section.8.6}%
+\contentsline {section}{\numberline {8.7}Exercises}{82}{section.8.7}%
+\contentsline {chapter}{\numberline {A}Algorithm Implementations}{85}{appendix.A}%
+\contentsline {section}{\numberline {A.1}Basic Genetic Algorithm Implementation}{85}{section.A.1}%
+\contentsline {subsection}{\numberline {A.1.1}Python Implementation}{85}{subsection.A.1.1}%
+\contentsline {section}{\numberline {A.2}Real-Valued Genetic Algorithm}{89}{section.A.2}%
+\contentsline {section}{\numberline {A.3}Traveling Salesman Problem GA}{92}{section.A.3}%
+\contentsline {section}{\numberline {A.4}NSGA-II for Multi-Objective Optimization}{97}{section.A.4}%
+\contentsline {chapter}{\numberline {B}Practical Examples and Case Studies}{105}{appendix.B}%
+\contentsline {section}{\numberline {B.1}Function Optimization Problems}{105}{section.B.1}%
+\contentsline {subsection}{\numberline {B.1.1}OneMax Problem}{105}{subsection.B.1.1}%
+\contentsline {subsubsection}{Problem Definition}{105}{subsection.B.1.1}%
+\contentsline {subsubsection}{Expected Performance}{105}{equation.B.1.1}%
+\contentsline {subsubsection}{GA Configuration}{105}{equation.B.1.1}%
+\contentsline {subsection}{\numberline {B.1.2}Sphere Function}{106}{subsection.B.1.2}%
+\contentsline {subsubsection}{Problem Definition}{106}{subsection.B.1.2}%
+\contentsline {subsubsection}{Characteristics}{106}{equation.B.1.2}%
+\contentsline {subsection}{\numberline {B.1.3}Rastrigin Function}{106}{subsection.B.1.3}%
+\contentsline {subsubsection}{Problem Definition}{106}{subsection.B.1.3}%
+\contentsline {subsubsection}{Characteristics}{106}{equation.B.1.3}%
+\contentsline {subsubsection}{GA Challenges}{106}{equation.B.1.3}%
+\contentsline {subsection}{\numberline {B.1.4}Rosenbrock Function}{107}{subsection.B.1.4}%
+\contentsline {subsubsection}{Problem Definition}{107}{subsection.B.1.4}%
+\contentsline {subsubsection}{Characteristics}{107}{equation.B.1.4}%
+\contentsline {section}{\numberline {B.2}Combinatorial Optimization Problems}{107}{section.B.2}%
+\contentsline {subsection}{\numberline {B.2.1}Traveling Salesman Problem (TSP)}{107}{subsection.B.2.1}%
+\contentsline {subsubsection}{Problem Description}{107}{subsection.B.2.1}%
+\contentsline {subsubsection}{Mathematical Formulation}{107}{subsection.B.2.1}%
+\contentsline {subsubsection}{GA Representation}{107}{equation.B.2.8}%
+\contentsline {subsubsection}{Specialized Operators}{108}{equation.B.2.8}%
+\contentsline {subsubsection}{Performance Tips}{108}{equation.B.2.8}%
+\contentsline {subsection}{\numberline {B.2.2}Knapsack Problem}{108}{subsection.B.2.2}%
+\contentsline {subsubsection}{Problem Description}{108}{subsection.B.2.2}%
+\contentsline {subsubsection}{0/1 Knapsack Formulation}{108}{subsection.B.2.2}%
+\contentsline {subsubsection}{GA Approach}{108}{equation.B.2.11}%
+\contentsline {subsubsection}{Penalty Function Example}{108}{equation.B.2.11}%
+\contentsline {section}{\numberline {B.3}Real-World Applications}{109}{section.B.3}%
+\contentsline {subsection}{\numberline {B.3.1}Neural Network Training}{109}{subsection.B.3.1}%
+\contentsline {subsubsection}{Problem Setup}{109}{subsection.B.3.1}%
+\contentsline {subsubsection}{Representation}{109}{subsection.B.3.1}%
+\contentsline {subsubsection}{Fitness Function}{109}{subsection.B.3.1}%
+\contentsline {subsubsection}{Advantages over Backpropagation}{109}{equation.B.3.13}%
+\contentsline {subsection}{\numberline {B.3.2}Feature Selection}{109}{subsection.B.3.2}%
+\contentsline {subsubsection}{Problem Description}{109}{subsection.B.3.2}%
+\contentsline {subsubsection}{GA Approach}{109}{subsection.B.3.2}%
+\contentsline {subsubsection}{Multi-objective Formulation}{109}{subsection.B.3.2}%
+\contentsline {subsection}{\numberline {B.3.3}Job Shop Scheduling}{110}{subsection.B.3.3}%
+\contentsline {subsubsection}{Problem Description}{110}{subsection.B.3.3}%
+\contentsline {subsubsection}{Representation Options}{110}{subsection.B.3.3}%
+\contentsline {subsubsection}{Constraints}{110}{Item.79}%
+\contentsline {section}{\numberline {B.4}Parameter Tuning Guidelines}{110}{section.B.4}%
+\contentsline {subsection}{\numberline {B.4.1}Population Size}{110}{subsection.B.4.1}%
+\contentsline {subsection}{\numberline {B.4.2}Crossover and Mutation Rates}{110}{subsection.B.4.2}%
+\contentsline {subsection}{\numberline {B.4.3}Selection Pressure}{111}{subsection.B.4.3}%
+\contentsline {section}{\numberline {B.5}Performance Analysis}{111}{section.B.5}%
+\contentsline {subsection}{\numberline {B.5.1}Convergence Metrics}{111}{subsection.B.5.1}%
+\contentsline {subsection}{\numberline {B.5.2}Statistical Testing}{111}{subsection.B.5.2}%
+\contentsline {subsection}{\numberline {B.5.3}Comparison with Other Methods}{111}{subsection.B.5.3}%
+\contentsline {section}{\numberline {B.6}Common Pitfalls and Solutions}{111}{section.B.6}%
+\contentsline {subsection}{\numberline {B.6.1}Premature Convergence}{111}{subsection.B.6.1}%
+\contentsline {subsection}{\numberline {B.6.2}Slow Convergence}{112}{subsection.B.6.2}%
+\contentsline {subsection}{\numberline {B.6.3}Constraint Handling Issues}{112}{subsection.B.6.3}%
+\contentsline {section}{\numberline {B.7}Advanced Techniques}{113}{section.B.7}%
+\contentsline {subsection}{\numberline {B.7.1}Hybrid Genetic Algorithms}{113}{subsection.B.7.1}%
+\contentsline {subsection}{\numberline {B.7.2}Adaptive Parameter Control}{113}{subsection.B.7.2}%
+\contentsline {subsection}{\numberline {B.7.3}Parallel Genetic Algorithms}{113}{subsection.B.7.3}%
+\contentsline {section}{\numberline {B.8}Implementation Best Practices}{113}{section.B.8}%
+\contentsline {subsection}{\numberline {B.8.1}Code Organization}{113}{subsection.B.8.1}%
+\contentsline {subsection}{\numberline {B.8.2}Testing and Validation}{113}{subsection.B.8.2}%
+\contentsline {subsection}{\numberline {B.8.3}Documentation}{114}{subsection.B.8.3}%
+\contentsline {section}{\numberline {B.9}Chapter Summary}{114}{section.B.9}%
+\contentsline {section}{\numberline {B.10}Key Takeaways}{114}{section.B.10}%

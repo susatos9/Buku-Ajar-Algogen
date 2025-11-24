@@ -1,19 +1,37 @@
 \babel@toc {english}{}\relax 
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {1.1}{\ignorespaces Illustration of GA cycle and variations}}{4}{figure.caption.4}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Genetic Algorithm Cycle}}{12}{figure.caption.6}%
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Genetic Algorithm Cycle}}{16}{figure.caption.7}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Schema characteristics: Order and Defining Length examples}}{19}{figure.caption.8}%
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Binary encoding examples and characteristics}}{28}{figure.caption.9}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Various encoding types: Value, Permutation, and Tree encoding}}{29}{figure.caption.10}%
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Basic selection process in Genetic Algorithms}}{37}{figure.caption.12}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Roulette-wheel selection process with sample trials}}{39}{figure.caption.14}%
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Stochastic universal sampling with equally spaced pointers}}{41}{figure.caption.16}%
+\contentsline {figure}{\numberline {5.4}{\ignorespaces How the situation changes after converting fitness to order number (rank)}}{42}{figure.caption.17}%
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Tournament selection mechanism}}{43}{figure.caption.18}%
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Single-Point Crossover for binary chromosomes}}{52}{figure.caption.20}%
+\contentsline {figure}{\numberline {6.2}{\ignorespaces Multi-point Crossover for binary chromosomes}}{54}{figure.caption.21}%
+\contentsline {figure}{\numberline {6.3}{\ignorespaces Uniform Crossover for binary chromosomes}}{55}{figure.caption.22}%
+\contentsline {figure}{\numberline {6.4}{\ignorespaces Single-Point Crossover for integer chromosomes}}{57}{figure.caption.23}%
+\contentsline {figure}{\numberline {6.5}{\ignorespaces Multi-point Crossover for integer chromosomes}}{58}{figure.caption.24}%
+\contentsline {figure}{\numberline {6.6}{\ignorespaces Uniform Crossover for integer chromosomes}}{59}{figure.caption.25}%
+\contentsline {figure}{\numberline {6.7}{\ignorespaces Single Arithmetic Crossover for real chromosomes}}{59}{figure.caption.26}%
+\contentsline {figure}{\numberline {6.8}{\ignorespaces Simple Arithmetic Crossover for real chromosomes}}{59}{figure.caption.27}%
+\contentsline {figure}{\numberline {6.9}{\ignorespaces Whole Arithmetic Crossover for real chromosomes}}{60}{figure.caption.28}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {7.1}{\ignorespaces Genetic Algorithm Learning to Play Super Mario Bros at 4x Speed}}{47}{figure.caption.11}%
-\contentsline {figure}{\numberline {7.2}{\ignorespaces Cat Navigating Circular Maze to Reach Cheese Using Genetic Algorithm}}{48}{figure.caption.12}%
-\contentsline {figure}{\numberline {7.3}{\ignorespaces Simulated Evolution Using Genetic Algorithm - Creatures Adapting Over Generations}}{48}{figure.caption.13}%
-\contentsline {figure}{\numberline {7.4}{\ignorespaces Human Movement Evolution: From Sitting to Athletic Performance}}{49}{figure.caption.14}%
-\contentsline {figure}{\numberline {7.5}{\ignorespaces Optimizing Daily Commute Route Using GA Principles}}{49}{figure.caption.15}%
-\contentsline {figure}{\numberline {7.6}{\ignorespaces Position of Genetic Algorithms in Machine Learning and Soft Computing Landscape}}{49}{figure.caption.16}%
-\contentsline {figure}{\numberline {7.7}{\ignorespaces Comparison of Lamarck vs Darwin-Wallace Evolution Theories Using Giraffe Example}}{50}{figure.caption.17}%
+\contentsline {figure}{\numberline {7.1}{\ignorespaces Genetic Algorithm Learning to Play Super Mario Bros at 4x Speed}}{67}{figure.caption.30}%
+\contentsline {figure}{\numberline {7.2}{\ignorespaces Cat Navigating Circular Maze to Reach Cheese Using Genetic Algorithm}}{68}{figure.caption.31}%
+\contentsline {figure}{\numberline {7.3}{\ignorespaces Simulated Evolution Using Genetic Algorithm - Creatures Adapting Over Generations}}{68}{figure.caption.32}%
+\contentsline {figure}{\numberline {7.4}{\ignorespaces Human Movement Evolution: From Sitting to Athletic Performance}}{69}{figure.caption.33}%
+\contentsline {figure}{\numberline {7.5}{\ignorespaces Optimizing Daily Commute Route Using GA Principles}}{69}{figure.caption.34}%
+\contentsline {figure}{\numberline {7.6}{\ignorespaces Position of Genetic Algorithms in Machine Learning and Soft Computing Landscape}}{69}{figure.caption.35}%
+\contentsline {figure}{\numberline {7.7}{\ignorespaces Comparison of Lamarck vs Darwin-Wallace Evolution Theories Using Giraffe Example}}{70}{figure.caption.36}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

@@ -130,6 +130,20 @@ The defining length $\delta(H)$ is the distance between the first and last fixed
 
 For $H = 1*0*1$: $\delta(H) = 5 - 1 = 4$
 
+\textbf{Examples from Buku Ajar:}
+\begin{itemize}
+    \item $S_1 = (* * * 0 0 1 * 1 1 0)$: $\delta(S_1) = 10 - 4 = 6$
+    \item $S_2 = (* * * * 0 0 * * 0 *)$: $\delta(S_2) = 9 - 5 = 4$
+    \item $S_3 = (1 1 1 0 1 * * 0 0 1)$: $\delta(S_3) = 10 - 1 = 9$
+\end{itemize}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.8\textwidth]{figures/buku_ajar_page_8.png}
+\caption{Schema characteristics: Order and Defining Length examples}
+\label{fig:schema_characteristics}
+\end{figure}
+
 \subsection{Schema Theorem (Fundamental Theorem)}
 
 The schema theorem describes how the expected number of strings matching a schema changes from generation to generation.
@@ -189,6 +203,42 @@ The building block hypothesis states that:
     \item \textbf{Low order}: $o(H)$ is small
     \item \textbf{Above-average fitness}: $f(H) > \bar{f}$
 \end{enumerate}
+
+\subsection{Role of Schema Order in Genetic Algorithms}
+
+\subsubsection{Pattern Specificity Level}
+The order of a schema indicates the level of specificity of the pattern represented in a chromosome. The higher the order, the more specific the pattern described. For example, a low-order schema like $1*****$ still represents many possible chromosomes because only one position is fixed, while a high-order schema like $101011$ is very specific and only matches one particular chromosome. Thus, order plays a role in determining how broad a schema's representation is within the population.
+
+\subsubsection{Survival Probability in Evolution}
+The order of a schema greatly influences the schema's chance of surviving through the evolution process. In genetic algorithms, two main operators that often cause changes are crossover and mutation.
+
+Low-order schemas are relatively safer against these changes because they have few fixed positions. For example, the schema $1*****$ only locks one bit at the beginning. If mutation occurs at another position or crossover cuts through the middle, the chance of schema disruption is very small. In other words, the fewer fixed bits that must be maintained, the greater the likelihood that the schema will survive and be inherited to the next generation.
+
+Conversely, high-order schemas like $101011$ have many fixed bits that must be exactly the same to remain valid. In such conditions, even one small mutation at one of the fixed positions can destroy the entire schema. Similarly, in the crossover process, the probability of being cut between fixed positions becomes larger. As a result, high-order schemas often quickly disappear from the population because they struggle to survive the combination of genetic variations that occur.
+
+\subsubsection{Relationship with Selection}
+Although they appear simple, low-order schemas actually play a very important role in genetic algorithms. The simplicity of this structure allows schemas to be more resistant to damage from crossover and mutation, so these patterns survive more often and are inherited to the next generation. If a simple schema contains patterns relevant to the optimal solution—for example, certain bit combinations that increase fitness value—then that schema will appear repeatedly on various chromosomes in the population.
+
+This phenomenon aligns with the building block hypothesis put forward by Holland. Genetic algorithms do not directly search for complex solutions as a whole, but work by maintaining and arranging simple pattern blocks that have a positive contribution to fitness. These blocks are then combined through selection, crossover, and mutation, thus forming more complex genetic structures that approach the optimal solution.
+
+The selection process plays a central role here. Individuals who have schemas with high contribution to fitness will be selected more often to reproduce. Thus, beneficial simple schemas can spread widely in the population. Over time, combinations of building blocks from various simple schemas produce solutions that are not only more complex, but also more efficient in solving problems.
+
+\subsection{Relationship Between Holland Schema and Genome}
+The number of genome sequences that can be represented by a schema depends on the number of don't care symbols (*). Each don't care symbol can have a value of 0 or 1, so a schema with $k$ don't care symbols will produce $2^k$ possible genome sequences.
+
+Examples:
+\begin{itemize}
+    \item $S_4$ has 1 don't care, so there are $2^1 = 2$ possible genome sequences: 110010, 110110
+    \item $S_5$ has 2 don't care, so there are $2^2 = 4$ possible genome sequences: 1110000, 1110100, 0110000, 0110100
+    \item $S_6$ has 3 don't care, so there are $2^3 = 8$ possible genome sequences: 101100111, 101100110, 101100010, 101100011, 100100111, 100100110, 100100011, 100100111
+\end{itemize}
+
+\subsection{Schema Functions in Genetic Algorithms}
+\begin{itemize}
+    \item Provides a powerful and compact way to represent well-defined similarities among strings
+    \item Serves as the theoretical basis for explaining how good (fit) patterns in the population can be maintained and multiplied through crossover and mutation
+    \item Helps understand that Genetic Algorithms work not only on individual strings, but also on classes of strings that share patterns (schemas)
+\end{itemize}
 
 \section{Implicit Parallelism}
 
