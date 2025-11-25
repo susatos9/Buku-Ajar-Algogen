@@ -69,28 +69,28 @@
 \contentsline {subsubsection}{Selection Effect}{19}{subsection.3.2.3}%
 \contentsline {subsubsection}{Crossover Effect}{19}{equation.3.2.3}%
 \contentsline {subsubsection}{Mutation Effect}{19}{equation.3.2.4}%
-\contentsline {subsubsection}{Combined Schema Theorem}{20}{equation.3.2.5}%
-\contentsline {subsection}{\numberline {3.2.4}Building Block Hypothesis}{20}{subsection.3.2.4}%
-\contentsline {subsubsection}{Characteristics of Good Building Blocks}{20}{subsection.3.2.4}%
+\contentsline {subsubsection}{Combined Schema Theorem}{19}{equation.3.2.5}%
+\contentsline {subsection}{\numberline {3.2.4}Building Block Hypothesis}{19}{subsection.3.2.4}%
+\contentsline {subsubsection}{Characteristics of Good Building Blocks}{19}{subsection.3.2.4}%
 \contentsline {subsection}{\numberline {3.2.5}Role of Schema Order in Genetic Algorithms}{20}{subsection.3.2.5}%
 \contentsline {subsubsection}{Pattern Specificity Level}{20}{subsection.3.2.5}%
 \contentsline {subsubsection}{Survival Probability in Evolution}{20}{subsection.3.2.5}%
-\contentsline {subsubsection}{Relationship with Selection}{21}{subsection.3.2.5}%
+\contentsline {subsubsection}{Relationship with Selection}{20}{subsection.3.2.5}%
 \contentsline {subsection}{\numberline {3.2.6}Relationship Between Holland Schema and Genome}{21}{subsection.3.2.6}%
 \contentsline {subsection}{\numberline {3.2.7}Schema Functions in Genetic Algorithms}{21}{subsection.3.2.7}%
 \contentsline {section}{\numberline {3.3}Implicit Parallelism}{21}{section.3.3}%
-\contentsline {section}{\numberline {3.4}Deception and Schema Theory}{22}{section.3.4}%
-\contentsline {subsection}{\numberline {3.4.1}Deceptive Problems}{22}{subsection.3.4.1}%
-\contentsline {subsection}{\numberline {3.4.2}Overcoming Deception}{22}{subsection.3.4.2}%
+\contentsline {section}{\numberline {3.4}Deception and Schema Theory}{21}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}Deceptive Problems}{21}{subsection.3.4.1}%
+\contentsline {subsection}{\numberline {3.4.2}Overcoming Deception}{21}{subsection.3.4.2}%
 \contentsline {section}{\numberline {3.5}Practical Implications}{22}{section.3.5}%
 \contentsline {subsection}{\numberline {3.5.1}Encoding Design}{22}{subsection.3.5.1}%
 \contentsline {subsection}{\numberline {3.5.2}Parameter Settings}{22}{subsection.3.5.2}%
 \contentsline {section}{\numberline {3.6}Limitations of Schema Theory}{22}{section.3.6}%
-\contentsline {section}{\numberline {3.7}Modern Extensions}{23}{section.3.7}%
-\contentsline {subsection}{\numberline {3.7.1}Walsh Analysis}{23}{subsection.3.7.1}%
-\contentsline {subsection}{\numberline {3.7.2}Fitness Landscapes}{23}{subsection.3.7.2}%
-\contentsline {subsection}{\numberline {3.7.3}No Free Lunch Theorem}{23}{subsection.3.7.3}%
-\contentsline {section}{\numberline {3.8}Chapter Summary}{23}{section.3.8}%
+\contentsline {section}{\numberline {3.7}Modern Extensions}{22}{section.3.7}%
+\contentsline {subsection}{\numberline {3.7.1}Walsh Analysis}{22}{subsection.3.7.1}%
+\contentsline {subsection}{\numberline {3.7.2}Fitness Landscapes}{22}{subsection.3.7.2}%
+\contentsline {subsection}{\numberline {3.7.3}No Free Lunch Theorem}{22}{subsection.3.7.3}%
+\contentsline {section}{\numberline {3.8}Chapter Summary}{22}{section.3.8}%
 \contentsline {section}{\numberline {3.9}Key Concepts}{23}{section.3.9}%
 \contentsline {chapter}{\numberline {4}Genetic Algorithm Encoding}{25}{chapter.4}%
 \contentsline {section}{\numberline {4.1}Introduction to Encoding}{25}{section.4.1}%
@@ -110,9 +110,9 @@
 \contentsline {subsection}{\numberline {4.4.2}What is Encoding}{27}{subsection.4.4.2}%
 \contentsline {subsection}{\numberline {4.4.3}Encoding Type Categories}{27}{subsection.4.4.3}%
 \contentsline {subsubsection}{1. Binary Encoding}{27}{subsection.4.4.3}%
-\contentsline {subsubsection}{2. Value Encoding}{27}{figure.caption.9}%
-\contentsline {subsubsection}{3. Permutation Encoding}{28}{figure.caption.9}%
-\contentsline {subsubsection}{4. Tree Encoding}{28}{figure.caption.9}%
+\contentsline {subsubsection}{2. Value Encoding}{27}{figure.caption.8}%
+\contentsline {subsubsection}{3. Permutation Encoding}{28}{figure.caption.8}%
+\contentsline {subsubsection}{4. Tree Encoding}{28}{figure.caption.8}%
 \contentsline {section}{\numberline {4.5}Gray Code Encoding}{28}{section.4.5}%
 \contentsline {subsection}{\numberline {4.5.1}Binary to Gray Code Conversion}{28}{subsection.4.5.1}%
 \contentsline {subsection}{\numberline {4.5.2}Gray Code to Binary Conversion}{29}{subsection.4.5.2}%
@@ -164,14 +164,14 @@
 \contentsline {section}{\numberline {5.2}Selection Pressure}{38}{section.5.2}%
 \contentsline {section}{\numberline {5.3}Fitness Proportionate Selection (FPS)}{38}{section.5.3}%
 \contentsline {subsection}{\numberline {5.3.1}Roulette Wheel Selection}{38}{subsection.5.3.1}%
-\contentsline {subsubsection}{Algorithm}{39}{figure.caption.14}%
+\contentsline {subsubsection}{Algorithm}{39}{figure.caption.13}%
 \contentsline {subsubsection}{Selection Probability}{39}{ALC@unique.28}%
 \contentsline {subsubsection}{Example}{40}{equation.5.3.1}%
-\contentsline {subsubsection}{Advantages}{40}{table.caption.15}%
-\contentsline {subsubsection}{Disadvantages}{40}{table.caption.15}%
+\contentsline {subsubsection}{Advantages}{40}{table.caption.14}%
+\contentsline {subsubsection}{Disadvantages}{40}{table.caption.14}%
 \contentsline {subsection}{\numberline {5.3.2}Stochastic Universal Sampling (SUS)}{40}{subsection.5.3.2}%
 \contentsline {subsubsection}{Baker's SUS}{41}{subsection.5.3.2}%
-\contentsline {subsubsection}{Algorithm}{41}{figure.caption.16}%
+\contentsline {subsubsection}{Algorithm}{41}{figure.caption.15}%
 \contentsline {subsubsection}{Advantages over Roulette Wheel}{41}{ALC@unique.35}%
 \contentsline {section}{\numberline {5.4}Rank-based Selection}{41}{section.5.4}%
 \contentsline {subsection}{\numberline {5.4.1}Overview}{42}{subsection.5.4.1}%
@@ -236,11 +236,11 @@
 \contentsline {subsubsection}{Example}{53}{ALC@unique.54}%
 \contentsline {subsubsection}{Characteristics}{53}{equation.6.4.4}%
 \contentsline {subsection}{\numberline {6.4.4}Two-Point Crossover}{53}{subsection.6.4.4}%
-\contentsline {subsubsection}{Algorithm}{53}{figure.caption.21}%
+\contentsline {subsubsection}{Algorithm}{53}{figure.caption.20}%
 \contentsline {subsubsection}{Example}{54}{ALC@unique.58}%
 \contentsline {subsubsection}{Advantages}{54}{equation.6.4.8}%
 \contentsline {subsection}{\numberline {6.4.5}Uniform Crossover}{54}{subsection.6.4.5}%
-\contentsline {subsubsection}{Algorithm}{55}{figure.caption.22}%
+\contentsline {subsubsection}{Algorithm}{55}{figure.caption.21}%
 \contentsline {subsubsection}{Example with Mask}{55}{ALC@unique.66}%
 \contentsline {subsubsection}{Properties}{55}{equation.6.4.13}%
 \contentsline {subsection}{\numberline {6.4.6}Multi-Point Crossover}{56}{subsection.6.4.6}%
@@ -252,9 +252,9 @@
 \contentsline {section}{\numberline {6.6}Real-Valued Crossover Operators}{57}{section.6.6}%
 \contentsline {subsection}{\numberline {6.6.1}Arithmetic Crossover}{57}{subsection.6.6.1}%
 \contentsline {subsubsection}{Single Arithmetic Crossover}{58}{subsection.6.6.1}%
-\contentsline {subsubsection}{Simple Arithmetic Crossover}{59}{figure.caption.26}%
+\contentsline {subsubsection}{Simple Arithmetic Crossover}{59}{figure.caption.25}%
+\contentsline {subsubsection}{Whole Arithmetic Crossover}{60}{figure.caption.26}%
 \contentsline {subsubsection}{Whole Arithmetic Crossover}{60}{figure.caption.27}%
-\contentsline {subsubsection}{Whole Arithmetic Crossover}{60}{figure.caption.28}%
 \contentsline {subsubsection}{Simple Arithmetic Crossover}{60}{equation.6.6.15}%
 \contentsline {subsubsection}{Single Arithmetic Crossover}{60}{equation.6.6.15}%
 \contentsline {subsubsection}{Example}{60}{equation.6.6.15}%
