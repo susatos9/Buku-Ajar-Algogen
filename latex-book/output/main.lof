@@ -1,4 +1,4 @@
-\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {1.1}{\ignorespaces Metode berbasis gradien tradisional mengikuti gradien lokal dan menjadi terjebak dalam optimum lokal, tidak mampu melarikan diri untuk menemukan optimum global.}}{2}{figure.caption.4}%
 \contentsline {figure}{\numberline {1.2}{\ignorespaces Fungsi dengan diskontinuitas, sudut tajam, atau lompatan diskrit tidak dapat dioptimalkan menggunakan metode berbasis gradien.}}{3}{figure.caption.5}%
@@ -9,21 +9,19 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Basic selection process in Genetic Algorithms}}{31}{figure.caption.10}%
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Roulette-wheel selection process with sample trials}}{33}{figure.caption.12}%
-\contentsline {figure}{\numberline {5.3}{\ignorespaces Stochastic universal sampling with equally spaced pointers}}{35}{figure.caption.14}%
-\contentsline {figure}{\numberline {5.4}{\ignorespaces How the situation changes after converting fitness to order number (rank)}}{36}{figure.caption.15}%
-\contentsline {figure}{\numberline {5.5}{\ignorespaces Tournament selection mechanism}}{37}{figure.caption.16}%
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Proses seleksi dasar dalam Algoritma Genetika}}{29}{figure.caption.10}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Proses seleksi roulette‑wheel dengan contoh pengundian}}{31}{figure.caption.12}%
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Stochastic universal sampling dengan penunjuk berjarak sama}}{32}{figure.caption.13}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {6.1}{\ignorespaces Single Point Crossover for binary chromosomes}}{48}{figure.caption.18}%
-\contentsline {figure}{\numberline {6.2}{\ignorespaces Multi-point Crossover for binary chromosomes}}{50}{figure.caption.19}%
-\contentsline {figure}{\numberline {6.3}{\ignorespaces Uniform Crossover for binary chromosomes}}{51}{figure.caption.20}%
-\contentsline {figure}{\numberline {6.4}{\ignorespaces Single-Point Crossover for integer chromosomes}}{53}{figure.caption.21}%
-\contentsline {figure}{\numberline {6.5}{\ignorespaces Multi-point Crossover for integer chromosomes}}{54}{figure.caption.22}%
-\contentsline {figure}{\numberline {6.6}{\ignorespaces Uniform Crossover for integer chromosomes}}{55}{figure.caption.23}%
-\contentsline {figure}{\numberline {6.7}{\ignorespaces Single Arithmetic Crossover for real chromosomes}}{55}{figure.caption.24}%
-\contentsline {figure}{\numberline {6.8}{\ignorespaces Simple Arithmetic Crossover for real chromosomes}}{55}{figure.caption.25}%
-\contentsline {figure}{\numberline {6.9}{\ignorespaces Whole Arithmetic Crossover for real chromosomes}}{56}{figure.caption.26}%
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Single Point Crossover for binary chromosomes}}{36}{figure.caption.15}%
+\contentsline {figure}{\numberline {6.2}{\ignorespaces Multi-point Crossover for binary chromosomes}}{38}{figure.caption.16}%
+\contentsline {figure}{\numberline {6.3}{\ignorespaces Uniform Crossover for binary chromosomes}}{39}{figure.caption.17}%
+\contentsline {figure}{\numberline {6.4}{\ignorespaces Single-Point Crossover for integer chromosomes}}{41}{figure.caption.18}%
+\contentsline {figure}{\numberline {6.5}{\ignorespaces Multi-point Crossover for integer chromosomes}}{42}{figure.caption.19}%
+\contentsline {figure}{\numberline {6.6}{\ignorespaces Uniform Crossover for integer chromosomes}}{43}{figure.caption.20}%
+\contentsline {figure}{\numberline {6.7}{\ignorespaces Single Arithmetic Crossover for real chromosomes}}{43}{figure.caption.21}%
+\contentsline {figure}{\numberline {6.8}{\ignorespaces Simple Arithmetic Crossover for real chromosomes}}{44}{figure.caption.22}%
+\contentsline {figure}{\numberline {6.9}{\ignorespaces Whole Arithmetic Crossover for real chromosomes}}{44}{figure.caption.23}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

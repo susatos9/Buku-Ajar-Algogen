@@ -1,45 +1,41 @@
-\chapter{Selection Methods in Genetic Algorithms}
+\chapter{Metode Seleksi dalam Algoritma Genetika}
 
-\section{Introduction to Selection}
+\section{Pendahuluan tentang Seleksi}
 
-Selection is the mechanism within a genetic algorithm that determines which individuals from a population are chosen to contribute genetic material to the next generation. At its core, selection converts fitness information into reproductive opportunities: individuals with relatively higher fitness are given greater chances to produce offspring, thereby biasing the search process toward promising regions of the solution space. This bias must be managed carefully so that the algorithm both exploits high-quality solutions and continues to explore diverse alternatives.
+Seleksi adalah mekanisme dalam algoritma genetika yang menentukan individu mana dari populasi yang dipilih untuk menyumbangkan materi genetik ke generasi berikutnya. Pada inti operasinya, seleksi mengubah informasi kebugaran (fitness) menjadi peluang reproduksi: individu dengan nilai kebugaran relatif lebih tinggi diberi peluang lebih besar untuk menghasilkan keturunan, sehingga memfokuskan pencarian ke wilayah solusi yang menjanjikan. Bias ini harus dikelola dengan hati‑hati agar algoritma dapat mengeksploitasi solusi berkualitas tinggi sekaligus tetap mengeksplorasi alternatif yang beragam.
 
-An essential concept associated with selection is selection pressure, which quantifies the degree to which better individuals are favored. High selection pressure accelerates convergence by amplifying the reproductive advantage of the fittest individuals, but it increases the risk of premature convergence where the population loses diversity and becomes trapped in suboptimal regions. Low selection pressure preserves diversity and encourages exploration, yet may slow the algorithm's progress toward improved solutions. Practical algorithm design therefore requires balancing these competing effects, often by tuning selection parameters or combining selection schemes with diversity-preserving mechanisms.
+Konsep penting yang terkait dengan seleksi adalah tekanan seleksi (selection pressure), yang mengukur seberapa kuat mekanisme seleksi memfavoritkan individu yang lebih baik. Tekanan seleksi tinggi mempercepat konvergensi dengan memperbesar keuntungan reproduktif individu terbaik, namun meningkatkan risiko konvergensi prematur saat populasi kehilangan keragaman dan terjebak pada solusi suboptimal. Tekanan seleksi rendah mempertahankan keragaman dan mendorong eksplorasi, tetapi dapat memperlambat kemajuan menuju solusi berkualitas. Oleh karena itu, desain praktis algoritma membutuhkan penyeimbangan efek‑efek ini, misalnya dengan pengaturan parameter seleksi atau dengan menggabungkan skema seleksi bersama mekanisme yang mempertahankan keragaman.
 
-Selection operators come in several families, each offering different trade-offs between simplicity, selection pressure control, and sensitivity to fitness scaling. Common approaches include fitness-proportionate methods (e.g., roulette wheel and stochastic universal sampling), rank-based schemes that ensure controlled and scale-independent pressure, tournament selection which provides an adjustable and efficient means of imposing pressure, and truncation or elitist strategies that deterministically preserve top individuals. Later sections of this chapter examine these methods in detail, including their algorithms, statistical properties, and practical advantages or drawbacks.
+Operator seleksi terbagi ke dalam beberapa keluarga yang memberikan kompromi berbeda antara kesederhanaan, kontrol tekanan seleksi, dan sensitivitas terhadap skala kebugaran. Pendekatan umum meliputi metode proporsional terhadap kebugaran (mis. roulette wheel dan stochastic universal sampling), skema berbasis peringkat yang memberikan tekanan terkontrol dan independen skala, seleksi turnamen yang efisien dan dapat diatur tekanannya, serta strategi tronkasi atau elitisme yang secara deterministik mempertahankan individu terbaik. Bagian‑bagian selanjutnya menguraikan metode tersebut secara detail, termasuk algoritma, sifat statistik, serta kelebihan dan kekurangan praktisnya.
 
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.75\textwidth]{figures/buku_ajar_page_16.png}
-\caption{Basic selection process in Genetic Algorithms}
+\caption{Proses seleksi dasar dalam Algoritma Genetika}
 \label{fig:selection_basic_process}
 \end{figure}
 
-\section{Selection Pressure}
-Selection pressure quantifies how strongly a selection mechanism favors individuals with higher fitness when producing the next generation. Intuitively, it measures the expected reproductive advantage of good solutions relative to the population average. Selection pressure can be formalized in several ways; common operational measures include selection intensity (the standardized difference between parent and population means) and takeover time (the number of generations required for the best individual to dominate under repeated selection). These measures allow practitioners to compare different selection operators and parameterizations in a principled manner.
+\section{Tekanan Seleksi}
+Tekanan seleksi mengkuantifikasi seberapa kuat suatu mekanisme seleksi memfavoritkan individu dengan kebugaran lebih tinggi saat menghasilkan generasi berikutnya. Secara intuitif, ia mengukur keuntungan reproduktif yang diharapkan dari solusi baik relatif terhadap rata‑rata populasi. Tekanan seleksi dapat diformalkan dengan berbagai cara; ukuran operasional yang umum antara lain intensitas seleksi (perbedaan terstandarisasi antara rata‑rata orang tua dan populasi) dan waktu takeover (jumlah generasi yang dibutuhkan agar individu terbaik mendominasi populasi bila seleksi diulang). Ukuran‑ukuran ini memungkinkan perbandingan terukur antara operator seleksi dan parametrisasinya.
 
-The magnitude of selection pressure has direct and predictable effects on search dynamics. Strong pressure accelerates the propagation of beneficial alleles and shortens the time to apparent convergence, which is useful when the fitness landscape is smooth and unimodal. However, excessive pressure reduces genetic diversity and increases the risk of premature convergence to local optima. Conversely, weak pressure preserves diversity and supports broader exploration of the search space but slows progress toward high-fitness regions. Therefore, the choice of selection operator and its parameters should be informed by the problem's modality, population size, and the available number of generations.
+Pengendalian praktis terhadap tekanan seleksi meliputi pilihan algoritmik (mis. ukuran turnamen, kemiringan peringkat, fraksi tronkasi), teknik penskalaan kebugaran (mis. linear atau sigma scaling, seleksi Boltzmann), serta strategi hibrida yang menyesuaikan tekanan selama run (mis. mulai dengan tekanan rendah untuk eksplorasi lalu tingkatkan untuk eksploitasi). Memantau statistik terkait seleksi — seperti rata‑rata dan varians kebugaran, ukuran keragaman (mis. jarak Hamming rata‑rata pada enkoding biner), dan perkiraan takeover time — memberi umpan balik berguna untuk tuning.
 
-Practical controls for selection pressure include algorithmic choices (e.g., tournament size, ranking slope, truncation fraction), fitness scaling techniques (e.g., linear or sigma scaling, Boltzmann selection), and hybrid strategies that adapt pressure during the run (e.g., start with low pressure for exploration and increase pressure for exploitation). Monitoring selection-related statistics — such as mean and variance of fitness, diversity measures (e.g., average Hamming distance in binary encodings), and takeover time estimates — provides actionable feedback for tuning. In applied settings, a common heuristic is to begin with moderate pressure (e.g., small tournament sizes, conservative ranking parameters) and adjust based on empirical performance and observed loss of diversity.
+\section{Seleksi Proporsional terhadap Kebugaran (FPS)}
 
-\section{Fitness Proportionate Selection (FPS)}
+Algoritma Genetika yang dikembangkan oleh Holland menggunakan Fitness Proportionate Selection (FPS)~\cite{holland1975adaptation, goldberg1989genetic}, dimana nilai harapan suatu individu dihitung sebagai rasio kebugaran individu terhadap kebugaran rata‑rata populasi.
 
-The Genetic Algorithm developed by Holland uses Fitness Proportionate Selection (FPS)~\cite{holland1975adaptation, goldberg1989genetic}, where the expected value of an individual (i.e., the expected number of times that individual will be selected for reproduction) is calculated as that individual's fitness divided by the population's average fitness.
+Dalam metode ini, setiap individu dipilih sebagai orang tua dengan probabilitas proporsional terhadap nilai kebugarannya. Dengan demikian, individu yang lebih fit memiliki peluang lebih besar untuk mereproduksi dan menyebarkan sifatnya ke generasi berikutnya.
 
-In this method, each individual can be selected as a parent with a probability proportional to its fitness value. Therefore, individuals with higher fitness have greater opportunities to reproduce and spread their characteristics to the next generation. Thus, this method provides selection pressure on fitter individuals in the population, thus driving evolution toward better individuals over time.
+\subsection{Seleksi Roulette Wheel}
+Dikenal juga sebagai seleksi proporsional kebugaran, di mana individu dipilih dengan probabilitas proporsional terhadap kebugarannya~\cite{goldberg1989genetic, obitko_selection, algorithmafternoon_selection}.
 
-\subsection{Roulette Wheel Selection}
-Also known as fitness proportionate selection, individuals are selected with probability proportional to their fitness~\cite{goldberg1989genetic, obitko_selection, algorithmafternoon_selection}.
-
-The simplest selection schema is roulette-wheel selection, also called stochastic sampling with replacement. This is a stochastic algorithm and involves the following technique:
-
-Individuals are mapped to contiguous segments on a line, where the size of each segment is equal to that individual's fitness value. A random number is generated, and the individual whose segment spans that random number is selected. This process is repeated until the desired number of individuals is reached, called the mating population. This technique is analogous to a roulette wheel, where each slice is proportional in size to the fitness value.
+Skema seleksi paling sederhana adalah roulette wheel, atau pengambilan sampel stokastik dengan penggantian. Individu dipetakan ke segmen‑segmen pada garis sesuai nilai kebugaran; bilangan acak kemudian menentukan segmen (individu) yang terpilih. Proses diulang hingga jumlah individu yang diinginkan terpenuhi.
 
 \begin{table}[H]
 \centering
 \begin{tabular}{cccc}
 \toprule
-Number of Individual & Fitness Value & Selection Probability & Interval \\
+Nomor Individu & Nilai Kebugaran & Probabilitas Seleksi & Interval \\
 \midrule
 1 & 2.0 & 0.18 & [0.00, 0.18] \\
 2 & 1.8 & 0.16 & [0.18, 0.34] \\
@@ -54,347 +50,153 @@ Number of Individual & Fitness Value & Selection Probability & Interval \\
 11 & 0.0 & 0.0 & -- \\
 \bottomrule
 \end{tabular}
-\caption{Selection probability and fitness value (from Buku Ajar)}
+\caption{Probabilitas seleksi dan nilai kebugaran (dari Buku Ajar)}
 \label{tab:selection_probability}
 \end{table}
-
-Table \ref{tab:selection_probability} shows the selection probabilities for 11 individuals, with linear ranking with selective pressure of 2, along with their fitness values. Individual 1 is the individual with the highest fitness and occupies the largest interval, while individual 10 as the individual with the second lowest fitness has the smallest interval on the line. Individual 11, with the lowest fitness, has fitness value = 0 and gets no chance for reproduction.
-
-To select the mating population, a number of uniformly distributed random numbers (uniformly distributed between 0.0 and 1.0) are generated independently.
 
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.85\textwidth]{figures/buku_ajar_page_18.png}
-\caption{Roulette-wheel selection process with sample trials}
+\caption{Proses seleksi roulette‑wheel dengan contoh pengundian}
 \label{fig:roulette_wheel_selection}
 \end{figure}
 
-The disadvantage of roulette-wheel selection is that although it provides zero bias, it does not guarantee minimum spread.
-
-\subsubsection{Algorithm}
+\subsubsection{Algoritma}
 \begin{algorithm}
 \caption{Roulette Wheel Selection}
 \begin{algorithmic}
-\STATE Calculate total fitness: $F = \sum_{i=1}^{N} f_i$
-\STATE Generate random number: $r \sim U[0, F]$
-\STATE Set cumulative fitness: $sum = 0$
+\STATE Hitung total kebugaran: $F = \sum_{i=1}^{N} f_i$
+\STATE Hasilkan bilangan acak: $r \sim U[0, F]$
+\STATE Set kumulatif kebugaran: $sum = 0$
 \FOR{$i = 1$ to $N$}
     \STATE $sum = sum + f_i$
     \IF{$sum \geq r$}
-        \STATE Select individual $i$
+        \STATE Pilih individu $i$
         \STATE \textbf{break}
     \ENDIF
 \ENDFOR
 \end{algorithmic}
 \end{algorithm}
 
-\subsubsection{Selection Probability}
-The probability of selecting individual $i$ is:
+\subsubsection{Probabilitas Seleksi}
 \begin{equation}
 P_i = \frac{f_i}{\sum_{j=1}^{N} f_j}
 \end{equation}
 
-\subsubsection{Example}
-\begin{table}[H]
-\centering
-\begin{tabular}{cccc}
-\toprule
-Individual & Fitness & Probability & Cumulative \\
-\midrule
-1 & 10 & 0.25 & 0.25 \\
-2 & 20 & 0.50 & 0.75 \\
-3 & 5 & 0.125 & 0.875 \\
-4 & 5 & 0.125 & 1.0 \\
-\midrule
-Total & 40 & 1.0 & \\
-\bottomrule
-\end{tabular}
-\caption{Roulette Wheel Selection Example}
-\end{table}
-
-If random number $r = 0.6$, individual 2 is selected.
-
-\subsubsection{Advantages}
-Roulette-wheel selection is straightforward to implement and directly realizes fitness-proportionate sampling, so higher-fitness individuals are naturally more likely to contribute genetic material. Its probabilistic nature ensures that every individual retains a nonzero chance of selection, which helps maintain some exploration even when fitter individuals dominate.
-
-\subsubsection{Disadvantages}
-Roulette-wheel selection can suffer when fitness values are highly skewed: individuals with very large fitness may dominate and drive premature convergence, while very similar fitness values lead to weak selection pressure. Practical use therefore often requires fitness scaling or normalization, and care must be taken with negative or non-comparable fitness measures.
-
 \subsection{Stochastic Universal Sampling (SUS)}
-Improved version of roulette wheel selection that reduces variance~\cite{baker1987reducing}.
-
-\subsubsection{Baker's SUS}
-Stochastic Universal Sampling (SUS) provides zero bias and minimum spread~\cite{baker1987reducing}. Individuals are mapped to contiguous segments on a line, where the size of each segment equals its fitness value, exactly as in roulette-wheel selection. In this method, equally spaced pointers are placed on the line equal to the number of individuals to be selected.
-
-Let NPointer be the number of individuals to be selected, then the distance between pointers is $1/N_{Pointer}$, and the position of the first pointer is determined by a random number generated in the range $[0, 1/N_{Pointer}]$.
-
-For example, to select 6 individuals, the distance between pointers is $1/6 = 0.167$.
+Versi yang ditingkatkan dari roulette‑wheel yang mengurangi variansi sampling~\cite{baker1987reducing}.
 
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.85\textwidth]{figures/buku_ajar_page_19.png}
-\caption{Stochastic universal sampling with equally spaced pointers}
+\caption{Stochastic universal sampling dengan penunjuk berjarak sama}
 \label{fig:sus_selection}
 \end{figure}
 
-Stochastic universal sampling ensures offspring selection that is closer to the expected values compared to roulette-wheel selection.
-
-\subsubsection{Algorithm}
+\subsubsection{Algoritma}
 \begin{algorithm}
 \caption{Stochastic Universal Sampling}
 \begin{algorithmic}
-\STATE Calculate total fitness: $F = \sum_{i=1}^{N} f_i$
-\STATE Calculate pointer distance: $distance = F / N$
-\STATE Generate random start: $start \sim U[0, distance]$
-\STATE Create pointers: $pointer_i = start + i \times distance$ for $i = 0, 1, \ldots, N-1$
-\FOR{each pointer}
-    \STATE Select individual using roulette wheel logic
+\STATE Hitung total kebugaran: $F = \sum_{i=1}^{N} f_i$
+\STATE Hitung jarak pointer: $distance = F / N$
+\STATE Hasilkan start acak: $start \sim U[0, distance]$
+\STATE Buat pointer: $pointer_i = start + i \times distance$ untuk $i = 0, 1, \ldots, N-1$
+\FOR{setiap pointer}
+    \STATE Pilih individu menggunakan logika roulette wheel
 \ENDFOR
 \end{algorithmic}
 \end{algorithm}
 
-\subsubsection{Advantages over Roulette Wheel}
-Stochastic Universal Sampling reduces sampling variance relative to independent roulette draws by using evenly spaced pointers; this produces selection counts that are closer to their expected values and yields a more uniform coverage of the population. As a consequence, SUS better preserves the expected representation of individuals across repeated samplings, improving stability of the selection operator.
+\section{Seleksi Berbasis Peringkat}
 
-\section{Rank-based Selection}
+Seleksi berbasis peringkat menetapkan probabilitas seleksi berdasarkan peringkat kebugaran, bukan nilai kebugaran mentah~\cite{grefenstette1986optimization, algorithmafternoon_ranked}.
 
-Rank-based selection assigns selection probabilities based on fitness rank rather than raw fitness values~\cite{grefenstette1986optimization, algorithmafternoon_ranked}.
-
-\subsection{Overview}
-Ranked-Based Selection introduces a different approach to selection in Genetic Algorithms. Instead of directly using fitness values to determine selection probability, individuals in the population are first sorted (ranked) based on their fitness values, then each individual is assigned a rank. The selection probability is then calculated based on that rank, not the actual fitness value.
-
-This rank-based approach helps reduce problems associated with direct fitness-based selection, such as premature convergence and domination by a few very fit individuals in the early stages of the optimization process. By assigning ranks and using them for selection, Ranked-Based Selection provides more balanced and controlled selection pressure, allowing better exploration of the search space and maintaining diversity in the population.
-
-Rankings are typically assigned linearly or exponentially, where the best individual receives the highest rank and the worst individual receives the lowest rank. Selection probability is then calculated based on that ranking using a predetermined formula or mapping function. This mapping function can be adjusted to control selection pressure, where higher pressure will favor individuals with the highest ranks, while lower pressure provides a more even distribution of selection probabilities.
-
-\begin{figure}[h]
-\centering
-\includegraphics[width=0.8\textwidth]{figures/buku_ajar_page_20.png}
-\caption{How the situation changes after converting fitness to order number (rank)}
-\label{fig:rank_based_selection}
-\end{figure}
-
-\subsection{Linear Ranking}
+\subsection{Perankingan Linear}
 \begin{equation}
 P_i = \frac{1}{N} \left[ \eta^- + (\eta^+ - \eta^-) \frac{rank_i - 1}{N - 1} \right]
 \end{equation}
 
-where:
-\begin{itemize}
-    \item $rank_i$ is the rank of individual $i$ (1 = worst, $N$ = best)
-    \item $\eta^+$ is the expected number of copies for best individual
-    \item $\eta^-$ is the expected number of copies for worst individual
-    \item $\eta^+ + \eta^- = 2$ (to maintain population size)
-    \item Typically: $\eta^+ = 2.0$, $\eta^- = 0.0$
-\end{itemize}
+di mana $rank_i$ adalah peringkat individu $i$ (1 = terburuk, $N$ = terbaik) dan $\eta^+ + \eta^- = 2$.
 
-\subsection{Exponential Ranking}
-\begin{equation}
-P_i = \frac{1 - e^{-rank_i}}{c}
-\end{equation}
+\section{Seleksi Turnamen}
 
-where $c$ is a normalization constant ensuring $\sum P_i = 1$.
+Seleksi turnamen memilih secara acak $k$ individu dan memilih yang terbaik di antara mereka~\cite{goldberg1989genetic}.
 
-\subsection{Advantages of Rank Selection}
-By basing probabilities on rank rather than raw fitness, rank-based selection enforces a predictable and bounded selection pressure that is insensitive to the scale or distribution of fitness values. This makes it robust to outliers and negative fitness values and helps prevent a few extreme individuals from dominating the population.
-
-\subsection{Disadvantages}
-Rank-based schemes discard the magnitude information contained in fitness differences, which can slow convergence when those magnitudes are informative; additionally, they require sorting the population each generation, introducing an O(N log N) cost and some implementation complexity compared to simpler, linear-time samplers.
-
-\section{Tournament Selection}
-
-Tournament selection randomly selects $k$ individuals and chooses the best among them~\cite{goldberg1989genetic, baeldung_tournament}.
-
-\subsection{Overview}
-Tournament selection is a strong and widely used selection mechanism in Genetic Algorithms because it can maintain a balance between diversity maintenance and selective pressure~\cite{baeldung_tournament}. Unlike roulette-wheel selection, which directly depends on an individual's fitness relative to the total population fitness, tournament selection works by holding "tournaments" among subsets of individuals, and the winner of each tournament is selected for reproduction.
-
-The main concept of tournament selection is quite simple: instead of considering the entire population at once, a subset of individuals is randomly selected to compete with each other. The individual with the highest fitness in that "tournament" is then selected. This process is repeated until the desired number of individuals for reproduction is reached.
-
-This method has several advantages: tournament selection maintains diversity because individuals with low fitness still have the opportunity to participate in tournaments. Additionally, this method allows selective pressure to be adjusted by setting the tournament size.
-
-\begin{figure}[h]
-\centering
-\includegraphics[width=0.7\textwidth]{figures/buku_ajar_page_21.png}
-\caption{Tournament selection mechanism}
-\label{fig:tournament_selection}
-\end{figure}
-
-\subsection{Tournament Selection Mechanism}
+\subsection{Mekanisme}
 \begin{enumerate}
-    \item Determine tournament size ($k$), i.e., the number of individuals participating in each tournament.
-    \item Randomly select $k$ individuals from the population.
-    \item Compare the fitness values of these individuals and select the individual with the highest fitness as the winner.
-    \item Add the winner to the mating pool.
-    \item Repeat steps 2–4 until the desired number of individuals is reached.
+    \item Tentukan ukuran turnamen ($k$).
+    \item Pilih secara acak $k$ individu.
+    \item Pilih individu dengan kebugaran tertinggi di antara mereka.
+    \item Tambahkan pemenang ke mating pool.
+    \item Ulangi hingga jumlah yang diinginkan tercapai.
 \end{enumerate}
-
-\subsection{Binary Tournament}
-Most common form with $k = 2$.
 
 \begin{algorithm}
 \caption{Binary Tournament Selection}
 \begin{algorithmic}
-\STATE Randomly select individual $i$
-\STATE Randomly select individual $j$ (where $j \neq i$)
+\STATE Pilih acak individu $i$
+\STATE Pilih acak individu $j$ (dengan $j \neq i$)
 \IF{$f_i > f_j$}
-    \STATE Select individual $i$
+    \STATE Pilih individu $i$
 \ELSE
-    \STATE Select individual $j$
+    \STATE Pilih individu $j$
 \ENDIF
 \end{algorithmic}
 \end{algorithm}
 
-\subsection{k-Tournament Selection}
-\begin{algorithm}
-\caption{k-Tournament Selection}
-\begin{algorithmic}
-\STATE Create empty tournament set $T$
-\FOR{$i = 1$ to $k$}
-    \STATE Randomly select individual and add to $T$
-\ENDFOR
-\STATE Select best individual from $T$
-\end{algorithmic}
-\end{algorithm}
-
-\subsection{Tournament Size Effects}
-\begin{itemize}
-    \item $k = 1$: Random selection (no pressure)
-    \item Small $k$: Low selection pressure
-    \item Large $k$: High selection pressure
-    \item $k = N$: Always selects best individual
-\end{itemize}
-
-\subsection{Selection Probability}
-For individual with rank $r$ out of $N$ (1 = worst, $N$ = best):
-\begin{equation}
-P_i = \frac{1}{N} \binom{N}{k} \sum_{j=0}^{r-1} \binom{j}{k-1} \binom{N-j-1}{0}
-\end{equation}
-
-For binary tournament ($k = 2$):
-\begin{equation}
-P_i = \frac{2r - 1}{N^2}
-\end{equation}
-
-\subsection{Advantages}
-Tournament selection is easy to implement, requires only local comparisons (no global fitness normalization), and provides a direct knob for selection pressure via the tournament size. Its independence from global statistics also makes it naturally parallelizable and tolerant of arbitrary fitness scales, including negative values.
-
-\subsection{Disadvantages}
-Tournament selection's behavior depends strongly on the chosen tournament size: large tournaments can impose very high pressure and reduce diversity, while very small tournaments approach random selection. The method can also repeatedly choose the same individual in multiple tournaments, which—without complementary diversity mechanisms—may accelerate loss of genetic variety.
-
 \section{Truncation Selection}
 
-Truncation selection is a deterministic policy that retains only the top fraction of the population for reproduction: given a population of size $\lambda$, the best $\mu$ individuals (by fitness) are selected and used to produce the next generation. The central parameter is the selection ratio
+Truncation selection mempertahankan hanya fraksi teratas populasi untuk reproduksi. Parameter utama adalah rasio seleksi
 \begin{equation}
 \rho = \frac{\mu}{\lambda},
 \end{equation}
-which directly controls selection pressure — smaller values of $\rho$ correspond to stronger pressure because fewer individuals are permitted to reproduce. Truncation is typically implemented by sorting individuals by fitness (complexity $O(\lambda \log \lambda)$) and slicing the top $\mu$ entries; the deterministic nature makes its effect on the population easy to analyze and predict.
-
-The principal effect of truncation selection is strong and immediate directional pressure: good solutions rapidly dominate the gene pool, which can greatly speed convergence in smooth, unimodal landscapes. This same property is its main drawback in multimodal or deceptive landscapes, where aggressive truncation reduces genetic diversity and increases the likelihood of premature convergence to suboptimal peaks. To mitigate these risks, practitioners often choose moderate values of $\rho$ (common heuristics place $\rho$ between $0.1$ and $0.5$ depending on problem scale) or combine truncation with diversity-preserving measures such as fitness sharing, crowding, or occasional stochastic replacement.
-
-In practice, truncation is well suited for exploitation phases of an evolutionary run or for algorithms that require deterministic selection behavior (for reproducibility or theoretical analysis). When using truncation, monitor diversity statistics (e.g., genotype variance or average pairwise distance) and consider adaptive schedules that relax truncation early in the run and tighten it later as the search focuses on refinement.
+yang mengontrol tekanan seleksi: $\rho$ kecil berarti tekanan kuat.
 
 \section{Boltzmann Selection}
 
-Boltzmann selection adapts the familiar Boltzmann (Gibbs) distribution from statistical mechanics to map fitness values to selection probabilities. Under this scheme each individual $i$ is assigned selection probability
+Seleksi Boltzmann memetakan kebugaran ke probabilitas menggunakan distribusi Gibbs:
 \begin{equation}
 P_i = \frac{e^{f_i/T}}{\sum_{j=1}^{N} e^{f_j/T}},
 \end{equation}
-where $f_i$ is the fitness of individual $i$ and $T>0$ is the temperature parameter that controls the degree of randomness in selection. When $T$ is large the distribution approaches uniform sampling (promoting exploration); as $T\to 0$ the distribution concentrates on the best individuals (promoting exploitation). This explicit temperature control makes Boltzmann selection a natural mechanism for smoothly interpolating between exploration and exploitation during an evolutionary run.
-
-Practical use of Boltzmann selection requires a temperature schedule $T(t)$ that varies with generation $t$. A common choice is exponential cooling, for example $T(t)=T_0\,\alpha^t$ with $0<\alpha<1$, but linear or problem-specific schedules may be preferable depending on landscape characteristics. The choice of initial temperature $T_0$ and the annealing rate determine how quickly selection pressure increases; poor choices can either leave the search unfocused for too long or force premature convergence.
-
-Compared with simpler selection schemes, Boltzmann selection has two notable trade-offs. Its benefits are principled control of pressure and the ability to schedule a gradual transition from exploration to exploitation. Its costs are additional parameter tuning (temperature schedule) and slightly higher computational overhead due to exponentials and normalization. In practice, Boltzmann selection is most valuable when a controlled annealing strategy is desirable—e.g., when combining global exploration early with focused refinement later—or when fitness magnitudes vary widely and a temperature parameter offers robust scaling. When using Boltzmann selection, monitor fitness variance and population diversity, and be prepared to adjust the temperature schedule empirically for best results.
+di mana $T$ adalah parameter temperatur yang dapat dijadwalkan selama run.
 
 \section{Elitist Selection}
 
-Elitist selection refers to selection policies that guarantee the survival of one or more top-ranked individuals from one generation to the next. The rationale is simple: stochastic variation in reproduction and replacement can accidentally discard the best solutions; preserving a small set of elites ensures that high-quality genetic material is never lost, which in turn makes measured, monotonic progress possible in many implementations.
+Elitisme menjamin kelangsungan hidup sejumlah kecil individu terbaik antar generasi (mis. $e=1$).
 
-There are two common variants. Pure elitism explicitly copies the best $e$ individuals unchanged into the next generation; this is the most conservative approach and is typically used with very small $e$ (often $e=1$). Elitist replacement is a softer variant in which after the usual selection and reproduction steps the worst individuals in the new population are replaced by the best individuals from the previous generation if those elites are strictly better. Both variants preserve improved solutions but differ in determinism and how aggressively they constrain the population.
+\section{Seleksi yang Mempertahankan Keragaman}
 
->The principal benefit of elitism is reliability: it prevents the accidental loss of the best-so-far solutions and often accelerates practical convergence by retaining proven building blocks. However, elitism also affects population diversity and exploration. If too many elites are preserved or elites are preserved for too long, the search can become overly exploitative, reducing the population's capacity to discover alternate peaks. Good practice is to keep the elite count small relative to population size (for instance, $e/\lambda \ll 0.1$) and, when necessary, combine elitism with explicit diversity-preserving techniques (e.g., occasional random immigrants, fitness sharing, or controlled mutation rates).
-
-When using elitist strategies, monitor both the best fitness and diversity indicators (e.g., genotype variance, number of unique individuals). Consider adaptive policies that reduce elitism early to promote exploration or temporarily increase elitism late in a run for final refinement. These pragmatic controls help preserve the safety that elitism provides while mitigating its tendency to narrow the search prematurely.
-
-\section{Diversity-Preserving Selection}
-
-Diversity-preserving selection encompasses techniques intended to maintain useful genetic variation in the population so that evolution can continue to explore multiple promising regions of the search space. Maintaining diversity is particularly important for multimodal and deceptive problems where premature loss of variation can cause the run to converge to suboptimal peaks. The following paragraphs summarize commonly used mechanisms and practical guidance for their use.
-
-One widespread approach is fitness sharing, which reduces the effective fitness of individuals that are close to many others in genotype or phenotype space. The shared fitness of individual $i$ is computed as
+Teknik seperti fitness sharing, crowding, spesiasi, dan model pulau bertujuan mempertahankan variasi genetik. Contoh rumus fitness sharing:
 \begin{equation}
 f'_i = \frac{f_i}{\sum_{j=1}^{N} sh(d_{ij})},
 \end{equation}
-where $d_{ij}$ is a distance between individuals $i$ and $j$ (Hamming distance for binary encodings or Euclidean distance for real-valued representations) and the sharing function is often defined as
+dengan fungsi sharing tipikal:
 \begin{equation}
 sh(d) = \begin{cases}
-1 - \left(\dfrac{d}{\sigma_{share}}\right)^\alpha & \text{if } d < \sigma_{share}, \\
-0 & \text{otherwise.}
+1 - \left(\dfrac{d}{\sigma_{share}}\right)^\alpha & \text{jika } d < \sigma_{share}, \\
+0 & \text{lainnya.}
 \end{cases}
 \end{equation}
-The parameter $\sigma_{share}$ defines the niche radius and $\alpha$ controls the decline of sharing; typical practice uses $\alpha=1$ and selects $\sigma_{share}$ by testing or domain knowledge. Fitness sharing encourages the population to occupy multiple niches and reduces the advantage of densely populated regions.
 
-Crowding methods provide an alternative that directly controls replacement: offspring are preferentially compared and possibly replace similar individuals rather than random or worst ones. Deterministic crowding and probabilistic crowding are common variants; both aim to preserve local subpopulations by ensuring that newly created individuals compete with genetically similar members, thereby preventing a single genotype from quickly sweeping the population.
+\section{Seleksi Multi‑objektif}
 
-Speciation, niching, and island models explicitly partition the population into sub-populations (species or islands) that evolve semi-independently, with occasional migration of individuals between groups. These structures preserve diversity by allowing different regions of the search space to be explored in parallel and are especially useful for problems with many well-separated optima. Practical design choices include migration rate, topology (ring, fully connected, etc.), and migration policy (best individuals, random migrants, or fitness-proportionate migrants).
+Untuk masalah multi‑objektif, dominasi Pareto dan non‑dominated sorting (mis. NSGA‑II) digunakan untuk menyeimbangkan konvergensi dan penyebaran solusi.
 
-When choosing and tuning diversity-preserving mechanisms, consider computational cost and measurement: fitness sharing requires O($N^2$) pairwise distance computations unless approximations or clustering are used; crowding typically runs in O($N$) per generation with careful bookkeeping; speciation and island models scale linearly per island but require configuration of migration parameters. Monitor population statistics (e.g., average pairwise distance, number of distinct genotypes, fitness variance) to detect excessive loss of diversity and adjust parameters dynamically (for example, increase mutation rate or relax selection pressure when diversity drops). Combining modest diversity-preserving methods with a well-calibrated selection pressure often yields the best practical results.
-
-\section{Multi-objective Selection}
-
-Multi-objective selection treats optimization problems where the quality of a solution is described by a vector of objectives rather than a single scalar. Let $\mathbf{f}(\mathbf{x})=(f_1(\mathbf{x}),\dots,f_m(\mathbf{x}))$ denote the objective vector to be maximized; the concepts below are straightforwardly adapted to minimization by sign reversal. Central to multi-objective selection is the notion of Pareto dominance: a solution $\mathbf{x}$ dominates $\mathbf{y}$ (written $\mathbf{x} \prec \mathbf{y}$) if
-\begin{equation}
-\forall k\in\{1,\dots,m\}:\; f_k(\mathbf{x}) \ge f_k(\mathbf{y}),\quad\text{and}\quad \exists k:\; f_k(\mathbf{x}) > f_k(\mathbf{y}).
-\end{equation}
-This partial order induces a front structure on the population: nondominated solutions form the Pareto front (rank~1), the nondominated set of the remainder forms rank~2, and so on. Non-dominated sorting partitions the population by repeatedly extracting the current nondominated set; the naive procedure has worst-case cost O($mN^2$) for $N$ individuals and $m$ objectives, while optimized algorithms and data structures can offer empirical improvements for many practical sizes.
-
-Selection in multi-objective evolutionary algorithms (MOEAs) must both promote convergence toward the Pareto front and preserve diversity along it. A widely used strategy, popularized by NSGA-II, performs selection in two stages: (1) apply non-dominated sorting to assign a rank to each individual, and (2) within the same rank prefer individuals that increase population spread using a crowding measure. The crowding distance for an individual is computed by summing normalized gaps between neighboring solutions for each objective after sorting by that objective; larger crowding distance indicates a less crowded region and is therefore preferred when ranks tie. Practically, parent or survivor selection can be implemented as a binary tournament that compares first by rank (lower is better) and then by crowding distance (higher is better), which yields a simple, effective rule that balances convergence and diversity.
-
-Several practical considerations arise when applying multi-objective selection. For many objectives (the many-objective case, $m\gtrsim5$), dominance relations become less discriminating and alternative approaches—indicator-based methods (e.g., IBEA), decomposition techniques (e.g., MOEA/D), or reference-point strategies—often perform better. Computational cost is also important: while NSGA-II is efficient and robust for moderate $N$ and $m$, indicator-based selection (hypervolume-based) can be costly for large fronts. Finally, parameter choices (population size, replacement policy, mating selection) affect both the algorithm's ability to approximate the Pareto front and the distribution of solutions; monitor convergence (e.g., IGD, hypervolume) and spread metrics, and consider hybridizing selection with archiving strategies or adaptive population sizing when sustained exploration of multiple trade-offs is required.
-
-\section{Selection Comparison}
-
+\section{Perbandingan Metode Seleksi}
 \begin{table}[H]
 \centering
 \scriptsize
 \begin{tabular}{lccccc}
 \toprule
-Method & Pressure & Diversity & Complexity & Scalability & Parameters \\
+Metode & Tekanan & Keragaman & Kompleksitas & Skalabilitas & Parameter \\
 \midrule
-Roulette Wheel & Variable & Poor & O(N) & Poor & None \\
-SUS & Variable & Good & O(N) & Poor & None \\
-Rank Linear & Constant & Good & O(N log N) & Good & $\eta^+, \eta^-$ \\
-Tournament & Adjustable & Good & O(1) & Excellent & $k$ \\
-Truncation & High & Poor & O(N log N) & Good & $\mu/\lambda$ \\
-Boltzmann & Adaptive & Excellent & O(N) & Good & $T(t)$ \\
+Roulette Wheel & Variabel & Lemah & $O(N)$ & Lemah & --- \\
+SUS & Variabel & Baik & $O(N)$ & Lemah & --- \\
+Rank Linear & Konstan & Baik & $O(N \log N)$ & Baik & $\eta^+, \eta^-$ \\
+Tournament & Dapat Diatur & Baik & $O(1)$ & Sangat Baik & $k$ \\
+Truncation & Tinggi & Lemah & $O(N \log N)$ & Baik & $\mu/\lambda$ \\
+Boltzmann & Adaptif & Sangat Baik & $O(N)$ & Baik & $T(t)$ \\
 \bottomrule
 \end{tabular}
-\caption{Comparison of Selection Methods}
+\caption{Perbandingan Metode Seleksi}
 \end{table}
-The table above summarizes key practical properties of commonly used selection methods. It condenses four dimensions that guide method choice: the effective selection pressure (how strongly the operator favors high-fitness individuals), the operator's tendency to preserve or erode population diversity, the asymptotic computational complexity for a single generation, and how well the method scales with population size or parallel implementations. The final column lists the principal tuning parameters that practitioners must set or schedule.
-
-Interpreting the table requires combining its quantitative entries with problem-specific considerations. Methods labelled ``variable'' pressure (roulette wheel and SUS) depend directly on the raw fitness distribution and so are sensitive to scaling and outliers; when fitness values are skewed these methods either collapse diversity (large gaps) or provide negligible pressure (small differences). Stochastic Universal Sampling reduces the sampling variance of roulette draws and therefore yields selection counts closer to expectation, but it does not by itself remove sensitivity to fitness scaling.
-
-Rank-based linear selection deliberately discards raw magnitude information in favor of ordinal information, producing predictable and bounded pressure that is robust to arbitrary fitness scales and outliers. The trade-off is loss of useful signal when fitness magnitudes are meaningful, plus the O(N log N) cost of sorting each generation. Tournament selection provides an efficient, local-comparison mechanism whose pressure is adjusted directly by the tournament size $k$; it is simple, parallel-friendly, and insensitive to global normalization, which explains its widespread use in large-scale and distributed implementations.
-
-Truncation selection is the most aggressive deterministic policy: keeping only the top fraction ($\mu/\lambda$) applies very high pressure and rapidly concentrates the population, which can be desirable in unimodal problems or late-stage exploitation but harmful in multimodal or deceptive landscapes absent strong diversity-preservation. Boltzmann selection offers an explicit, continuous control knob via the temperature schedule $T(t)$: when tuned well, it interpolates smoothly between exploration and exploitation and handles widely varying fitness magnitudes, at the cost of an additional scheduling parameter and the need to monitor annealing behavior.
-
-From a practical standpoint, selection should rarely be chosen on a single criterion. For problems where fitness scaling is unreliable or unknown, prefer rank-based or tournament methods. For applications that demand reproducible, deterministic behavior or very fast convergence on a known unimodal problem, truncation (with small $\mu/\lambda$) or elitist augmentation can be appropriate. When maintaining a diverse Pareto of solutions or exploring rugged landscapes, combine selection with explicit diversity mechanisms (fitness sharing, crowding, speciation) and keep selection pressure moderate. Finally, parameter choices (tournament size, ranking slope, truncation fraction, temperature schedule) should be validated empirically and monitored with diversity statistics (e.g., average pairwise distance, takeover time) to avoid premature convergence.
-
-The remainder of the chapter provides guidelines and hybrid strategies that implement these recommendations in practice.
-\section{Selection Guidelines}
-
-Choice of selection operator should be informed first by the problem's modality and deception. For problems that are essentially unimodal or where a single peak is the objective, stronger selection pressure (for example, truncation or larger tournament sizes) accelerates convergence and is often appropriate. For multimodal problems, where multiple peaks may contain useful solutions, moderate pressure such as binary tournament or rank-based selection helps preserve alternative lineages and reduces the risk of premature loss of useful niches. In deceptive landscapes—where locally attractive solutions mislead the search—favor lower pressure and couple selection with explicit diversity-preserving mechanisms (fitness sharing, crowding, speciation or island models) so that the algorithm can continue exploring promising but initially low-frequency regions.
-
-Population size interacts with selection pressure in important ways. Small populations are more susceptible to sampling error and genetic drift, so conservative pressure settings (smaller tournament sizes, gentler ranking parameters, and limited elitism) help maintain useful variation. Larger populations can sustain stronger pressure without as much risk of accidental loss of rare but valuable genotypes, and they are better suited to schemes that rely on sampling stability (e.g., rank-based selection or modest truncation). In all cases, monitor diversity statistics (average pairwise distance, number of unique genotypes, fitness variance) and adjust selection parameters if diversity falls faster than expected.
-
-Selection intensity should also vary over the run rather than remain fixed. Early generations benefit from lower effective pressure—larger temperature in Boltzmann schedules, smaller tournament sizes, or milder ranking—so that the search emphasizes exploration and discovers multiple basins of attraction. As the run progresses and the population accumulates evidence about promising regions, gradually increase pressure (reduce temperature, enlarge tournaments, or tighten truncation) to focus effort on exploitation and refinement. Adaptive schedules, occasional re-introduction of random immigrants, or multi-level selection (different operators for parent selection and survivor selection) are practical ways to implement this temporal modulation while guarding against premature convergence.
-
-\section{Hybrid Selection Strategies}
-
-Hybrid selection strategies combine multiple selection ideas to obtain better practical performance than any single method in isolation. One common approach is adaptive selection, where operators or their parameters are adjusted automatically during the run in response to population statistics. Examples include annealing a Boltzmann temperature $T(t)$, increasing tournament size as diversity drops, or switching from rank-based to truncation selection during late exploitation. Adaptive rules can be simple (predefined schedules) or feedback-driven (triggered by measured diversity, fitness improvement rate, or takeover time). The central advantage of adaptation is that it permits different phases of the search—exploration and exploitation—to use different pressure regimes without manual retuning for each problem instance.
-
-Multi-level selection splits selection responsibilities across different stages or hierarchies. For instance, parent selection (which chooses who mates) can use a low-pressure method to preserve variety of mating combinations, while survivor selection (which decides who remains in the population) can be more aggressive to retain progress. Similarly, island or hierarchical population models run semi-independent subpopulations with occasional migration; within each island different selection policies may be used to encourage complementary search behavior. Multi-level designs are particularly effective when search must balance global exploration with local refinement or when computational resources are distributed across nodes.
-
-Combined methods explicitly mix selection operators to exploit complementary strengths. Practical examples include performing tournament selection for most parents but reserving a fraction of survivors for rank-based or fitness-shared selection to preserve niches, or applying stochastic universal sampling with elitist replacement to reduce sampling variance while guaranteeing the best-so-far individuals survive. When combining operators, carefully manage interactions — for example, ensure that deterministic components (elitism, truncation) do not negate the diversity benefits of stochastic components. Empirical validation, monitoring of diversity metrics, and conservative parameterization (small elite fractions, limited truncation windows) help achieve robust gains.
-
-In practice, hybrid strategies are most useful when the problem exhibits multiple regimes of difficulty (early exploration, mid-run discovery of promising basins, late-stage refinement) or when robustness across problem instances is required. Implement hybrids incrementally, instrument population statistics to guide choices, and prefer simple, interpretable combinations over elaborate schemes unless justified by experimental results.
-

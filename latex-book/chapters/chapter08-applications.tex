@@ -1,62 +1,62 @@
-\chapter{Real-World Applications and Visual Examples}
+\chapter{Aplikasi Algoritma Genetika}
 \label{ch:applications}
 
 
 
 
-This chapter showcases real-world applications of genetic algorithms drawn from the
-course materials and demonstrates how GA concepts are applied in practice~\cite{gen2007genetic,
+Bab ini menampilkan aplikasi dunia nyata dari algoritma genetika yang diambil dari
+materi perkuliahan dan mendemonstrasikan bagaimana konsep GA diterapkan dalam praktik~\cite{gen2007genetic,
 sivanandam2008introduction, eiben2015introduction}.
 
-One of the most compelling demonstrations is the application of genetic algorithms to
-game AI. The course contains an example of a GA-based agent that beats the first level
-of Super Mario Bros. at \(4\times\) speed \cite{montana1989training, koza1992genetic}.
+Salah satu demonstrasi yang paling menarik adalah penerapan algoritma genetika pada
+AI game. Perkuliahan ini memuat contoh agen berbasis GA yang mengalahkan level pertama
+Super Mario Bros. dengan kecepatan \(4\times\) \cite{montana1989training, koza1992genetic}.
 
-The "Towers of Reus" project demonstrates how a GA can be used for gameplay
-balancing. Users create maps with adjustable parameters while a GA searches for
-configurations that produce desirable win/lose characteristics. The system can then
-report whether towers are too strong or too weak and present beatable levels for
-players to test.
+Proyek "Towers of Reus" mendemonstrasikan bagaimana GA dapat digunakan untuk
+penyeimbangan gameplay. Pengguna membuat peta dengan parameter yang dapat disesuaikan sementara GA mencari
+konfigurasi yang menghasilkan karakteristik menang/kalah yang diinginkan. Sistem kemudian dapat
+melaporkan apakah menara terlalu kuat atau terlalu lemah dan menyajikan level yang dapat dikalahkan untuk
+diuji oleh pemain.
 
-Another example in the course is path-finding: the problem is to find the shortest
-path through a complex maze. The encoding is a sequence of movement directions
-(up, down, left, right)~\cite{larranaga1999genetic}. A suitable fitness function is the
-inverse of the path length with penalties for hitting walls. Crossover is used to
-combine successful path segments and mutation explores new moves.
+Contoh lain dalam perkuliahan adalah pencarian jalur: masalahnya adalah menemukan jalur
+terpendek melalui labirin yang kompleks. Pengkodean berupa urutan arah gerakan
+(atas, bawah, kiri, kanan)~\cite{larranaga1999genetic}. Fungsi fitness yang sesuai adalah
+kebalikan dari panjang jalur dengan penalti untuk menabrak dinding. Crossover digunakan untuk
+menggabungkan segmen jalur yang berhasil dan mutasi mengeksplorasi gerakan baru.
 
-Physical robot navigation shows how GAs transfer to hardware applications. Use
-cases include real-time path planning in dynamic environments, integrating sensor
-data for obstacle avoidance, and evolving adaptive behaviors based on environmental
-feedback.
+Navigasi robot fisik menunjukkan bagaimana GA ditransfer ke aplikasi perangkat keras. Kasus
+penggunaan meliputi perencanaan jalur real-time dalam lingkungan dinamis, mengintegrasikan data
+sensor untuk penghindaran rintangan, dan mengevolusi perilaku adaptif berdasarkan umpan balik
+lingkungan.
 
-The course also references simulated-evolution examples available online at
-\url{http://www.wreck.devisland.net/ga/}. These examples illustrate features such as
-morphology evolution (changes to body structure), locomotion pattern optimization,
-environmental adaptation, and multi-objective fitness criteria like speed,
-stability, and efficiency~\cite{deb2001multi, deb2002fast, horn1994niched}.
+Perkuliahan ini juga merujuk contoh-contoh evolusi tersimulasi yang tersedia online di
+\url{http://www.wreck.devisland.net/ga/}. Contoh-contoh ini mengilustrasikan fitur seperti
+evolusi morfologi (perubahan pada struktur tubuh), optimasi pola pergerakan,
+adaptasi lingkungan, dan kriteria fitness multi-objektif seperti kecepatan,
+stabilitas, dan efisiensi~\cite{deb2001multi, deb2002fast, horn1994niched}.
 
-An intuitive analogy used in the materials compares a population of individuals
-with varying physical abilities: selection favors those who jump higher, inheritance
-passes traits to subsequent generations, and mutation introduces random technique
-variations.
+Analogi intuitif yang digunakan dalam materi membandingkan populasi individu
+dengan kemampuan fisik yang bervariasi: seleksi menguntungkan mereka yang melompat lebih tinggi, pewarisan
+menurunkan sifat ke generasi berikutnya, dan mutasi memperkenalkan variasi teknik
+acak.
 
-A practical optimisation example is daily-commute planning. In this analogy, route
-options act as genes, traffic conditions act as environmental factors, and time and
-fuel consumption serve as fitness criteria. Over repeated generations the system can
-learn to prefer more efficient routes.
+Contoh optimasi praktis adalah perencanaan perjalanan harian. Dalam analogi ini, pilihan
+rute bertindak sebagai gen, kondisi lalu lintas bertindak sebagai faktor lingkungan, dan waktu serta
+konsumsi bahan bakar berfungsi sebagai kriteria fitness. Selama generasi berulang sistem dapat
+belajar untuk memilih rute yang lebih efisien.
 
-The chapter also highlights GA's relationship with other paradigms: machine
-learning (kernel methods, SVMs, Hidden Markov models, Bayesian methods), soft
-computing (neural networks and fuzzy systems), and hybrid approaches such as
-reinforcement learning.
+Bab ini juga menyoroti hubungan GA dengan paradigma lain: pembelajaran
+mesin (metode kernel, SVM, model Hidden Markov, metode Bayesian), komputasi
+lunak (jaringan saraf dan sistem fuzzy), dan pendekatan hibrid seperti
+pembelajaran penguatan.
 
-From a conceptual standpoint the course contrasts Lamarck's idea of acquired
-characteristics with the Darwin-Wallace view of selection. Genetic algorithms
-follow Darwinian principles by applying random variation and selection to search
-for good solutions. These visual examples demonstrate GA's wide applicability across entertainment
-(game AI and procedural content generation), robotics (path planning and adaptive
-behaviour), simulation (artificial life and evolution studies), optimization (route
-planning and resource allocation), and research (studying evolutionary processes).
-The key insight is that GAs provide a unified framework for solving complex
-optimization problems across diverse domains, making them a versatile tool in
-computational intelligence.
+Dari sudut pandang konseptual, perkuliahan ini mengontraskan gagasan Lamarck tentang karakteristik
+yang diperoleh dengan pandangan Darwin-Wallace tentang seleksi. Algoritma genetika
+mengikuti prinsip Darwin dengan menerapkan variasi acak dan seleksi untuk mencari
+solusi yang baik. Contoh-contoh visual ini mendemonstrasikan penerapan GA yang luas di berbagai bidang hiburan
+(AI game dan pembuatan konten prosedural), robotika (perencanaan jalur dan perilaku
+adaptif), simulasi (kehidupan buatan dan studi evolusi), optimasi (perencanaan
+rute dan alokasi sumber daya), dan penelitian (mempelajari proses evolusioner).
+Wawasan kuncinya adalah bahwa GA menyediakan kerangka kerja terpadu untuk menyelesaikan masalah
+optimasi kompleks di berbagai domain, menjadikannya alat yang serbaguna dalam
+kecerdasan komputasional.

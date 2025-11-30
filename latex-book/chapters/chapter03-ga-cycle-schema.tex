@@ -1,26 +1,6 @@
 \chapter{Siklus GA dan Teori Skema Holland}
 
-\section{Siklus Algoritma Genetika}
-Algoritma genetika mengikuti proses siklik yang meniru evolusi alami. Memahami siklus ini penting untuk mengimplementasikan dan menganalisis kinerja GA.
-
-\subsection{Siklus GA secara Rinci}
-
-Algoritma genetika dirancang untuk secara iteratif meningkatkan sekumpulan kandidat solusi. Proses dimulai dengan populasi solusi potensial dan secara berulang menerapkan operasi evaluasi dan variasi untuk bergerak menuju solusi yang lebih baik. Siklus umum ini bersifat modular: inisialisasi menyiapkan pencarian, evaluasi mengukur kualitas saat ini, dan seleksi membentuk generasi berikutnya. Langkah-langkah ini membentuk sebuah loop yang berlanjut hingga terpenuhi kondisi berhenti.
-
-Alur operasi digambarkan pada diagram di bawah ini yang menunjukkan urutan aksi tipikal dalam GA klasik: inisialisasi, evaluasi, pengecekan terminasi, pemilihan orang tua, penerapan crossover dan mutasi, seleksi, dan kembali ke evaluasi. Setiap langkah memiliki banyak implementasi dan parameter yang memengaruhi eksplorasi dan eksploitasi; misalnya ukuran populasi, tekanan seleksi, tipe crossover, dan laju mutasi memengaruhi bagaimana pencarian menavigasi ruang solusi. Meskipun diagram memperlihatkan urutan sederhana, algoritma praktis sering menyertakan peningkatan seperti laju adaptif, atau pembaruan steady-state yang mengubah detail bagaimana keturunan dan induk digabungkan.
-
-% Diagram siklus dihapus (mengandung label operator yang dihilangkan).
-
-Inisialisasi adalah langkah praktis pertama dan menentukan titik awal pencarian. Populasi awal berukuran $N$ dapat dihasilkan secara acak untuk memberikan cakupan luas ruang solusi, atau diisi dengan heuristik spesifik masalah untuk memberi awal yang lebih baik di wilayah yang menjanjikan. Menjaga keberagaman pada populasi awal penting karena mengurangi risiko konvergensi prematur dan meningkatkan kemungkinan bahwa blok bangunan berguna hadir sejak awal. Selain kandidat solusi itu sendiri, inisialisasi biasanya mencakup penetapan penghitung atau parameter tingkat-algoritma, seperti indeks generasi $t = 0$, dan pencatatan status yang diperlukan untuk operator adaptif.
-
-Evaluasi mengkuantifikasi seberapa baik setiap individu menyelesaikan masalah dan mengubah solusi mentah menjadi nilai fitness yang digunakan oleh GA. Langkah ini umumnya menghitung fungsi objektif atau fitness untuk setiap anggota populasi, dan dapat juga mengumpulkan statistik ringkasan seperti rata-rata populasi, varians, serta fitness terbaik dan terburuk. Statistik tersebut berguna untuk memantau kemajuan, mendiagnosis stagnasi, dan menggerakkan mekanisme adaptif. Karena evaluasi sering menjadi bagian paling mahal dari GA—terutama jika setiap komputasi fitness melibatkan simulasi atau perhitungan kompleks—praktisi memperhatikan efisiensi evaluasi dan penggunaan kembali komputasi bila memungkinkan.
-
-Terminasi adalah keputusan kendali yang diperiksa setelah evaluasi untuk memutuskan apakah algoritma harus berhenti atau dilanjutkan. Kondisi berhenti umum termasuk mencapai jumlah generasi maksimum yang ditetapkan, mencapai ambang fitness yang memadai, mengamati konvergensi populasi atau keberagaman yang sangat rendah, tidak ada perbaikan selama sejumlah generasi tertentu, atau habisnya anggaran evaluasi fungsi. Memilih kriteria terminasi merupakan trade-off antara biaya komputasi dan kualitas solusi: berhenti terlalu awal berisiko kehilangan solusi lebih baik, sementara berjalan terlalu lama membuang sumber daya dengan pengembalian yang menurun. Dalam praktiknya seringkali digabungkan beberapa kondisi (misalnya berhenti apabila target fitness tercapai atau batas generasi dilewati).
-
-% Penjelasan rinci tentang operator variasi (seleksi/crossover/mutasi) dihapus dari bab ini.
-
-
-\subsection{Apa itu Skema?}
+\section{Apa itu Skema?}
 Skema adalah template formal yang didefinisikan di atas alfabet $\{0,1,*\}$. Untuk panjang string tetap $l$, sebuah skema
 \[ H \in \{0,1,*\}^l \]
 menentukan nilai yang dibutuhkan pada beberapa lokus dan membiarkan lokus lain tidak ditentukan (simbol "don't care"). Misalkan $\Sigma = \{0,1\}$ dan $\Sigma^l$ himpunan semua string biner panjang-$l$. Kita mengatakan sebuah string konkret $s\in\Sigma^l$ memenuhi skema $H$ (tulis $s\in[H]$) jika setiap posisi yang terdefinisi pada $H$ cocok dengan $s$:
@@ -109,35 +89,6 @@ yang, untuk $k$ kecil tetap, tumbuh secara polinomial terhadap $l$ (derajat $k$)
 Ungkapan terkenal Holland "paralelisme implisit" merangkum heuristik bahwa populasi berukuran sedang dapat secara kolektif mengevaluasi dan memproses sejumlah besar skema pendek dan orde-rendah pada setiap generasi. Dalam eksposisinya, ia menawarkan aturan praktis bahwa populasi $n$ string dapat efektif memproses urutan skema sebesar $n^3$; pernyataan ini harus dibaca sebagai heuristik, bukan identitas kombinatorial ketat. Angka $O(n^3)$ muncul dari asumsi tentang orde-orde tipikal dan panjang pendefinisian skema yang memengaruhi fitness, bersama dengan estimasi plausibel tentang berapa banyak skema pendek berbeda yang disampling populasi dan bagaimana seleksi memperkuat instance di atas rata-rata. Pilihan berbeda untuk $n$, $l$, representasi, dan pengaturan operator mengubah faktor konstanta dan jangkauan praktis paralelisme ini.
 
 Implikasi praktisnya dua arah. Pertama, dengan bekerja pada populasi alih-alih satu lintasan pencarian tunggal, GA dapat menjelajah dan menyebarkan banyak blok-bangunan kandidat secara bersamaan, memungkinkan rekombinasi konstruktif pola-pola pendek yang berguna. Kedua, cakupan implisit ini bersifat selektif: algoritma menyalurkan daya pemrosesan efektif ke skema yang cukup sering disampling (muncul cukup sering) dan cukup tangguh (memiliki panjang pendefinisian kecil dan orde rendah). Akibatnya, paralelisme implisit bukanlah solusi ajaib yang memeriksa setiap skema sama rata; melainkan mengarahkan upaya komputasi kepada subset terstruktur besar dari skema yang paling relevan berdasarkan enkoding dan operator yang dipilih.
-
-\section{Deception dan Teori Skema}
-
-\subsection{Masalah Menipu (Deceptive)}
-Deception terjadi ketika seleksi, yang bekerja pada sinyal fitness jangka pendek, secara sistematis mendorong populasi menjauh dari genotip yang menuju optimum global. Secara informal, sebuah fungsi fitness bersifat menipu terhadap sekumpulan skema orde-rendah jika skema yang tampak "terbaik" secara lokal (mis. memiliki fitness di atas rata-rata di antara instance-nya) adalah skema yang rekombinasinya tidak merakit solusi global melainkan mempromosikan genotip yang sulit diperbaiki. Dengan kata lain, seleksi memberi penghargaan pada blok-bangunan yang mengarahkan pencarian ke optimum lokal daripada ke optimum global.
-
-Fenomena ini dapat dinyatakan dengan istilah skema. Pertimbangkan dua kelas skema terpisah $H_1$ dan $H_2$ yang didefinisikan pada set lokus terpisah. Jika instance paling fit dari $H_1$ dan $H_2$ cenderung menghasilkan keturunan yang gabungan fitnesnya lebih rendah daripada kombinasi alternatif (atau jika penggabungan mereka tidak mungkin di bawah operator yang dipilih), maka seleksi yang bekerja pada $H_1$ dan $H_2$ dapat meningkatkan frekuensi keduanya meskipun keberadaan bersama mereka merugikan tercapainya optimum global. Ketidaksesuaian antara fitness skema jangka pendek dan nilai konstruktif jangka panjang inilah inti deception.
-
-Contoh benchmark klasik yang menggambarkan deception adalah masalah trap-deceptive yang dikonkatenasi. Genom dibagi menjadi $m$ blok terpisah masing-masing berukuran $k$. Setiap blok memberikan kontribusi fitness blok-wise yang maksimum pada konfigurasi tertentu (optimum global blok) tetapi selain itu memberikan fitness lebih tinggi pada konfigurasi yang menarik secara lokal namun tidak mengarah ke optimum blok. Jika blok-blok sederhana dan independen, rekombinasi dapat merakit optimum blok; jika blok menipu, seleksi memperkuat konfigurasi lokal yang salah dan rekombinasi saja mungkin tidak mampu menyelamatkan solusi global.
-
-\subsection{Mengapa Deception Penting bagi Teori Skema}
-Teori skema memprediksi bahwa skema orde-rendah dan panjang-pendefinisian pendek dengan fitness di atas rata-rata akan meningkat dalam ekspektasi di bawah seleksi. Deception merusak penalaran ini dengan membuat skema-skema lokal yang tampak di atas rata-rata justru menjauhkan populasi dari genotip yang mengandung kombinasi blok-bangunan optimal global. Jadi, walaupun pernyataan aljabar teorema skema tetap benar dalam ekspektasi, interpretasi konstruktifnya (bahwa seleksi akan merakit blok-bangunan baik menjadi solusi lebih baik) dapat gagal ketika skema pendek yang disampling menyesatkan.
-
-\subsection{Mendeteksi dan Mengukur Deception}
-Secara praktis, deception dinilai dengan menganalisis bagaimana perbaikan lokal berkorelasi dengan kemajuan global. Diagnostik umum meliputi:
-\begin{itemize}
-    \item Korelasi jarak-fitness (Fitness-Distance Correlation, FDC): korelasi antara fitness dan jarak ke optimum global yang diketahui. Korelasi negatif kuat menunjukkan pencarian lebih mudah; korelasi lemah atau positif dapat menandakan deception.
-    \item Analisis blok empiris: untuk masalah yang dapat didekomposisi (mis. trap yang dikonkatenasi), mempelajari lanskap fitness blok-wise (plot unitation) mengungkap apakah optimum lokal menarik pencarian dalam blok.
-    \item Sensitivitas performa: mengukur probabilitas keberhasilan sebagai fungsi ukuran populasi dan pengaturan operator dapat menunjukkan apakah perubahan kecil menghilangkan atau menimbulkan perilaku menipu.
-\end{itemize}
-
-\subsection{Strategi Mengatasi Deception}
-Karena deception muncul dari ketidakcocokan antara representasi, operator, dan struktur modular masalah, langkah-langkah penanggulangannya umumnya jatuh pada tiga kategorial: meningkatkan sampling, mempertahankan diversitas yang berguna, dan meningkatkan kemampuan algoritma menghormati atau mempelajari linkage.
-\begin{itemize}
-    \item \textbf{Tingkatkan sampling efektif:} Populasi lebih besar dan tekanan seleksi konservatif mengurangi kemungkinan skema menipu cepat fix.
-    \item \textbf{Metode pelestarian diversitas:} Niching (fitness sharing, crowding), model pulau, dan restricted tournament selection mempertahankan alel atau subpopulasi bersaing sehingga kombinasi blok alternatif tidak hilang prematur.
-    \item \textbf{Pembelajaran linkage dan metode estimasi:} Algoritma yang mempelajari ketergantungan—messy GAs, linkage-tree GAs, hierarchical BOA, dan pemodelan struktur dependensi—secara eksplisit mendeteksi dan melindungi gen yang saling berinteraksi alih-alih bergantung pada rekombinasi buta.
-    \item \textbf{Hibridisasi dan pencarian lokal:} Menggabungkan GA dengan pencarian lokal spesifik masalah (algoritma memetik) atau heuristik konstruktif membantu memperbaiki atau menyelesaikan solusi parsial yang rekombinasi murni tidak dapat rakit.
-\end{itemize}
 
 \section{Implikasi Praktis}
 

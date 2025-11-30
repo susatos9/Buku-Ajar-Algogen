@@ -1,4 +1,4 @@
-\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
 \contentsline {chapter}{\numberline {1}Pengantar Optimasi dan Komputasi Evolusioner}{1}{chapter.1}%
 \contentsline {section}{\numberline {1.1}Pengantar Komputasi Evolusioner}{4}{section.1.1}%
 \contentsline {section}{\numberline {1.2}Variasi Algoritma Genetika}{6}{section.1.2}%
@@ -14,210 +14,185 @@
 \contentsline {section}{\numberline {2.6}Kerugian Algoritma Genetika}{10}{section.2.6}%
 \contentsline {section}{\numberline {2.7}Kapan Menggunakan Algoritma Genetika}{11}{section.2.7}%
 \contentsline {chapter}{\numberline {3}Siklus GA dan Teori Skema Holland}{13}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Siklus Algoritma Genetika}{13}{section.3.1}%
-\contentsline {subsection}{\numberline {3.1.1}Siklus GA secara Rinci}{13}{subsection.3.1.1}%
-\contentsline {subsection}{\numberline {3.1.2}Apa itu Skema?}{14}{subsection.3.1.2}%
-\contentsline {subsection}{\numberline {3.1.3}Properti Skema}{14}{subsection.3.1.3}%
-\contentsline {subsubsection}{Orde Skema}{14}{subsection.3.1.3}%
-\contentsline {subsubsection}{Panjang Pendefinisian}{15}{equation.3.1.4}%
-\contentsline {subsection}{\numberline {3.1.4}Teorema Skema (Teorema Fundamental)}{15}{subsection.3.1.4}%
-\contentsline {subsubsection}{Teorema Skema Gabungan}{15}{subsection.3.1.4}%
-\contentsline {subsection}{\numberline {3.1.5}Hipotesis Blok-Bangunan}{15}{subsection.3.1.5}%
-\contentsline {section}{\numberline {3.2}Paralelisme Implisit}{16}{section.3.2}%
-\contentsline {section}{\numberline {3.3}Deception dan Teori Skema}{17}{section.3.3}%
-\contentsline {subsection}{\numberline {3.3.1}Masalah Menipu (Deceptive)}{17}{subsection.3.3.1}%
-\contentsline {subsection}{\numberline {3.3.2}Mengapa Deception Penting bagi Teori Skema}{17}{subsection.3.3.2}%
-\contentsline {subsection}{\numberline {3.3.3}Mendeteksi dan Mengukur Deception}{17}{subsection.3.3.3}%
-\contentsline {subsection}{\numberline {3.3.4}Strategi Mengatasi Deception}{18}{subsection.3.3.4}%
-\contentsline {section}{\numberline {3.4}Implikasi Praktis}{18}{section.3.4}%
-\contentsline {subsection}{\numberline {3.4.1}Pemilihan Operator dan Parameter}{18}{subsection.3.4.1}%
-\contentsline {subsection}{\numberline {3.4.2}Pemantauan dan Diagnostik Praktis}{18}{subsection.3.4.2}%
-\contentsline {section}{\numberline {3.5}Keterbatasan Teori Skema}{19}{section.3.5}%
-\contentsline {subsection}{\numberline {3.5.1}Ekspektasi vs dinamika populasi terbatas}{19}{subsection.3.5.1}%
-\contentsline {subsection}{\numberline {3.5.2}Penanganan epistasis dan interaksi kompleks terbatas}{19}{subsection.3.5.2}%
-\contentsline {subsection}{\numberline {3.5.3}Pembatasan pada alfabet sederhana dan enkoding panjang tetap}{19}{subsection.3.5.3}%
-\contentsline {subsection}{\numberline {3.5.4}Kurangnya spesifikasi preskriptif}{19}{subsection.3.5.4}%
-\contentsline {subsection}{\numberline {3.5.5}Protokol empiris yang direkomendasikan}{19}{subsection.3.5.5}%
-\contentsline {section}{\numberline {3.6}Teorema No Free Lunch}{20}{section.3.6}%
-\contentsline {chapter}{\numberline {4}Genetic Algorithm Encoding}{21}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Introduction to Encoding}{21}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Requirements for Good Encoding}{21}{section.4.2}%
-\contentsline {subsection}{\numberline {4.2.1}Completeness}{21}{subsection.4.2.1}%
-\contentsline {subsection}{\numberline {4.2.2}Soundness}{22}{subsection.4.2.2}%
-\contentsline {subsection}{\numberline {4.2.3}Non-redundancy}{22}{subsection.4.2.3}%
-\contentsline {subsection}{\numberline {4.2.4}Locality}{22}{subsection.4.2.4}%
-\contentsline {subsection}{\numberline {4.2.5}Additional Practical Requirements}{22}{subsection.4.2.5}%
-\contentsline {section}{\numberline {4.3}Binary Encoding}{23}{section.4.3}%
-\contentsline {section}{\numberline {4.4}Overview of Encoding Types}{24}{section.4.4}%
-\contentsline {section}{\numberline {4.5}Real-valued Encoding}{25}{section.4.5}%
-\contentsline {section}{\numberline {4.6}Integer Encoding}{26}{section.4.6}%
-\contentsline {section}{\numberline {4.7}Permutation Encoding}{27}{section.4.7}%
-\contentsline {section}{\numberline {4.8}Tree Encoding}{28}{section.4.8}%
-\contentsline {chapter}{\numberline {5}Selection Methods in Genetic Algorithms}{31}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Introduction to Selection}{31}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Selection Pressure}{32}{section.5.2}%
-\contentsline {section}{\numberline {5.3}Fitness Proportionate Selection (FPS)}{32}{section.5.3}%
-\contentsline {subsection}{\numberline {5.3.1}Roulette Wheel Selection}{32}{subsection.5.3.1}%
-\contentsline {subsubsection}{Algorithm}{33}{figure.caption.12}%
-\contentsline {subsubsection}{Selection Probability}{33}{ALC@unique.10}%
-\contentsline {subsubsection}{Example}{34}{equation.5.3.1}%
-\contentsline {subsubsection}{Advantages}{34}{table.caption.13}%
-\contentsline {subsubsection}{Disadvantages}{34}{table.caption.13}%
-\contentsline {subsection}{\numberline {5.3.2}Stochastic Universal Sampling (SUS)}{34}{subsection.5.3.2}%
-\contentsline {subsubsection}{Baker's SUS}{35}{subsection.5.3.2}%
-\contentsline {subsubsection}{Algorithm}{35}{figure.caption.14}%
-\contentsline {subsubsection}{Advantages over Roulette Wheel}{35}{ALC@unique.17}%
-\contentsline {section}{\numberline {5.4}Rank-based Selection}{35}{section.5.4}%
-\contentsline {subsection}{\numberline {5.4.1}Overview}{36}{subsection.5.4.1}%
-\contentsline {subsection}{\numberline {5.4.2}Linear Ranking}{36}{subsection.5.4.2}%
-\contentsline {subsection}{\numberline {5.4.3}Exponential Ranking}{36}{subsection.5.4.3}%
-\contentsline {subsection}{\numberline {5.4.4}Advantages of Rank Selection}{37}{subsection.5.4.4}%
-\contentsline {subsection}{\numberline {5.4.5}Disadvantages}{37}{subsection.5.4.5}%
-\contentsline {section}{\numberline {5.5}Tournament Selection}{37}{section.5.5}%
-\contentsline {subsection}{\numberline {5.5.1}Overview}{37}{subsection.5.5.1}%
-\contentsline {subsection}{\numberline {5.5.2}Tournament Selection Mechanism}{38}{subsection.5.5.2}%
-\contentsline {subsection}{\numberline {5.5.3}Binary Tournament}{38}{subsection.5.5.3}%
-\contentsline {subsection}{\numberline {5.5.4}k-Tournament Selection}{38}{subsection.5.5.4}%
-\contentsline {subsection}{\numberline {5.5.5}Tournament Size Effects}{38}{subsection.5.5.5}%
-\contentsline {subsection}{\numberline {5.5.6}Selection Probability}{39}{subsection.5.5.6}%
-\contentsline {subsection}{\numberline {5.5.7}Advantages}{39}{subsection.5.5.7}%
-\contentsline {subsection}{\numberline {5.5.8}Disadvantages}{39}{subsection.5.5.8}%
-\contentsline {section}{\numberline {5.6}Truncation Selection}{39}{section.5.6}%
-\contentsline {section}{\numberline {5.7}Boltzmann Selection}{40}{section.5.7}%
-\contentsline {section}{\numberline {5.8}Elitist Selection}{40}{section.5.8}%
-\contentsline {section}{\numberline {5.9}Diversity-Preserving Selection}{41}{section.5.9}%
-\contentsline {section}{\numberline {5.10}Multi-objective Selection}{42}{section.5.10}%
-\contentsline {section}{\numberline {5.11}Selection Comparison}{43}{section.5.11}%
-\contentsline {section}{\numberline {5.12}Selection Guidelines}{44}{section.5.12}%
-\contentsline {section}{\numberline {5.13}Hybrid Selection Strategies}{45}{section.5.13}%
-\contentsline {chapter}{\numberline {6}Crossover (Recombination) in Genetic Algorithms}{47}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Introduction to Crossover}{47}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Binary Crossover Operators}{48}{section.6.2}%
-\contentsline {subsection}{\numberline {6.2.1}Definition and Function of Crossover Operator}{48}{subsection.6.2.1}%
-\contentsline {subsection}{\numberline {6.2.2}One-Point Crossover}{48}{subsection.6.2.2}%
-\contentsline {subsection}{\numberline {6.2.3}One-Point Crossover}{49}{subsection.6.2.3}%
-\contentsline {subsubsection}{Algorithm}{49}{subsection.6.2.3}%
-\contentsline {subsubsection}{Example}{49}{ALC@unique.32}%
-\contentsline {subsubsection}{Characteristics}{49}{equation.6.2.4}%
-\contentsline {subsection}{\numberline {6.2.4}Two-Point Crossover}{49}{subsection.6.2.4}%
-\contentsline {subsubsection}{Algorithm}{49}{figure.caption.19}%
-\contentsline {subsubsection}{Example}{50}{ALC@unique.35}%
-\contentsline {subsubsection}{Advantages}{50}{equation.6.2.8}%
-\contentsline {subsection}{\numberline {6.2.5}Uniform Crossover}{50}{subsection.6.2.5}%
-\contentsline {subsubsection}{Algorithm}{51}{figure.caption.20}%
-\contentsline {subsubsection}{Example with Mask}{51}{ALC@unique.43}%
-\contentsline {subsubsection}{Properties}{51}{equation.6.2.13}%
-\contentsline {subsection}{\numberline {6.2.6}Multi-Point Crossover}{51}{subsection.6.2.6}%
-\contentsline {subsubsection}{Characteristics}{52}{subsection.6.2.6}%
-\contentsline {section}{\numberline {6.3}Integer Chromosome Crossover}{52}{section.6.3}%
-\contentsline {subsection}{\numberline {6.3.1}Single-Point Crossover for Integer}{52}{subsection.6.3.1}%
-\contentsline {subsection}{\numberline {6.3.2}Multi-point Crossover for Integer}{52}{subsection.6.3.2}%
-\contentsline {subsection}{\numberline {6.3.3}Uniform Crossover for Integer}{52}{subsection.6.3.3}%
-\contentsline {section}{\numberline {6.4}Real-Valued Crossover Operators}{52}{section.6.4}%
-\contentsline {subsection}{\numberline {6.4.1}Arithmetic Crossover}{53}{subsection.6.4.1}%
-\contentsline {subsubsection}{Single Arithmetic Crossover}{53}{subsection.6.4.1}%
-\contentsline {subsubsection}{Simple Arithmetic Crossover}{54}{figure.caption.24}%
-\contentsline {subsubsection}{Whole Arithmetic Crossover}{55}{figure.caption.25}%
-\contentsline {subsubsection}{Whole Arithmetic Crossover}{56}{figure.caption.26}%
-\contentsline {subsubsection}{Simple Arithmetic Crossover}{56}{equation.6.4.15}%
-\contentsline {subsubsection}{Single Arithmetic Crossover}{56}{equation.6.4.15}%
-\contentsline {subsubsection}{Example}{56}{equation.6.4.15}%
-\contentsline {subsection}{\numberline {6.4.2}BLX-$\alpha $ Crossover (Blend Crossover)}{56}{subsection.6.4.2}%
-\contentsline {subsubsection}{Algorithm}{56}{subsection.6.4.2}%
-\contentsline {subsubsection}{Parameters}{57}{ALC@unique.49}%
-\contentsline {subsection}{\numberline {6.4.3}SBX (Simulated Binary Crossover)}{57}{subsection.6.4.3}%
-\contentsline {subsubsection}{Formula}{57}{subsection.6.4.3}%
-\contentsline {section}{\numberline {6.5}Permutation Crossover Operators}{57}{section.6.5}%
-\contentsline {subsection}{\numberline {6.5.1}Order Crossover (OX)}{57}{subsection.6.5.1}%
-\contentsline {subsubsection}{Algorithm}{57}{subsection.6.5.1}%
-\contentsline {subsubsection}{Example}{58}{ALC@unique.58}%
-\contentsline {subsection}{\numberline {6.5.2}Partially Mapped Crossover (PMX)}{58}{subsection.6.5.2}%
-\contentsline {subsubsection}{Algorithm}{58}{subsection.6.5.2}%
-\contentsline {subsubsection}{Example}{58}{ALC@unique.68}%
-\contentsline {subsection}{\numberline {6.5.3}Cycle Crossover (CX)}{58}{subsection.6.5.3}%
-\contentsline {subsubsection}{Algorithm}{59}{subsection.6.5.3}%
-\contentsline {subsection}{\numberline {6.5.4}Edge Recombination Crossover}{59}{subsection.6.5.4}%
-\contentsline {subsubsection}{Algorithm}{59}{subsection.6.5.4}%
-\contentsline {section}{\numberline {6.6}Crossover Analysis}{59}{section.6.6}%
-\contentsline {subsection}{\numberline {6.6.1}Schema Disruption}{59}{subsection.6.6.1}%
-\contentsline {subsubsection}{One-Point Crossover}{59}{subsection.6.6.1}%
-\contentsline {subsubsection}{Two-Point Crossover}{60}{equation.6.6.31}%
-\contentsline {subsubsection}{Uniform Crossover}{60}{equation.6.6.32}%
-\contentsline {subsection}{\numberline {6.6.2}Building Block Preservation}{60}{subsection.6.6.2}%
-\contentsline {section}{\numberline {6.7}Advanced Crossover Techniques}{60}{section.6.7}%
-\contentsline {subsection}{\numberline {6.7.1}Adaptive Crossover}{60}{subsection.6.7.1}%
-\contentsline {subsection}{\numberline {6.7.2}Multiple Parent Crossover}{60}{subsection.6.7.2}%
-\contentsline {subsection}{\numberline {6.7.3}Problem-Specific Crossover}{60}{subsection.6.7.3}%
-\contentsline {section}{\numberline {6.8}Crossover Guidelines}{60}{section.6.8}%
-\contentsline {subsection}{\numberline {6.8.1}Choosing Crossover Type}{60}{subsection.6.8.1}%
-\contentsline {subsection}{\numberline {6.8.2}Parameter Setting}{61}{subsection.6.8.2}%
-\contentsline {subsection}{\numberline {6.8.3}Empirical Testing}{61}{subsection.6.8.3}%
-\contentsline {chapter}{\numberline {7}Mutasi dan Pembaruan Generasi}{63}{chapter.7}%
-\contentsline {section}{\numberline {7.1}Pengantar Mutasi}{63}{section.7.1}%
-\contentsline {subsection}{\numberline {7.1.1}Apa itu Mutasi?}{63}{subsection.7.1.1}%
-\contentsline {subsection}{\numberline {7.1.2}Mutasi dalam Algoritma Evolusioner vs. Evolusi Biologis}{63}{subsection.7.1.2}%
-\contentsline {section}{\numberline {7.2}Mutasi untuk Representasi Berbeda}{64}{section.7.2}%
-\contentsline {subsection}{\numberline {7.2.1}Mutasi untuk Representasi Biner}{64}{subsection.7.2.1}%
-\contentsline {subsubsection}{Mutasi Pembalikan Bit}{64}{subsection.7.2.1}%
-\contentsline {subsection}{\numberline {7.2.2}Mutasi untuk Representasi Integer}{64}{subsection.7.2.2}%
-\contentsline {subsubsection}{Pembalikan Nilai Integer}{65}{subsection.7.2.2}%
-\contentsline {subsubsection}{Pemilihan Nilai Acak}{65}{subsection.7.2.2}%
-\contentsline {subsubsection}{Mutasi Creep}{65}{subsection.7.2.2}%
-\contentsline {subsection}{\numberline {7.2.3}Mutasi untuk Representasi Bernilai Riil}{65}{subsection.7.2.3}%
-\contentsline {subsubsection}{Mutasi Seragam}{65}{subsection.7.2.3}%
-\contentsline {subsubsection}{Mutasi Tidak Seragam dengan Distribusi Tetap}{66}{equation.7.2.1}%
-\contentsline {subsection}{\numberline {7.2.4}Mutasi untuk Representasi Permutasi}{66}{subsection.7.2.4}%
-\contentsline {subsubsection}{Mutasi Tukar}{66}{subsection.7.2.4}%
-\contentsline {subsubsection}{Mutasi Sisip}{66}{ALC@unique.97}%
-\contentsline {subsubsection}{Mutasi Acak}{67}{ALC@unique.97}%
-\contentsline {subsubsection}{Mutasi Inversi}{67}{ALC@unique.97}%
-\contentsline {section}{\numberline {7.3}Mekanisme Pembaruan Generasi}{67}{section.7.3}%
-\contentsline {subsection}{\numberline {7.3.1}Model Asli Holland (Penggantian Generasional)}{67}{subsection.7.3.1}%
-\contentsline {subsection}{\numberline {7.3.2}Model Generasional dengan Elitisme}{67}{subsection.7.3.2}%
-\contentsline {subsection}{\numberline {7.3.3}Pembaruan Steady-State}{68}{subsection.7.3.3}%
-\contentsline {subsection}{\numberline {7.3.4}Pembaruan Kontinu}{68}{subsection.7.3.4}%
-\contentsline {section}{\numberline {7.4}Parameter AG}{69}{section.7.4}%
-\contentsline {subsection}{\numberline {7.4.1}Probabilitas Pindah Silang ($P_c$)}{69}{subsection.7.4.1}%
-\contentsline {subsection}{\numberline {7.4.2}Probabilitas Mutasi ($P_m$)}{69}{subsection.7.4.2}%
-\contentsline {subsection}{\numberline {7.4.3}Ukuran Populasi ($N$)}{70}{subsection.7.4.3}%
-\contentsline {subsection}{\numberline {7.4.4}Jumlah Generasi ($G$)}{70}{subsection.7.4.4}%
-\contentsline {subsection}{\numberline {7.4.5}Pedoman Umum Pengaturan Parameter}{70}{subsection.7.4.5}%
-\contentsline {section}{\numberline {7.5}Studi Observasi Parameter}{70}{section.7.5}%
-\contentsline {subsection}{\numberline {7.5.1}Masalah Uji}{70}{subsection.7.5.1}%
-\contentsline {subsection}{\numberline {7.5.2}Pengaturan Eksperimental}{71}{subsection.7.5.2}%
-\contentsline {subsection}{\numberline {7.5.3}Hasil Sampel}{71}{subsection.7.5.3}%
-\contentsline {section}{\numberline {7.6}Latihan}{71}{section.7.6}%
-\contentsline {chapter}{\numberline {8}Real-World Applications and Visual Examples}{73}{chapter.8}%
-\contentsline {chapter}{\numberline {A}Implementasi Algoritma}{75}{appendix.A}%
-\contentsline {section}{\numberline {A.1}Implementasi Algoritma Genetika Dasar}{75}{section.A.1}%
-\contentsline {subsection}{\numberline {A.1.1}Implementasi Python}{75}{subsection.A.1.1}%
-\contentsline {section}{\numberline {A.2}Algoritma Genetika Bernilai Riil}{79}{section.A.2}%
-\contentsline {section}{\numberline {A.3}Algoritma Genetika untuk Traveling Salesman Problem}{82}{section.A.3}%
-\contentsline {section}{\numberline {A.4}NSGA-II untuk Optimisasi Multi-Objektif}{87}{section.A.4}%
-\contentsline {chapter}{\numberline {B}Contoh Praktis dan Studi Kasus}{95}{appendix.B}%
-\contentsline {section}{\numberline {B.1}Masalah Optimasi Fungsi}{95}{section.B.1}%
-\contentsline {subsection}{\numberline {B.1.1}OneMax}{95}{subsection.B.1.1}%
-\contentsline {subsection}{\numberline {B.1.2}Beberapa Fungsi Benchmark}{95}{subsection.B.1.2}%
-\contentsline {section}{\numberline {B.2}Masalah Optimasi Kombinatorial}{95}{section.B.2}%
-\contentsline {subsection}{\numberline {B.2.1}TSP}{95}{subsection.B.2.1}%
-\contentsline {subsection}{\numberline {B.2.2}Knapsack 0/1}{95}{subsection.B.2.2}%
-\contentsline {section}{\numberline {B.3}Aplikasi Dunia Nyata}{95}{section.B.3}%
-\contentsline {subsection}{\numberline {B.3.1}Pelatihan Jaringan Syaraf}{95}{subsection.B.3.1}%
-\contentsline {subsection}{\numberline {B.3.2}Seleksi Fitur}{96}{subsection.B.3.2}%
-\contentsline {subsection}{\numberline {B.3.3}Penjadwalan}{96}{subsection.B.3.3}%
-\contentsline {section}{\numberline {B.4}Panduan Penyetelan Singkat}{96}{section.B.4}%
-\contentsline {section}{\numberline {B.5}Analisis Performa}{96}{section.B.5}%
-\contentsline {section}{\numberline {B.6}Kendala Umum dan Solusi}{96}{section.B.6}%
-\contentsline {section}{\numberline {B.7}Teknik Lanjutan}{96}{section.B.7}%
-\contentsline {section}{\numberline {B.8}Ringkasan}{96}{section.B.8}%
-\contentsline {subsection}{\numberline {B.8.1}Masalah Penanganan Kendala}{97}{subsection.B.8.1}%
-\contentsline {section}{\numberline {B.9}Teknik Lanjutan}{97}{section.B.9}%
-\contentsline {subsection}{\numberline {B.9.1}Genetic Algorithms Hibrida}{97}{subsection.B.9.1}%
-\contentsline {subsection}{\numberline {B.9.2}Kontrol Parameter Adaptif}{97}{subsection.B.9.2}%
-\contentsline {subsection}{\numberline {B.9.3}Parallel Genetic Algorithms}{98}{subsection.B.9.3}%
-\contentsline {section}{\numberline {B.10}Praktik Terbaik Implementasi}{98}{section.B.10}%
-\contentsline {subsection}{\numberline {B.10.1}Organisasi Kode}{98}{subsection.B.10.1}%
-\contentsline {subsection}{\numberline {B.10.2}Pengujian dan Validasi}{98}{subsection.B.10.2}%
-\contentsline {subsection}{\numberline {B.10.3}Dokumentasi}{98}{subsection.B.10.3}%
-\contentsline {section}{\numberline {B.11}Ringkasan Bab}{98}{section.B.11}%
-\contentsline {section}{\numberline {B.12}Poin Penting}{99}{section.B.12}%
+\contentsline {section}{\numberline {3.1}Apa itu Skema?}{13}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Properti Skema}{13}{subsection.3.1.1}%
+\contentsline {subsubsection}{Orde Skema}{13}{subsection.3.1.1}%
+\contentsline {subsubsection}{Panjang Pendefinisian}{14}{equation.3.1.4}%
+\contentsline {subsection}{\numberline {3.1.2}Teorema Skema (Teorema Fundamental)}{14}{subsection.3.1.2}%
+\contentsline {subsubsection}{Teorema Skema Gabungan}{14}{subsection.3.1.2}%
+\contentsline {subsection}{\numberline {3.1.3}Hipotesis Blok-Bangunan}{14}{subsection.3.1.3}%
+\contentsline {section}{\numberline {3.2}Paralelisme Implisit}{15}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Implikasi Praktis}{16}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Pemilihan Operator dan Parameter}{16}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}Pemantauan dan Diagnostik Praktis}{16}{subsection.3.3.2}%
+\contentsline {section}{\numberline {3.4}Keterbatasan Teori Skema}{16}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}Ekspektasi vs dinamika populasi terbatas}{16}{subsection.3.4.1}%
+\contentsline {subsection}{\numberline {3.4.2}Penanganan epistasis dan interaksi kompleks terbatas}{16}{subsection.3.4.2}%
+\contentsline {subsection}{\numberline {3.4.3}Pembatasan pada alfabet sederhana dan enkoding panjang tetap}{17}{subsection.3.4.3}%
+\contentsline {subsection}{\numberline {3.4.4}Kurangnya spesifikasi preskriptif}{17}{subsection.3.4.4}%
+\contentsline {subsection}{\numberline {3.4.5}Protokol empiris yang direkomendasikan}{17}{subsection.3.4.5}%
+\contentsline {section}{\numberline {3.5}Teorema No Free Lunch}{17}{section.3.5}%
+\contentsline {chapter}{\numberline {4}Encoding pada Algoritma Genetika}{19}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Pendahuluan terhadap Encoding}{19}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Persyaratan untuk Encoding yang Baik}{19}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Kelengkapan}{19}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Kebenaran (Soundness)}{20}{subsection.4.2.2}%
+\contentsline {subsection}{\numberline {4.2.3}Non-redundansi}{20}{subsection.4.2.3}%
+\contentsline {subsection}{\numberline {4.2.4}Lokalitas}{20}{subsection.4.2.4}%
+\contentsline {subsection}{\numberline {4.2.5}Persyaratan Praktis Tambahan}{21}{subsection.4.2.5}%
+\contentsline {section}{\numberline {4.3}Encoding Biner}{21}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Ikhtisar Jenis Encoding}{22}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Encoding Bernilai Riil}{23}{section.4.5}%
+\contentsline {section}{\numberline {4.6}Encoding Integer}{24}{section.4.6}%
+\contentsline {section}{\numberline {4.7}Encoding Permutasi}{25}{section.4.7}%
+\contentsline {section}{\numberline {4.8}Tree Encoding}{26}{section.4.8}%
+\contentsline {chapter}{\numberline {5}Metode Seleksi dalam Algoritma Genetika}{29}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Pendahuluan tentang Seleksi}{29}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Tekanan Seleksi}{30}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Seleksi Proporsional terhadap Kebugaran (FPS)}{30}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1}Seleksi Roulette Wheel}{30}{subsection.5.3.1}%
+\contentsline {subsubsection}{Algoritma}{31}{figure.caption.12}%
+\contentsline {subsubsection}{Probabilitas Seleksi}{31}{ALC@unique.10}%
+\contentsline {subsection}{\numberline {5.3.2}Stochastic Universal Sampling (SUS)}{31}{subsection.5.3.2}%
+\contentsline {subsubsection}{Algoritma}{32}{figure.caption.13}%
+\contentsline {section}{\numberline {5.4}Seleksi Berbasis Peringkat}{32}{section.5.4}%
+\contentsline {subsection}{\numberline {5.4.1}Perankingan Linear}{32}{subsection.5.4.1}%
+\contentsline {section}{\numberline {5.5}Seleksi Turnamen}{32}{section.5.5}%
+\contentsline {subsection}{\numberline {5.5.1}Mekanisme}{32}{subsection.5.5.1}%
+\contentsline {section}{\numberline {5.6}Truncation Selection}{33}{section.5.6}%
+\contentsline {section}{\numberline {5.7}Boltzmann Selection}{33}{section.5.7}%
+\contentsline {section}{\numberline {5.8}Elitist Selection}{33}{section.5.8}%
+\contentsline {section}{\numberline {5.9}Seleksi yang Mempertahankan Keragaman}{33}{section.5.9}%
+\contentsline {section}{\numberline {5.10}Seleksi Multi‑objektif}{34}{section.5.10}%
+\contentsline {section}{\numberline {5.11}Perbandingan Metode Seleksi}{34}{section.5.11}%
+\contentsline {chapter}{\numberline {6}Crossover (Recombination) in Genetic Algorithms}{35}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Introduction to Crossover}{35}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Binary Crossover Operators}{36}{section.6.2}%
+\contentsline {subsection}{\numberline {6.2.1}Definition and Function of Crossover Operator}{36}{subsection.6.2.1}%
+\contentsline {subsection}{\numberline {6.2.2}One-Point Crossover}{36}{subsection.6.2.2}%
+\contentsline {subsection}{\numberline {6.2.3}One-Point Crossover}{37}{subsection.6.2.3}%
+\contentsline {subsubsection}{Algorithm}{37}{subsection.6.2.3}%
+\contentsline {subsubsection}{Example}{37}{ALC@unique.27}%
+\contentsline {subsubsection}{Characteristics}{37}{equation.6.2.4}%
+\contentsline {subsection}{\numberline {6.2.4}Two-Point Crossover}{37}{subsection.6.2.4}%
+\contentsline {subsubsection}{Algorithm}{37}{figure.caption.16}%
+\contentsline {subsubsection}{Example}{38}{ALC@unique.30}%
+\contentsline {subsubsection}{Advantages}{38}{equation.6.2.8}%
+\contentsline {subsection}{\numberline {6.2.5}Uniform Crossover}{38}{subsection.6.2.5}%
+\contentsline {subsubsection}{Algorithm}{39}{figure.caption.17}%
+\contentsline {subsubsection}{Example with Mask}{39}{ALC@unique.38}%
+\contentsline {subsubsection}{Properties}{39}{equation.6.2.13}%
+\contentsline {subsection}{\numberline {6.2.6}Multi-Point Crossover}{39}{subsection.6.2.6}%
+\contentsline {subsubsection}{Characteristics}{40}{subsection.6.2.6}%
+\contentsline {section}{\numberline {6.3}Integer Chromosome Crossover}{40}{section.6.3}%
+\contentsline {subsection}{\numberline {6.3.1}Single-Point Crossover for Integer}{40}{subsection.6.3.1}%
+\contentsline {subsection}{\numberline {6.3.2}Multi-point Crossover for Integer}{40}{subsection.6.3.2}%
+\contentsline {subsection}{\numberline {6.3.3}Uniform Crossover for Integer}{40}{subsection.6.3.3}%
+\contentsline {section}{\numberline {6.4}Real-Valued Crossover Operators}{40}{section.6.4}%
+\contentsline {subsection}{\numberline {6.4.1}Arithmetic Crossover}{41}{subsection.6.4.1}%
+\contentsline {subsubsection}{Single Arithmetic Crossover}{41}{subsection.6.4.1}%
+\contentsline {subsubsection}{Simple Arithmetic Crossover}{42}{figure.caption.21}%
+\contentsline {subsubsection}{Whole Arithmetic Crossover}{43}{figure.caption.22}%
+\contentsline {subsubsection}{Whole Arithmetic Crossover}{43}{figure.caption.23}%
+\contentsline {subsubsection}{Simple Arithmetic Crossover}{43}{equation.6.4.15}%
+\contentsline {subsubsection}{Single Arithmetic Crossover}{43}{equation.6.4.15}%
+\contentsline {subsubsection}{Example}{44}{equation.6.4.15}%
+\contentsline {subsection}{\numberline {6.4.2}BLX-$\alpha $ Crossover (Blend Crossover)}{44}{subsection.6.4.2}%
+\contentsline {subsubsection}{Algorithm}{44}{subsection.6.4.2}%
+\contentsline {subsubsection}{Parameters}{44}{ALC@unique.44}%
+\contentsline {subsection}{\numberline {6.4.3}SBX (Simulated Binary Crossover)}{45}{subsection.6.4.3}%
+\contentsline {subsubsection}{Formula}{45}{subsection.6.4.3}%
+\contentsline {section}{\numberline {6.5}Permutation Crossover Operators}{45}{section.6.5}%
+\contentsline {subsection}{\numberline {6.5.1}Order Crossover (OX)}{45}{subsection.6.5.1}%
+\contentsline {subsubsection}{Algorithm}{45}{subsection.6.5.1}%
+\contentsline {subsubsection}{Example}{45}{ALC@unique.53}%
+\contentsline {subsection}{\numberline {6.5.2}Partially Mapped Crossover (PMX)}{45}{subsection.6.5.2}%
+\contentsline {subsubsection}{Algorithm}{46}{subsection.6.5.2}%
+\contentsline {subsubsection}{Example}{46}{ALC@unique.63}%
+\contentsline {subsection}{\numberline {6.5.3}Cycle Crossover (CX)}{46}{subsection.6.5.3}%
+\contentsline {subsubsection}{Algorithm}{46}{subsection.6.5.3}%
+\contentsline {subsection}{\numberline {6.5.4}Edge Recombination Crossover}{46}{subsection.6.5.4}%
+\contentsline {subsubsection}{Algorithm}{47}{subsection.6.5.4}%
+\contentsline {section}{\numberline {6.6}Crossover Analysis}{47}{section.6.6}%
+\contentsline {subsection}{\numberline {6.6.1}Schema Disruption}{47}{subsection.6.6.1}%
+\contentsline {subsubsection}{One-Point Crossover}{47}{subsection.6.6.1}%
+\contentsline {subsubsection}{Two-Point Crossover}{47}{equation.6.6.31}%
+\contentsline {subsubsection}{Uniform Crossover}{47}{equation.6.6.32}%
+\contentsline {subsection}{\numberline {6.6.2}Building Block Preservation}{47}{subsection.6.6.2}%
+\contentsline {section}{\numberline {6.7}Advanced Crossover Techniques}{48}{section.6.7}%
+\contentsline {subsection}{\numberline {6.7.1}Adaptive Crossover}{48}{subsection.6.7.1}%
+\contentsline {subsection}{\numberline {6.7.2}Multiple Parent Crossover}{48}{subsection.6.7.2}%
+\contentsline {subsection}{\numberline {6.7.3}Problem-Specific Crossover}{48}{subsection.6.7.3}%
+\contentsline {section}{\numberline {6.8}Crossover Guidelines}{48}{section.6.8}%
+\contentsline {subsection}{\numberline {6.8.1}Choosing Crossover Type}{48}{subsection.6.8.1}%
+\contentsline {subsection}{\numberline {6.8.2}Parameter Setting}{48}{subsection.6.8.2}%
+\contentsline {subsection}{\numberline {6.8.3}Empirical Testing}{48}{subsection.6.8.3}%
+\contentsline {chapter}{\numberline {7}Mutasi dan Pembaruan Generasi}{49}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Pengantar Mutasi}{49}{section.7.1}%
+\contentsline {subsection}{\numberline {7.1.1}Apa itu Mutasi?}{49}{subsection.7.1.1}%
+\contentsline {subsection}{\numberline {7.1.2}Mutasi dalam Algoritma Evolusioner vs. Evolusi Biologis}{49}{subsection.7.1.2}%
+\contentsline {section}{\numberline {7.2}Mutasi untuk Representasi Berbeda}{50}{section.7.2}%
+\contentsline {subsection}{\numberline {7.2.1}Mutasi untuk Representasi Biner}{50}{subsection.7.2.1}%
+\contentsline {subsubsection}{Mutasi Pembalikan Bit}{50}{subsection.7.2.1}%
+\contentsline {subsection}{\numberline {7.2.2}Mutasi untuk Representasi Integer}{50}{subsection.7.2.2}%
+\contentsline {subsubsection}{Pembalikan Nilai Integer}{51}{subsection.7.2.2}%
+\contentsline {subsubsection}{Pemilihan Nilai Acak}{51}{subsection.7.2.2}%
+\contentsline {subsubsection}{Mutasi Creep}{51}{subsection.7.2.2}%
+\contentsline {subsection}{\numberline {7.2.3}Mutasi untuk Representasi Bernilai Riil}{51}{subsection.7.2.3}%
+\contentsline {subsubsection}{Mutasi Seragam}{51}{subsection.7.2.3}%
+\contentsline {subsubsection}{Mutasi Tidak Seragam dengan Distribusi Tetap}{52}{equation.7.2.1}%
+\contentsline {subsection}{\numberline {7.2.4}Mutasi untuk Representasi Permutasi}{52}{subsection.7.2.4}%
+\contentsline {subsubsection}{Mutasi Tukar}{52}{subsection.7.2.4}%
+\contentsline {subsubsection}{Mutasi Sisip}{52}{ALC@unique.92}%
+\contentsline {subsubsection}{Mutasi Acak}{53}{ALC@unique.92}%
+\contentsline {subsubsection}{Mutasi Inversi}{53}{ALC@unique.92}%
+\contentsline {section}{\numberline {7.3}Mekanisme Pembaruan Generasi}{53}{section.7.3}%
+\contentsline {subsection}{\numberline {7.3.1}Model Asli Holland (Penggantian Generasional)}{53}{subsection.7.3.1}%
+\contentsline {subsection}{\numberline {7.3.2}Model Generasional dengan Elitisme}{53}{subsection.7.3.2}%
+\contentsline {subsection}{\numberline {7.3.3}Pembaruan Steady-State}{54}{subsection.7.3.3}%
+\contentsline {subsection}{\numberline {7.3.4}Pembaruan Kontinu}{54}{subsection.7.3.4}%
+\contentsline {section}{\numberline {7.4}Parameter AG}{55}{section.7.4}%
+\contentsline {subsection}{\numberline {7.4.1}Probabilitas Pindah Silang ($P_c$)}{55}{subsection.7.4.1}%
+\contentsline {subsection}{\numberline {7.4.2}Probabilitas Mutasi ($P_m$)}{55}{subsection.7.4.2}%
+\contentsline {subsection}{\numberline {7.4.3}Ukuran Populasi ($N$)}{56}{subsection.7.4.3}%
+\contentsline {subsection}{\numberline {7.4.4}Jumlah Generasi ($G$)}{56}{subsection.7.4.4}%
+\contentsline {subsection}{\numberline {7.4.5}Pedoman Umum Pengaturan Parameter}{56}{subsection.7.4.5}%
+\contentsline {section}{\numberline {7.5}Studi Observasi Parameter}{56}{section.7.5}%
+\contentsline {subsection}{\numberline {7.5.1}Masalah Uji}{56}{subsection.7.5.1}%
+\contentsline {subsection}{\numberline {7.5.2}Pengaturan Eksperimental}{57}{subsection.7.5.2}%
+\contentsline {subsection}{\numberline {7.5.3}Hasil Sampel}{57}{subsection.7.5.3}%
+\contentsline {section}{\numberline {7.6}Latihan}{57}{section.7.6}%
+\contentsline {chapter}{\numberline {8}Aplikasi Algoritma Genetika}{59}{chapter.8}%
+\contentsline {chapter}{\numberline {A}Implementasi Algoritma}{61}{appendix.A}%
+\contentsline {section}{\numberline {A.1}Implementasi Algoritma Genetika Dasar}{61}{section.A.1}%
+\contentsline {subsection}{\numberline {A.1.1}Implementasi Python}{61}{subsection.A.1.1}%
+\contentsline {section}{\numberline {A.2}Algoritma Genetika Bernilai Riil}{65}{section.A.2}%
+\contentsline {section}{\numberline {A.3}Algoritma Genetika untuk Traveling Salesman Problem}{68}{section.A.3}%
+\contentsline {section}{\numberline {A.4}NSGA-II untuk Optimisasi Multi-Objektif}{73}{section.A.4}%
+\contentsline {chapter}{\numberline {B}Contoh Praktis dan Studi Kasus}{81}{appendix.B}%
+\contentsline {section}{\numberline {B.1}Masalah Optimasi Fungsi}{81}{section.B.1}%
+\contentsline {subsection}{\numberline {B.1.1}OneMax}{81}{subsection.B.1.1}%
+\contentsline {subsection}{\numberline {B.1.2}Beberapa Fungsi Benchmark}{81}{subsection.B.1.2}%
+\contentsline {section}{\numberline {B.2}Masalah Optimasi Kombinatorial}{81}{section.B.2}%
+\contentsline {subsection}{\numberline {B.2.1}TSP}{81}{subsection.B.2.1}%
+\contentsline {subsection}{\numberline {B.2.2}Knapsack 0/1}{81}{subsection.B.2.2}%
+\contentsline {section}{\numberline {B.3}Aplikasi Dunia Nyata}{81}{section.B.3}%
+\contentsline {subsection}{\numberline {B.3.1}Pelatihan Jaringan Syaraf}{81}{subsection.B.3.1}%
+\contentsline {subsection}{\numberline {B.3.2}Seleksi Fitur}{82}{subsection.B.3.2}%
+\contentsline {subsection}{\numberline {B.3.3}Penjadwalan}{82}{subsection.B.3.3}%
+\contentsline {section}{\numberline {B.4}Panduan Penyetelan Singkat}{82}{section.B.4}%
+\contentsline {section}{\numberline {B.5}Analisis Performa}{82}{section.B.5}%
+\contentsline {section}{\numberline {B.6}Kendala Umum dan Solusi}{82}{section.B.6}%
+\contentsline {section}{\numberline {B.7}Teknik Lanjutan}{82}{section.B.7}%
+\contentsline {section}{\numberline {B.8}Ringkasan}{82}{section.B.8}%
+\contentsline {subsection}{\numberline {B.8.1}Masalah Penanganan Kendala}{83}{subsection.B.8.1}%
+\contentsline {section}{\numberline {B.9}Teknik Lanjutan}{83}{section.B.9}%
+\contentsline {subsection}{\numberline {B.9.1}Genetic Algorithms Hibrida}{83}{subsection.B.9.1}%
+\contentsline {subsection}{\numberline {B.9.2}Kontrol Parameter Adaptif}{83}{subsection.B.9.2}%
+\contentsline {subsection}{\numberline {B.9.3}Parallel Genetic Algorithms}{84}{subsection.B.9.3}%
+\contentsline {section}{\numberline {B.10}Praktik Terbaik Implementasi}{84}{section.B.10}%
+\contentsline {subsection}{\numberline {B.10.1}Organisasi Kode}{84}{subsection.B.10.1}%
+\contentsline {subsection}{\numberline {B.10.2}Pengujian dan Validasi}{84}{subsection.B.10.2}%
+\contentsline {subsection}{\numberline {B.10.3}Dokumentasi}{84}{subsection.B.10.3}%
+\contentsline {section}{\numberline {B.11}Ringkasan Bab}{84}{section.B.11}%
+\contentsline {section}{\numberline {B.12}Poin Penting}{85}{section.B.12}%

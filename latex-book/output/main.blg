@@ -10,45 +10,45 @@ Warning--empty journal in de1975analysis
 Warning--empty journal in haupt2004practical
 Warning--empty journal in michalewicz1996genetic
 Warning--empty journal in smith1998replacement
-You've used 47 entries,
+You've used 46 entries,
             2118 wiz_defined-function locations,
-            743 strings with 11385 characters,
-and the built_in function-call counts, 13753 in all, are:
-= -- 1363
-> -- 557
+            739 strings with 11237 characters,
+and the built_in function-call counts, 13540 in all, are:
+= -- 1342
+> -- 550
 < -- 7
-+ -- 236
-- -- 178
-* -- 815
-:= -- 2277
-add.period$ -- 146
-call.type$ -- 47
-change.case$ -- 221
++ -- 233
+- -- 176
+* -- 810
+:= -- 2241
+add.period$ -- 142
+call.type$ -- 46
+change.case$ -- 217
 chr.to.int$ -- 0
-cite$ -- 54
-duplicate$ -- 551
-empty$ -- 1154
-format.name$ -- 178
-if$ -- 2906
+cite$ -- 53
+duplicate$ -- 544
+empty$ -- 1132
+format.name$ -- 176
+if$ -- 2859
 int.to.chr$ -- 0
-int.to.str$ -- 47
+int.to.str$ -- 46
 missing$ -- 49
-newline$ -- 243
-num.names$ -- 88
-pop$ -- 305
+newline$ -- 237
+num.names$ -- 86
+pop$ -- 295
 preamble$ -- 1
-purify$ -- 183
+purify$ -- 180
 quote$ -- 0
-skip$ -- 384
+skip$ -- 379
 stack$ -- 0
-substring$ -- 794
-swap$ -- 100
+substring$ -- 789
+swap$ -- 99
 text.length$ -- 7
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 166
+type$ -- 162
 warning$ -- 7
-while$ -- 137
-width$ -- 49
-write$ -- 503
+while$ -- 135
+width$ -- 48
+write$ -- 492
 (There were 7 warnings)

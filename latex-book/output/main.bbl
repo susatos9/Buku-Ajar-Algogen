@@ -35,12 +35,6 @@ Thomas B{\"a}ck.
   strategies, evolutionary programming, genetic algorithms}.
 \newblock Oxford University Press, Oxford, UK, 1996.
 
-\bibitem{baeldung_tournament}
-{Baeldung on Computer Science}.
-\newblock Tournament selection in genetic algorithms.
-\newblock \url{https://www.baeldung.com/cs/ga-tournament-selection}.
-\newblock Retrieved September 30, 2025.
-
 \bibitem{baker1987reducing}
 James~E Baker.
 \newblock Reducing bias and inefficiency in the selection algorithm.
