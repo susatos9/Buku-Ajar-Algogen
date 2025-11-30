@@ -1,439 +1,163 @@
-\chapter{Practical Examples and Case Studies}
+% Appendix: Contoh Praktis dan Studi Kasus (terjemahan bahasa Indonesia)
+\chapter{Contoh Praktis dan Studi Kasus}
 
-\section{Function Optimization Problems}
+\section{Masalah Optimasi Fungsi}
 
-\subsection{OneMax Problem}
-The OneMax problem is the simplest optimization problem for binary genetic algorithms.
-
-\subsubsection{Problem Definition}
-Maximize the number of 1s in a binary string:
+\subsection{OneMax}
+OneMax adalah contoh sederhana untuk algoritma genetika biner. Tujuan: maksimalkan jumlah bit 1 dalam kromosom.
 \begin{equation}
-f(x) = \sum_{i=1}^{n} x_i
+f(x)=\sum_{i=1}^n x_i
 \end{equation}
 
-where $x_i \in \{0, 1\}$ and $n$ is the string length.
-
-\subsubsection{Expected Performance}
+\subsection{Beberapa Fungsi Benchmark}
 \begin{itemize}
-    \item \textbf{Optimal solution}: All 1s string
-    \item \textbf{Global optimum}: $f^* = n$
-    \item \textbf{Expected convergence}: $O(n \log n)$ generations
-    \item \textbf{Population size}: $O(\log n)$ sufficient
+    \item \textbf{Sphere}: $f(\mathbf{x})=\sum_{i=1}^n x_i^2$, domain $[-5.12,5.12]^n$, minimum global di $\mathbf{0}$.
+    \item \textbf{Rastrigin}: multimodal, $f(\mathbf{x})=An+\sum[x_i^2-A\cos(2\pi x_i)]$, $A=10$.
+    \item \textbf{Rosenbrock}: lembah sempit, $f(\mathbf{x})=\sum[100(x_{i+1}-x_i^2)^2+(1-x_i)^2]$.
 \end{itemize}
 
-\subsubsection{GA Configuration}
-\begin{table}[H]
-\centering
-\begin{tabular}{ll}
-\toprule
-Parameter & Value \\
-\midrule
-Representation & Binary string \\
-Population size & $50-100$ \\
-Selection & Tournament (size 3) \\
-Crossover & One-point, $p_c = 0.8$ \\
-Mutation & Bit-flip, $p_m = 1/n$ \\
-Generations & $100-200$ \\
-\bottomrule
-\end{tabular}
-\caption{OneMax GA Configuration}
-\end{table}
+\section{Masalah Optimasi Kombinatorial}
 
-\subsection{Sphere Function}
-Continuous optimization benchmark function.
+\subsection{TSP}
+Traveling Salesman Problem: temukan rute terpendek yang melewati semua kota sekali dan kembali ke awal. Pada GA digunakan encoding permutasi dan operator khusus (PMX, OX), serta langkah perbaikan lokal.
 
-\subsubsection{Problem Definition}
-\begin{equation}
-f(\mathbf{x}) = \sum_{i=1}^{n} x_i^2
-\end{equation}
-
-where $\mathbf{x} \in [-5.12, 5.12]^n$.
-
-\subsubsection{Characteristics}
-\begin{itemize}
-    \item \textbf{Type}: Unimodal, separable
-    \item \textbf{Global minimum}: $\mathbf{x}^* = (0, 0, \ldots, 0)$
-    \item \textbf{Global optimum}: $f^* = 0$
-    \item \textbf{Difficulty}: Easy (convex, single optimum)
-\end{itemize}
-
-\subsection{Rastrigin Function}
-Multimodal benchmark function.
-
-\subsubsection{Problem Definition}
-\begin{equation}
-f(\mathbf{x}) = A n + \sum_{i=1}^{n} [x_i^2 - A \cos(2\pi x_i)]
-\end{equation}
-
-where $A = 10$ and $\mathbf{x} \in [-5.12, 5.12]^n$.
-
-\subsubsection{Characteristics}
-\begin{itemize}
-    \item \textbf{Type}: Multimodal, separable
-    \item \textbf{Local minima}: $A \cdot n$ local minima
-    \item \textbf{Global minimum}: $\mathbf{x}^* = (0, 0, \ldots, 0)$
-    \item \textbf{Global optimum}: $f^* = 0$
-    \item \textbf{Difficulty}: Medium (many local optima)
-\end{itemize}
-
-\subsubsection{GA Challenges}
-\begin{itemize}
-    \item Premature convergence to local optima
-    \item Requires high population diversity
-    \item Benefits from diversity preservation techniques
-\end{itemize}
-
-\subsection{Rosenbrock Function}
-Non-convex optimization problem.
-
-\subsubsection{Problem Definition}
-\begin{equation}
-f(\mathbf{x}) = \sum_{i=1}^{n-1} [100(x_{i+1} - x_i^2)^2 + (1 - x_i)^2]
-\end{equation}
-
-\subsubsection{Characteristics}
-\begin{itemize}
-    \item \textbf{Type}: Unimodal but non-convex
-    \item \textbf{Global minimum}: $\mathbf{x}^* = (1, 1, \ldots, 1)$
-    \item \textbf{Global optimum}: $f^* = 0$
-    \item \textbf{Difficulty}: Hard (narrow curved valley)
-\end{itemize}
-
-\section{Combinatorial Optimization Problems}
-
-\subsection{Traveling Salesman Problem (TSP)}
-
-\subsubsection{Problem Description}
-Find the shortest route visiting all cities exactly once and returning to the starting city.
-
-\subsubsection{Mathematical Formulation}
-Minimize:
-\begin{equation}
-\sum_{i=1}^{n} \sum_{j=1}^{n} d_{ij} x_{ij}
-\end{equation}
-
-Subject to:
+\subsection{Knapsack 0/1}
+Pilih item untuk memaksimalkan nilai dengan batas bobot $W$:
 \begin{align}
-\sum_{j=1}^{n} x_{ij} &= 1, \quad \forall i \\
-\sum_{i=1}^{n} x_{ij} &= 1, \quad \forall j \\
-x_{ij} &\in \{0, 1\}
+\max\; &\sum_{i=1}^n v_i x_i \\
+	ext{s.t. } &\sum_{i=1}^n w_i x_i \le W, \quad x_i\in\{0,1\}.
 \end{align}
 
-where $d_{ij}$ is the distance between cities $i$ and $j$.
+\section{Aplikasi Dunia Nyata}
 
-\subsubsection{GA Representation}
+\subsection{Pelatihan Jaringan Syaraf}
+GA dapat mengoptimalkan bobot atau arsitektur jaringan dengan encoding vektor real; contoh metrik: $fitness=1/(1+MSE)$.
+
+\subsection{Seleksi Fitur}
+Encoding biner memungkinkan GA memilih subset fitur. Tujuan sering kali multi-objektif: maksimalkan performa sambil minimalkan jumlah fitur.
+
+\subsection{Penjadwalan}
+Job shop scheduling dapat direpresentasikan dengan permutasi atau prioritas; GA sering digabungkan dengan pencarian lokal (2-opt, 3-opt).
+
+\section{Panduan Penyetelan Singkat}
 \begin{itemize}
-    \item \textbf{Encoding}: Permutation of city indices
-    \item \textbf{Example}: $(3, 1, 4, 2, 5)$ means visit cities in order 3→1→4→2→5→3
+    \item Ukuran populasi: sederhana $50$--$100$, sedang $100$--$500$, kompleks $500$--$2000$.
+    \item Crossover: umum $0.7$--$0.9$.
+    \item Mutasi: binary ~$1/L$, real $0.01$--$0.1$.
+    \item Seleksi: turnamen (size 2--7) untuk mengatur tekanan seleksi.
 \end{itemize}
 
-\subsubsection{Specialized Operators}
+\section{Analisis Performa}
+Gunakan metrik: best/average fitness, keberagaman, success rate. Jalankan 20--30 trial independen, laporkan mean, std, best, worst, dan lakukan uji statistik bila perlu.
+
+\section{Kendala Umum dan Solusi}
 \begin{itemize}
-    \item \textbf{Crossover}: Order crossover (OX), Partially mapped crossover (PMX)
-    \item \textbf{Mutation}: Swap, insert, inversion
-    \item \textbf{Local search}: 2-opt, 3-opt improvements
+    \item Konvergensi dini: tingkatkan populasi, kurangi tekanan seleksi, tingkatkan mutasi, gunakan mekanisme pelestarian keberagaman.
+    \item Konvergensi lambat: tingkatkan tekanan seleksi, tambahkan pencarian lokal.
+    \item Kendala: gunakan penalti adaptif, repair, atau pendekatan multi-objektif.
 \end{itemize}
 
-\subsubsection{Performance Tips}
-\begin{itemize}
-    \item Use edge recombination for better building block preservation
-    \item Apply local search (hybrid GA)
-    \item Consider nearest neighbor initialization
-    \item Use elitist replacement
-\end{itemize}
+\section{Teknik Lanjutan}
+Hibridisasi (memetic algorithms), kontrol parameter adaptif/self-adaptive, dan paralelisasi (master-slave, island model, cellular GA) sering meningkatkan performa.
 
-\subsection{Knapsack Problem}
+\section{Ringkasan}
+Ringkasan singkat: desain representasi, tuning parameter, validasi statistik, dan penggunaan teknik hibrida adalah kunci keberhasilan penerapan GA.
 
-\subsubsection{Problem Description}
-Select items to maximize value while staying within weight constraint.
+% Akhir file
+    \begin{itemize}
+        \item Sedikit perbaikan selama banyak generasi
+        \item Keberagaman populasi tetap tinggi
+        \item Perilaku seperti random walk
+    \end{itemize}
 
-\subsubsection{0/1 Knapsack Formulation}
-Maximize:
-\begin{equation}
-\sum_{i=1}^{n} v_i x_i
-\end{equation}
+    	extbf{Solusi:}
+    \begin{itemize}
+        \item Tingkatkan tekanan seleksi
+        \item Kurangi laju mutasi
+        \item Terapkan pencarian lokal (GA hibrida)
+        \item Gunakan inisialisasi yang lebih baik
+        \item Sesuaikan operator crossover
+    \end{itemize}
 
-Subject to:
-\begin{align}
-\sum_{i=1}^{n} w_i x_i &\leq W \\
-x_i &\in \{0, 1\}
-\end{align}
+    \subsection{Masalah Penanganan Kendala}
+    	extbf{Masalah Umum:}
+    \begin{itemize}
+        \item Semua individu melanggar kendala
+        \item Wilayah feasibel terlalu kecil
+        \item Koefisien penalti disetel buruk
+    \end{itemize}
 
-where $v_i$ is value, $w_i$ is weight, and $W$ is capacity.
+    	extbf{Solusi:}
+    \begin{itemize}
+        \item Gunakan mekanisme perbaikan
+        \item Terapkan operator khusus
+        \item Implementasikan pelestarian feasibilitas
+        \item Gunakan pendekatan multi-objektif
+        \item Sesuaikan bobot penalti secara dinamis
+    \end{itemize}
 
-\subsubsection{GA Approach}
-\begin{itemize}
-    \item \textbf{Encoding}: Binary string (1 = include item, 0 = exclude)
-    \item \textbf{Constraint handling}: Penalty function or repair mechanism
-    \item \textbf{Fitness}: Value minus penalty for constraint violation
-\end{itemize}
+    \section{Teknik Lanjutan}
 
-\subsubsection{Penalty Function Example}
-\begin{equation}
-fitness(x) = \sum_{i=1}^{n} v_i x_i - \alpha \max\left(0, \sum_{i=1}^{n} w_i x_i - W\right)
-\end{equation}
+    \subsection{Genetic Algorithms Hibrida}
+    Gabungkan GA dengan metode pencarian lokal:
+    \begin{itemize}
+        \item \textbf{Memetic algorithms}: GA + pencarian lokal
+        \item \textbf{Evolusi Lamarckian}: Mewariskan solusi yang telah diperbaiki
+        \item \textbf{Evolusi Baldwinian}: Gunakan pencarian lokal hanya untuk evaluasi fitness
+    \end{itemize}
 
-where $\alpha$ is a penalty coefficient.
+    \subsection{Kontrol Parameter Adaptif}
+    Sesuaikan parameter GA secara otomatis selama evolusi:
+    \begin{itemize}
+        \item \textbf{Deterministik}: Jadwal pra-definisi
+        \item \textbf{Adaptif}: Berdasarkan keadaan populasi
+        \item \textbf{Self-adaptive}: Parameter berevolusi bersama populasi
+    \end{itemize}
 
-\section{Real-World Applications}
+    \subsection{Parallel Genetic Algorithms}
+    Distribusikan komputasi ke beberapa prosesor:
+    \begin{itemize}
+        \item \textbf{Master-slave}: Evaluasi fitness paralel
+        \item \textbf{Island model}: Beberapa populasi dengan migrasi
+        \item \textbf{Cellular GA}: Struktur populasi spasial
+    \end{itemize}
 
-\subsection{Neural Network Training}
+    \section{Praktik Terbaik Implementasi}
 
-\subsubsection{Problem Setup}
-Optimize neural network weights and biases using GA.
+    \subsection{Organisasi Kode}
+    \begin{itemize}
+        \item Pisahkan representasi dari operator
+        \item Gunakan desain modular untuk kemudahan pengujian
+        \item Implementasikan generator bilangan acak yang baik
+        \item Tambahkan logging dan kemampuan visualisasi
+    \end{itemize}
 
-\subsubsection{Representation}
-\begin{itemize}
-    \item \textbf{Encoding}: Real-valued vector of all weights and biases
-    \item \textbf{Decoding}: Reshape vector into network structure
-\end{itemize}
+    \subsection{Pengujian dan Validasi}
+    \begin{itemize}
+        \item Uji pada masalah benchmark yang dikenal
+        \item Verifikasi operator menjaga validitas solusi
+        \item Periksa kualitas generator bilangan acak
+        \item Profil dulu hambatan performa
+    \end{itemize}
 
-\subsubsection{Fitness Function}
-\begin{equation}
-fitness = \frac{1}{1 + MSE}
-\end{equation}
+    \subsection{Dokumentasi}
+    \begin{itemize}
+        \item Dokumentasikan pilihan parameter dan alasannya
+        \item Catat detail pengaturan eksperimen
+        \item Pertahankan kontrol versi
+        \item Bagikan hasil yang dapat direproduksi
+    \end{itemize}
 
-where $MSE$ is mean squared error on training/validation set.
+    \section{Ringkasan Bab}
 
-\subsubsection{Advantages over Backpropagation}
-\begin{itemize}
-    \item No gradient information required
-    \item Can optimize network topology
-    \item Robust to local minima
-    \item Handles discontinuous activation functions
-\end{itemize}
+    Bab ini menyajikan contoh praktis dan studi kasus yang menunjukkan penerapan algoritma genetika pada berbagai domain masalah. Pelajaran penting meliputi pentingnya desain representasi yang tepat, penyetelan parameter, dan analisis performa. Memahami kendala umum dan solusinya sangat krusial untuk implementasi GA yang berhasil.
 
-\subsection{Feature Selection}
-
-\subsubsection{Problem Description}
-Select optimal subset of features for machine learning models.
-
-\subsubsection{GA Approach}
-\begin{itemize}
-    \item \textbf{Encoding}: Binary string (1 = include feature, 0 = exclude)
-    \item \textbf{Fitness}: Model performance with selected features
-    \item \textbf{Objectives}: Maximize accuracy, minimize number of features
-\end{itemize}
-
-\subsubsection{Multi-objective Formulation}
-\begin{align}
-\text{Maximize:} \quad &accuracy(\text{selected features}) \\
-\text{Minimize:} \quad &\text{number of selected features}
-\end{align}
-
-\subsection{Job Shop Scheduling}
-
-\subsubsection{Problem Description}
-Schedule jobs on machines to minimize makespan or total completion time.
-
-\subsubsection{Representation Options}
-\begin{enumerate}
-    \item \textbf{Priority-based}: Priority values for job-machine pairs
-    \item \textbf{Permutation-based}: Order of jobs for each machine
-    \item \textbf{Direct}: Actual schedule representation
-\end{enumerate}
-
-\subsubsection{Constraints}
-\begin{itemize}
-    \item Each job visits each machine exactly once
-    \item Machines can process only one job at a time
-    \item Jobs cannot be preempted
-    \item Precedence constraints must be satisfied
-\end{itemize}
-
-\section{Parameter Tuning Guidelines}
-
-\subsection{Population Size}
-\begin{table}[H]
-\centering
-\begin{tabular}{lc}
-\toprule
-Problem Complexity & Population Size \\
-\midrule
-Simple (OneMax) & $50-100$ \\
-Medium (TSP, 50 cities) & $100-500$ \\
-Complex (Large TSP) & $500-2000$ \\
-Multi-objective & $100-300$ \\
-\bottomrule
-\end{tabular}
-\caption{Population Size Guidelines}
-\end{table}
-
-\subsection{Crossover and Mutation Rates}
-\begin{table}[H]
-\centering
-\begin{tabular}{lcc}
-\toprule
-Problem Type & Crossover Rate & Mutation Rate \\
-\midrule
-Binary optimization & $0.7-0.9$ & $1/L$ to $10/L$ \\
-Real-valued & $0.8-0.9$ & $0.01-0.1$ \\
-Permutation & $0.8-0.9$ & $0.01-0.05$ \\
-Multi-objective & $0.9$ & $1/L$ \\
-\bottomrule
-\end{tabular}
-\caption{Crossover and Mutation Rate Guidelines}
-\end{table}
-
-where $L$ is the chromosome length.
-
-\subsection{Selection Pressure}
-\begin{itemize}
-    \item \textbf{Low pressure}: Tournament size 2-3, linear ranking
-    \item \textbf{Medium pressure}: Tournament size 4-7
-    \item \textbf{High pressure}: Tournament size $>7$, truncation selection
-\end{itemize}
-
-\section{Performance Analysis}
-
-\subsection{Convergence Metrics}
-\begin{itemize}
-    \item \textbf{Best fitness}: Track best solution over generations
-    \item \textbf{Average fitness}: Monitor population quality
-    \item \textbf{Diversity}: Measure population spread
-    \item \textbf{Success rate}: Percentage of runs finding global optimum
-\end{itemize}
-
-\subsection{Statistical Testing}
-\begin{itemize}
-    \item Run multiple independent trials (20-30)
-    \item Report mean, standard deviation, best, worst
-    \item Use statistical tests (t-test, Mann-Whitney U)
-    \item Consider effect size, not just significance
-\end{itemize}
-
-\subsection{Comparison with Other Methods}
-\begin{table}[H]
-\centering
-\begin{tabular}{lccc}
-\toprule
-Method & Speed & Global Search & Implementation \\
-\midrule
-Hill Climbing & Fast & Poor & Easy \\
-Simulated Annealing & Medium & Good & Medium \\
-Genetic Algorithm & Slow & Excellent & Medium \\
-Particle Swarm & Medium & Good & Easy \\
-Differential Evolution & Medium & Excellent & Easy \\
-\bottomrule
-\end{tabular}
-\caption{Algorithm Comparison}
-\end{table}
-
-\section{Common Pitfalls and Solutions}
-
-\subsection{Premature Convergence}
-\textbf{Symptoms:}
-\begin{itemize}
-    \item Population converges to suboptimal solution
-    \item Low diversity after few generations
-    \item No improvement for many generations
-\end{itemize}
-
-\textbf{Solutions:}
-\begin{itemize}
-    \item Increase population size
-    \item Reduce selection pressure
-    \item Increase mutation rate
-    \item Use diversity preservation techniques
-    \item Apply restart strategies
-\end{itemize}
-
-\subsection{Slow Convergence}
-\textbf{Symptoms:}
-\begin{itemize}
-    \item Little improvement over many generations
-    \item High population diversity maintained
-    \item Random walk behavior
-\end{itemize}
-
-\textbf{Solutions:}
-\begin{itemize}
-    \item Increase selection pressure
-    \item Reduce mutation rate
-    \item Apply local search (hybrid GA)
-    \item Use better initialization
-    \item Adjust crossover operators
-\end{itemize}
-
-\subsection{Constraint Handling Issues}
-\textbf{Common Problems:}
-\begin{itemize}
-    \item All individuals violate constraints
-    \item Feasible region too small
-    \item Penalty coefficients poorly set
-\end{itemize}
-
-\textbf{Solutions:}
-\begin{itemize}
-    \item Use repair mechanisms
-    \item Apply specialized operators
-    \item Implement feasibility preservation
-    \item Use multi-objective approach
-    \item Adjust penalty weights dynamically
-\end{itemize}
-
-\section{Advanced Techniques}
-
-\subsection{Hybrid Genetic Algorithms}
-Combine GA with local search methods:
-\begin{itemize}
-    \item \textbf{Memetic algorithms}: GA + local search
-    \item \textbf{Lamarckian evolution}: Inherit improved solutions
-    \item \textbf{Baldwinian evolution}: Use local search for fitness evaluation only
-\end{itemize}
-
-\subsection{Adaptive Parameter Control}
-Automatically adjust GA parameters during evolution:
-\begin{itemize}
-    \item \textbf{Deterministic}: Pre-defined schedule
-    \item \textbf{Adaptive}: Based on population state
-    \item \textbf{Self-adaptive}: Parameters evolve with population
-\end{itemize}
-
-\subsection{Parallel Genetic Algorithms}
-Distribute computation across multiple processors:
-\begin{itemize}
-    \item \textbf{Master-slave}: Parallel fitness evaluation
-    \item \textbf{Island model}: Multiple populations with migration
-    \item \textbf{Cellular GA}: Spatial population structure
-\end{itemize}
-
-\section{Implementation Best Practices}
-
-\subsection{Code Organization}
-\begin{itemize}
-    \item Separate representation from operators
-    \item Use modular design for easy testing
-    \item Implement proper random number generation
-    \item Add logging and visualization capabilities
-\end{itemize}
-
-\subsection{Testing and Validation}
-\begin{itemize}
-    \item Test on known benchmark problems
-    \item Verify operators maintain validity
-    \item Check random number generation quality
-    \item Profile performance bottlenecks
-\end{itemize}
-
-\subsection{Documentation}
-\begin{itemize}
-    \item Document parameter choices and reasoning
-    \item Record experimental setup details
-    \item Maintain version control
-    \item Share reproducible results
-\end{itemize}
-
-\section{Chapter Summary}
-
-This chapter provided practical examples and case studies demonstrating genetic algorithm applications across various problem domains. Key lessons include the importance of proper representation design, parameter tuning, and performance analysis. Understanding common pitfalls and their solutions is crucial for successful GA implementation.
-
-\section{Key Takeaways}
-\begin{itemize}
-    \item Problem representation is critical for GA success
-    \item Parameter settings must match problem characteristics
-    \item Statistical validation ensures reliable results
-    \item Hybrid approaches often outperform pure GAs
-    \item Domain knowledge should guide operator design
-    \item Proper testing and documentation are essential
-\end{itemize}
+    \section{Poin Penting}
+    \begin{itemize}
+        \item Representasi masalah sangat menentukan keberhasilan GA
+        \item Pengaturan parameter harus sesuai karakteristik masalah
+        \item Validasi statistik memastikan hasil yang dapat dipercaya
+        \item Pendekatan hibrida seringkali mengungguli GA murni
+        \item Pengetahuan domain harus memandu desain operator
+        \item Pengujian dan dokumentasi yang baik adalah esensial
+    \end{itemize}

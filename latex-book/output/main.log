@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.5.3)  30 NOV 2025 16:57
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.5.3)  30 NOV 2025 19:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -39,6 +39,10 @@ Package: babel 2024/01/07 v24.1 The Babel package
 \bbl@readstream=\read2
 \bbl@dirlevel=\count197
 
+(/usr/share/texlive/texmf-dist/tex/generic/babel-indonesian/indonesian.ldf
+Language: indonesian 2017/02/15 v1.0m Bahasa Indonesia support from the babel s
+ystem
+)
 (/usr/share/texlive/texmf-dist/tex/generic/babel-english/english.ldf
 Language: english 2017/06/06 v3.3r English support from the babel system
 Package babel Info: Hyphen rules for 'canadian' set to \l@english
@@ -52,7 +56,10 @@ Package babel Info: Hyphen rules for 'newzealand' set to \l@ukenglish
 Package babel Info: Importing font and identification data for english
 (babel)             from babel-en.ini. Reported on input line 11.
 )
-(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
+(/usr/share/texlive/texmf-dist/tex/generic/babel/locale/id/babel-indonesian.tex
+Package babel Info: Importing font and identification data for indonesian
+(babel)             from babel-id.ini. Reported on input line 11.
+) (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
 Package: amsmath 2023/05/13 v2.17o AMS math features
 \@mathmargin=\skip50
 
@@ -1064,118 +1071,161 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2
 
-] (output/main.toc [3] [4] [5] [6])
+] (output/main.toc [3] [4] [5])
 \tf@toc=\write5
 \openout5 = `main.toc'.
 
-
-[7] [8
-
-] (output/main.lof)
+ [6]
+(output/main.lof)
 \tf@lof=\write6
 \openout6 = `main.lof'.
 
- [9] [10
+ [7
+
+] [8
 
 ] (output/main.lot)
 \tf@lot=\write7
 \openout7 = `main.lot'.
 
- [11] [12
+ [9] [10
 
 ]
 (./chapters/chapter01-introduction.tex
 Chapter 1.
 
-Overfull \hbox (9.52805pt too wide) in paragraph at lines 1--1
-|\OT1/cmr/bx/n/24.88 Introduction to Op-ti-miza-tion and Evo-
+Overfull \hbox (4.29834pt too wide) in paragraph at lines 5--6
+[]\OT1/cmr/m/n/12 Keluarga metode ini dikem-bangkan dari karya fun-da-men-tal H
+ol-land dan rekan-rekannya
+ []
+
+
+Overfull \hbox (2.6965pt too wide) in paragraph at lines 5--6
+\OT1/cmr/m/n/12 yang mewu-jud-kan mekanisme terse-but. Tu-juan uta-manya adalah
+ ke-ta-hanan|kemampuan
  []
 
 [1
 
 {/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
-Overfull \hbox (1.45207pt too wide) in paragraph at lines 32--38
-\OT1/cmr/m/n/12 trapped in lo-cal op-tima. In multi-modal land-scapes with many
- peaks and val-leys, gradient-
- []
-
-
-Overfull \hbox (6.24374pt too wide) in paragraph at lines 70--71
+Overfull \hbox (6.24374pt too wide) in paragraph at lines 69--70
  [][] 
  []
 
 
-Package fancyhdr Warning: \headheight is too small (27.05pt): 
-(fancyhdr)                Make it at least 27.05003pt, for example:
-(fancyhdr)                \setlength{\headheight}{27.05003pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-(fancyhdr)                \addtolength{\topmargin}{-0.00003pt}.
+ [2]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[2] [3]
-<figures/buku_ajar_page_4.png, id=1117, 1059.96pt x 453.695pt>
+ [3]
+[4]
+<figures/buku_ajar_page_4.png, id=1026, 1059.96pt x 453.695pt>
 File: figures/buku_ajar_page_4.png Graphic file (type png)
 <use figures/buku_ajar_page_4.png>
-Package pdftex.def Info: figures/buku_ajar_page_4.png  used on input line 222.
+Package pdftex.def Info: figures/buku_ajar_page_4.png  used on input line 193.
 (pdftex.def)             Requested size: 318.66948pt x 136.4003pt.
 
+Overfull \hbox (0.91922pt too wide) in paragraph at lines 201--202
+[]\OT1/cmr/m/n/12 Algoritma Genetika Hi-b-rid meng-gabungkan pen-car-ian evo-lu
+-sioner global den-gan prose-
+ []
 
-LaTeX Warning: `h' float specifier changed to `ht'.
+[5 <./figures/buku_ajar_page_4.png>]
+Overfull \hbox (1.11505pt too wide) in paragraph at lines 208--209
+\OT1/cmr/m/n/12 Meskipun Al-go-ritma Genetika gen-erasi seder-hana berfungsi se
+-ba-gai kerangka dasar, berba-
+ []
 
 
-Package fancyhdr Warning: \headheight is too small (27.05pt): 
-(fancyhdr)                Make it at least 27.05003pt, for example:
-(fancyhdr)                \setlength{\headheight}{27.05003pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
+Overfull \hbox (4.02397pt too wide) in paragraph at lines 213--214
+[]\OT1/cmr/bx/n/12 GA Adap-tif: \OT1/cmr/m/n/12 Se-cara di-namis menye-suaikan 
+pa-ram-e-ter seperti prob-a-bil-i-tas crossover
+ []
 
-(fancyhdr)                \addtolength{\topmargin}{-0.00003pt}.
-
-[4] [5 <./figures/buku_ajar_page_4.png>]) (./chapters/chapter02-what-is-ga.tex
-
-Package fancyhdr Warning: \headheight is too small (27.05pt): 
-(fancyhdr)                Make it at least 27.05003pt, for example:
-(fancyhdr)                \setlength{\headheight}{27.05003pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-0.00003pt}.
-
-[6]
+) (./chapters/chapter02-what-is-ga.tex [6]
 Chapter 2.
+
+Overfull \hbox (27.48987pt too wide) in paragraph at lines 25--26
+[]\OT1/cmr/m/n/12 Setelah in-isial-isasi, GA se-cara it-er-atif mengeval-u-asi 
+in-di-vidu, memilih orang tua berdasarkan
+ []
+
 [7
 
-]
+] [8]
 
-LaTeX Warning: Reference `sec:introduction' on page 8 undefined on input line 4
+LaTeX Warning: Reference `sec:introduction' on page 9 undefined on input line 4
 5.
 
-[8] [9] [10]) (./chapters/chapter03-ga-cycle-schema.tex [11] [12
+[9]
+Overfull \hbox (24.24258pt too wide) in paragraph at lines 71--72
+[]\OT1/cmr/m/n/12 Mengenali keru-gian ini mengk-lar-i-fikasi trade-off yang dib
+a-has dalam Bagian 2.5: mekanisme
+ []
+
+
+Overfull \hbox (16.18294pt too wide) in paragraph at lines 74--75
+\OT1/cmr/m/n/12 Memilih un-tuk meng-gu-nakan al-go-ritma genetika ter-gan-tung 
+pada pe-ni-la-ian struk-tur masalah,
+ []
+
+[10]) (./chapters/chapter03-ga-cycle-schema.tex [11] [12
 
 ]
 Chapter 3.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [13]
-[14] [15] [16] [17] [18] [19] [20] [21] [22] [23] [24] [25] [26] [27])
-(./chapters/chapter04-encoding.tex [28]
-Chapter 4.
-[29
-
-] [30] [31] [32] [33] [34]
-LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 1
-36.
-
-(/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
+[13]
+LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 4
+3.
+ (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 136.
- [35] [36])
-(./chapters/chapter05-selection.tex [37] [38
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 43.
+ [14] [15]
+Overfull \hbox (3.6715pt too wide) in paragraph at lines 111--112
+\OT1/cmr/m/n/12 pen-dek yang berguna. Ke-dua, caku-pan im-plisit ini bersi-fat 
+se-lek-tif: al-go-ritma menyalurkan
+ []
+
+
+Underfull \vbox (badness 6691) has occurred while \output is active []
+
+ [16]
+Overfull \hbox (12.27048pt too wide) in paragraph at lines 120--121
+[]\OT1/cmr/m/n/12 Contoh bench-mark klasik yang menggam-barkan de-cep-tion adal
+ah masalah trap-deceptive
+ []
+
+[17]
+Overfull \hbox (4.69833pt too wide) in paragraph at lines 134--136
+\OT1/cmr/m/n/12 rial: meningkatkan sam-pling, mem-per-ta-hankan di-ver-si-tas y
+ang berguna, dan meningkatkan
+ []
+
+
+Overfull \hbox (34.84647pt too wide) in paragraph at lines 149--150
+[]\OT1/cmr/bx/n/12 Ukuran pop-u-lasi ($\OML/cmm/m/it/12 n$\OT1/cmr/bx/n/12 ): \
+OT1/cmr/m/n/12 Pop-u-lasi lebih be-sar men-gu-rangi noise sam-pling dan meningk
+atkan
+ []
+
+[18]
+Overfull \hbox (2.97937pt too wide) in paragraph at lines 157--158
+\OT1/cmr/m/n/12 dika-tor ke-ber-aga-man; per-baikan lam-bat den-gan di-ver-si-t
+as yang run-tuh ser-ing menan-
+ []
+
+[19]) (./chapters/chapter04-encoding.tex [20]
+Chapter 4.
+[21
+
+] [22] [23] [24] [25] [26] [27] [28]) (./chapters/chapter05-selection.tex
+[29] [30
 
 ]
 Chapter 5.
-<figures/buku_ajar_page_16.png, id=1344, 1431.3475pt x 333.245pt>
+<figures/buku_ajar_page_16.png, id=1204, 1431.3475pt x 333.245pt>
 File: figures/buku_ajar_page_16.png Graphic file (type png)
 <use figures/buku_ajar_page_16.png>
 Package pdftex.def Info: figures/buku_ajar_page_16.png  used on input line 13.
@@ -1183,42 +1233,42 @@ Package pdftex.def Info: figures/buku_ajar_page_16.png  used on input line 13.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [39 <./figures/buku_ajar_page_16.png>]
+ [31 <./figures/buku_ajar_page_16.png>]
 Overfull \hbox (13.11774pt too wide) in paragraph at lines 27--28
 \OT1/cmr/m/n/12 The Ge-netic Al-go-rithm de-vel-oped by Hol-land uses Fit-ness 
 Pro-por-tion-ate Se-lec-tion (FPS) [[],
  []
 
-[40]
-<figures/buku_ajar_page_18.png, id=1362, 1278.7775pt x 262.9825pt>
+[32]
+<figures/buku_ajar_page_18.png, id=1222, 1278.7775pt x 262.9825pt>
 File: figures/buku_ajar_page_18.png Graphic file (type png)
 <use figures/buku_ajar_page_18.png>
 Package pdftex.def Info: figures/buku_ajar_page_18.png  used on input line 67.
 (pdftex.def)             Requested size: 386.96027pt x 79.57751pt.
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
 put line 76.
- [41 <./figures/buku_ajar_page_18.png>] [42]
-<figures/buku_ajar_page_19.png, id=1386, 1270.7475pt x 262.9825pt>
+ [33 <./figures/buku_ajar_page_18.png>] [34]
+<figures/buku_ajar_page_19.png, id=1247, 1270.7475pt x 262.9825pt>
 File: figures/buku_ajar_page_19.png Graphic file (type png)
 <use figures/buku_ajar_page_19.png>
 Package pdftex.def Info: figures/buku_ajar_page_19.png  used on input line 135.
 
 (pdftex.def)             Requested size: 386.96027pt x 80.08313pt.
- [43 <./figures/buku_ajar_page_19.png>]
-<figures/buku_ajar_page_20.png, id=1404, 1270.7475pt x 353.32pt>
+ [35 <./figures/buku_ajar_page_19.png>]
+<figures/buku_ajar_page_20.png, id=1264, 1270.7475pt x 353.32pt>
 File: figures/buku_ajar_page_20.png Graphic file (type png)
 <use figures/buku_ajar_page_20.png>
 Package pdftex.def Info: figures/buku_ajar_page_20.png  used on input line 172.
 
 (pdftex.def)             Requested size: 364.19667pt x 101.26332pt.
- [44 <./figures/buku_ajar_page_20.png>]
-<figures/buku_ajar_page_21.png, id=1415, 1668.2325pt x 525.965pt>
+ [36 <./figures/buku_ajar_page_20.png>]
+<figures/buku_ajar_page_21.png, id=1275, 1668.2325pt x 525.965pt>
 File: figures/buku_ajar_page_21.png Graphic file (type png)
 <use figures/buku_ajar_page_21.png>
 Package pdftex.def Info: figures/buku_ajar_page_21.png  used on input line 217.
 
 (pdftex.def)             Requested size: 318.66948pt x 100.46407pt.
- [45 <./figures/buku_ajar_page_21.png>] [46] [47] [48] [49]
+ [37 <./figures/buku_ajar_page_21.png>] [38] [39] [40] [41]
 Overfull \hbox (5.1322pt too wide) in paragraph at lines 343--344
 \OT1/cmr/m/n/12 de-scribed by a vec-tor of ob-jec-tives rather than a sin-gle s
 calar. Let $\OT1/cmr/bx/n/12 f\OT1/cmr/m/n/12 (\OT1/cmr/bx/n/12 x\OT1/cmr/m/n/1
@@ -1227,13 +1277,13 @@ calar. Let $\OT1/cmr/bx/n/12 f\OT1/cmr/m/n/12 (\OT1/cmr/bx/n/12 x\OT1/cmr/m/n/1
 )$
  []
 
-[50] [51] [52]
+[42] [43] [44]
 Overfull \hbox (13.44547pt too wide) in paragraph at lines 397--398
 []\OT1/cmr/m/n/12 Combined meth-ods ex-plic-itly mix se-lec-tion op-er-a-tors t
 o ex-ploit com-ple-men-tary strengths.
  []
 
-) (./chapters/chapter06-crossover.tex [53] [54
+) (./chapters/chapter06-crossover.tex [45] [46
 
 ]
 Chapter 6.
@@ -1242,14 +1292,14 @@ Overfull \hbox (5.15976pt too wide) in paragraph at lines 1--1
 |\OT1/cmr/bx/n/24.88 Crossover (Re-com-bi-na-tion) in Ge-netic
  []
 
-[55]
-<figures/buku_ajar_page_24.png, id=1496, 1445.4pt x 762.85pt>
+[47]
+<figures/buku_ajar_page_24.png, id=1356, 1445.4pt x 762.85pt>
 File: figures/buku_ajar_page_24.png Graphic file (type png)
 <use figures/buku_ajar_page_24.png>
 Package pdftex.def Info: figures/buku_ajar_page_24.png  used on input line 34.
 (pdftex.def)             Requested size: 318.66948pt x 168.18835pt.
- [56 <./figures/buku_ajar_page_24.png>]
-<figures/buku_ajar_page_25.png, id=1504, 1445.4pt x 762.85pt>
+ [48 <./figures/buku_ajar_page_24.png>]
+<figures/buku_ajar_page_25.png, id=1364, 1445.4pt x 762.85pt>
 File: figures/buku_ajar_page_25.png Graphic file (type png)
 <use figures/buku_ajar_page_25.png>
 Package pdftex.def Info: figures/buku_ajar_page_25.png  used on input line 74.
@@ -1258,7 +1308,7 @@ Package pdftex.def Info: figures/buku_ajar_page_25.png  used on input line 74.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[57]
+[49]
 File: figures/buku_ajar_page_25.png Graphic file (type png)
 <use figures/buku_ajar_page_25.png>
 Package pdftex.def Info: figures/buku_ajar_page_25.png  used on input line 111.
@@ -1271,8 +1321,8 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 Underfull \vbox (badness 7415) has occurred while \output is active []
 
- [58 <./figures/buku_ajar_page_25.png>] [59]
-<figures/buku_ajar_page_28.png, id=1552, 590.205pt x 780.9175pt>
+ [50 <./figures/buku_ajar_page_25.png>] [51]
+<figures/buku_ajar_page_28.png, id=1413, 590.205pt x 780.9175pt>
 File: figures/buku_ajar_page_28.png Graphic file (type png)
 <use figures/buku_ajar_page_28.png>
 Package pdftex.def Info: figures/buku_ajar_page_28.png  used on input line 160.
@@ -1290,7 +1340,7 @@ Package pdftex.def Info: figures/buku_ajar_page_28.png  used on input line 172.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<figures/buku_ajar_page_29.png, id=1553, 837.1275pt x 210.7875pt>
+<figures/buku_ajar_page_29.png, id=1414, 837.1275pt x 210.7875pt>
 File: figures/buku_ajar_page_29.png Graphic file (type png)
 <use figures/buku_ajar_page_29.png>
 Package pdftex.def Info: figures/buku_ajar_page_29.png  used on input line 184.
@@ -1299,8 +1349,8 @@ Package pdftex.def Info: figures/buku_ajar_page_29.png  used on input line 184.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[60] [61 <./figures/buku_ajar_page_28.png>]
-<figures/buku_ajar_page_31.png, id=1565, 917.4275pt x 466.74374pt>
+[52] [53 <./figures/buku_ajar_page_28.png>]
+<figures/buku_ajar_page_31.png, id=1425, 917.4275pt x 466.74374pt>
 File: figures/buku_ajar_page_31.png Graphic file (type png)
 <use figures/buku_ajar_page_31.png>
 Package pdftex.def Info: figures/buku_ajar_page_31.png  used on input line 215.
@@ -1310,8 +1360,8 @@ Package pdftex.def Info: figures/buku_ajar_page_31.png  used on input line 215.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[62]
-<figures/buku_ajar_page_32.png, id=1574, 1558.82375pt x 460.72125pt>
+[54]
+<figures/buku_ajar_page_32.png, id=1434, 1558.82375pt x 460.72125pt>
 File: figures/buku_ajar_page_32.png Graphic file (type png)
 <use figures/buku_ajar_page_32.png>
 Package pdftex.def Info: figures/buku_ajar_page_32.png  used on input line 237.
@@ -1326,7 +1376,7 @@ Package pdftex.def Info: figures/buku_ajar_page_32.png  used on input line 258.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[63 <./figures/buku_ajar_page_29.png> <./figures/buku_ajar_page_31.png> <./figu
+[55 <./figures/buku_ajar_page_29.png> <./figures/buku_ajar_page_31.png> <./figu
 res/buku_ajar_page_32.png>]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
@@ -1340,31 +1390,39 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 285.
 
-[64] [65]
+[56] [57]
 Underfull \vbox (badness 3872) has occurred while \output is active []
 
- [66]
-[67] [68]) (./chapters/chapter07-mutation-update.tex [69] [70
+ [58]
+[59] [60]) (./chapters/chapter07-mutation-update.tex [61] [62
 
 ]
 Chapter 7.
 
-Underfull \vbox (badness 3838) has occurred while \output is active []
+Overfull \hbox (0.58171pt too wide) in paragraph at lines 21--22
+[]\OT1/cmr/m/n/12 Meskipun mu-tasi bi-ol-o-gis ser-ing merusak pada or-gan-isme
+ kom-pleks, situ-asinya berbeda
+ []
 
- [71]
-[72] [73] [74] [75] [76]
+[63]
+Overfull \hbox (8.04507pt too wide) in paragraph at lines 62--63
+\OT1/cmr/m/n/12 Representasi in-te-ger memer-lukan strategi mu-tasi yang berbed
+a. Pen-dekatan umum meliputi
+ []
 
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 253.
+[64]
+Overfull \hbox (5.7386pt too wide) in paragraph at lines 100--101
+[]\OT1/cmr/m/n/12 Metode ini mem-buat pe-ruba-han ke-cil dan berta-hap serta sa
+n-gat berguna un-tuk penyete-
+ []
 
+[65] [66] [67]
+Overfull \hbox (2.48587pt too wide) in paragraph at lines 257--258
+\OT1/cmr/m/n/12 Kinerja Al-go-ritma Genetika san-gat bergan-tung pada pen-gat-u
+-ran pa-ram-e-ter yang tepat [[],
+ []
 
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 253.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 253.
-
+[68]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 259.
@@ -1379,32 +1437,69 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 280.
+(hyperref)                removing `math shift' on input line 266.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 280.
-
-[77]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 286.
+(hyperref)                removing `subscript' on input line 266.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 286.
+(hyperref)                removing `math shift' on input line 266.
 
-[78] [79]) (./chapters/chapter08-applications.tex [80]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 289.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 289.
+
+[69]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 296.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 296.
+
+[70]
+Overfull \hbox (40.52502pt too wide) in paragraph at lines 339--354
+ [][] 
+ []
+
+[71]) (./chapters/chapter08-applications.tex [72]
 Chapter 8.
-) [81
+) [73
 
-] (./chapters/appendix-algorithms.tex [82]
+] (./chapters/appendix-algorithms.tex [74]
 Appendix A.
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
 nput line 7.
-[83
+[75
 
 ]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [76]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [77]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [78]
+[79]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [80]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [81]
+[82]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [83]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [84]
@@ -1421,32 +1516,12 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [89]
-[90]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [90]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [91]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [92]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [93]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [94]
-[95]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [96]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [97]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [98]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [99]
 Overfull \hbox (75.24478pt too wide) in paragraph at lines 796--797
 [][] 
  []
@@ -1454,15 +1529,23 @@ Overfull \hbox (75.24478pt too wide) in paragraph at lines 796--797
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [100]
+ [92]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [101])
-(./chapters/appendix-examples.tex [102]
+ [93])
+(./chapters/appendix-examples.tex [94]
 Appendix B.
-[103
+[95
 
-] [104] [105] [106] [107] [108] [109] [110] [111]) [112] (output/main.bbl
+]
+Overfull \hbox (1.29976pt too wide) in paragraph at lines 61--62
+\OT1/cmr/m/n/12 Hibridisasi (memetic al-go-rithms), kon-trol pa-ram-e-ter adapt
+if/self-adaptive, dan par-alelisasi
+ []
+
+[96] [97] [98]) [99] [100
+
+] (output/main.bbl
 Underfull \hbox (badness 10000) in paragraph at lines 19--24
 []\OT1/cmr/m/n/12 Algorithm Af-ter-noon.  Chap-ter 4 - se-lec-tion strate-gies.
   [][]$\OT1/cmtt/m/n/12 https : / /
@@ -1486,10 +1569,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 26--31
 genetic _ algorithm/$[][]\OT1/cmr/m/n/12 .
  []
 
-[113
+[101
 
-
-] [114] [115]) [116] (output/main.aux)
+] [102] [103]) [104] (output/main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
@@ -1499,16 +1581,16 @@ L3 programming layer <2024-01-22>
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: B51E9C3C9A0DCFB7550257329B7D2765;36615.
+(rerunfilecheck)             Checksum: 9D383D7AA7394DFC97890196EEAAAE79;32059.
  ) 
 Here is how much of TeX's memory you used:
- 41351 strings out of 474222
- 931403 string characters out of 5748734
+ 41238 strings out of 474222
+ 930015 string characters out of 5748734
  2294975 words of memory out of 5000000
- 61465 multiletter control sequences out of 15000+600000
+ 61397 multiletter control sequences out of 15000+600000
  571640 words of font info for 87 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,19n,87p,1103b,2235s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,19n,87p,1154b,2235s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share
 /texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texli
@@ -1528,10 +1610,10 @@ exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texlive
 dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf/fonts/typ
 e1/public/cm-super/sfbx1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/s
 frm1200.pfb>
-Output written on output/main.pdf (128 pages, 1261901 bytes).
+Output written on output/main.pdf (114 pages, 1224216 bytes).
 PDF statistics:
- 3289 PDF objects out of 3580 (max. 8388607)
- 3076 compressed objects within 31 object streams
- 1501 named destinations out of 1728 (max. 500000)
- 1585 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 3107 PDF objects out of 3580 (max. 8388607)
+ 2909 compressed objects within 30 object streams
+ 1447 named destinations out of 1728 (max. 500000)
+ 1449 words of extra memory for PDF output out of 10000 (max. 10000000)
 

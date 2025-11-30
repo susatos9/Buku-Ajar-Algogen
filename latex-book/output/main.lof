@@ -1,30 +1,29 @@
 \babel@toc {english}{}\relax 
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {1.1}{\ignorespaces Traditional gradient-based methods follow the local gradient and become trapped in local optima, unable to escape to find the global optimum.}}{2}{figure.caption.4}%
-\contentsline {figure}{\numberline {1.2}{\ignorespaces Functions with discontinuities, sharp corners, or discrete jumps cannot be optimized using gradient-based methods.}}{2}{figure.caption.5}%
-\contentsline {figure}{\numberline {1.3}{\ignorespaces Traditional optimization methods often exhibit exponential or high polynomial growth in computation time as problem dimensionality increases, making them impractical for large-scale problems.}}{3}{figure.caption.6}%
-\contentsline {figure}{\numberline {1.4}{\ignorespaces Comprehensive comparison showing how GAs address the fundamental limitations of traditional optimization methods.}}{3}{figure.caption.7}%
-\contentsline {figure}{\numberline {1.5}{\ignorespaces Illustration of GA cycle and variations}}{5}{figure.caption.8}%
+\contentsline {figure}{\numberline {1.1}{\ignorespaces Metode berbasis gradien tradisional mengikuti gradien lokal dan menjadi terjebak dalam optimum lokal, tidak mampu melarikan diri untuk menemukan optimum global.}}{2}{figure.caption.4}%
+\contentsline {figure}{\numberline {1.2}{\ignorespaces Fungsi dengan diskontinuitas, sudut tajam, atau lompatan diskrit tidak dapat dioptimalkan menggunakan metode berbasis gradien.}}{3}{figure.caption.5}%
+\contentsline {figure}{\numberline {1.3}{\ignorespaces Metode optimasi tradisional sering menunjukkan pertumbuhan eksponensial atau polinomial tinggi dalam waktu komputasi seiring dimensi masalah meningkat, membuat mereka tidak praktis untuk masalah skala besar.}}{3}{figure.caption.6}%
+\contentsline {figure}{\numberline {1.4}{\ignorespaces Perbandingan komprehensif menunjukkan bagaimana GA mengatasi keterbatasan fundamental metode optimasi tradisional.}}{4}{figure.caption.7}%
+\contentsline {figure}{\numberline {1.5}{\ignorespaces Ilustrasi siklus GA dan variasinya}}{5}{figure.caption.8}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Genetic Algorithm Cycle}}{14}{figure.caption.10}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Basic selection process in Genetic Algorithms}}{39}{figure.caption.11}%
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Roulette-wheel selection process with sample trials}}{41}{figure.caption.13}%
-\contentsline {figure}{\numberline {5.3}{\ignorespaces Stochastic universal sampling with equally spaced pointers}}{43}{figure.caption.15}%
-\contentsline {figure}{\numberline {5.4}{\ignorespaces How the situation changes after converting fitness to order number (rank)}}{44}{figure.caption.16}%
-\contentsline {figure}{\numberline {5.5}{\ignorespaces Tournament selection mechanism}}{45}{figure.caption.17}%
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Basic selection process in Genetic Algorithms}}{31}{figure.caption.10}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Roulette-wheel selection process with sample trials}}{33}{figure.caption.12}%
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Stochastic universal sampling with equally spaced pointers}}{35}{figure.caption.14}%
+\contentsline {figure}{\numberline {5.4}{\ignorespaces How the situation changes after converting fitness to order number (rank)}}{36}{figure.caption.15}%
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Tournament selection mechanism}}{37}{figure.caption.16}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {6.1}{\ignorespaces Single Point Crossover for binary chromosomes}}{56}{figure.caption.19}%
-\contentsline {figure}{\numberline {6.2}{\ignorespaces Multi-point Crossover for binary chromosomes}}{58}{figure.caption.20}%
-\contentsline {figure}{\numberline {6.3}{\ignorespaces Uniform Crossover for binary chromosomes}}{59}{figure.caption.21}%
-\contentsline {figure}{\numberline {6.4}{\ignorespaces Single-Point Crossover for integer chromosomes}}{61}{figure.caption.22}%
-\contentsline {figure}{\numberline {6.5}{\ignorespaces Multi-point Crossover for integer chromosomes}}{62}{figure.caption.23}%
-\contentsline {figure}{\numberline {6.6}{\ignorespaces Uniform Crossover for integer chromosomes}}{63}{figure.caption.24}%
-\contentsline {figure}{\numberline {6.7}{\ignorespaces Single Arithmetic Crossover for real chromosomes}}{63}{figure.caption.25}%
-\contentsline {figure}{\numberline {6.8}{\ignorespaces Simple Arithmetic Crossover for real chromosomes}}{63}{figure.caption.26}%
-\contentsline {figure}{\numberline {6.9}{\ignorespaces Whole Arithmetic Crossover for real chromosomes}}{64}{figure.caption.27}%
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Single Point Crossover for binary chromosomes}}{48}{figure.caption.18}%
+\contentsline {figure}{\numberline {6.2}{\ignorespaces Multi-point Crossover for binary chromosomes}}{50}{figure.caption.19}%
+\contentsline {figure}{\numberline {6.3}{\ignorespaces Uniform Crossover for binary chromosomes}}{51}{figure.caption.20}%
+\contentsline {figure}{\numberline {6.4}{\ignorespaces Single-Point Crossover for integer chromosomes}}{53}{figure.caption.21}%
+\contentsline {figure}{\numberline {6.5}{\ignorespaces Multi-point Crossover for integer chromosomes}}{54}{figure.caption.22}%
+\contentsline {figure}{\numberline {6.6}{\ignorespaces Uniform Crossover for integer chromosomes}}{55}{figure.caption.23}%
+\contentsline {figure}{\numberline {6.7}{\ignorespaces Single Arithmetic Crossover for real chromosomes}}{55}{figure.caption.24}%
+\contentsline {figure}{\numberline {6.8}{\ignorespaces Simple Arithmetic Crossover for real chromosomes}}{55}{figure.caption.25}%
+\contentsline {figure}{\numberline {6.9}{\ignorespaces Whole Arithmetic Crossover for real chromosomes}}{56}{figure.caption.26}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

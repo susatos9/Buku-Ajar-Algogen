@@ -1,10 +1,10 @@
-\chapter{Algorithm Implementations}
+\chapter{Implementasi Algoritma}
 
-\section{Basic Genetic Algorithm Implementation}
+\section{Implementasi Algoritma Genetika Dasar}
 
-\subsection{Python Implementation}
+\subsection{Implementasi Python}
 
-\begin{lstlisting}[language=Python, caption=Basic Genetic Algorithm in Python]
+\begin{lstlisting}[language=Python, caption=Algoritma Genetika Dasar dalam Python]
 import numpy as np
 import matplotlib.pyplot as plt
 from typing import List, Tuple, Callable
@@ -32,119 +32,119 @@ class GeneticAlgorithm:
         self.best_fitness = float('-inf')
     
     def _initialize_population(self) -> np.ndarray:
-        """Initialize random binary population"""
-        return np.random.randint(0, 2, 
+        """Inisialisasi populasi biner acak"""
+        return np.random.randint(0, 2,
                                (self.population_size, self.chromosome_length))
     
     def _evaluate_fitness(self, population: np.ndarray) -> np.ndarray:
-        """Evaluate fitness for all individuals"""
-        fitness_values = np.array([self.fitness_func(individual) 
-                                 for individual in population])
+        """Evaluasi fungsi kesesuaian untuk semua individu"""
+        fitness_values = np.array([self.fitness_func(individual)
+                                  for individual in population])
         return fitness_values
     
-    def _tournament_selection(self, population: np.ndarray, 
-                            fitness_values: np.ndarray, 
+    def _tournament_selection(self, population: np.ndarray,
+                            fitness_values: np.ndarray,
                             tournament_size: int = 3) -> np.ndarray:
-        """Tournament selection"""
+        """Seleksi turnamen"""
         selected = []
         for _ in range(len(population)):
-            # Select random individuals for tournament
-            tournament_indices = np.random.choice(len(population), 
-                                                tournament_size, 
+            # Pilih individu acak untuk turnamen
+            tournament_indices = np.random.choice(len(population),
+                                                tournament_size,
                                                 replace=False)
             tournament_fitness = fitness_values[tournament_indices]
-            
-            # Select winner
+
+            # Pilih pemenang
             winner_index = tournament_indices[np.argmax(tournament_fitness)]
             selected.append(population[winner_index])
-        
+
         return np.array(selected)
     
-    def _one_point_crossover(self, parent1: np.ndarray, 
+    def _one_point_crossover(self, parent1: np.ndarray,
                            parent2: np.ndarray) -> Tuple[np.ndarray, np.ndarray]:
-        """One-point crossover"""
+        """Persilangan satu titik (one-point crossover)"""
         if np.random.random() > self.crossover_rate:
             return parent1.copy(), parent2.copy()
-        
+
         crossover_point = np.random.randint(1, len(parent1))
-        
-        child1 = np.concatenate([parent1[:crossover_point], 
+
+        child1 = np.concatenate([parent1[:crossover_point],
                                parent2[crossover_point:]])
-        child2 = np.concatenate([parent2[:crossover_point], 
+        child2 = np.concatenate([parent2[:crossover_point],
                                parent1[crossover_point:]])
-        
+
         return child1, child2
     
     def _bit_flip_mutation(self, individual: np.ndarray) -> np.ndarray:
-        """Bit-flip mutation"""
+        """Mutasi bit-flip"""
         mutated = individual.copy()
         for i in range(len(mutated)):
             if np.random.random() < self.mutation_rate:
-                mutated[i] = 1 - mutated[i]  # Flip bit
+                mutated[i] = 1 - mutated[i]  # Membalik bit
         return mutated
     
-    def _apply_elitism(self, old_population: np.ndarray, 
+    def _apply_elitism(self, old_population: np.ndarray,
                       old_fitness: np.ndarray,
                       new_population: np.ndarray) -> np.ndarray:
-        """Apply elitism by preserving best individual"""
+        """Terapkan elitisme dengan mempertahankan individu terbaik"""
         if not self.elitism:
             return new_population
-        
+
         best_index = np.argmax(old_fitness)
         best_individual = old_population[best_index]
-        
-        # Replace worst individual in new population with best from old
+
+        # Gantikan individu terburuk di populasi baru dengan yang terbaik dari lama
         new_fitness = self._evaluate_fitness(new_population)
         worst_index = np.argmin(new_fitness)
         new_population[worst_index] = best_individual
-        
+
         return new_population
     
     def evolve(self, generations: int) -> dict:
-        """Main evolutionary loop"""
+        """Loop evolusi utama"""
         for generation in range(generations):
-            # Evaluate fitness
+            # Evaluasi kesesuaian
             fitness_values = self._evaluate_fitness(self.population)
-            
-            # Track best individual
+
+            # Lacak individu terbaik
             max_fitness_idx = np.argmax(fitness_values)
             if fitness_values[max_fitness_idx] > self.best_fitness:
                 self.best_fitness = fitness_values[max_fitness_idx]
                 self.best_individual = self.population[max_fitness_idx].copy()
-            
-            # Record statistics
+
+            # Catat statistik
             self.fitness_history.append({
                 'generation': generation,
                 'best_fitness': np.max(fitness_values),
                 'avg_fitness': np.mean(fitness_values),
                 'worst_fitness': np.min(fitness_values)
             })
-            
-            # Selection
+
+            # Seleksi
             selected = self._tournament_selection(self.population, fitness_values)
-            
-            # Crossover and mutation
+
+            # Persilangan dan mutasi
             new_population = []
             for i in range(0, len(selected), 2):
                 parent1 = selected[i]
                 parent2 = selected[(i + 1) % len(selected)]
-                
-                # Crossover
+
+                # Persilangan
                 child1, child2 = self._one_point_crossover(parent1, parent2)
-                
-                # Mutation
+
+                # Mutasi
                 child1 = self._bit_flip_mutation(child1)
                 child2 = self._bit_flip_mutation(child2)
-                
+
                 new_population.extend([child1, child2])
-            
+
             new_population = np.array(new_population[:self.population_size])
-            
-            # Apply elitism
-            self.population = self._apply_elitism(self.population, 
+
+            # Terapkan elitisme
+            self.population = self._apply_elitism(self.population,
                                                 fitness_values,
                                                 new_population)
-        
+
         return {
             'best_individual': self.best_individual,
             'best_fitness': self.best_fitness,
@@ -152,31 +152,31 @@ class GeneticAlgorithm:
         }
     
     def plot_fitness_history(self):
-        """Plot fitness evolution over generations"""
+        """Plot evolusi kesesuaian sepanjang generasi"""
         generations = [entry['generation'] for entry in self.fitness_history]
         best_fitness = [entry['best_fitness'] for entry in self.fitness_history]
         avg_fitness = [entry['avg_fitness'] for entry in self.fitness_history]
-        
+
         plt.figure(figsize=(10, 6))
-        plt.plot(generations, best_fitness, label='Best Fitness', linewidth=2)
-        plt.plot(generations, avg_fitness, label='Average Fitness', linewidth=2)
-        plt.xlabel('Generation')
-        plt.ylabel('Fitness')
-        plt.title('Fitness Evolution')
+        plt.plot(generations, best_fitness, label='Kesesuaian Terbaik', linewidth=2)
+        plt.plot(generations, avg_fitness, label='Kesesuaian Rata-rata', linewidth=2)
+        plt.xlabel('Generasi')
+        plt.ylabel('Kesesuaian')
+        plt.title('Evolusi Kesesuaian')
         plt.legend()
         plt.grid(True, alpha=0.3)
         plt.show()
 
 # Example usage
 def onemax_fitness(individual):
-    """OneMax problem: maximize number of 1s"""
+    """Masalah OneMax: maksimalkan jumlah bit bernilai 1"""
     return np.sum(individual)
 
 def sphere_function_binary(individual, bounds=(-5.12, 5.12)):
-    """Sphere function with binary encoding"""
-    # Decode binary to real values
+    """Fungsi Sphere dengan encoding biner"""
+    # Dekode biner ke nilai riil
     x = bounds[0] + (bounds[1] - bounds[0]) * np.sum(individual * 2**np.arange(len(individual))[::-1]) / (2**len(individual) - 1)
-    return -(x**2)  # Negative because we want to minimize
+    return -(x**2)  # Negatif karena kita ingin meminimalkan
 
 # Run GA on OneMax problem
 if __name__ == "__main__":
@@ -187,18 +187,18 @@ if __name__ == "__main__":
         crossover_rate=0.8,
         mutation_rate=0.01
     )
-    
+
     result = ga.evolve(generations=100)
-    
-    print(f"Best individual: {result['best_individual']}")
-    print(f"Best fitness: {result['best_fitness']}")
-    
+
+    print(f"Individu terbaik: {result['best_individual']}")
+    print(f"Kesesuaian terbaik: {result['best_fitness']}")
+
     ga.plot_fitness_history()
 \end{lstlisting}
 
-\section{Real-Valued Genetic Algorithm}
+\section{Algoritma Genetika Bernilai Riil}
 
-\begin{lstlisting}[language=Python, caption=Real-Valued GA Implementation]
+\begin{lstlisting}[language=Python, caption=Implementasi GA Bernilai Riil]
 import numpy as np
 from typing import List, Tuple, Callable
 
@@ -224,17 +224,17 @@ class RealValuedGA:
         self.fitness_history = []
     
     def _initialize_population(self) -> np.ndarray:
-        """Initialize random real-valued population"""
+        """Inisialisasi populasi bernilai riil acak"""
         population = np.zeros((self.population_size, self.dimensions))
         for i in range(self.dimensions):
             low, high = self.bounds[i]
             population[:, i] = np.random.uniform(low, high, self.population_size)
         return population
     
-    def _blx_alpha_crossover(self, parent1: np.ndarray, 
-                           parent2: np.ndarray, 
+    def _blx_alpha_crossover(self, parent1: np.ndarray,
+                           parent2: np.ndarray,
                            alpha: float = 0.5) -> Tuple[np.ndarray, np.ndarray]:
-        """BLX-alpha crossover"""
+        """Persilangan BLX-alpha"""
         if np.random.random() > self.crossover_rate:
             return parent1.copy(), parent2.copy()
         
@@ -255,60 +255,60 @@ class RealValuedGA:
         return child1, child2
     
     def _gaussian_mutation(self, individual: np.ndarray) -> np.ndarray:
-        """Gaussian mutation"""
+        """Mutasi Gaussian"""
         mutated = individual.copy()
         for i in range(len(mutated)):
             if np.random.random() < self.mutation_rate:
                 noise = np.random.normal(0, self.mutation_strength)
                 mutated[i] += noise
-                
-                # Ensure bounds are respected
+
+                # Pastikan tetap dalam batas
                 low, high = self.bounds[i]
                 mutated[i] = np.clip(mutated[i], low, high)
-        
+
         return mutated
     
     def evolve(self, generations: int) -> dict:
-        """Main evolutionary loop"""
+        """Loop evolusi utama"""
         for generation in range(generations):
-            # Evaluate fitness
-            fitness_values = np.array([self.fitness_func(ind) 
+            # Evaluasi kesesuaian
+            fitness_values = np.array([self.fitness_func(ind)
                                      for ind in self.population])
-            
-            # Record statistics
+
+            # Catat statistik
             self.fitness_history.append({
                 'generation': generation,
                 'best_fitness': np.max(fitness_values),
                 'avg_fitness': np.mean(fitness_values),
                 'worst_fitness': np.min(fitness_values)
             })
-            
-            # Tournament selection
+
+            # Seleksi turnamen
             new_population = []
             for _ in range(self.population_size // 2):
-                # Select parents
+                # Pilih orangtua
                 parent1_idx = self._tournament_selection(fitness_values)
                 parent2_idx = self._tournament_selection(fitness_values)
-                
+
                 parent1 = self.population[parent1_idx]
                 parent2 = self.population[parent2_idx]
-                
-                # Crossover
+
+                # Persilangan
                 child1, child2 = self._blx_alpha_crossover(parent1, parent2)
-                
-                # Mutation
+
+                # Mutasi
                 child1 = self._gaussian_mutation(child1)
                 child2 = self._gaussian_mutation(child2)
-                
+
                 new_population.extend([child1, child2])
-            
+
             self.population = np.array(new_population)
-        
-        # Final evaluation
-        final_fitness = np.array([self.fitness_func(ind) 
+
+        # Evaluasi akhir
+        final_fitness = np.array([self.fitness_func(ind)
                                 for ind in self.population])
         best_idx = np.argmax(final_fitness)
-        
+
         return {
             'best_individual': self.population[best_idx],
             'best_fitness': final_fitness[best_idx],
@@ -326,7 +326,7 @@ class RealValuedGA:
 
 # Example: Optimize Rastrigin function
 def rastrigin_function(x):
-    """Rastrigin function (minimization problem)"""
+    """Fungsi Rastrigin (masalah minimisasi)"""
     A = 10
     n = len(x)
     return -(A * n + np.sum(x**2 - A * np.cos(2 * np.pi * x)))
@@ -346,9 +346,9 @@ print(f"Best solution: {result['best_individual']}")
 print(f"Best fitness: {result['best_fitness']}")
 \end{lstlisting}
 
-\section{Traveling Salesman Problem GA}
+\section{Algoritma Genetika untuk Traveling Salesman Problem}
 
-\begin{lstlisting}[language=Python, caption=TSP with Genetic Algorithm]
+\begin{lstlisting}[language=Python, caption=TSP dengan Algoritma Genetika]
 import numpy as np
 import matplotlib.pyplot as plt
 from typing import List, Tuple
@@ -373,21 +373,21 @@ class TSP_GA:
         self.population = self._initialize_population()
     
     def _calculate_distance_matrix(self) -> np.ndarray:
-        """Calculate distance matrix between all cities"""
+        """Hitung matriks jarak antar semua kota"""
         n = self.num_cities
         distances = np.zeros((n, n))
-        
+
         for i in range(n):
             for j in range(n):
                 if i != j:
                     distances[i][j] = np.sqrt(
-                        (self.cities[i][0] - self.cities[j][0])**2 + 
+                        (self.cities[i][0] - self.cities[j][0])**2 +
                         (self.cities[i][1] - self.cities[j][1])**2
                     )
         return distances
     
     def _initialize_population(self) -> List[List[int]]:
-        """Initialize population with random permutations"""
+        """Inisialisasi populasi dengan permutasi acak"""
         population = []
         for _ in range(self.population_size):
             tour = list(range(self.num_cities))
@@ -396,7 +396,7 @@ class TSP_GA:
         return population
     
     def _calculate_tour_distance(self, tour: List[int]) -> float:
-        """Calculate total distance of a tour"""
+        """Hitung total jarak sebuah rute (tour)"""
         total_distance = 0
         for i in range(len(tour)):
             from_city = tour[i]
@@ -405,168 +405,168 @@ class TSP_GA:
         return total_distance
     
     def _fitness(self, tour: List[int]) -> float:
-        """Fitness function (inverse of distance)"""
+        """Fungsi kesesuaian (invers jarak)"""
         distance = self._calculate_tour_distance(tour)
         return 1.0 / (1.0 + distance)
     
-    def _order_crossover(self, parent1: List[int], 
+    def _order_crossover(self, parent1: List[int],
                         parent2: List[int]) -> Tuple[List[int], List[int]]:
         """Order crossover (OX)"""
         if np.random.random() > self.crossover_rate:
             return parent1.copy(), parent2.copy()
-        
+
         size = len(parent1)
         start, end = sorted(np.random.choice(size, 2, replace=False))
-        
-        # Create children
+
+        # Buat anak
         child1 = [None] * size
         child2 = [None] * size
-        
-        # Copy segments
+
+        # Salin segmen
         child1[start:end] = parent1[start:end]
         child2[start:end] = parent2[start:end]
-        
-        # Fill remaining positions
+
+        # Isi posisi yang tersisa
         self._fill_remaining_ox(child1, parent2, start, end)
         self._fill_remaining_ox(child2, parent1, start, end)
-        
+
         return child1, child2
     
-    def _fill_remaining_ox(self, child: List[int], parent: List[int], 
+    def _fill_remaining_ox(self, child: List[int], parent: List[int],
                           start: int, end: int):
-        """Helper function for order crossover"""
+        """Fungsi bantu untuk order crossover"""
         child_set = set(child[start:end])
         parent_filtered = [city for city in parent if city not in child_set]
-        
-        # Fill positions before start
+
+        # Isi posisi sebelum start
         for i in range(start):
             child[i] = parent_filtered.pop(0)
-        
-        # Fill positions after end
+
+        # Isi posisi setelah end
         for i in range(end, len(child)):
             child[i] = parent_filtered.pop(0)
     
     def _swap_mutation(self, tour: List[int]) -> List[int]:
-        """Swap mutation"""
+        """Mutasi swap"""
         mutated = tour.copy()
         if np.random.random() < self.mutation_rate:
             i, j = np.random.choice(len(tour), 2, replace=False)
             mutated[i], mutated[j] = mutated[j], mutated[i]
         return mutated
     
-    def _tournament_selection(self, fitness_values: List[float], 
+    def _tournament_selection(self, fitness_values: List[float],
                             tournament_size: int = 3) -> int:
-        """Tournament selection"""
-        tournament_indices = np.random.choice(len(fitness_values), 
+        """Seleksi turnamen"""
+        tournament_indices = np.random.choice(len(fitness_values),
                                             tournament_size, replace=False)
         tournament_fitness = [fitness_values[i] for i in tournament_indices]
         winner_idx = tournament_indices[np.argmax(tournament_fitness)]
         return winner_idx
     
     def evolve(self, generations: int) -> dict:
-        """Main evolutionary loop"""
+        """Loop evolusi utama"""
         fitness_history = []
         best_tour = None
         best_distance = float('inf')
-        
+
         for generation in range(generations):
-            # Evaluate fitness
+            # Evaluasi kesesuaian
             fitness_values = [self._fitness(tour) for tour in self.population]
-            distances = [self._calculate_tour_distance(tour) 
+            distances = [self._calculate_tour_distance(tour)
                         for tour in self.population]
-            
-            # Track best solution
+
+            # Lacak solusi terbaik
             min_distance_idx = np.argmin(distances)
             if distances[min_distance_idx] < best_distance:
                 best_distance = distances[min_distance_idx]
                 best_tour = self.population[min_distance_idx].copy()
-            
-            # Record statistics
+
+            # Catat statistik
             fitness_history.append({
                 'generation': generation,
                 'best_distance': np.min(distances),
                 'avg_distance': np.mean(distances),
                 'worst_distance': np.max(distances)
             })
-            
-            # Create new population
+
+            # Buat populasi baru
             new_population = []
-            
-            # Elitism: keep best individual
+
+            # Elitisme: simpan individu terbaik
             new_population.append(best_tour.copy())
-            
-            # Generate rest of population
+
+            # Hasilkan sisa populasi
             while len(new_population) < self.population_size:
-                # Selection
+                # Seleksi
                 parent1_idx = self._tournament_selection(fitness_values)
                 parent2_idx = self._tournament_selection(fitness_values)
-                
+
                 parent1 = self.population[parent1_idx]
                 parent2 = self.population[parent2_idx]
-                
-                # Crossover
+
+                # Persilangan
                 child1, child2 = self._order_crossover(parent1, parent2)
-                
-                # Mutation
+
+                # Mutasi
                 child1 = self._swap_mutation(child1)
                 child2 = self._swap_mutation(child2)
-                
+
                 new_population.extend([child1, child2])
-            
-            # Trim to population size
+
+            # Pangkas sesuai ukuran populasi
             self.population = new_population[:self.population_size]
-        
+
         return {
             'best_tour': best_tour,
             'best_distance': best_distance,
             'fitness_history': fitness_history
         }
     
-    def plot_tour(self, tour: List[int], title: str = "Best Tour"):
-        """Plot the tour"""
+    def plot_tour(self, tour: List[int], title: str = "Rute Terbaik"):
+        """Plot rute (tour)"""
         plt.figure(figsize=(10, 8))
-        
-        # Plot cities
-        plt.scatter(self.cities[:, 0], self.cities[:, 1], 
+
+        # Plot kota-kota
+        plt.scatter(self.cities[:, 0], self.cities[:, 1],
                    c='red', s=100, zorder=2)
-        
-        # Plot tour
-        tour_cities = self.cities[tour + [tour[0]]]  # Close the loop
-        plt.plot(tour_cities[:, 0], tour_cities[:, 1], 
+
+        # Plot rute
+        tour_cities = self.cities[tour + [tour[0]]]  # Tutup loop
+        plt.plot(tour_cities[:, 0], tour_cities[:, 1],
                 'b-', linewidth=2, zorder=1)
-        
-        # Add city labels
+
+        # Tambahkan label kota
         for i, city in enumerate(self.cities):
-            plt.annotate(str(i), (city[0], city[1]), 
+            plt.annotate(str(i), (city[0], city[1]),
                         xytext=(5, 5), textcoords='offset points')
-        
-        plt.title(f"{title}\nDistance: {self._calculate_tour_distance(tour):.2f}")
-        plt.xlabel("X Coordinate")
-        plt.ylabel("Y Coordinate")
+
+        plt.title(f"{title}\nJarak: {self._calculate_tour_distance(tour):.2f}")
+        plt.xlabel("Koordinat X")
+        plt.ylabel("Koordinat Y")
         plt.grid(True, alpha=0.3)
         plt.show()
 
 # Example usage
 if __name__ == "__main__":
-    # Create random cities
+    # Buat kota acak
     np.random.seed(42)
     num_cities = 20
     cities = np.random.rand(num_cities, 2) * 100
-    
-    # Initialize and run GA
+
+    # Inisialisasi dan jalankan GA
     tsp_ga = TSP_GA(cities, population_size=100, mutation_rate=0.02)
     result = tsp_ga.evolve(generations=500)
-    
-    print(f"Best distance: {result['best_distance']:.2f}")
-    print(f"Best tour: {result['best_tour']}")
-    
-    # Plot best tour
+
+    print(f"Jarak terbaik: {result['best_distance']:.2f}")
+    print(f"Rute terbaik: {result['best_tour']}")
+
+    # Plot rute terbaik
     tsp_ga.plot_tour(result['best_tour'])
 \end{lstlisting}
 
-\section{NSGA-II for Multi-Objective Optimization}
+\section{NSGA-II untuk Optimisasi Multi-Objektif}
 
-\begin{lstlisting}[language=Python, caption=NSGA-II Implementation]
+\begin{lstlisting}[language=Python, caption=Implementasi NSGA-II]
 import numpy as np
 from typing import List, Tuple
 
@@ -592,7 +592,7 @@ class NSGA2:
             self.population_size += 1
     
     def _initialize_population(self) -> np.ndarray:
-        """Initialize random population"""
+        """Inisialisasi populasi acak"""
         population = np.zeros((self.population_size, self.num_variables))
         for i in range(self.num_variables):
             low, high = self.bounds[i]
@@ -600,7 +600,7 @@ class NSGA2:
         return population
     
     def _evaluate_objectives(self, population: np.ndarray) -> np.ndarray:
-        """Evaluate all objectives for population"""
+        """Evaluasi semua fungsi objektif untuk populasi"""
         objectives = np.zeros((len(population), self.num_objectives))
         for i, individual in enumerate(population):
             for j, obj_func in enumerate(self.objective_functions):
@@ -608,11 +608,11 @@ class NSGA2:
         return objectives
     
     def _dominates(self, obj1: np.ndarray, obj2: np.ndarray) -> bool:
-        """Check if obj1 dominates obj2 (assuming minimization)"""
+        """Periksa apakah obj1 mendominasi obj2 (mengasumsikan minimisasi)"""
         return np.all(obj1 <= obj2) and np.any(obj1 < obj2)
     
     def _fast_non_dominated_sort(self, objectives: np.ndarray) -> Tuple[List[List[int]], np.ndarray]:
-        """Fast non-dominated sorting"""
+        """Penyortiran non-dominated cepat"""
         population_size = len(objectives)
         domination_count = np.zeros(population_size)
         dominated_solutions = [[] for _ in range(population_size)]
@@ -653,9 +653,9 @@ class NSGA2:
         
         return fronts, ranks
     
-    def _calculate_crowding_distance(self, objectives: np.ndarray, 
+    def _calculate_crowding_distance(self, objectives: np.ndarray,
                                    front: List[int]) -> np.ndarray:
-        """Calculate crowding distance for individuals in a front"""
+        """Hitung crowding distance untuk individu dalam sebuah front"""
         if len(front) <= 2:
             return np.full(len(front), float('inf'))
         
@@ -682,10 +682,10 @@ class NSGA2:
         
         return distances
     
-    def _tournament_selection(self, ranks: np.ndarray, 
+    def _tournament_selection(self, ranks: np.ndarray,
                             crowding_distances: np.ndarray,
                             population_size: int) -> List[int]:
-        """Binary tournament selection based on rank and crowding distance"""
+        """Seleksi turnamen biner berdasarkan rank dan crowding distance"""
         selected = []
         
         for _ in range(population_size):
@@ -706,7 +706,7 @@ class NSGA2:
         
         return selected
     
-    def _sbx_crossover(self, parent1: np.ndarray, parent2: np.ndarray, 
+    def _sbx_crossover(self, parent1: np.ndarray, parent2: np.ndarray,
                       eta: float = 20.0) -> Tuple[np.ndarray, np.ndarray]:
         """Simulated Binary Crossover (SBX)"""
         if np.random.random() > self.crossover_rate:
@@ -743,9 +743,9 @@ class NSGA2:
         
         return child1, child2
     
-    def _polynomial_mutation(self, individual: np.ndarray, 
+    def _polynomial_mutation(self, individual: np.ndarray,
                            eta: float = 20.0) -> np.ndarray:
-        """Polynomial mutation"""
+        """Mutasi polinomial"""
         mutated = individual.copy()
         
         for i in range(len(mutated)):
@@ -772,87 +772,87 @@ class NSGA2:
         return mutated
     
     def evolve(self, generations: int) -> dict:
-        """Main NSGA-II evolution loop"""
-        # Initialize population
+        """Loop evolusi NSGA-II utama"""
+        # Inisialisasi populasi
         population = self._initialize_population()
-        
+
         for generation in range(generations):
-            # Evaluate objectives
+            # Evaluasi objektif
             objectives = self._evaluate_objectives(population)
-            
-            # Non-dominated sorting
+
+            # Penyortiran non-dominated
             fronts, ranks = self._fast_non_dominated_sort(objectives)
-            
-            # Calculate crowding distances
+
+            # Hitung crowding distances
             crowding_distances = np.zeros(len(population))
             for front in fronts:
                 if len(front) > 0:
                     distances = self._calculate_crowding_distance(objectives, front)
                     for i, individual_idx in enumerate(front):
                         crowding_distances[individual_idx] = distances[i]
-            
-            # Selection for mating pool
-            mating_pool_indices = self._tournament_selection(ranks, crowding_distances, 
+
+            # Seleksi untuk mating pool
+            mating_pool_indices = self._tournament_selection(ranks, crowding_distances,
                                                            self.population_size)
             mating_pool = population[mating_pool_indices]
-            
-            # Create offspring through crossover and mutation
+
+            # Buat keturunan melalui persilangan dan mutasi
             offspring = []
             for i in range(0, self.population_size, 2):
                 parent1 = mating_pool[i]
                 parent2 = mating_pool[i + 1]
-                
+
                 child1, child2 = self._sbx_crossover(parent1, parent2)
                 child1 = self._polynomial_mutation(child1)
                 child2 = self._polynomial_mutation(child2)
-                
+
                 offspring.extend([child1, child2])
-            
+
             offspring = np.array(offspring)
-            
-            # Combine parent and offspring populations
+
+            # Gabungkan populasi orangtua dan keturunan
             combined_population = np.vstack([population, offspring])
             combined_objectives = self._evaluate_objectives(combined_population)
-            
-            # Environmental selection
+
+            # Seleksi lingkungan
             combined_fronts, combined_ranks = self._fast_non_dominated_sort(combined_objectives)
-            
+
             new_population = []
             front_idx = 0
-            
-            # Add complete fronts
+
+            # Tambah front lengkap
             while (len(new_population) + len(combined_fronts[front_idx]) <= self.population_size):
                 for individual_idx in combined_fronts[front_idx]:
                     new_population.append(individual_idx)
                 front_idx += 1
-                
+
                 if front_idx >= len(combined_fronts):
                     break
-            
-            # Add partial front if needed
+
+            # Tambah front parsial jika diperlukan
             if len(new_population) < self.population_size and front_idx < len(combined_fronts):
                 last_front = combined_fronts[front_idx]
                 crowding_distances = self._calculate_crowding_distance(combined_objectives, last_front)
-                
-                # Sort by crowding distance (descending)
-                sorted_indices = sorted(range(len(last_front)), 
+
+                # Urutkan berdasarkan crowding distance (menurun)
+                sorted_indices = sorted(range(len(last_front)),
                                       key=lambda x: crowding_distances[x], reverse=True)
-                
+
                 remaining_slots = self.population_size - len(new_population)
                 for i in range(remaining_slots):
                     new_population.append(last_front[sorted_indices[i]])
-            
-            # Update population
+
+            # Perbarui populasi
             population = combined_population[new_population]
-        
-        # Final evaluation and return Pareto front
+
+        # Evaluasi akhir dan kembalikan front Pareto
         final_objectives = self._evaluate_objectives(population)
         fronts, _ = self._fast_non_dominated_sort(final_objectives)
-        
+
         pareto_front_indices = fronts[0]
         pareto_front_solutions = population[pareto_front_indices]
         pareto_front_objectives = final_objectives[pareto_front_indices]
-        
+
         return {
             'pareto_front_solutions': pareto_front_solutions,
             'pareto_front_objectives': pareto_front_objectives,
@@ -872,19 +872,19 @@ def objective2(x):
 # Usage
 if __name__ == "__main__":
     objectives = [objective1, objective2]
-    bounds = [(0, 1)] * 10  # 10-dimensional problem
-    
+    bounds = [(0, 1)] * 10  # 10-dimensi
+
     nsga2 = NSGA2(objectives, 10, bounds, population_size=100)
     result = nsga2.evolve(generations=250)
-    
-    # Plot Pareto front
+
+    # Plot front Pareto
     pareto_objectives = result['pareto_front_objectives']
     plt.figure(figsize=(10, 6))
-    plt.scatter(pareto_objectives[:, 0], pareto_objectives[:, 1], 
+    plt.scatter(pareto_objectives[:, 0], pareto_objectives[:, 1],
                c='red', alpha=0.7)
-    plt.xlabel('Objective 1')
-    plt.ylabel('Objective 2')
-    plt.title('Pareto Front')
+    plt.xlabel('Objektif 1')
+    plt.ylabel('Objektif 2')
+    plt.title('Front Pareto')
     plt.grid(True, alpha=0.3)
     plt.show()
 \end{lstlisting}

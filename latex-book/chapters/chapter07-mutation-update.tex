@@ -1,333 +1,344 @@
-\chapter{Mutation and Generation Update}
+\chapter{Mutasi dan Pembaruan Generasi}
 \label{ch:mutation-update}
 
-In the previous chapters, we have covered the fundamental operations of Genetic Algorithms (GA) including encoding, fitness evaluation, selection, and crossover. This chapter completes the discussion of GA operators by examining \textbf{mutation} and \textbf{generation update mechanisms}~\cite{course_week9, tutorialspoint_mutation}. These operations are crucial for maintaining genetic diversity and ensuring the algorithm's ability to explore the search space effectively.
+Pada bab-bab sebelumnya, kita telah membahas operasi-operasi fundamental Algoritma Genetika (AG) termasuk pengkodean, evaluasi kebugaran, seleksi, dan pindah silang. Bab ini melengkapi pembahasan operator AG dengan mengkaji \textbf{mutasi} dan \textbf{mekanisme pembaruan generasi}~\cite{course_week9, tutorialspoint_mutation}. Operasi-operasi ini sangat penting untuk mempertahankan keragaman genetik dan memastikan kemampuan algoritma untuk mengeksplorasi ruang pencarian secara efektif.
 
-\section{Introduction to Mutation}
-After the recombination (crossover) stage has been applied to all pairs of chromosomes in the mating pool, producing $N$ chromosomes (where $N$ is the population size), the GA executes the mutation operator on each of these chromosomes. Mutation is a critical operator that prevents premature convergence to local optima, maintains genetic diversity in the population, introduces new genetic material that may not have been present in the initial population, and provides a mechanism for escaping local optima.
-Mutation plays a critical role immediately after recombination. By introducing stochastic changes to one or more genes, mutation reduces the risk of premature convergence, sustains genetic diversity across generations, and injects new alleles that may not exist in the initial population. These effects together provide a mechanism for escaping local optima and for exploring regions of the search space that recombination alone cannot reach. Although the mutated population is not guaranteed to be fitter than its predecessors, mutation is an essential exploration tool in the GA toolbox.
+\section{Pengantar Mutasi}
+Setelah tahap rekombinasi (pindah silang) diterapkan pada semua pasangan kromosom dalam kumpulan kawin, menghasilkan $N$ kromosom (dengan $N$ adalah ukuran populasi), AG mengeksekusi operator mutasi pada setiap kromosom tersebut. Mutasi adalah operator kritis yang mencegah konvergensi prematur ke optima lokal, mempertahankan keragaman genetik dalam populasi, memperkenalkan materi genetik baru yang mungkin tidak ada dalam populasi awal, dan menyediakan mekanisme untuk meloloskan diri dari optima lokal.
 
-\subsection{What is Mutation?}
+\subsection{Apa itu Mutasi?}
 
-Mutation is the process of changing the value of one or more genes in a genome~\cite{goldberg1989genetic, mitchell1996introduction, back1996evolutionary}. More specifically, it may change the allele of a gene at a specific locus to another allele, help avoid premature convergence (which is reaching a suboptimal result that is not the global maximum), and create offspring that are not necessarily better than their parents.
-Concretely, a mutation alters one or more gene values (alleles) at chosen loci. This alteration can be random or follow a simple stochastic rule; its primary purpose is to maintain variation in the population so that the search process can continue to explore promising and novel regions of the fitness landscape. Mutations sometimes produce inferior offspring, but they are often the only mechanism capable of introducing novel building blocks that lead to future improvements.
+Mutasi adalah proses mengubah nilai satu atau lebih gen dalam genom~\cite{goldberg1989genetic, mitchell1996introduction, back1996evolutionary}. Lebih spesifik, mutasi dapat mengubah alel dari gen pada lokus tertentu ke alel lain, membantu menghindari konvergensi prematur (yaitu mencapai hasil suboptimal yang bukan maksimum global), dan menciptakan keturunan yang belum tentu lebih baik dari induknya.
 
-\textbf{Important Note:} The new population resulting from mutation is not guaranteed to be better than the previous population. However, mutation provides the essential mechanism for maintaining diversity and exploring new regions of the search space.
+Secara konkret, mutasi mengubah satu atau lebih nilai gen (alel) pada lokus yang dipilih. Perubahan ini bisa acak atau mengikuti aturan stokastik sederhana; tujuan utamanya adalah mempertahankan variasi dalam populasi sehingga proses pencarian dapat terus mengeksplorasi wilayah-wilayah menjanjikan dan baru dari lanskap kebugaran. Mutasi kadang-kadang menghasilkan keturunan yang lebih rendah, tetapi sering kali merupakan satu-satunya mekanisme yang mampu memperkenalkan blok bangunan baru yang mengarah pada perbaikan di masa depan.
 
-\subsection{Mutation in Evolutionary Algorithms vs. Biological Evolution}
+\textbf{Catatan Penting:} Populasi baru yang dihasilkan dari mutasi tidak dijamin lebih baik dari populasi sebelumnya. Namun, mutasi menyediakan mekanisme esensial untuk mempertahankan keragaman dan mengeksplorasi wilayah baru dari ruang pencarian.
 
-In biological evolution, mutation is typically considered harmful because complex organisms have highly interdependent systems. However, in Evolutionary Algorithms (EAs):
-Although biological mutations are often deleterious in complex organisms, the situation in Evolutionary Algorithms is different. Representations used in EAs are typically far simpler and more modular than biological genomes, so small, localized changes can produce constructive variations. As a result, mutation in EAs can frequently generate beneficial diversity: mutating a small subset of genes may yield improved offspring without disrupting other functional components of the solution.
+\subsection{Mutasi dalam Algoritma Evolusioner vs. Evolusi Biologis}
 
-\section{Mutation for Different Representations}
+Dalam evolusi biologis, mutasi biasanya dianggap berbahaya karena organisme kompleks memiliki sistem yang sangat saling bergantung. Namun, dalam Algoritma Evolusioner (AE):
 
-Many mutation methods have been proposed in the literature~\cite{michalewicz1996genetic, back1996evolutionary, haupt2004practical}. Each method has special characteristics and may only be applicable to certain types of representations. The choice of mutation operator must be compatible with the chromosome encoding scheme. 
+Meskipun mutasi biologis sering merusak pada organisme kompleks, situasinya berbeda dalam Algoritma Evolusioner. Representasi yang digunakan dalam AE biasanya jauh lebih sederhana dan lebih modular daripada genom biologis, sehingga perubahan kecil dan terlokalisasi dapat menghasilkan variasi konstruktif. Sebagai hasilnya, mutasi dalam AE sering dapat menghasilkan keragaman yang bermanfaat: memutasikan subset kecil dari gen dapat menghasilkan keturunan yang lebih baik tanpa mengganggu komponen fungsional lain dari solusi.
 
-\subsection{Mutation for Binary Representation}
+\section{Mutasi untuk Representasi Berbeda}
+
+Banyak metode mutasi telah diusulkan dalam literatur~\cite{michalewicz1996genetic, back1996evolutionary, haupt2004practical}. Setiap metode memiliki karakteristik khusus dan mungkin hanya dapat diterapkan pada jenis representasi tertentu. Pemilihan operator mutasi harus kompatibel dengan skema pengkodean kromosom.
+
+\subsection{Mutasi untuk Representasi Biner}
 \label{sec:binary-mutation}
 
-Binary representation uses the simplest form of mutation: \textbf{bit-flip mutation}.
+Representasi biner menggunakan bentuk mutasi paling sederhana: \textbf{mutasi pembalikan bit}.
 
-\subsubsection{Bit-Flip Mutation}
-In bit-flip mutation, each bit in the chromosome has a probability $P_m$ (mutation probability) of being flipped: a bit with value $1$ becomes $0$, and a bit with value $0$ becomes $1$.
-In binary encodings the simplest mutation is bit-flip: each bit is independently flipped with probability $P_m$, so a 1 becomes 0 and vice versa. This operator is minimal and unbiased, and when $P_m$ is small it provides rare but meaningful perturbations to otherwise stable bit-strings.
+\subsubsection{Mutasi Pembalikan Bit}
+Dalam mutasi pembalikan bit, setiap bit dalam kromosom memiliki probabilitas $P_m$ (probabilitas mutasi) untuk dibalik: bit dengan nilai $1$ menjadi $0$, dan bit dengan nilai $0$ menjadi $1$.
 
-\textbf{Example:}
+Dalam pengkodean biner, mutasi paling sederhana adalah pembalikan bit: setiap bit secara independen dibalik dengan probabilitas $P_m$, sehingga 1 menjadi 0 dan sebaliknya. Operator ini minimal dan tidak bias, dan ketika $P_m$ kecil, operator ini memberikan perturbasi langka tetapi bermakna pada string bit yang stabil.
+
+\textbf{Contoh:}
 \begin{verbatim}
-Parent:    1 0 1 1 0 1 0 0
+Induk:     1 0 1 1 0 1 0 0
                  ^     ^
-Offspring: 1 0 0 1 0 0 0 0
+Keturunan: 1 0 0 1 0 0 0 0
 \end{verbatim}
 
-In this example, bits at positions 3 and 6 were selected for mutation and flipped.
+Dalam contoh ini, bit pada posisi 3 dan 6 dipilih untuk mutasi dan dibalik.
 
-\textbf{Algorithm:}
+\textbf{Algoritma:}
 \begin{algorithm}[H]
-\caption{Bit-Flip Mutation}
+\caption{Mutasi Pembalikan Bit}
 \begin{algorithmic}
-\FOR{each gene $g_i$ in chromosome}
-    \STATE $r \gets$ random number in $[0,1]$
+\FOR{setiap gen $g_i$ dalam kromosom}
+    \STATE $r \gets$ bilangan acak dalam $[0,1]$
     \IF{$r < P_m$}
-        \STATE Flip $g_i$: if $g_i = 1$ then $g_i \gets 0$, else $g_i \gets 1$
+        \STATE Balik $g_i$: jika $g_i = 1$ maka $g_i \gets 0$, sebaliknya $g_i \gets 1$
     \ENDIF
 \ENDFOR
 \end{algorithmic}
 \end{algorithm}
 
-\subsection{Mutation for Integer Representation}
+\subsection{Mutasi untuk Representasi Integer}
 \label{sec:integer-mutation}
 
-Integer representations require different mutation strategies. Common approaches include integer value flipping, random value selection, and creep mutation.
+Representasi integer memerlukan strategi mutasi yang berbeda. Pendekatan umum meliputi pembalikan nilai integer, pemilihan nilai acak, dan mutasi creep.
 
-\subsubsection{Integer Value Flipping}
+\subsubsection{Pembalikan Nilai Integer}
 
-Uses mathematical operations ($+$, $-$, $\times$, $\div$) to change the value of selected genes.
+Menggunakan operasi matematika ($+$, $-$, $\times$, $\div$) untuk mengubah nilai gen yang dipilih.
 
-\textbf{Example:}
+\textbf{Contoh:}
 \begin{verbatim}
-Parent:    8  3  7  5  2  1  9  4  6
+Induk:     8  3  7  5  2  1  9  4  6
                  ^        ^
-Offspring: 8  3  2  5  2  8  9  4  6
+Keturunan: 8  3  2  5  2  8  9  4  6
 \end{verbatim}
 
-The values at positions 3 and 6 were changed using mathematical operations.
+Nilai pada posisi 3 dan 6 diubah menggunakan operasi matematika.
 
-\subsubsection{Random Value Selection}
+\subsubsection{Pemilihan Nilai Acak}
 
-A selected gene is replaced with a randomly chosen value from the valid range.
+Gen yang dipilih diganti dengan nilai yang dipilih secara acak dari rentang yang valid.
 
-\textbf{Example:}
-If the valid range is $[1, 9]$:
+\textbf{Contoh:}
+Jika rentang yang valid adalah $[1, 9]$:
 \begin{verbatim}
-Parent:    8  3  7  5  2  1  9  4  6
+Induk:     8  3  7  5  2  1  9  4  6
                     ^
-Offspring: 8  3  7  9  2  1  9  4  6
+Keturunan: 8  3  7  9  2  1  9  4  6
 \end{verbatim}
 
-\subsubsection{Creep Mutation}
+\subsubsection{Mutasi Creep}
 
-Adds or subtracts a small random integer value (usually $\pm 1$ or $\pm 2$) to the selected gene.
+Menambahkan atau mengurangkan nilai integer acak kecil (biasanya $\pm 1$ atau $\pm 2$) pada gen yang dipilih.
 
-\textbf{Example:}
+\textbf{Contoh:}
 \begin{verbatim}
-Parent:    8  3  7  5  2  1  9  4  6
+Induk:     8  3  7  5  2  1  9  4  6
               ^           ^
-Offspring: 8  4  7  5  2  2  9  4  6
+Keturunan: 8  4  7  5  2  2  9  4  6
 \end{verbatim}
 
-This method makes small, gradual changes and is particularly useful for fine-tuning solutions.
+Metode ini membuat perubahan kecil dan bertahap serta sangat berguna untuk penyetelan halus solusi.
 
-\subsection{Mutation for Real-Valued Representation}
+\subsection{Mutasi untuk Representasi Bernilai Riil}
 \label{sec:real-mutation}
 
-Real-valued representations have different characteristics from binary and integer representations. Values of genes in real representations are continuous, whereas binary and integer representations are discrete. Therefore, real representations require specialized mutation operators.
+Representasi bernilai riil memiliki karakteristik berbeda dari representasi biner dan integer. Nilai gen dalam representasi riil bersifat kontinu, sedangkan representasi biner dan integer bersifat diskrit. Oleh karena itu, representasi riil memerlukan operator mutasi khusus.
 
-\subsubsection{Uniform Mutation}
-In uniform mutation, selected genes are replaced with values drawn from a uniform random distribution within the valid range $[a, b]$:
+\subsubsection{Mutasi Seragam}
+Dalam mutasi seragam, gen yang dipilih diganti dengan nilai yang diambil dari distribusi acak seragam dalam rentang valid $[a, b]$:
 
 \begin{equation}
 x_i' = a + \text{rand}(0,1) \times (b - a)
 \end{equation}
 
-where:
+dengan:
 \begin{itemize}
-    \item $x_i'$ is the new gene value
-    \item $a$ and $b$ are the lower and upper bounds
-    \item $\text{rand}(0,1)$ generates a random number in $[0, 1]$
+    \item $x_i'$ adalah nilai gen baru
+    \item $a$ dan $b$ adalah batas bawah dan atas
+    \item $\text{rand}(0,1)$ menghasilkan bilangan acak dalam $[0, 1]$
 \end{itemize}
 
-\subsubsection{Non-Uniform Mutation with Fixed Distribution}
+\subsubsection{Mutasi Tidak Seragam dengan Distribusi Tetap}
 
-This mutation is similar to the creep method for integer representations but uses real-valued additions. The mutated value is calculated as:
+Mutasi ini mirip dengan metode creep untuk representasi integer tetapi menggunakan penambahan bernilai riil. Nilai yang bermutasi dihitung sebagai:
 
 \begin{equation}
 x_i' = x_i + \mathcal{N}(0, \sigma^2)
 \end{equation}
 
-where:
+dengan:
 \begin{itemize}
-    \item $x_i$ is the original gene value
-    \item $\mathcal{N}(0, \sigma^2)$ is a random value from a normal (Gaussian) distribution with mean 0 and variance $\sigma^2$
-    \item $\sigma$ controls the mutation step size
+    \item $x_i$ adalah nilai gen asli
+    \item $\mathcal{N}(0, \sigma^2)$ adalah nilai acak dari distribusi normal (Gaussian) dengan mean 0 dan variansi $\sigma^2$
+    \item $\sigma$ mengontrol ukuran langkah mutasi
 \end{itemize}
 
-\textbf{Example:}
+\textbf{Contoh:}
 \begin{verbatim}
-Parent:    2.45  7.89  3.12  9.01  5.67
+Induk:     2.45  7.89  3.12  9.01  5.67
                        ^
-Offspring: 2.45  7.89  3.45  9.01  5.67
+Keturunan: 2.45  7.89  3.45  9.01  5.67
 \end{verbatim}
 
-\subsection{Mutation for Permutation Representation}
+\subsection{Mutasi untuk Representasi Permutasi}
 \label{sec:permutation-mutation}
 
-Mutation on permutation representations must ensure that the resulting chromosome remains valid (all elements appear exactly once). Specialized methods have been developed to preserve validity while introducing variation.
+Mutasi pada representasi permutasi harus memastikan bahwa kromosom yang dihasilkan tetap valid (semua elemen muncul tepat sekali). Metode khusus telah dikembangkan untuk menjaga validitas sambil memperkenalkan variasi.
 
-\subsubsection{Swap Mutation}
+\subsubsection{Mutasi Tukar}
 
-Two gene positions are randomly selected, and their values are exchanged.
+Dua posisi gen dipilih secara acak, dan nilainya ditukar.
 
-\textbf{Example:}
+\textbf{Contoh:}
 \begin{verbatim}
-Parent:    3  1  5  2  7  6  8  4  9
+Induk:     3  1  5  2  7  6  8  4  9
               ^           ^
-Offspring: 3  1  8  2  7  6  5  4  9
+Keturunan: 3  1  8  2  7  6  5  4  9
 \end{verbatim}
 
-Positions 3 and 7 are selected, so values 5 and 8 are swapped.
+Posisi 3 dan 7 dipilih, sehingga nilai 5 dan 8 ditukar.
 
-\textbf{Algorithm:}
+\textbf{Algoritma:}
 \begin{algorithm}[H]
-\caption{Swap Mutation}
+\caption{Mutasi Tukar}
 \begin{algorithmic}
-\STATE $i \gets$ random position in chromosome
-\STATE $j \gets$ random position in chromosome (different from $i$)
-\STATE Swap values at positions $i$ and $j$
+\STATE $i \gets$ posisi acak dalam kromosom
+\STATE $j \gets$ posisi acak dalam kromosom (berbeda dari $i$)
+\STATE Tukar nilai pada posisi $i$ dan $j$
 \end{algorithmic}
 \end{algorithm}
 
-\subsubsection{Insert Mutation}
+\subsubsection{Mutasi Sisip}
 
-A gene at one position is removed and inserted at another position, shifting the intermediate genes.
+Gen pada satu posisi dihapus dan disisipkan pada posisi lain, menggeser gen-gen di antara keduanya.
 
-\textbf{Example:}
+\textbf{Contoh:}
 \begin{verbatim}
-Parent:    3  1  5  2  7  6  8  4  9
+Induk:     3  1  5  2  7  6  8  4  9
               ^           ^
-Offspring: 3  1  5  2  7  8  6  4  9
+Keturunan: 3  1  5  2  7  8  6  4  9
 \end{verbatim}
 
-The gene at position 7 (value 8) is removed and inserted after position 2 (value 5).
+Gen pada posisi 7 (nilai 8) dihapus dan disisipkan setelah posisi 2 (nilai 5).
 
-\subsubsection{Scramble Mutation}
+\subsubsection{Mutasi Acak}
 
-A segment of the chromosome is selected, and the genes within that segment are randomly shuffled.
+Segmen kromosom dipilih, dan gen-gen dalam segmen tersebut diacak secara acak.
 
-\textbf{Example:}
+\textbf{Contoh:}
 \begin{verbatim}
-Parent:    3  1  5  2  7  6  8  4  9
+Induk:     3  1  5  2  7  6  8  4  9
               \_______/
-Offspring: 3  1  2  6  5  7  8  4  9
+Keturunan: 3  1  2  6  5  7  8  4  9
 \end{verbatim}
 
-The segment $\{5, 2, 7, 6\}$ is selected and randomly shuffled to $\{2, 6, 5, 7\}$.
+Segmen $\{5, 2, 7, 6\}$ dipilih dan diacak secara acak menjadi $\{2, 6, 5, 7\}$.
 
-\subsubsection{Inversion Mutation}
+\subsubsection{Mutasi Inversi}
 
-A segment of the chromosome is selected, and the order of genes within that segment is reversed.
+Segmen kromosom dipilih, dan urutan gen dalam segmen tersebut dibalik.
 
-\textbf{Example:}
+\textbf{Contoh:}
 \begin{verbatim}
-Parent:    3  1  5  2  7  6  8  4  9
+Induk:     3  1  5  2  7  6  8  4  9
               \_______/
-Offspring: 3  1  6  7  2  5  8  4  9
+Keturunan: 3  1  6  7  2  5  8  4  9
 \end{verbatim}
 
-The segment $\{5, 2, 7, 6\}$ is reversed to $\{6, 7, 2, 5\}$.
+Segmen $\{5, 2, 7, 6\}$ dibalik menjadi $\{6, 7, 2, 5\}$.
 
-\section{Generation Update Mechanisms}
+\section{Mekanisme Pembaruan Generasi}
 
-After selection, crossover, and mutation operations have been applied to a population, a generation update mechanism determines which individuals survive to the next generation. This process is also called \textbf{survivor selection} or \textbf{replacement strategy}. 
+Setelah operasi seleksi, pindah silang, dan mutasi diterapkan pada populasi, mekanisme pembaruan generasi menentukan individu mana yang bertahan ke generasi berikutnya. Proses ini juga disebut \textbf{seleksi penyintas} atau \textbf{strategi penggantian}.
 
-\subsection{Holland's Original Model (Generational Replacement)}
+\subsection{Model Asli Holland (Penggantian Generasional)}
 \label{sec:holland-update}
-In Holland's original GA~\cite{holland1975adaptation, goldberg1989genetic} all offspring replace the entire parent population. Parents are considered "dead" and removed, so the new population consists entirely of offspring and generations are distinct and non-overlapping.
-In Holland's original generational replacement model, the offspring population entirely replaces the parents, producing distinct, non-overlapping generations. The model is simple and easy to implement and provides a clear separation between generations. A practical drawback is the potential loss of high-quality parents unless mechanisms such as elitism are used to preserve them.
+Dalam AG asli Holland~\cite{holland1975adaptation, goldberg1989genetic}, semua keturunan menggantikan seluruh populasi induk. Induk dianggap "mati" dan dihapus, sehingga populasi baru sepenuhnya terdiri dari keturunan dan generasi bersifat berbeda dan tidak tumpang tindih.
 
-\subsection{Generational Model with Elitism}
+Dalam model penggantian generasional asli Holland, populasi keturunan sepenuhnya menggantikan induk, menghasilkan generasi yang berbeda dan tidak tumpang tindih. Model ini sederhana dan mudah diimplementasikan serta memberikan pemisahan yang jelas antar generasi. Kelemahan praktis adalah potensi kehilangan induk berkualitas tinggi kecuali mekanisme seperti elitisme digunakan untuk melestarikannya.
+
+\subsection{Model Generasional dengan Elitisme}
 \label{sec:elitism}
 
-In the generational model with elitism, a population of size $N$ chromosomes in one generation is replaced by $N$ new individuals in the next generation~\cite{de1975analysis, whitley1994genetic}. However, to preserve the best solutions, the best $k$ chromosomes (elites) from the parent generation are copied directly to the next generation while the remaining $N-k$ positions are filled with offspring; this ensures that the best solution never gets worse across generations.
-In the generational model with elitism, the top $k$ individuals from the parent generation are carried forward unchanged and the remaining $N-k$ positions are filled by newly generated offspring. This simple modification guarantees that the best-so-far solutions are not lost, which stabilizes the search and often speeds convergence. Typical choices of $k$ are small (e.g. 1 or 2), balancing preservation and exploration.
+Dalam model generasional dengan elitisme, populasi berukuran $N$ kromosom dalam satu generasi digantikan oleh $N$ individu baru di generasi berikutnya~\cite{de1975analysis, whitley1994genetic}. Namun, untuk melestarikan solusi terbaik, $k$ kromosom terbaik (elit) dari generasi induk disalin langsung ke generasi berikutnya sementara $N-k$ posisi yang tersisa diisi dengan keturunan; ini memastikan bahwa solusi terbaik tidak pernah menjadi lebih buruk lintas generasi.
 
-\textbf{Algorithm:}
+Dalam model generasional dengan elitisme, $k$ individu teratas dari generasi induk dibawa maju tanpa perubahan dan $N-k$ posisi yang tersisa diisi oleh keturunan yang baru dihasilkan. Modifikasi sederhana ini menjamin bahwa solusi terbaik-sejauh-ini tidak hilang, yang menstabilkan pencarian dan sering mempercepat konvergensi. Pilihan $k$ yang khas adalah kecil (misalnya 1 atau 2), menyeimbangkan pelestarian dan eksplorasi.
+
+\textbf{Algoritma:}
 \begin{algorithm}[H]
-\caption{Generational Model with Elitism}
+\caption{Model Generasional dengan Elitisme}
 \begin{algorithmic}
-\STATE Sort parent population by fitness
-\STATE Copy top $k$ individuals to next generation (elites)
-\STATE Generate $N-k$ offspring through selection, crossover, and mutation
-\STATE Add offspring to next generation
-\STATE Next generation becomes current generation
+\STATE Urutkan populasi induk berdasarkan kebugaran
+\STATE Salin $k$ individu teratas ke generasi berikutnya (elit)
+\STATE Hasilkan $N-k$ keturunan melalui seleksi, pindah silang, dan mutasi
+\STATE Tambahkan keturunan ke generasi berikutnya
+\STATE Generasi berikutnya menjadi generasi saat ini
 \end{algorithmic}
 \end{algorithm}
 
-\textbf{Typical values:} $k = 1$ or $k = 2$ (preserving 1-2 best individuals)
+\textbf{Nilai khas:} $k = 1$ atau $k = 2$ (melestarikan 1-2 individu terbaik)
 
-\subsection{Steady-State Update}
+\subsection{Pembaruan Steady-State}
 \label{sec:steady-state}
 
-In the steady-state model~\cite{whitley1994genetic, smith1998replacement} not all chromosomes are replaced in each generation; only $M$ chromosomes are replaced where $M < N$ (often $M = 2$, when one mating produces two offspring which replace two individuals). Replacement strategies include: \textbf{replace parents} (the two offspring replace their two parents), \textbf{replace worst} (the two offspring replace the two worst individuals), and \textbf{replace oldest} (the two offspring replace the two oldest individuals). This model allows good individuals to participate in multiple matings, produces more gradual evolution, lets parents and offspring coexist in the same population, and can be more efficient computationally.
-In steady-state update schemes only a small number $M$ of individuals (with $M<N$) are replaced at each step, which permits parents and offspring to coexist and allows high-quality individuals to be reused in multiple matings. Common replacement strategies are replacing the parents of the offspring, replacing the worst individuals found in the population, or replacing the oldest individuals; each strategy emphasizes different trade-offs between preserving diversity and intensifying selection. The steady-state approach typically yields more gradual evolution and can be computationally efficient when $M$ is small.
+Dalam model steady-state~\cite{whitley1994genetic, smith1998replacement}, tidak semua kromosom digantikan dalam setiap generasi; hanya $M$ kromosom yang digantikan dengan $M < N$ (sering $M = 2$, ketika satu perkawinan menghasilkan dua keturunan yang menggantikan dua individu). Strategi penggantian meliputi: \textbf{ganti induk} (dua keturunan menggantikan dua induknya), \textbf{ganti terburuk} (dua keturunan menggantikan dua individu terburuk), dan \textbf{ganti tertua} (dua keturunan menggantikan dua individu tertua). Model ini memungkinkan individu baik untuk berpartisipasi dalam beberapa perkawinan, menghasilkan evolusi yang lebih bertahap, memungkinkan induk dan keturunan hidup berdampingan dalam populasi yang sama, dan dapat lebih efisien secara komputasional.
 
-\subsection{Continuous Update}
+Dalam skema pembaruan steady-state, hanya sejumlah kecil $M$ individu (dengan $M<N$) yang digantikan pada setiap langkah, yang memungkinkan induk dan keturunan hidup berdampingan dan memungkinkan individu berkualitas tinggi digunakan kembali dalam beberapa perkawinan. Strategi penggantian umum adalah menggantikan induk dari keturunan, menggantikan individu terburuk yang ditemukan dalam populasi, atau menggantikan individu tertua; setiap strategi menekankan trade-off berbeda antara melestarikan keragaman dan mengintensifkan seleksi. Pendekatan steady-state biasanya menghasilkan evolusi yang lebih bertahap dan dapat efisien secara komputasional ketika $M$ kecil.
+
+\subsection{Pembaruan Kontinu}
 \label{sec:continuous-update}
 
-In continuous update offspring and parents can coexist in the same generation; individuals are selected randomly from both groups for the next generation, providing maximum overlap between generations. This method is less commonly used than other update methods.
-Continuous update schemes allow full coexistence of parents and offspring and typically select individuals for survival from the combined set. This produces maximum generational overlap and a highly mixed population, though in practice such schemes are less commonly employed compared to generational or steady-state replacements.
+Dalam pembaruan kontinu, keturunan dan induk dapat hidup berdampingan dalam generasi yang sama; individu dipilih secara acak dari kedua kelompok untuk generasi berikutnya, memberikan tumpang tindih maksimum antar generasi. Metode ini kurang umum digunakan dibandingkan metode pembaruan lainnya.
 
-\section{GA Parameters}
+Skema pembaruan kontinu memungkinkan koeksistensi penuh antara induk dan keturunan dan biasanya memilih individu untuk bertahan dari set gabungan. Ini menghasilkan tumpang tindih generasional maksimum dan populasi yang sangat bercampur, meskipun dalam praktiknya skema seperti itu kurang umum digunakan dibandingkan dengan penggantian generasional atau steady-state.
 
-The performance of a Genetic Algorithm heavily depends on proper parameter settings~\cite{grefenstette1986optimization, schaffer1989study, de1975analysis}. The main parameters that need to be configured are: 
+\section{Parameter AG}
 
-\subsection{Crossover Probability ($P_c$)}
+Kinerja Algoritma Genetika sangat bergantung pada pengaturan parameter yang tepat~\cite{grefenstette1986optimization, schaffer1989study, de1975analysis}. Parameter utama yang perlu dikonfigurasi adalah:
+
+\subsection{Probabilitas Pindah Silang ($P_c$)}
 \label{sec:crossover-probability}
 
-$P_c$ is the probability that two parents will undergo crossover. If $P_c=100\%$, all offspring are produced through crossover; if $P_c=0\%$, no crossover occurs and offspring are exact copies of parents. Typical values lie in the range $P_c\in[0.65,0.90]$. Higher values (0.8–0.9) encourage exploration, while lower values preserve good solutions but reduce diversity; a standard starting setting is $P_c=0.8$.
-The crossover probability $P_c$ controls how often recombination occurs. Values near 1 (e.g. 0.8–0.9) encourage aggressive mixing of parental material and therefore exploration of the search space, while lower values conserve parental structures and slow the creation of novel combinations. A commonly used default is $P_c\approx0.8$, but the final choice depends on problem characteristics and empirical tuning.
+$P_c$ adalah probabilitas bahwa dua induk akan mengalami pindah silang. Jika $P_c=100\%$, semua keturunan dihasilkan melalui pindah silang; jika $P_c=0\%$, tidak ada pindah silang yang terjadi dan keturunan adalah salinan persis dari induk. Nilai khas berada dalam rentang $P_c\in[0.65,0.90]$. Nilai yang lebih tinggi (0.8–0.9) mendorong eksplorasi, sedangkan nilai yang lebih rendah melestarikan solusi baik tetapi mengurangi keragaman; pengaturan awal standar adalah $P_c=0.8$.
 
-\subsection{Mutation Probability ($P_m$)}
+Probabilitas pindah silang $P_c$ mengontrol seberapa sering rekombinasi terjadi. Nilai mendekati 1 (misalnya 0.8–0.9) mendorong pencampuran agresif materi parental dan oleh karena itu eksplorasi ruang pencarian, sedangkan nilai yang lebih rendah mengkonservasi struktur parental dan memperlambat penciptaan kombinasi baru. Default yang umum digunakan adalah $P_c\approx0.8$, tetapi pilihan akhir tergantung pada karakteristik masalah dan penyetelan empiris.
+
+\subsection{Probabilitas Mutasi ($P_m$)}
 \label{sec:mutation-probability}
 
-$P_m$ is the probability that a gene in an offspring chromosome will undergo mutation. When $P_m=100\%$ all genes are mutated (leading to chaos), and when $P_m=0\%$ no mutation occurs and no new genetic material is introduced. Typical values are small, e.g. $P_m\in[0.005,0.01]$ (0.5%–1%). Common formulas are
-Typical mutation probabilities are very small so that mutations occur infrequently; values in the range $0.5\%$ to $1\%$ per gene are common starting points. Two commonly used heuristics are $P_m=1/L$ (one mutation per chromosome on average) or $P_m=1/(N\times L)$ when scaling mutation relative to total evaluations. Setting $P_m$ too high destroys useful structure, while setting it too low can allow premature convergence through loss of diversity.
+$P_m$ adalah probabilitas bahwa gen dalam kromosom keturunan akan mengalami mutasi. Ketika $P_m=100\%$, semua gen bermutasi (menyebabkan kekacauan), dan ketika $P_m=0\%$, tidak ada mutasi yang terjadi dan tidak ada materi genetik baru yang diperkenalkan. Nilai khas adalah kecil, misalnya $P_m\in[0.005,0.01]$ (0.5%–1%). Formula umum adalah
+
+Probabilitas mutasi khas sangat kecil sehingga mutasi terjadi jarang; nilai dalam rentang $0.5\%$ hingga $1\%$ per gen adalah titik awal yang umum. Dua heuristik yang umum digunakan adalah $P_m=1/L$ (satu mutasi per kromosom rata-rata) atau $P_m=1/(N\times L)$ ketika menskalakan mutasi relatif terhadap total evaluasi. Mengatur $P_m$ terlalu tinggi merusak struktur yang berguna, sedangkan mengaturnya terlalu rendah dapat memungkinkan konvergensi prematur melalui hilangnya keragaman.
+
 \begin{equation}
 P_m = \frac{1}{L}
 \end{equation}
-or
+atau
 \begin{equation}
 P_m = \frac{1}{N \times L}
 \end{equation}
 
-where:
+dengan:
 \begin{itemize}
-    \item $L$ is the chromosome length (number of genes)
-    \item $N$ is the population size
+    \item $L$ adalah panjang kromosom (jumlah gen)
+    \item $N$ adalah ukuran populasi
 \end{itemize}
 
-\textbf{Rationale:} The mutation probability is often set so that, on average, one mutation occurs per chromosome.
+\textbf{Alasan:} Probabilitas mutasi sering diatur sehingga, rata-rata, satu mutasi terjadi per kromosom.
 
-\subsection{Population Size ($N$)}
+\subsection{Ukuran Populasi ($N$)}
 \label{sec:population-size}
 
-The population size should be proportional to the volume of the search space. If the population is too small it may be difficult to reach the global optimum and the search may converge to local optima; if the population is too large it imposes heavy computational cost and can be unnecessary. Typical ranges are $N\in[50,100]$, but the exact value should be determined through experimentation and chosen according to problem complexity and available computational resources.
-Population size $N$ mediates the trade-off between exploratory coverage of the search space and computational cost. Small populations can fail to represent sufficient diversity and may converge to local optima, while excessively large populations increase runtime without proportional gains. As a practical guideline, many problems start with $N$ between 50 and 100 and then adjust based on empirical performance and available compute resources.
+Ukuran populasi harus proporsional dengan volume ruang pencarian. Jika populasi terlalu kecil, mungkin sulit mencapai optimum global dan pencarian dapat konvergen ke optima lokal; jika populasi terlalu besar, ini memberlakukan biaya komputasi yang berat dan dapat tidak perlu. Rentang khas adalah $N\in[50,100]$, tetapi nilai yang tepat harus ditentukan melalui eksperimen dan dipilih sesuai dengan kompleksitas masalah dan sumber daya komputasi yang tersedia.
 
-\subsection{Number of Generations ($G$)}
+Ukuran populasi $N$ memediasi trade-off antara cakupan eksplorasi ruang pencarian dan biaya komputasi. Populasi kecil dapat gagal mewakili keragaman yang cukup dan dapat konvergen ke optima lokal, sedangkan populasi yang terlalu besar meningkatkan waktu eksekusi tanpa keuntungan proporsional. Sebagai panduan praktis, banyak masalah dimulai dengan $N$ antara 50 dan 100 dan kemudian menyesuaikan berdasarkan kinerja empiris dan sumber daya komputasi yang tersedia.
+
+\subsection{Jumlah Generasi ($G$)}
 \label{sec:num-generations}
 
-The number of generations should be proportional to population size and search space size.
-The number of generations $G$ should be chosen in relation to $N$ and the complexity of the search space: larger or more complex problems typically require more generations to converge. Common stopping criteria include a fixed number of generations, a maximum number of fitness evaluations, no improvement for $k$ consecutive generations, reaching a target fitness, or a suitable combination of these conditions.
+Jumlah generasi harus proporsional dengan ukuran populasi dan ukuran ruang pencarian.
 
-\subsection{General Parameter Setting Guidelines}
+Jumlah generasi $G$ harus dipilih dalam kaitannya dengan $N$ dan kompleksitas ruang pencarian: masalah yang lebih besar atau lebih kompleks biasanya memerlukan lebih banyak generasi untuk konvergen. Kriteria penghentian umum meliputi jumlah generasi tetap, jumlah evaluasi kebugaran maksimum, tidak ada perbaikan selama $k$ generasi berturut-turut, mencapai kebugaran target, atau kombinasi yang sesuai dari kondisi-kondisi ini.
+
+\subsection{Pedoman Umum Pengaturan Parameter}
 \label{sec:parameter-guidelines}
 
-	extbf{Important Note:} There are no universal rules for choosing GA parameters~\cite{wolpert1997no, grefenstette1986optimization}. Good settings are typically found through a combination of theoretical heuristics, prior experience, and systematic experimentation. A reasonable starting configuration is to choose a representation suited to the problem (binary, integer, real or permutation), set population size $N$ in the tens to low hundreds (e.g. 50–100), use $P_c\approx0.8$, and set mutation heuristics such as $P_m\approx1/L$ (or scaled variants like $1/(N\times L)$) with subsequent tuning based on results.
+\textbf{Catatan Penting:} Tidak ada aturan universal untuk memilih parameter AG~\cite{wolpert1997no, grefenstette1986optimization}. Pengaturan yang baik biasanya ditemukan melalui kombinasi heuristik teoritis, pengalaman sebelumnya, dan eksperimen sistematis. Konfigurasi awal yang masuk akal adalah memilih representasi yang sesuai dengan masalah (biner, integer, riil atau permutasi), mengatur ukuran populasi $N$ dalam puluhan hingga ratusan rendah (misalnya 50–100), menggunakan $P_c\approx0.8$, dan mengatur heuristik mutasi seperti $P_m\approx1/L$ (atau varian berskala seperti $1/(N\times L)$) dengan penyetelan selanjutnya berdasarkan hasil.
 
-\section{Parameter Observation Study}
+\section{Studi Observasi Parameter}
 
-To understand the effects of different parameters, we present a systematic observation study.
+Untuk memahami efek dari parameter yang berbeda, kami menyajikan studi observasi sistematis.
 
-\subsection{Test Problem}
+\subsection{Masalah Uji}
 
-\textbf{Objective:} Minimize the function:
+\textbf{Tujuan:} Meminimalkan fungsi:
 \begin{equation}
 h(x_1, x_2) = x_1^2 + x_2^2
 \end{equation}
 
-where $x_1, x_2 \in [-10, 10]$
+dengan $x_1, x_2 \in [-10, 10]$
 
-\textbf{Fitness function:}
+\textbf{Fungsi kebugaran:}
 \begin{equation}
-\text{Fitness} = \frac{1}{x_1^2 + x_2^2 + 0.001}
+\text{Kebugaran} = \frac{1}{x_1^2 + x_2^2 + 0.001}
 \end{equation}
 
-The constant 0.001 is added to avoid division by zero at the optimal point $(0, 0)$.
+Konstanta 0.001 ditambahkan untuk menghindari pembagian dengan nol pada titik optimal $(0, 0)$.
 
-\subsection{Experimental Setup}
-	extbf{Experimental setup:} The study varied population size (50, 100, 200), bit precision per variable (10, 50, 90), crossover probability ($P_c\in\{0.5,0.7,0.9\}$), and mutation probability relative to chromosome length (e.g. $0.5/L,\;1/L,\;2/L$). To ensure fair comparisons, each configuration was constrained by a maximum of 20,000 evaluated individuals and was repeated 30 times to obtain reliable statistics.
+\subsection{Pengaturan Eksperimental}
+\textbf{Pengaturan eksperimental:} Studi memvariasikan ukuran populasi (50, 100, 200), presisi bit per variabel (10, 50, 90), probabilitas pindah silang ($P_c\in\{0.5,0.7,0.9\}$), dan probabilitas mutasi relatif terhadap panjang kromosom (misalnya $0.5/L,\;1/L,\;2/L$). Untuk memastikan perbandingan yang adil, setiap konfigurasi dibatasi oleh maksimum 20.000 individu yang dievaluasi dan diulang 30 kali untuk mendapatkan statistik yang andal.
 
-\subsection{Sample Results}
+\subsection{Hasil Sampel}
 
-Table~\ref{tab:ga-parameters} shows selected results from the parameter study:
+Tabel~\ref{tab:ga-parameters} menunjukkan hasil yang dipilih dari studi parameter:
 
 \begin{table}[H]
 \centering
-\caption{GA Parameter Observation Results}
+\caption{Hasil Observasi Parameter AG}
 \label{tab:ga-parameters}
 \begin{tabular}{cccccc}
 \toprule
-\textbf{Pop Size} & \textbf{Bits} & \textbf{$P_c$} & \textbf{$P_m$} & \textbf{Avg Best Fitness} & \textbf{Avg Evaluations} \\
+\textbf{Ukuran Pop} & \textbf{Bit} & \textbf{$P_c$} & \textbf{$P_m$} & \textbf{Rata-rata Kebugaran Terbaik} & \textbf{Rata-rata Evaluasi} \\
 \midrule
 50  & 10 & 0.5 & 0.0250 & 839.55 & 20000 \\
 50  & 50 & 0.5 & 0.0050 & 1000.00 & 8301.67 \\
@@ -342,48 +353,46 @@ Table~\ref{tab:ga-parameters} shows selected results from the parameter study:
 \end{tabular}
 \end{table}
 
-	extbf{Key observations:} The most efficient configuration in these experiments was population size 50 with 90 bits per variable, $P_c=0.7$ and $P_m\approx0.0056$, which consistently reached the optimum (fitness 1000.00) while requiring only about 8780 evaluations on average. Regarding precision, 10 bits were often insufficient to reach the optimum, while 50–90 bits provided the necessary granularity for reliable convergence. Smaller populations (e.g. 50) proved efficient in this test problem, whereas larger populations (e.g. 200) offered more robustness at greater computational cost — a classic speed-versus-reliability trade-off. Crossover probabilities around 0.7 tended to balance exploration and exploitation effectively. Finally, low mutation rates on the order of $1/L$ worked best: rates that were too high introduced disruptive randomness, while rates that were too low reduced diversity and risked premature convergence.
+\textbf{Pengamatan kunci:} Konfigurasi paling efisien dalam eksperimen ini adalah ukuran populasi 50 dengan 90 bit per variabel, $P_c = 0.7$ dan $P_m \approx 0.0056$, yang secara konsisten mencapai optimum (fitness 1000.00) sambil hanya memerlukan sekitar 8780 evaluasi rata-rata. Mengenai presisi, 10 bit sering kali tidak cukup untuk mencapai optimum, sedangkan 50–90 bit memberikan granularitas yang diperlukan untuk konvergensi yang andal. Populasi yang lebih kecil (misalnya 50) terbukti efisien dalam masalah uji ini, sedangkan populasi yang lebih besar (misalnya 200) menawarkan lebih banyak ketahanan dengan biaya komputasi yang lebih besar — sebuah trade-off klasik antara kecepatan dan keandalan. Probabilitas pindah silang sekitar $0.7$ cenderung menyeimbangkan eksplorasi dan eksploitasi secara efektif. Akhirnya, tingkat mutasi rendah pada orde $1/L$ bekerja paling baik: tingkat yang terlalu tinggi memperkenalkan keacakan yang mengganggu, sementara tingkat yang terlalu rendah mengurangi keragaman dan meningkatkan risiko konvergensi prematur.
 
-\section{Exercises}
-
+\section{Latihan}
 \begin{enumerate}
-    \item Given the two parent chromosomes for a permutation problem:
-    \begin{itemize}
-        \item Parent 1: [1, 2, 7, 3, 4, 9, 8, 6, 5]
-        \item Parent 2: [5, 4, 3, 9, 1, 2, 6, 8, 7]
-    \end{itemize}
-    \begin{enumerate}
-        \item Perform Partial-Mapped Crossover (PMX) with cut points at positions 2 and 5
-        \item Apply inversion mutation to the offspring with mutation segment from locus 2 to 5
-    \end{enumerate}
-    
-    \item For a binary-encoded GA with chromosome length $L = 50$ and population size $N = 100$:
-    \begin{enumerate}
-        \item Calculate appropriate mutation probability using $P_m = 1/L$
-        \item Calculate alternative mutation probability using $P_m = 1/(N \times L)$
-        \item Discuss which might be more appropriate and why
-    \end{enumerate}
-    
-    \item Design a mutation operator for a real-valued chromosome representing $(x, y)$ coordinates where $x, y \in [-100, 100]$:
-    \begin{enumerate}
-        \item Implement uniform mutation
-        \item Implement Gaussian mutation with $\sigma = 5$
-        \item Compare the expected behavior of both operators
-    \end{enumerate}
-    
-    \item Implement and compare three generation update strategies:
-    \begin{enumerate}
-        \item Generational replacement with elitism ($k=2$)
-        \item Steady-state with replacement of worst individuals
-        \item Steady-state with replacement of oldest individuals
-    \end{enumerate}
-    Discuss scenarios where each might be preferred.
-    
-    \item For the test function $f(x_1, x_2) = x_1^2 + x_2^2$ with $x_1, x_2 \in [-10, 10]$:
-    \begin{enumerate}
-        \item Design a complete GA including all parameters
-        \item Run experiments with different parameter combinations
-        \item Analyze which parameters have the most significant impact
-        \item Propose an optimal parameter configuration based on your results
-    \end{enumerate}
+\item Diberikan dua kromosom induk untuk masalah permutasi:
+\begin{itemize}
+\item Induk 1: [1, 2, 7, 3, 4, 9, 8, 6, 5]
+\item Induk 2: [5, 4, 3, 9, 1, 2, 6, 8, 7]
+\end{itemize}
+\begin{enumerate}
+\item Lakukan Partial-Mapped Crossover (PMX) dengan titik potong pada posisi 2 dan 5
+\item Terapkan mutasi inversi pada keturunan dengan segmen mutasi dari lokus 2 hingga 5
+\end{enumerate}
+\item Untuk GA dengan pengkodean biner dengan panjang kromosom $L = 50$ dan ukuran populasi $N = 100$:
+\begin{enumerate}
+    \item Hitung probabilitas mutasi yang sesuai menggunakan $P_m = 1/L$
+    \item Hitung probabilitas mutasi alternatif menggunakan $P_m = 1/(N \times L)$
+    \item Diskusikan mana yang mungkin lebih sesuai dan mengapa
+\end{enumerate}
+
+\item Rancang operator mutasi untuk kromosom bernilai riil yang mewakili koordinat $(x, y)$ di mana $x, y \in [-100, 100]$:
+\begin{enumerate}
+    \item Implementasikan mutasi seragam
+    \item Implementasikan mutasi Gaussian dengan $\sigma = 5$
+    \item Bandingkan perilaku yang diharapkan dari kedua operator
+\end{enumerate}
+
+\item Implementasikan dan bandingkan tiga strategi pembaruan generasi:
+\begin{enumerate}
+    \item Penggantian generasional dengan elitisme ($k=2$)
+    \item Steady-state dengan penggantian individu terburuk
+    \item Steady-state dengan penggantian individu tertua
+\end{enumerate}
+Diskusikan skenario di mana masing-masing mungkin lebih disukai.
+
+\item Untuk fungsi uji $f(x_1, x_2) = x_1^2 + x_2^2$ dengan $x_1, x_2 \in [-10, 10]$:
+\begin{enumerate}
+    \item Rancang GA lengkap termasuk semua parameter
+    \item Jalankan eksperimen dengan kombinasi parameter yang berbeda
+    \item Analisis parameter mana yang memiliki dampak paling signifikan
+    \item Usulkan konfigurasi parameter optimal berdasarkan hasil Anda
+\end{enumerate}
 \end{enumerate}

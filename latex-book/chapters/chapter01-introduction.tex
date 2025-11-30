@@ -1,40 +1,39 @@
-\chapter{Introduction to Optimization and Evolutionary Computation}
+\chapter{Pengantar Optimasi dan Komputasi Evolusioner}
 
-  Genetic algorithms (GAs) are population-based search methods inspired by natural selection and genetics. They maintain a population of candidate solutions encoded as strings, iteratively producing new generations by selecting the fittest individuals, recombining their information, and occasionally introducing random variation. Although stochastic in their operators, GAs are not blind random walks: they retain and exploit historical information about good solutions to generate promising new search points and thereby drive efficient exploration and exploitation of complex spaces.
+  Algoritma genetika (GA) adalah metode pencarian berbasis populasi yang terinspirasi dari seleksi alam dan genetika. Mereka mempertahankan populasi solusi kandidat yang dikodekan sebagai string, secara iteratif menghasilkan generasi baru dengan memilih individu terbaik, menggabungkan informasi mereka, dan terkadang memperkenalkan variasi acak. Meskipun stokastik dalam operatornya, GA bukan random walk buta: mereka mempertahankan dan mengeksploitasi informasi historis tentang solusi yang baik untuk menghasilkan titik pencarian baru yang menjanjikan dan dengan demikian mendorong eksplorasi dan eksploitasi ruang kompleks yang efisien.
 
-  This family of methods was developed from foundational work by Holland and colleagues to both model adaptive processes observed in nature and to design artificial systems that embody those mechanisms. A central aim has been robustness—the ability to balance efficiency with reliability across a wide range of problem environments—which makes GAs attractive when redesign costs are high or when problem structure violates common assumptions (e.g., continuity, differentiability, or unimodality). Because they are conceptually simple, widely applicable, and empirically effective in optimization and control, genetic algorithms have become a practical tool across engineering, science, and business domains \cite{goldberg1989genetic}.
+  Keluarga metode ini dikembangkan dari karya fundamental Holland dan rekan-rekannya untuk memodelkan proses adaptif yang diamati di alam dan merancang sistem buatan yang mewujudkan mekanisme tersebut. Tujuan utamanya adalah ketahanan—kemampuan untuk menyeimbangkan efisiensi dengan keandalan di berbagai lingkungan masalah—yang membuat GA menarik ketika biaya perancangan ulang tinggi atau ketika struktur masalah melanggar asumsi umum (misalnya, kontinuitas, diferensiabilitas, atau unimodalitas). Karena mereka secara konseptual sederhana, dapat diterapkan secara luas, dan efektif secara empiris dalam optimasi dan kontrol, algoritma genetika telah menjadi alat praktis di berbagai domain teknik, sains, dan bisnis \cite{goldberg1989genetic}.
 
-  To place genetic algorithms in context, we first give a concise definition of optimization — the class of problems GAs are commonly used to solve.
-    We define optimization as the process of finding the best solution from a set of available alternatives. In mathematical terms, an optimization problem can be formulated as:
+  Untuk menempatkan algoritma genetika dalam konteks, pertama-tama kami memberikan definisi ringkas tentang optimasi — kelas masalah yang biasanya diselesaikan menggunakan GA.
+    Kami mendefinisikan optimasi sebagai proses menemukan solusi terbaik dari sekumpulan alternatif yang tersedia. Dalam istilah matematis, masalah optimasi dapat diformulasikan sebagai:
 
   \begin{equation}
   \begin{aligned}
-  \text{minimize (or maximize)} \quad & f(x) \\
-  \text{subject to} \quad & g_i(x) \leq 0, \quad i = 1, 2, \ldots, m \\
+  \text{minimumkan (atau maksimumkan)} \quad & f(x) \\
+  \text{dengan batasan} \quad & g_i(x) \leq 0, \quad i = 1, 2, \ldots, m \\
   & h_j(x) = 0, \quad j = 1, 2, \ldots, p \\
   & x \in X
   \end{aligned}
   \end{equation}
 
-  where:
+  di mana:
   \begin{itemize}
-      \item $f(x)$ is the objective function to be optimized
-      \item $g_i(x)$ are inequality constraints
-      \item $h_j(x)$ are equality constraints
-      \item $X$ is the feasible region
+      \item $f(x)$ adalah fungsi objektif yang akan dioptimasi
+      \item $g_i(x)$ adalah batasan ketidaksetaraan
+      \item $h_j(x)$ adalah batasan persamaan
+      \item $X$ adalah wilayah yang layak
   \end{itemize}
 
-    Optimization problems differ by variable types (discrete, continuous, or mixed-integer) and by structural properties such as linearity, convexity, and the number of objectives. 
-    Traditional solution methods include gradient-based techniques (e.g., Newton and quasi-Newton methods) for smooth continuous problems, linear programming (Simplex and interior-point methods) for linear models, and discrete methods (branch-and-bound, dynamic programming) for combinatorial problems. 
-    However, these traditional methods have limitations when applied to many complex real-world problems. In the following sections we highlight three key challenges where conventional approaches often struggle, and explain how genetic algorithms can help address them.
+    Masalah optimasi berbeda berdasarkan jenis variabel (diskrit, kontinu, atau mixed-integer) dan berdasarkan properti struktural seperti linearitas, konveksitas, dan jumlah objektif. 
+    Metode solusi tradisional mencakup teknik berbasis gradien (misalnya, metode Newton dan quasi-Newton) untuk masalah kontinu halus, pemrograman linear (metode Simplex dan interior-point) untuk model linear, dan metode diskrit (branch-and-bound, pemrograman dinamis) untuk masalah kombinatorial. 
+    Namun, metode tradisional ini memiliki keterbatasan ketika diterapkan pada banyak masalah dunia nyata yang kompleks. Dalam bagian berikut kami menyoroti tiga tantangan utama di mana pendekatan konvensional sering mengalami kesulitan, dan menjelaskan bagaimana algoritma genetika dapat membantu mengatasinya.
 
 
-    The first problem with traditional optimization methods is their tendency to get trapped in local optima.
-    In multi-modal landscapes with many peaks and valleys, gradient-based searches can converge to a local 
-    optimum rather than the global optimum. This happens because these methods rely on local gradient 
-    information to guide the search process. When the search reaches a local optimum, the gradient 
-    becomes zero, causing the algorithm to stop progressing. This limitation is particularly 
-    problematic in high-dimensional spaces where the number of local optima can grow exponentially.
+    Masalah pertama dengan metode optimasi tradisional adalah kecenderungan mereka untuk terjebak dalam optimum lokal.
+    Dalam lanskap multi-modal dengan banyak puncak dan lembah, pencarian berbasis gradien dapat konvergen ke 
+    optimum lokal daripada optimum global. Ini terjadi karena metode-metode ini bergantung pada informasi gradien lokal untuk memandu proses pencarian. Ketika pencarian mencapai optimum lokal, gradien 
+    menjadi nol, menyebabkan algoritma berhenti berkembang. Keterbatasan ini terutama 
+    bermasalah dalam ruang berdimensi tinggi di mana jumlah optimum lokal dapat tumbuh secara eksponensial.
 
   \begin{figure}[H]
     \centering
@@ -47,32 +46,32 @@
       ymax=4,
       xlabel={$x$},
       ylabel={$f(x)$},
-      title={Gradient Descent Getting Trapped in Local Minimum},
+      title={Gradient Descent Terjebak dalam Minimum Lokal},
       grid=major,
       legend pos=north west,
     ]
-    % Multi-modal function
+    % Fungsi multi-modal
     \addplot[blue, thick, domain=-5:5, samples=200] {sin(deg(x))*3 + 0.1*x^2 - 2};
-    \addlegendentry{Objective Function}
+    \addlegendentry{Fungsi Objektif}
 
-    % Local minimum point
+    % Titik minimum lokal
     \addplot[red, mark=*, mark size=3pt] coordinates {(-4.5, -1.8)};
-    \node[red] at (axis cs:-4.5,-0.8) {Local Minimum (Trapped)};
+    \node[red] at (axis cs:-4.5,-0.8) {Minimum Lokal (Terjebak)};
 
-    % Global minimum point
+    % Titik minimum global
     \addplot[green!60!black, mark=*, mark size=3pt] coordinates {(1.5, -3.2)};
-    \node[green!60!black] at (axis cs:1.5,-2.2) {Global Minimum};
+    \node[green!60!black] at (axis cs:1.5,-2.2) {Minimum Global};
 
-    % Gradient descent path
+    % Jalur gradient descent
     \addplot[red, thick, ->] coordinates {(-3.5, 0.5) (-4.2, -1.2) (-4.5, -1.8)};
-    \node[red] at (axis cs:-3.5,1.2) {Gradient Path};
+    \node[red] at (axis cs:-3.5,1.2) {Jalur Gradien};
     \end{axis}
     \end{tikzpicture}
-    \caption{Traditional gradient-based methods follow the local gradient and become trapped in local optima, unable to escape to find the global optimum.}
+    \caption{Metode berbasis gradien tradisional mengikuti gradien lokal dan menjadi terjebak dalam optimum lokal, tidak mampu melarikan diri untuk menemukan optimum global.}
   \end{figure}
 
-  The second problem with gradient-based methods is that they require the objective function to be differentiable. This becomes a significant limitation when dealing with real-world problems that involve discontinuities, sharp corners, or discrete jumps.
-  Such problems are common in engineering design, scheduling, and combinatorial optimization.
+  Masalah kedua dengan metode berbasis gradien adalah bahwa mereka memerlukan fungsi objektif yang dapat didiferensiasikan. Ini menjadi keterbatasan signifikan ketika menangani masalah dunia nyata yang melibatkan diskontinuitas, sudut tajam, atau lompatan diskrit.
+  Masalah seperti itu umum dalam desain teknik, penjadwalan, dan optimasi kombinatorial.
 
   \begin{figure}[H]
   \centering
@@ -82,37 +81,30 @@
       height=6cm,
       xlabel={$x$},
       ylabel={$f(x)$},
-      title={Non-Differentiable Function Example},
+      title={Contoh Fungsi Non-Differensiable},
       grid=major,
       ymin=-2,
       ymax=3,
   ]
-  % Piecewise function with discontinuities
+  % Fungsi piecewise dengan diskontinuitas
   \addplot[blue, thick, domain=-3:-0.5, samples=50] {x + 1};
   \addplot[blue, thick, domain=-0.5:0.5, samples=50] {-2*x};
   \addplot[blue, thick, domain=0.5:2, samples=50] {x^2 - 1};
   \addplot[blue, thick, domain=2:3, samples=50] {-x + 5};
 
-  % Mark discontinuities
+  % Menandai diskontinuitas
   \addplot[red, mark=*, mark size=3pt, only marks] coordinates {(-0.5, 0.5) (0.5, -1) (2, 3)};
-  \node[red] at (axis cs:1, 2.5) {Non-differentiable points};
+  \node[red] at (axis cs:1, 2.5) {Titik non-differensiable};
   \draw[red, dashed, ->] (axis cs:1, 2.3) -- (axis cs:0.5, -0.5);
 
-  \node[blue] at (axis cs:-2, -1.5) {\textcolor{red}{\textbf{×}} Gradient-based methods fail};
+  \node[blue] at (axis cs:-2, -1.5) {\textcolor{red}{\textbf{×}} Metode berbasis gradien gagal};
   \end{axis}
   \end{tikzpicture}
-  \caption{Functions with discontinuities, sharp corners, or discrete jumps cannot be optimized using gradient-based methods.}
+  \caption{Fungsi dengan diskontinuitas, sudut tajam, atau lompatan diskrit tidak dapat dioptimalkan menggunakan metode berbasis gradien.}
   \end{figure}
 
-  % \textbf{How GAs Address This:}
-  % \begin{itemize}[leftmargin=*]
-  %     \item \textbf{Derivative-free}: GAs only require the ability to evaluate the fitness function, not compute derivatives
-  %     \item \textbf{Black-box optimization}: Can handle any function that can be evaluated, regardless of mathematical properties
-  %     \item \textbf{Handles discontinuities}: Works equally well with continuous, discrete, or mixed-variable problems
-  % \end{itemize}
 
-
-    While discrete methods such as dynamic programming can handle discontinuities and combinatorial structure, both gradient-based and exact discrete algorithms suffer from the curse of dimensionality: computation typically becomes intractable as problem dimensionality grows.
+    Sementara metode diskrit seperti pemrograman dinamis dapat menangani diskontinuitas dan struktur kombinatorial, baik algoritma berbasis gradien maupun algoritma diskrit eksak mengalami kutukan dimensionalitas: komputasi biasanya menjadi tidak dapat dilacak seiring dimensi masalah tumbuh.
 
   \begin{figure}[H]
   \centering
@@ -120,14 +112,14 @@
   \begin{axis}[
       width=12cm,
       height=7cm,
-      xlabel={Problem Dimension ($n$)},
-      ylabel={Computation Time (log scale)},
-      title={Computational Complexity Comparison},
+      xlabel={Dimensi Masalah ($n$)},
+      ylabel={Waktu Komputasi (skala log)},
+      title={Perbandingan Kompleksitas Komputasi},
       ymode=log,
       legend pos=north west,
       grid=major,
   ]
-  % Exponential growth for traditional methods
+  % Pertumbuhan eksponensial untuk metode tradisional
   \addplot[red, thick, mark=square*] coordinates {
       (5, 10)
       (10, 100)
@@ -135,9 +127,9 @@
       (20, 10000)
       (25, 100000)
   };
-  \addlegendentry{Dynamic Programming $O(2^n)$}
+  \addlegendentry{Pemrograman Dinamis $O(2^n)$}
 
-  % Polynomial growth for Newton
+  % Pertumbuhan polinomial untuk Newton
   \addplot[orange, thick, mark=triangle*] coordinates {
       (5, 50)
       (10, 200)
@@ -145,109 +137,85 @@
       (20, 800)
       (25, 1250)
   };
-  \addlegendentry{Newton's Method $O(n^3)$}
-
-  % % Linear-like growth for GA
-  % \addplot[green!60!black, thick, mark=*] coordinates {
-  %     (5, 20)
-  %     (10, 35)
-  %     (15, 50)
-  %     (20, 65)
-  %     (25, 80)
-  %     (50, 155)
-  %     (100, 305)
-  % };
-  % \addlegendentry{Genetic Algorithm (approximate)}
+  \addlegendentry{Metode Newton $O(n^3)$}
 
   \end{axis}
   \end{tikzpicture}
-    \caption{Traditional optimization methods often exhibit exponential or high polynomial growth in computation time as problem dimensionality increases, making them impractical for large-scale problems.}
+    \caption{Metode optimasi tradisional sering menunjukkan pertumbuhan eksponensial atau polinomial tinggi dalam waktu komputasi seiring dimensi masalah meningkat, membuat mereka tidak praktis untuk masalah skala besar.}
   \end{figure}
 
-  % \textbf{How GAs Address This:}
-  % \begin{itemize}[leftmargin=*]
-  %     \item \textbf{Heuristic approach}: Trade optimality guarantee for computational efficiency
-  %     \item \textbf{Parallel evaluation}: Population members can be evaluated in parallel
-  %     \item \textbf{Scalability}: Computational cost grows more gracefully with problem size
-  % \end{itemize}
-  %
 
-
-
-    Therefore, we can summarize how genetic algorithms effectively address the fundamental limitations of traditional optimization methods in the following table:
+    Oleh karena itu, kita dapat merangkum bagaimana algoritma genetika secara efektif mengatasi keterbatasan fundamental metode optimasi tradisional dalam tabel berikut:
   \begin{figure}[H]
   \centering
   \begin{tikzpicture}[scale=0.9]
-      % Comparison rows
-      \node[font=\bfseries] at (1, 4) {Feature};
-      \node[font=\bfseries] at (7, 4) {Traditional};
+      % Baris perbandingan
+      \node[font=\bfseries] at (1, 4) {Fitur};
+      \node[font=\bfseries] at (7, 4) {Tradisional};
       \node[font=\bfseries] at (12, 4) {GA};
       
       \draw[gray] (0, 3.7) -- (14, 3.7);
       
-      \node[align=left] at (2, 3) {Search Strategy};
-      \node[red] at (7, 3) {Local};
+      \node[align=left] at (2, 3) {Strategi Pencarian};
+      \node[red] at (7, 3) {Lokal};
       \node[green!60!black] at (12, 3) {Global};
       
-      \node[align=left] at (2, 2.2) {Parallelization};
-      \node[red] at (7, 2.2) {Difficult};
-      \node[green!60!black] at (12, 2.2) {Natural};
+      \node[align=left] at (2, 2.2) {Paralelisasi};
+      \node[red] at (7, 2.2) {Sulit};
+      \node[green!60!black] at (12, 2.2) {Alami};
       
-      \node[align=left] at (2, 1.4) {Multi-objective};
-      \node[red] at (7, 1.4) {Complex};
-      \node[green!60!black] at (12, 1.4) {Built-in};
+      \node[align=left] at (2, 1.4) {Multi-objektif};
+      \node[red] at (7, 1.4) {Kompleks};
+      \node[green!60!black] at (12, 1.4) {Bawaan};
       
-      \node[align=left] at (2, 0.6) {Constraint Handling};
-      \node[orange] at (7, 0.6) {Moderate};
-      \node[green!60!black] at (12, 0.6) {Flexible};
+      \node[align=left] at (2, 0.6) {Penanganan Batasan};
+      \node[orange] at (7, 0.6) {Sedang};
+      \node[green!60!black] at (12, 0.6) {Fleksibel};
   \end{tikzpicture}
-  \caption{Comprehensive comparison showing how GAs address the fundamental limitations of traditional optimization methods.}
+  \caption{Perbandingan komprehensif menunjukkan bagaimana GA mengatasi keterbatasan fundamental metode optimasi tradisional.}
   \end{figure}
 
-  \section{Introduction to Evolutionary Computation}
-  Evolutionary computation is a family of stochastic, population-based search algorithms inspired by the principles of biological evolution~\cite{holland1975adaptation, eiben2015introduction}. Members of this family operate on a population of candidate solutions and repeatedly apply selection (the principle of survival of the fittest), recombination or crossover (to exchange information between solutions), and mutation (to introduce novel variation). These mechanisms allow evolutionary algorithms to retain and recombine useful solution components while continuously exploring new regions of the search space.
+  \section{Pengantar Komputasi Evolusioner}
+  Komputasi evolusioner adalah keluarga algoritma pencarian stokastik berbasis populasi yang terinspirasi oleh prinsip-prinsip evolusi biologis~\cite{holland1975adaptation, eiben2015introduction}. Anggota keluarga ini beroperasi pada populasi solusi kandidat dan berulang kali menerapkan seleksi (prinsip survival of the fittest), rekombinasi atau crossover (untuk bertukar informasi antar solusi), dan mutasi (untuk memperkenalkan variasi baru). Mekanisme ini memungkinkan algoritma evolusioner untuk mempertahankan dan menggabungkan kembali komponen solusi yang berguna sambil terus mengeksplorasi wilayah baru dari ruang pencarian.
 
-  These properties give evolutionary approaches a number of practical advantages for difficult optimization problems. Because they are derivative-free and only require function evaluations, evolutionary methods are naturally suited to black-box optimization problems, including objective functions that are discontinuous, noisy, non-differentiable, or subject to discrete jumps. Their population-based search confers robustness against local optima and permits straightforward parallel evaluation of candidate solutions, which is valuable for expensive fitness evaluations. While evolutionary algorithms do not generally provide formal optimality guarantees, with appropriate representation and operators they offer reliable heuristic performance across a wide variety of continuous, discrete, and mixed-variable domains.
+  Properti ini memberikan pendekatan evolusioner sejumlah keuntungan praktis untuk masalah optimasi yang sulit. Karena mereka bebas turunan dan hanya memerlukan evaluasi fungsi, metode evolusioner secara alami cocok untuk masalah optimasi black-box, termasuk fungsi objektif yang diskontinu, bising, tidak dapat didiferensiasikan, atau mengalami lompatan diskrit. Pencarian berbasis populasi mereka memberikan ketahanan terhadap optimum lokal dan memungkinkan evaluasi paralel kandidat solusi secara langsung, yang berharga untuk evaluasi fitness yang mahal. Sementara algoritma evolusioner umumnya tidak memberikan jaminan optimalitas formal, dengan representasi dan operator yang tepat mereka menawarkan kinerja heuristik yang andal di berbagai domain variabel kontinu, diskrit, dan campuran.
 
-  The field of evolutionary computation includes several well-established families, each emphasizing different design choices. Genetic Algorithms (GAs) were among the earliest and most influential formulations, emphasizing fixed-length encodings and biologically inspired crossover and mutation operators~\cite{holland1975adaptation, goldberg1989genetic}. Evolution Strategies (ES) concentrate on self-adaptive mutation strategies and are especially effective for real-valued, continuous optimization~\cite{back1996evolutionary}. Evolutionary Programming (EP) historically focused on the evolution of behavioral models and stochastic mutation schemes rather than explicit recombination~\cite{fogel1995evolutionary, fogel2006evolutionary}. Genetic Programming (GP) extends the framework to variable-length structures such as computer programs and expression trees, enabling automatic program synthesis~\cite{koza1992genetic}.
+  Bidang komputasi evolusioner mencakup beberapa keluarga yang mapan, masing-masing menekankan pilihan desain yang berbeda. Algoritma Genetika (GA) adalah salah satu formulasi paling awal dan paling berpengaruh, menekankan pengkodean panjang tetap dan operator crossover dan mutasi yang terinspirasi secara biologis~\cite{holland1975adaptation, goldberg1989genetic}. Strategi Evolusi (ES) berkonsentrasi pada strategi mutasi yang dapat beradaptasi sendiri dan sangat efektif untuk optimasi kontinu bernilai nyata~\cite{back1996evolutionary}. Pemrograman Evolusioner (EP) secara historis fokus pada evolusi model perilaku dan skema mutasi stokastik daripada rekombinasi eksplisit~\cite{fogel1995evolutionary, fogel2006evolutionary}. Pemrograman Genetika (GP) memperluas kerangka kerja ke struktur panjang variabel seperti program komputer dan pohon ekspresi, memungkinkan sintesis program otomatis~\cite{koza1992genetic}.
 
-  Evolutionary algorithms have been applied successfully across engineering, science, and business. In engineering design they are used to optimize configurations of complex systems where objective evaluations may be expensive or non-differentiable~\cite{yildiz2023novel}. In machine learning, evolutionary methods have been used both to evolve neural network architectures and to optimize weights when gradient information is unavailable or unreliable~\cite{montana1989training, murad2025hybrid}. Scheduling, timetabling, routing (including the Travelling Salesman Problem), and other combinatorial problems are natural applications because of flexible encodings and bespoke recombination operators that respect problem structure~\cite{gu2022hybrid, fajrin2020multi}. Beyond these domains, evolutionary computation has found roles in bioinformatics, financial modeling, and automated game-play strategy design, demonstrating broad practical utility~\cite{gen2007genetic, sivanandam2008introduction, eiben2015introduction}.
+  Algoritma evolusioner telah berhasil diterapkan di berbagai bidang teknik, sains, dan bisnis. Dalam desain teknik mereka digunakan untuk mengoptimalkan konfigurasi sistem kompleks di mana evaluasi objektif mungkin mahal atau tidak dapat didiferensiasikan~\cite{yildiz2023novel}. Dalam pembelajaran mesin, metode evolusioner telah digunakan baik untuk mengembangkan arsitektur jaringan saraf dan untuk mengoptimalkan bobot ketika informasi gradien tidak tersedia atau tidak dapat diandalkan~\cite{montana1989training, murad2025hybrid}. Penjadwalan, pembuatan jadwal waktu, perutean (termasuk Travelling Salesman Problem), dan masalah kombinatorial lainnya adalah aplikasi alami karena pengkodean yang fleksibel dan operator rekombinasi khusus yang menghormati struktur masalah~\cite{gu2022hybrid, fajrin2020multi}. Di luar domain ini, komputasi evolusioner telah menemukan peran dalam bioinformatika, pemodelan keuangan, dan desain strategi permainan otomatis, menunjukkan utilitas praktis yang luas~\cite{gen2007genetic, sivanandam2008introduction, eiben2015introduction}.
 
-  To make these ideas concrete, consider two compact examples commonly used for pedagogical illustration. A simple toy problem is maximizing the quadratic function $f(x)=x^2$ on the discrete domain $0\leq x\leq31$. With a binary encoding (5-bit chromosomes), repeated cycles of selection, crossover, and mutation concentrate building blocks that represent higher values of $x$ until, typically within a few generations, individuals encoding the optimum ($x=31$) dominate the population. This example highlights how recombination accumulates useful partial solutions (building blocks) even when the initial population is random.
+  Untuk membuat ide-ide ini konkret, pertimbangkan dua contoh ringkas yang biasa digunakan untuk ilustrasi pedagogis. Masalah mainan sederhana adalah memaksimalkan fungsi kuadrat $f(x)=x^2$ pada domain diskrit $0\leq x\leq31$. Dengan pengkodean biner (kromosom 5-bit), siklus berulang seleksi, crossover, dan mutasi mengkonsentrasikan blok bangunan yang mewakili nilai $x$ yang lebih tinggi sampai, biasanya dalam beberapa generasi, individu yang mengkodekan optimum ($x=31$) mendominasi populasi. Contoh ini menyoroti bagaimana rekombinasi mengakumulasi solusi parsial yang berguna (blok bangunan) bahkan ketika populasi awal acak.
 
-  In a more challenging combinatorial example, the Travelling Salesman Problem (TSP) asks for a shortest tour visiting a set of cities. Genetic Algorithms for TSP use representations and crossover operators that preserve city-order properties (for example, order- or position-based crossovers) and mutation operators that perform local perturbations of tours. While GAs do not guarantee optimality for NP-hard problems like the TSP, they often produce high-quality approximate solutions quickly and can be combined with local search (hybrid approaches) for further improvement.
+  Dalam contoh kombinatorial yang lebih menantang, Travelling Salesman Problem (TSP) meminta tur terpendek yang mengunjungi sekumpulan kota. Algoritma Genetika untuk TSP menggunakan representasi dan operator crossover yang mempertahankan properti urutan kota (misalnya, crossover berbasis urutan atau posisi) dan operator mutasi yang melakukan gangguan lokal tur. Sementara GA tidak menjamin optimalitas untuk masalah NP-hard seperti TSP, mereka sering menghasilkan solusi perkiraan berkualitas tinggi dengan cepat dan dapat dikombinasikan dengan pencarian lokal (pendekatan hibrid) untuk peningkatan lebih lanjut.
 
   \begin{figure}[h]
   \centering
   \includegraphics[width=0.7\textwidth]{figures/buku_ajar_page_4.png}
-  \caption{Illustration of GA cycle and variations}
+  \caption{Ilustrasi siklus GA dan variasinya}
   \label{fig:ga_intro_cycle}
   \end{figure}
 
 
-    % Note: the detailed, domain-specific examples that previously followed (scheduling, network design, VLSI) were removed here to avoid repetition with the earlier "Applications" section. Key examples remain in the "Applications of Evolutionary Computation" section above.
+  Meskipun Algoritma Genetika Generasi Sederhana berfungsi sebagai kerangka dasar, berbagai modifikasi telah dikembangkan untuk meningkatkan kinerja dalam menangani kompleksitas masalah. Beberapa modifikasi ini termasuk varian yang telah dipelajari dengan baik berikut.
 
+  Algoritma Genetika Hibrid menggabungkan pencarian evolusioner global dengan prosedur peningkatan lokal yang ditargetkan untuk mengeksploitasi kekuatan komplementer dari kedua paradigma. Desain hibrid tipikal menggunakan GA untuk eksplorasi luas sambil menerapkan pencarian lokal deterministik atau stokastik (misalnya, hill-climbing, pencarian tabu, atau heuristik khusus masalah) untuk menyempurnakan individu terpilih atau solusi terbaik yang ditemukan sejauh ini. Dengan menggabungkan diversifikasi dan intensifikasi, metode hibrid sering mencapai konvergensi lebih cepat dan hasil berkualitas lebih tinggi pada tugas optimasi praktis~\cite{majhi2025novel, murad2025hybrid}.
 
-  Although the Simple Generational Genetic Algorithm serves as the basic framework, various modifications have been developed to improve performance in dealing with problem complexity. Some of these modifications include the following well-studied variants.
+  Algoritma Genetika Adaptif memodifikasi parameter kontrol secara online menggunakan umpan balik dari statistik populasi seperti tingkat peningkatan fitness, keberhasilan operator, atau ukuran keragaman genetik. Adaptasi dapat diimplementasikan secara eksternal melalui aturan kontrol atau secara internal dengan mengkodekan parameter dalam individu sehingga evolusi itu sendiri memilih pengaturan yang efektif. Mekanisme ini mengurangi penyetelan manual dan membantu mempertahankan keseimbangan eksplorasi-eksploitasi yang produktif di berbagai fase pencarian~\cite{shams2025resolving, srinivas1994genetic}.
 
-  Hybrid Genetic Algorithms combine global evolutionary search with targeted local improvement procedures to exploit the complementary strengths of both paradigms. Typical hybrid designs use a GA for broad exploration while applying deterministic or stochastic local searches (for example, hill-climbing, tabu search, or problem-specific heuristics) to refine selected individuals or the best solutions found so far. By coupling diversification and intensification, hybrid methods often achieve faster convergence and higher-quality results on practical optimization tasks~\cite{majhi2025novel, murad2025hybrid}.
+  Algoritma Genetika Paralel mengeksploitasi perangkat keras paralel modern dengan mendistribusikan komputasi dan/atau struktur populasi. Model berbutir kasar (pulau) memegang sub-populasi pada prosesor yang berbeda dengan migrasi sesekali untuk berbagi informasi; model berbutir halus atau master-slave memparalelkan evaluasi fitness untuk mengurangi waktu wall-clock. Paralelisme tidak hanya mempercepat komputasi tetapi juga dapat meningkatkan ketahanan pencarian dengan melestarikan banyak relung dan mengurangi konvergensi prematur~\cite{eiben2015introduction}.
+    \section{Variasi Algoritma Genetika}
 
-  Adaptive Genetic Algorithms modify control parameters online using feedback from population statistics such as fitness improvement rates, operator success, or measures of genetic diversity. Adaptation can be implemented externally via control rules or internally by encoding parameters within individuals so that evolution itself selects effective settings. These mechanisms reduce manual tuning and help maintain a productive exploration–exploitation balance across different phases of the search~\cite{shams2025resolving, srinivas1994genetic}.
+    Meskipun Algoritma Genetika generasi sederhana berfungsi sebagai kerangka dasar, berbagai modifikasi telah dikembangkan untuk meningkatkan kinerja pada masalah kompleks. Variasi umum meliputi:
 
-  Parallel Genetic Algorithms exploit modern parallel hardware by distributing computation and/or population structure. Coarse-grained (island) models hold sub-populations on different processors with occasional migration to share information; fine-grained or master–slave models parallelize fitness evaluations to reduce wall-clock time. Parallelism not only accelerates computation but can also enhance search robustness by preserving multiple niches and reducing premature convergence~\cite{eiben2015introduction}.
-    \section{Genetic Algorithm Variations}
-
-    Although the simple generational Genetic Algorithm serves as the basic framework, various modifications have been developed to improve performance on complex problems. Common variations include:
-
-    \subsection{Overview}
+    \subsection{Tinjauan}
     \begin{itemize}
-        \item \textbf{Hybrid GA:} Combines Genetic Algorithms with local search or other optimization methods to refine promising solutions after global exploration~\cite{majhi2025novel, murad2025hybrid}.
-        \item \textbf{Adaptive GA:} Dynamically adjusts parameters such as crossover and mutation probabilities based on population feedback to balance exploration and exploitation~\cite{shams2025resolving, srinivas1994genetic}.
-        \item \textbf{Parallel GA:} Splits the population into sub-populations across processors (island models, master-slave, etc.) and periodically exchanges individuals to speed up search and maintain diversity.
+        \item \textbf{GA Hibrid:} Menggabungkan Algoritma Genetika dengan pencarian lokal atau metode optimasi lain untuk menyempurnakan solusi yang menjanjikan setelah eksplorasi global~\cite{majhi2025novel, murad2025hybrid}.
+        \item \textbf{GA Adaptif:} Secara dinamis menyesuaikan parameter seperti probabilitas crossover dan mutasi berdasarkan umpan balik populasi untuk menyeimbangkan eksplorasi dan eksploitasi~\cite{shams2025resolving, srinivas1994genetic}.
+        \item \textbf{GA Paralel:} Membagi populasi menjadi sub-populasi di seluruh prosesor (model pulau, master-slave, dll.) dan secara berkala bertukar individu untuk mempercepat pencarian dan mempertahankan keragaman.
     \end{itemize}
 
 
-  \section{Further Reading}
+  \section{Bacaan Lebih Lanjut}
   \begin{itemize}
       \item Deb, K. (2001). Multi-objective optimization using evolutionary algorithms.
       \item Eiben, A. E., \& Smith, J. E. (2015). Introduction to evolutionary computing.
