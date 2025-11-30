@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.5.3)  1 DEC 2025 00:06
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.5.3)  30 NOV 2025 23:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -948,7 +948,7 @@ File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count343
 \l__pdf_internal_box=\box93
 )
-(output/main.aux)
+No file main.aux.
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 87.
@@ -969,7 +969,6 @@ LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 87.
 LaTeX Font Info:    ... okay on input line 87.
 LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 87.
 LaTeX Font Info:    ... okay on input line 87.
-
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count344
@@ -994,8 +993,6 @@ e
 ))
 \c@lstlisting=\count350
 Package hyperref Info: Link coloring ON on input line 87.
-
-(output/main.out) (output/main.out)
 \@outlinefile=\write4
 \openout4 = `main.out'.
 
@@ -1058,28 +1055,33 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2
 
-] (output/main.toc [3] [4] [5])
+]
+No file main.toc.
 \tf@toc=\write5
 \openout5 = `main.toc'.
 
- [6]
-(output/main.lof)
+[3] [4
+
+]
+No file main.lof.
 \tf@lof=\write6
 \openout6 = `main.lof'.
 
- [7
+[5] [6
 
-] [8
-
-] (output/main.lot)
+]
+No file main.lot.
 \tf@lot=\write7
 \openout7 = `main.lot'.
 
- [9] [10
+[7] [8
 
-]
-(./chapters/chapter01-introduction.tex
+] (./chapters/chapter01-introduction.tex
 Bab 1.
+
+LaTeX Warning: Citation `goldberg1989genetic' on page 1 undefined on input line
+ 5.
+
 
 Overfull \hbox (4.29834pt too wide) in paragraph at lines 5--6
 []\OT1/cmr/m/n/12 Keluarga me-to-de ini di-kem-bangk-an da-ri kar-ya fun-da-men
@@ -1106,326 +1108,444 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [3]
+
+LaTeX Warning: Citation `holland1975adaptation' on page 4 undefined on input li
+ne 179.
+
+
+LaTeX Warning: Citation `eiben2015introduction' on page 4 undefined on input li
+ne 179.
+
+
+LaTeX Warning: Citation `holland1975adaptation' on page 4 undefined on input li
+ne 183.
+
+
+LaTeX Warning: Citation `goldberg1989genetic' on page 4 undefined on input line
+ 183.
+
+
+LaTeX Warning: Citation `back1996evolutionary' on page 4 undefined on input lin
+e 183.
+
+
+LaTeX Warning: Citation `fogel1995evolutionary' on page 4 undefined on input li
+ne 183.
+
+
+LaTeX Warning: Citation `fogel2006evolutionary' on page 4 undefined on input li
+ne 183.
+
+
+LaTeX Warning: Citation `koza1992genetic' on page 4 undefined on input line 183
+.
+
+
+LaTeX Warning: Citation `yildiz2023novel' on page 4 undefined on input line 185
+.
+
+
+LaTeX Warning: Citation `montana1989training' on page 4 undefined on input line
+ 185.
+
+
+LaTeX Warning: Citation `murad2025hybrid' on page 4 undefined on input line 185
+.
+
+
+LaTeX Warning: Citation `gu2022hybrid' on page 4 undefined on input line 185.
+
+
+LaTeX Warning: Citation `fajrin2020multi' on page 4 undefined on input line 185
+.
+
+
+LaTeX Warning: Citation `gen2007genetic' on page 4 undefined on input line 185.
+
+
+
+LaTeX Warning: Citation `sivanandam2008introduction' on page 4 undefined on inp
+ut line 185.
+
+
+LaTeX Warning: Citation `eiben2015introduction' on page 4 undefined on input li
+ne 185.
+
 [4]
-<figures/buku_ajar_page_4.png, id=904, 1059.96pt x 453.695pt>
+<figures/buku_ajar_page_4.png, id=76, 1059.96pt x 453.695pt>
 File: figures/buku_ajar_page_4.png Graphic file (type png)
 <use figures/buku_ajar_page_4.png>
 Package pdftex.def Info: figures/buku_ajar_page_4.png  used on input line 193.
 (pdftex.def)             Requested size: 318.66948pt x 136.4003pt.
- [5 <./figures/buku_ajar_page_4.png>]) (./chapters/chapter02-what-is-ga.tex
-[6]
+
+
+LaTeX Warning: Citation `majhi2025novel' on page 5 undefined on input line 201.
+
+
+
+LaTeX Warning: Citation `murad2025hybrid' on page 5 undefined on input line 201
+.
+
+
+LaTeX Warning: Citation `shams2025resolving' on page 5 undefined on input line 
+203.
+
+
+LaTeX Warning: Citation `srinivas1994genetic' on page 5 undefined on input line
+ 203.
+
+[5 <./figures/buku_ajar_page_4.png>]
+
+LaTeX Warning: Citation `eiben2015introduction' on page 6 undefined on input li
+ne 205.
+
+
+LaTeX Warning: Citation `majhi2025novel' on page 6 undefined on input line 212.
+
+
+
+LaTeX Warning: Citation `murad2025hybrid' on page 6 undefined on input line 212
+.
+
+
+LaTeX Warning: Citation `shams2025resolving' on page 6 undefined on input line 
+213.
+
+
+LaTeX Warning: Citation `srinivas1994genetic' on page 6 undefined on input line
+ 213.
+
+) (./chapters/chapter02-what-is-ga.tex [6]
 Bab 2.
+
+LaTeX Warning: Citation `holland1975adaptation' on page 7 undefined on input li
+ne 4.
+
+
+LaTeX Warning: Citation `goldberg1989genetic' on page 7 undefined on input line
+ 4.
+
+
+LaTeX Warning: Citation `holland1975adaptation' on page 7 undefined on input li
+ne 28.
+
+
+LaTeX Warning: Citation `mitchell1996introduction' on page 7 undefined on input
+ line 28.
+
 [7
 
-] [8]
+]
+
+LaTeX Warning: Citation `eiben2015introduction' on page 8 undefined on input li
+ne 30.
+
+
+LaTeX Warning: Citation `mitchell1996introduction' on page 8 undefined on input
+ line 34.
+
+
+LaTeX Warning: Citation `goldberg1989genetic' on page 8 undefined on input line
+ 34.
+
+
+LaTeX Warning: Citation `eiben2015introduction' on page 8 undefined on input li
+ne 35.
+
+
+LaTeX Warning: Citation `holland1975adaptation' on page 8 undefined on input li
+ne 43.
+
+
+LaTeX Warning: Citation `mitchell1996introduction' on page 8 undefined on input
+ line 43.
+
+
+LaTeX Warning: Citation `eiben2015introduction' on page 8 undefined on input li
+ne 43.
+
+[8]
 
 LaTeX Warning: Reference `sec:introduction' on page 9 undefined on input line 4
 5.
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [9]
-[10] [11] [12]) (./chapters/chapter03-ga-cycle-schema.tex [13] [14
-
-]
-Bab 3.
-LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 2
-3.
-(/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
-File: omscmr.fd 2023/04/13 v2.5m Standard LaTeX font definitions
-)
-LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 23.
- [15] [16] [17])
-(./chapters/chapter04-encoding.tex [18]
-Bab 4.
-[19
-
-] [20] [21]
-Overfull \hbox (13.27467pt too wide) in paragraph at lines 95--96
-\OT1/cmr/m/n/12 Encoding ber-ni-lai ri-il me-rep-re-sen-ta-sik-an in-di-vi-du s
-e-ba-gai vek-tor di $\U/msb/m/n/12 R[]$\OT1/cmr/m/n/12 , ya-i-tu $\OT1/cmr/bx/n
-/12 x \OT1/cmr/m/n/12 = (\OML/cmm/m/it/12 x[]; [] ; x[]\OT1/cmr/m/n/12 )$
- []
-
-[22] [23] [24]) (./chapters/chapter05-selection.tex [25] [26
-
-]
-Bab 5.
-<figures/buku_ajar_page_16.png, id=1065, 1431.3475pt x 333.245pt>
-File: figures/buku_ajar_page_16.png Graphic file (type png)
-<use figures/buku_ajar_page_16.png>
-Package pdftex.def Info: figures/buku_ajar_page_16.png  used on input line 13.
-(pdftex.def)             Requested size: 341.43307pt x 79.48718pt.
-
-Underfull \vbox (badness 2103) has occurred while \output is active []
-
- [27 <./figures/buku_ajar_page_16.png>]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [28]
-<figures/buku_ajar_page_18.png, id=1082, 1278.7775pt x 262.9825pt>
-File: figures/buku_ajar_page_18.png Graphic file (type png)
-<use figures/buku_ajar_page_18.png>
-Package pdftex.def Info: figures/buku_ajar_page_18.png  used on input line 59.
-(pdftex.def)             Requested size: 386.96027pt x 79.57751pt.
-Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
-put line 66.
-<figures/buku_ajar_page_19.png, id=1084, 1270.7475pt x 262.9825pt>
-File: figures/buku_ajar_page_19.png Graphic file (type png)
-<use figures/buku_ajar_page_19.png>
-Package pdftex.def Info: figures/buku_ajar_page_19.png  used on input line 91.
-(pdftex.def)             Requested size: 386.96027pt x 80.08313pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[29 <./figures/buku_ajar_page_18.png>] [30 <./figures/buku_ajar_page_19.png>]
-Overfull \hbox (5.59372pt too wide) in paragraph at lines 183--184
-\OT1/cmr/m/n/12 Untuk ma-sa-lah multi[]objektif, do-mi-na-si Pa-re-to dan non[]
-dominated sor-ting (mis. NSGA[]II)
- []
-
-[31]) (./chapters/chapter06-crossover.tex [32]
-Bab 6.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [33
-
-]
-[34]
-<figures/buku_ajar_page_25.png, id=1174, 1445.4pt x 762.85pt>
-File: figures/buku_ajar_page_25.png Graphic file (type png)
-<use figures/buku_ajar_page_25.png>
-Package pdftex.def Info: figures/buku_ajar_page_25.png  used on input line 101.
-
-(pdftex.def)             Requested size: 318.66948pt x 168.18835pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[35] [36 <./figures/buku_ajar_page_25.png>] [37]
-<figures/buku_ajar_page_32.png, id=1211, 1558.82375pt x 460.72125pt>
-File: figures/buku_ajar_page_32.png Graphic file (type png)
-<use figures/buku_ajar_page_32.png>
-Package pdftex.def Info: figures/buku_ajar_page_32.png  used on input line 216.
-
-(pdftex.def)             Requested size: 318.66948pt x 94.18132pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[38]
-File: figures/buku_ajar_page_32.png Graphic file (type png)
-<use figures/buku_ajar_page_32.png>
-Package pdftex.def Info: figures/buku_ajar_page_32.png  used on input line 237.
-
-(pdftex.def)             Requested size: 318.66948pt x 94.18132pt.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 266.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\alpha' on input line 266.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 266.
-
-[39 <./figures/buku_ajar_page_32.png>] [40] [41] [42] [43])
-(./chapters/chapter07-mutation-update.tex [44]
-Bab 7.
-[45
-
-] [46] [47] [48] [49] [50]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 259.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 259.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 259.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 266.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 266.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 266.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 289.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 289.
-
-[51]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 296.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 296.
-
-[52]
-Overfull \hbox (40.52502pt too wide) in paragraph at lines 339--354
- [][] 
- []
-
-[53]) (./chapters/chapter08-applications.tex [54]
-Bab 8.
-) [55
-
-] (./chapters/appendix-algorithms.tex [56]
-Lampiran A.
-Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
-nput line 7.
-[57
-
-]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [58]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [59]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [60]
-[61]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [62]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [63]
-[64]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [65]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [66]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [67]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [68]
-[69]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [70]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [71]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [72]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [73]
-Overfull \hbox (75.24478pt too wide) in paragraph at lines 796--797
-[][] 
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [74]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [75])
-(./chapters/appendix-examples.tex [76]
-Lampiran B.
-[77
-
-] [78] [79] [80]) [81] [82
-
-] (output/main.bbl
-Underfull \hbox (badness 10000) in paragraph at lines 19--24
-[]\OT1/cmr/m/n/12 Algorithm Af-ter-no-on.  Chap-ter 4 - se-le-ction stra-te-gi-
-es.  [][]$\OT1/cmtt/m/n/12 https : / /
- []
-
-
-Underfull \hbox (badness 5008) in paragraph at lines 19--24
-\OT1/cmtt/m/n/12 algorithmafternoon . com / books / genetic _ algorithm / chapt
-er04/$[][]\OT1/cmr/m/n/12 .  Re-tri-e-ved
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 26--31
-[]\OT1/cmr/m/n/12 Algorithm Af-ter-no-on.  Ran-ked se-le-ction ge-ne-tic al-go-
-ri-thm.  [][]$\OT1/cmtt/m/n/12 https :
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 26--31
-\OT1/cmtt/m/n/12 / / algorithmafternoon . com / genetic / ranked _ selection _ 
-genetic _ algorithm/$[][]\OT1/cmr/m/n/12 .
- []
-
-[83
-
-] [84] [85]) [86] (output/main.aux)
- ***********
-LaTeX2e <2023-11-01> patch level 1
-L3 programming layer <2024-01-22>
- ***********
-
-
-LaTeX Warning: There were undefined references.
-
-Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: B1069B1F18FC681B9CBEE52FDDBB23DF;28553.
- ) 
+LaTeX Warning: Citation `goldberg1989genetic' on page 9 undefined on input line
+ 45.
+
+
+LaTeX Warning: Citation `eiben2015introduction' on page 9 undefined on input li
+ne 45.
+
+
+LaTeX Warning: Citation `mitchell1996introduction' on page 9 undefined on input
+ line 47.
+
+
+LaTeX Warning: Citation `goldberg1989genetic' on page 9 undefined on input line
+ 47.
+
+Missing character: There is no t in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no k in font nullfont!
+Missing character: There is no z in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no c in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no / in font nullfont!
+Missing character: There is no . in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no y in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no = in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no c in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no , in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no u in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no w in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no h in font nullfont!
+Missing character: There is no = in font nullfont!
+Missing character: There is no 3 in font nullfont!
+Missing character: There is no c in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no , in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no u in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no h in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no h in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no = in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no c in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no , in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no x in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no c in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no , in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no w in font nullfont!
+Missing character: There is no = in font nullfont!
+Missing character: There is no b in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no c in font nullfont!
+Missing character: There is no k in font nullfont!
+Missing character: There is no , in font nullfont!
+Missing character: There is no f in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no = in font nullfont!
+Missing character: There is no b in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no u in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no ! in font nullfont!
+Missing character: There is no 2 in font nullfont!
+Missing character: There is no 0 in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no k in font nullfont!
+Missing character: There is no z in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no c in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no / in font nullfont!
+Missing character: There is no . in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no y in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no = in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no , in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no u in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no w in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no h in font nullfont!
+Missing character: There is no = in font nullfont!
+Missing character: There is no 3 in font nullfont!
+Missing character: There is no c in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no , in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no u in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no h in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no h in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no = in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no c in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no , in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no x in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no c in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no , in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no w in font nullfont!
+Missing character: There is no = in font nullfont!
+Missing character: There is no b in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no c in font nullfont!
+Missing character: There is no k in font nullfont!
+Missing character: There is no , in font nullfont!
+Missing character: There is no f in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no = in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no ! in font nullfont!
+Missing character: There is no 2 in font nullfont!
+Missing character: There is no 0 in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no k in font nullfont!
+Missing character: There is no z in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no w in font nullfont!
+Missing character: There is no / in font nullfont!
+Missing character: There is no . in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no y in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no = in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no h in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no c in font nullfont!
+Missing character: There is no k in font nullfont!
+Missing character: There is no , in font nullfont!
+Missing character: There is no - in font nullfont!
+Missing character: There is no > in font nullfont!
+Missing character: There is no , in font nullfont!
+Missing character: There is no > in font nullfont!
+Missing character: There is no = in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no h in font nullfont!
+
+! Package pgfkeys Error: I do not know the key '/tikz/process' and I am going t
+o ignore it. Perhaps you misspelled it.
+
+See the pgfkeys package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.60       \node [process]
+                           (init) {Initialize Population}; 
 Here is how much of TeX's memory you used:
- 41146 strings out of 474222
- 927672 string characters out of 5748734
- 2294975 words of memory out of 5000000
- 61372 multiletter control sequences out of 15000+600000
- 571640 words of font info for 87 fonts, out of 8000000 for 9000
+ 38623 strings out of 474222
+ 889362 string characters out of 5748734
+ 1954975 words of memory out of 5000000
+ 60253 multiletter control sequences out of 15000+600000
+ 568463 words of font info for 75 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  84i,19n,87p,1154b,2235s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share
-/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texli
-ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts
-/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/
-public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
-/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy
-10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb>
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/s
-hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/t
-exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texlive
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/share/texlive/texmf
--dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf/fonts/ty
-pe1/public/cm-super/sfbx1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/
-sfrm1200.pfb>
-Output written on output/main.pdf (96 pages, 987192 bytes).
-PDF statistics:
- 2866 PDF objects out of 2984 (max. 8388607)
- 2697 compressed objects within 27 object streams
- 1389 named destinations out of 1440 (max. 500000)
- 1251 words of extra memory for PDF output out of 10000 (max. 10000000)
 
+!  ==> Fatal error occurred, no output PDF file produced!

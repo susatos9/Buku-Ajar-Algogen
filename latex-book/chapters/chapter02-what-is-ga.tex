@@ -46,6 +46,56 @@
 
     Dilihat secara algoritmik, GA melakukan langkah-langkah tingkat tinggi berikut setiap generasi: evaluasi $f$ pada $P_t$, pilih orang tua menggunakan $S$, produksi keturunan melalui $C$ dan $M$, dan bentuk $P_{t+1}$ melalui $R$. Meskipun banyak varian ada (pembaruan steady-state, model pulau, skema hibrid yang menggabungkan pencarian lokal), struktur kanonik ini menjelaskan baik fleksibilitas empiris GA dan alasan untuk biaya komputasi mereka: evaluasi fitness berulang atas populasi dapat mahal, tetapi pendekatan berbasis populasi memungkinkan eksplorasi paralel dan ketahanan terhadap multimodalitas dan kebisingan \cite{mitchell1996introduction, goldberg1989genetic}.
 
+    Berikut penjelasan mengenai siklus operasi tipikal sebuah algoritma genetika, disusun dalam paragraf-paragraf naratif yang mengikuti grafik siklik di bawah ini.
+
+    \begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[node distance=2cm, auto]
+      % Define styles (modern syntax)
+        \tikzset{process/.style={rectangle, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=blue!20}}
+        \tikzset{decision/.style={diamond, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=green!20}}
+        \tikzset{arrow/.style={thick,->,>=stealth}}
+      
+      % Nodes
+      \node [process] (init) {Initialize Population};
+      \node [process, below of=init] (eval) {Evaluate Fitness};
+      \node [decision, below of=eval] (term) {Termination?};
+      \node [process, below of=term, yshift=-1cm] (select) {Selection};
+      \node [process, below of=select] (cross) {Crossover};
+      \node [process, below of=cross] (mutate) {Mutation};
+      \node [process, right of=mutate, xshift=3cm] (replace) {Replacement};
+      \node [process] (output) at (6,-1) {Output Best};
+      
+      % Arrows
+      \draw [arrow] (init) -- (eval);
+      \draw [arrow] (eval) -- (term);
+      \draw [arrow] (term) -- node {No} (select);
+      \draw [arrow] (select) -- (cross);
+      \draw [arrow] (cross) -- (mutate);
+      \draw [arrow] (mutate) -- (replace);
+      \draw [arrow] (replace) |- ([yshift=0.5cm]eval.east);
+      \draw [arrow] (term) -| node [near start] {Yes} (output);
+      
+    \end{tikzpicture}
+    \caption{Genetic Algorithm Cycle}
+    \end{figure}
+
+    Langkah pertama dalam siklus ini adalah inisialisasi populasi: sekumpulan genotipe dibentuk menurut pengkodean yang dipilih, biasanya melalui sampling acak dari ruang genotipe yang layak, namun terkadang dengan seeding heuristik untuk memanfaatkan pengetahuan domain. Pilihan distribusi inisialisasi dan ukuran populasi memiliki implikasi langsung terhadap kemampuan eksplorasi awal dan stabilitas statistik estimasi fitness populasi; populasi yang sangat kecil membatasi keragaman dan meningkatkan risiko konvergensi prematur, sementara populasi yang sangat besar meningkatkan biaya evaluasi namun memperluas cakupan representasi solusi potensial.
+
+    Setelah populasi diinisialisasi, setiap individu didekodekan (genotipe ke fenotipe) dan dievaluasi menggunakan fungsi fitness yang relevan untuk masalah. Tahap evaluasi adalah sumber utama biaya komputasi dalam banyak implementasi GA dan membutuhkan perhatian terhadap aspek-aspek praktis seperti normalisasi nilai fitness, penanganan kebisingan dan ketidakpastian dalam pengukuran, serta kemungkinan penggunaan model surrogate atau evaluasi bertingkat untuk mengurangi beban komputasi. Evaluasi yang benar harus mempertimbangkan apakah fitness diekspresikan sebagai nilai yang harus diminimalkan atau dimaksimalkan dan menyesuaikan skema seleksi sesuai kebutuhan.
+
+    Kriteria terminasi adalah aspek strategis berikutnya: algoritma dapat dihentikan berdasarkan jumlah generasi tetap, batas waktu komputasi, tercapainya nilai fitness target, tidak adanya perbaikan signifikan, atau uji konvergensi statistik yang menilai kehilangan keragaman populasi. Pemilihan kriteria terminasi mempengaruhi trade-off antara kualitas solusi akhir dan sumber daya yang dikonsumsi; kriteria yang terlalu lunak dapat menghabiskan sumber daya tanpa perbaikan berarti, sementara kriteria yang terlalu ketat dapat memotong proses sebelum solusi berkualitas muncul.
+
+    Operator seleksi memilih individu-individu yang akan berpartisipasi sebagai orang tua berdasarkan sinyal fitness dengan tujuan menekan populasi ke arah solusi yang lebih baik sambil mempertahankan variasi yang cukup untuk eksplorasi. Mekanisme umum meliputi seleksi proporsional terhadap fitness, seleksi berbasis peringkat, turnamen stokastik, dan teknik sampling seperti stochastic universal sampling; masing-masing memberikan kombinasi tekanan seleksi (selection pressure) dan varians sampling yang berbeda. Desain seleksi yang hati-hati menghindari tekanan seleksi yang berlebihan yang bisa menyebabkan kehilangan keragaman dan konvergensi prematur, sedangkan tekanan yang kurang dapat memperlambat evolusi menuju solusi berkualitas.
+
+    Rekombinasi (crossover) bertujuan menggabungkan informasi dari dua atau lebih orang tua untuk membentuk keturunan yang mungkin mewarisi blok bangunan (building blocks) berguna dari masing-masing orang tua. Teknik rekombinasi harus disesuaikan dengan pengkodean: misalnya, crossover titik-tunggal atau multi-titik cocok untuk representasi berurutan, sementara crossover yang menjaga struktur seperti PMX atau operator khusus graf diperlukan untuk masalah permutasi. Tingkat crossover dan mekanisme pemilihan pasangan menentukan seberapa cepat kombinasi baru dari gen dieksplorasi dan seberapa besar peran eksploitasi pola struktural yang sudah ada.
+
+    Mutasi berfungsi sebagai sumber variasi acak yang kontinu; ia kecil kemungkinan mengubah gen individual tetapi penting untuk mengembalikan variasi yang hilang dan memungkinkan penemuan solusi yang tidak dapat dihasilkan hanya melalui rekombinasi. Bentuk mutasi bergantung pada representasi—bit-flip untuk pengkodean biner, perturbasi Gaussian untuk nilai nyata, atau swap untuk permutasi—dan tingkat mutasi biasanya disetel agar seimbang antara stabilitas pembelajaran dan kemampuan menemukan wilayah baru dalam ruang pencarian. Strategi adaptif yang mengubah tingkat mutasi selama eksekusi dapat membantu mengatasi fase eksplorasi versus eksploitasi.
+
+    Penggantian (replacement) menentukan bagaimana keturunan yang dihasilkan bergabung dengan populasi yang ada untuk membentuk generasi berikutnya; skema generasional menggantikan seluruh populasi sekaligus, sedangkan skema steady-state mengganti sebagian kecil individu dan dapat mempertahankan elitisme secara implisit. Praktik umum adalah mempertahankan elitisme eksplisit yang menjamin bahwa individu terbaik tetap ada di populasi berikutnya, sehingga mencegah kehilangan solusi terbaik yang ditemukan sejauh ini. Mekanisme penggantian juga dapat mengintegrasikan teknik niching atau crowding untuk melestarikan subpopulasi yang berbeda dan mencegah dominasi satu satuan fenotipik.
+
+    Siklus ini diulang sampai kriteria terminasi dipenuhi, dan ketika terminar, algoritma biasanya mengembalikan individu terbaik yang diamati selama seluruh proses atau sekumpulan solusi unggul. Secara keseluruhan, siklus GA memadukan eksploitasi sinyal fitness melalui seleksi dan rekombinasi dengan eksplorasi acak melalui mutasi dan inisialisasi, dan prestasi praktisnya bergantung pada desain representasi, ketepatan fungsi fitness, pemilihan operator, dan penyetelan parameter yang menyeimbangkan eksplorasi-eksploitasi untuk masalah tertentu.
+
   \section{Keunggulan Algoritma Genetika}
     Karena GA memanipulasi populasi solusi kandidat menggunakan seleksi, rekombinasi, dan mutasi, ia membawa beberapa keunggulan praktis yang mengikuti langsung dari desain berbasis populasi yang didorong variasi tersebut.
 

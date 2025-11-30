@@ -6,22 +6,17 @@
 \contentsline {figure}{\numberline {1.4}{\ignorespaces Perbandingan komprehensif menunjukkan bagaimana GA mengatasi keterbatasan fundamental metode optimasi tradisional.}}{4}{figure.caption.7}%
 \contentsline {figure}{\numberline {1.5}{\ignorespaces Ilustrasi siklus GA dan variasinya}}{5}{figure.caption.8}%
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Genetic Algorithm Cycle}}{10}{figure.caption.10}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Proses seleksi dasar dalam Algoritma Genetika}}{29}{figure.caption.10}%
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Proses seleksi roulette‑wheel dengan contoh pengundian}}{31}{figure.caption.12}%
-\contentsline {figure}{\numberline {5.3}{\ignorespaces Stochastic universal sampling dengan penunjuk berjarak sama}}{32}{figure.caption.13}%
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Proses seleksi dasar dalam Algoritma Genetika}}{27}{figure.caption.11}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Proses seleksi roulette‑wheel dengan contoh pengundian}}{29}{figure.caption.13}%
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Stochastic universal sampling dengan penunjuk berjarak sama}}{30}{figure.caption.14}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {6.1}{\ignorespaces Single Point Crossover for binary chromosomes}}{36}{figure.caption.15}%
-\contentsline {figure}{\numberline {6.2}{\ignorespaces Multi-point Crossover for binary chromosomes}}{38}{figure.caption.16}%
-\contentsline {figure}{\numberline {6.3}{\ignorespaces Uniform Crossover for binary chromosomes}}{39}{figure.caption.17}%
-\contentsline {figure}{\numberline {6.4}{\ignorespaces Single-Point Crossover for integer chromosomes}}{41}{figure.caption.18}%
-\contentsline {figure}{\numberline {6.5}{\ignorespaces Multi-point Crossover for integer chromosomes}}{42}{figure.caption.19}%
-\contentsline {figure}{\numberline {6.6}{\ignorespaces Uniform Crossover for integer chromosomes}}{43}{figure.caption.20}%
-\contentsline {figure}{\numberline {6.7}{\ignorespaces Single Arithmetic Crossover for real chromosomes}}{43}{figure.caption.21}%
-\contentsline {figure}{\numberline {6.8}{\ignorespaces Simple Arithmetic Crossover for real chromosomes}}{44}{figure.caption.22}%
-\contentsline {figure}{\numberline {6.9}{\ignorespaces Whole Arithmetic Crossover for real chromosomes}}{44}{figure.caption.23}%
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Crossover Uniform untuk kromosom biner}}{36}{figure.caption.16}%
+\contentsline {figure}{\numberline {6.2}{\ignorespaces Crossover Aritmetika Sederhana untuk kromosom riil}}{39}{figure.caption.17}%
+\contentsline {figure}{\numberline {6.3}{\ignorespaces Crossover Aritmetika Seluruhnya untuk kromosom riil}}{39}{figure.caption.18}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

@@ -26,6 +26,12 @@ Dalam representasi kromosom biner, setiap individu dalam populasi direpresentasi
 
 Crossover satu titik adalah bentuk paling sederhana dari crossover. Satu posisi crossover dipilih secara acak, kemudian bagian dari kedua induk setelah posisi tersebut ditukar untuk membentuk dua keturunan baru. String hasil dari proses ini memiliki karakteristik bias posisi (positional bias).
 
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.7\textwidth]{figures/buku_ajar_page_24.png}
+\caption{Crossover Satu Titik untuk kromosom biner}
+\label{fig:binary_single_point}
+\end{figure}
 
 \subsection{Crossover Satu Titik}
 
@@ -63,6 +69,12 @@ Crossover multi-titik memiliki mekanisme serupa dengan crossover satu titik; per
 
 Tujuan dari crossover multi-titik antara lain meningkatkan keanekaragaman genetik dalam populasi, mengurangi bias posisi, dan meningkatkan peluang rekombinasi dari berbagai skema atau blok solusi yang berbeda. Namun, penggunaan terlalu banyak titik potong bisa menjadi terlalu merusak, karena dapat merusak kombinasi gen yang sudah baik (alel terkoadaptasi).
 
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.7\textwidth]{figures/buku_ajar_page_25.png}
+\caption{Crossover Multi-Titik untuk kromosom biner}
+\label{fig:binary_multi_point}
+\end{figure}
 
 \subsubsection{Algoritma}
 \begin{algorithm}[H]
@@ -149,6 +161,12 @@ Berbeda dengan kromosom biner yang menggunakan bit 0 dan 1, representasi bilanga
 
 Crossover satu titik adalah bentuk paling sederhana dari crossover. Satu posisi crossover dipilih secara acak, lalu bagian dari dua induk setelah posisi tersebut ditukar untuk membentuk dua keturunan baru. String yang dihasilkan dari proses ini memiliki karakteristik bias posisi.
 
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.7\textwidth]{figures/buku_ajar_page_28.png}
+\caption{Crossover Satu Titik untuk kromosom bilangan bulat}
+\label{fig:integer_single_point}
+\end{figure}
 
 \subsection{Crossover Multi-Titik untuk Bilangan Bulat}
 
@@ -156,6 +174,12 @@ Crossover multi-titik memiliki mekanisme yang mirip dengan crossover satu titik;
 
 Tujuan dari crossover multi-titik termasuk meningkatkan keanekaragaman genetik dalam populasi, mengurangi bias posisi, dan meningkatkan peluang rekombinasi dari berbagai skema atau blok solusi yang berbeda. Namun, penggunaan terlalu banyak titik potong dapat merusak kombinasi gen yang sudah baik (alel terkoadaptasi).
 
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.7\textwidth]{figures/buku_ajar_page_28.png}
+\caption{Crossover Multi-Titik untuk kromosom bilangan bulat}
+\label{fig:integer_multi_point}
+\end{figure}
 
 \subsection{Crossover Uniform untuk Bilangan Bulat}
 
@@ -163,12 +187,12 @@ Dalam crossover uniform, setiap gen dipilih secara acak dari salah satu gen yang
 
 Metode ini memberikan kesempatan yang sama bagi setiap gen untuk diwariskan dari salah satu induk, sehingga meningkatkan keanekaragaman genetik dan menghilangkan bias posisi yang biasanya muncul pada crossover satu titik atau multi-titik.
 
-% \begin{figure}[h]
-% \centering
-% \includegraphics[width=0.7\textwidth]{figures/buku_ajar_page_29.png}
-% \caption{Crossover Uniform untuk kromosom bilangan bulat}
-% \label{fig:integer_uniform}
-% \end{figure}
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.7\textwidth]{figures/buku_ajar_page_29.png}
+\caption{Crossover Uniform untuk kromosom bilangan bulat}
+\label{fig:integer_uniform}
+\end{figure}
 
 \section{Operator Crossover untuk Kromosom Bernilai Riil}
 
@@ -195,6 +219,12 @@ Kombinasi linier vektor induk.
     \end{itemize}
 \end{enumerate}
 
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.7\textwidth]{figures/buku_ajar_page_31.png}
+\caption{Crossover Aritmetika Satu Titik untuk kromosom riil}
+\label{fig:real_single_arithmetic}
+\end{figure}
 
 \subsubsection{Crossover Aritmetika Sederhana}
 \begin{enumerate}

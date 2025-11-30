@@ -1,4 +1,4 @@
-\chapter{Siklus GA dan Teori Skema Holland}
+\chapter{Teori Skema Holland}
 
 \section{Apa itu Skema?}
 Skema adalah template formal yang didefinisikan di atas alfabet $\{0,1,*\}$. Untuk panjang string tetap $l$, sebuah skema
@@ -33,7 +33,7 @@ Orde $o(H)$ adalah jumlah posisi tetap (simbol bukan-*):
 Untuk $H = 1*0*1$: $o(H) = 3$
 
 \subsubsection{Panjang Pendefinisian}
-Panjang pendefinisian $\delta(H)$ mengukur rentang antara posisi tetap pertama dan terakhir pada pola. Secara intuitif, ini menunjukkan seberapa tersebar bit-bit penting skema sepanjang kromosom dan oleh karena itu seberapa terekspos skema tersebut terhadap kejadian rekombinasi. Secara formal dihitung sebagai selisih indeks antara posisi tetap terakhir dan pertama:
+Panjang pendefinisian $\delta(H)$ mengukur rentang antara posisi tetap pertama dan terakhir pada pola.  Secara formal dihitung sebagai selisih indeks antara posisi tetap terakhir dan pertama:
 \begin{equation}
  \delta(H) = \text{posisi tetap terakhir} - \text{posisi tetap pertama}
 \end{equation}
@@ -86,9 +86,7 @@ karena dipilih $r$ lokus yang tetap lalu diberi bit (0 atau 1) pada setiap lokus
 \end{equation}
 yang, untuk $k$ kecil tetap, tumbuh secara polinomial terhadap $l$ (derajat $k$) bukan eksponensial. 
 
-Ungkapan terkenal Holland "paralelisme implisit" merangkum heuristik bahwa populasi berukuran sedang dapat secara kolektif mengevaluasi dan memproses sejumlah besar skema pendek dan orde-rendah pada setiap generasi. Dalam eksposisinya, ia menawarkan aturan praktis bahwa populasi $n$ string dapat efektif memproses urutan skema sebesar $n^3$; pernyataan ini harus dibaca sebagai heuristik, bukan identitas kombinatorial ketat. Angka $O(n^3)$ muncul dari asumsi tentang orde-orde tipikal dan panjang pendefinisian skema yang memengaruhi fitness, bersama dengan estimasi plausibel tentang berapa banyak skema pendek berbeda yang disampling populasi dan bagaimana seleksi memperkuat instance di atas rata-rata. Pilihan berbeda untuk $n$, $l$, representasi, dan pengaturan operator mengubah faktor konstanta dan jangkauan praktis paralelisme ini.
 
-Implikasi praktisnya dua arah. Pertama, dengan bekerja pada populasi alih-alih satu lintasan pencarian tunggal, GA dapat menjelajah dan menyebarkan banyak blok-bangunan kandidat secara bersamaan, memungkinkan rekombinasi konstruktif pola-pola pendek yang berguna. Kedua, cakupan implisit ini bersifat selektif: algoritma menyalurkan daya pemrosesan efektif ke skema yang cukup sering disampling (muncul cukup sering) dan cukup tangguh (memiliki panjang pendefinisian kecil dan orde rendah). Akibatnya, paralelisme implisit bukanlah solusi ajaib yang memeriksa setiap skema sama rata; melainkan mengarahkan upaya komputasi kepada subset terstruktur besar dari skema yang paling relevan berdasarkan enkoding dan operator yang dipilih.
 
 \section{Implikasi Praktis}
 
@@ -105,7 +103,6 @@ Untuk menerapkan desain yang diinformasikan skema dalam praktik, pantau statisti
 \begin{itemize}
     \item Lacak keberagaman genotip (mis. frekuensi alel per-lokus) dan varians fenotip untuk mendeteksi konvergensi prematur.
     \item Hitung hitungan skema sederhana atau sampling skema kandidat untuk memverifikasi apakah blok-bangunan yang diharapkan ditemukan dan dipertahankan.
-    \item Ukur metrik kemajuan (fitness terbaik, median, rata-rata) bersamaan dengan indikator keberagaman; perbaikan lambat dengan diversitas yang runtuh sering menandakan kegagalan rekombinasi skema.
 \end{itemize}
 
 \section{Keterbatasan Teori Skema}
@@ -121,16 +118,12 @@ Teori skema paling informatif untuk pola orde-rendah dan panjang-pendefinisian p
 \subsection{Pembatasan pada alfabet sederhana dan enkoding panjang tetap}
 Analisis skema klasik mengasumsikan alfabet biner dan string panjang tetap. Perlu reformulasi hati-hati untuk alfabet yang lebih kaya, genom ber- panjang variabel, atau enkoding tidak langsung; penerapan intuisi berbasis biner secara naif dapat menyesatkan.
 
-\subsection{Kurangnya spesifikasi preskriptif}
-Walaupun teori skema menjelaskan mengapa blok-bangunan pendek yang fit berguna, ia tidak memberikan algoritma preskriptif umum untuk menemukan representasi atau operator terbaik untuk masalah sewenang-wenang. Metode modern—pembelajaran linkage, EDAs, dan pendekatan pemodelan probabilistik—secara eksplisit mencoba mempelajari dan memanfaatkan struktur masalah yang tidak dapat diungkap hanya oleh hitungan skema.
 
 \subsection{Protokol empiris yang direkomendasikan}
 Saat menggunakan penalaran berbasis skema untuk membimbing desain algoritma, ikuti protokol empiris yang mengurangi risiko kesimpulan yang keliru:
 \begin{itemize}
     \item Jalankan beberapa percobaan independen dan laporkan varians, bukan hanya rata-rata performa.
-    \item Gunakan studi ablation terkontrol untuk mengukur efek pilihan representasi dan operator terhadap sampling dan pelestarian skema kandidat.
     \item Jika memungkinkan, visualisasikan lintasan frekuensi alel dan plot unitation per-blok untuk mendiagnosis kapan dan di mana skema berguna hilang atau dipertahankan.
-    \item Bandingkan dengan baseline pemodelan (EDAs sederhana, GA peka-linkage) untuk menilai apakah rekombinasi buta cukup untuk masalah target.
 \end{itemize}
 
 \section{Teorema No Free Lunch}
