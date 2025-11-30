@@ -1,390 +1,163 @@
 \chapter{Genetic Algorithm Encoding}
 
+ 
+
 \section{Introduction to Encoding}
-Encoding (also called representation) is the process of transforming problem solutions into a form that genetic algorithms can manipulate~\cite{goldberg1989genetic, michalewicz1996genetic}. The choice of encoding significantly impacts GA performance and is one of the most critical design decisions.
+Encoding (also called representation) formalises how candidate solutions are described for a genetic algorithm (GA). Let G denote the discrete set of genotypes (the representation space) and P denote the set of phenotypes (the solution space). Encoding is the specification of a mapping
+\[\phi: G \to P,\]
+that assigns to each genotype a phenotype that can be evaluated by a fitness function. In practice G is usually a finite or countable combinatorial space (for example, bit-strings, vectors of integers, permutations, trees or real-valued vectors) and P is the domain of problem solutions (for example, real vectors, schedules, tours, or programs).
+
+Two aspects of encoding must be distinguished: (i) the representational language used to construct genotypes (bits, integers, reals, nodes in a tree, etc.), and (ii) the genotype--phenotype mapping \(\phi\). The search performed by a GA operates in G, while fitness and problem constraints are defined on P; therefore the properties of \(\phi\) crucially determine how variation in genotype space translates to meaningful changes in solution quality.
+
+Well-chosen encodings expose structure that the search procedures can exploit, reduce the incidence of infeasible solutions, and control representational redundancy and epistasis. Poor encodings can render local improvements invisible to variation, produce pathological fitness landscapes, or require expensive repair procedures. In later sections we discuss concrete encoding families (binary, gray, real-valued, permutation, tree) and the practical implications they have for representation design and algorithm performance.
 
 \section{Requirements for Good Encoding}
+When designing an encoding and its associated mapping \(\phi: G\to P\), it is useful to state desiderata precisely. The following properties capture core representational requirements and trade-offs; they guide the selection or construction of encodings for a given problem.
 
 \subsection{Completeness}
-Every possible solution to the problem should have at least one corresponding representation in the genetic encoding.
+Completeness requires that the encoding be able to express every feasible phenotype of interest: formally, the image of \(\phi\) should cover the feasible region \(F\subseteq P\) of solutions, i.e. \(\phi(G) \supseteq F\). If completeness fails then some valid solutions are unreachable by the GA, which introduces representational bias and can prevent the algorithm from finding optimal solutions that lie outside \(\phi(G)\).
+
+In practice completeness is balanced against representational compactness: a fully complete encoding may be large or inefficient, whereas a restricted encoding can greatly simplify search if it excludes uninteresting parts of P. Designers should explicitly state which subset of P must be reachable and ensure \(\phi(G)\) contains it.
 
 \subsection{Soundness}
-Every encoded string should correspond to a valid solution of the problem.
+Soundness (also called validity) stipulates that every genotype should map to a well-defined, constraint-satisfying phenotype: \(\forall g\in G,\ \phi(g) \in P_{valid}\). Sound encodings avoid or minimise the production of infeasible solutions so that fitness evaluations are meaningful without costly repair. When strict soundness is impossible or impractical, designers may allow infeasible genotypes but must provide an efficient, well-defined decoding and repair strategy and ensure the search can still progress.
+
+Soundness and completeness are orthogonal: an encoding can be sound but incomplete (every genotype valid, but not all phenotypes representable), or complete but unsound (all phenotypes representable but many genotypes invalid) depending on \(G\) and \(\phi\).
 
 \subsection{Non-redundancy}
-Each solution should have a unique representation (one-to-one mapping preferred).
+Non-redundancy means reducing (or eliminating) multiple distinct genotypes that map to the same phenotype. Formally, one prefers \(\phi\) to be injective on the set of representationally relevant genotypes. Redundancy (many-to-one mapping) increases the effective search volume and can bias sampling: some phenotypes may be over-represented in G, making them more likely to be sampled even if they are not superior.
+
+However, redundancy is sometimes deliberately introduced for robustness (e.g. neutral networks that allow neutral drift) or to simplify representation. When redundancy is present, it should be understood and controlled: quantify the degree of redundancy and consider its interaction with search dynamics and variation.
 
 \subsection{Locality}
-Small changes in genotype should correspond to small changes in phenotype, ensuring smooth search.
+Locality formalises the intuition that small genotypic changes should produce small phenotypic changes. Let d_G and d_P be distance measures on G and P respectively (e.g. Hamming distance on bit-strings, Euclidean distance on real vectors). High locality means that
+\[d_G(g_1,g_2)\ \text{small}\ \Rightarrow\ d_P(\phi(g_1),\phi(g_2))\ \text{small}.\]
+Locality is important because common variation procedures make small changes in G; if these do not correspond to small, correlated changes in P the search becomes effectively random and building-block recombination fails. Encoding choices such as Gray coding for integers or real-valued representations aim to improve locality.
+
+Locality cannot always be achieved with other desirable properties; for example, injective, compact encodings with perfect locality may not exist for some combinatorial domains. Designers should therefore prioritise which properties matter most for the problem and for the procedures they plan to use.
+
+\subsection{Additional Practical Requirements}
+Beyond the four formal properties above, useful encodings should also satisfy several pragmatic constraints:
+\begin{itemize}
+    \item \textbf{Operator Closure:} Variation procedures should, as much as possible, produce genotypes within a region of G that decodes to feasible or easily repaired phenotypes.
+    \item \textbf{Computational Efficiency:} Decoding \(\phi\) and any repair procedures should be computationally inexpensive relative to fitness evaluation.
+    \item \textbf{Scalability:} The encoding should scale gracefully with problem size; representation length should not grow superlinearly without justification.
+    \item \textbf{Low Epistasis:} The representation should aim to minimise destructive interactions between genes (epistasis) so that beneficial building blocks can be recombined reliably.
+    \item \textbf{Interpretability and Prior Knowledge:} When available, incorporate problem-specific structure (symmetries, invariants, constraints) to simplify search and reduce unnecessary degrees of freedom.
+\end{itemize}
+
+Designing an encoding is therefore a matter of formal requirements, procedure compatibility, and empirical validation. Later sections examine common encoding families and trade-offs, and discuss practical choices that respect the desiderata above.
 
 \section{Binary Encoding}
 
-Binary encoding is the most traditional and widely studied representation in genetic algorithms~\cite{holland1975adaptation, goldberg1989genetic}.
-
-\subsection{Basic Binary Encoding}
-Solutions are represented as fixed-length binary strings.
-
-\textbf{Example}: Optimizing $f(x) = x^2$ where $x \in [0, 31]$
-\begin{itemize}
-    \item Use 5-bit representation
-    \item $x = 13 \rightarrow 01101_2$
-    \item $x = 27 \rightarrow 11011_2$
-\end{itemize}
-
-\subsection{Decoding Binary Strings}
-For integer values in range $[x_{min}, x_{max}]$ using $l$ bits:
-
+Binary encoding represents genotypes as fixed-length vectors over the binary alphabet: \(G = \{0,1\}^l\). A genotype \(g=(b_{l-1},\dots,b_0)\) is commonly interpreted as an unsigned integer
+\[\mathrm{bin}(g) = \sum_{i=0}^{l-1} b_i 2^i,\]
+which is then mapped to a phenotype by an affine decoding when the phenotype is numeric. For a real-valued variable \(x\in[x_{\min},x_{\max}]\) the usual decoding is
 \begin{equation}
-x = x_{min} + \frac{x_{max} - x_{min}}{2^l - 1} \times \text{binary\_value}
+x = x_{\min} + \frac{\mathrm{bin}(g)}{2^l - 1} (x_{\max} - x_{\min}).
 \end{equation}
+This formula makes the representational resolution explicit: the quantisation step is
+\[\Delta = \frac{x_{\max}-x_{\min}}{2^l-1},\]
+so choosing \(l\) trades off precision against search dimensionality and behavioural properties of variation procedures.
 
-\textbf{Example}: 5-bit string $10110_2 = 22_{10}$ for range $[0, 31]$:
-\begin{equation}
-x = 0 + \frac{31 - 0}{2^5 - 1} \times 22 = 0 + \frac{31}{31} \times 22 = 22
-\end{equation}
+Binary encodings are attractive because they are compact and simple to manipulate with bitwise operators. Schema theory and many early theoretical results were developed for binary representations, which aids theoretical reasoning about convergence and building-block propagation~\cite{holland1975adaptation,goldberg1989genetic}.
 
-\subsection{Multi-variable Binary Encoding}
-For multiple variables, concatenate individual encodings:
-
-\textbf{Example}: Two variables $x_1 \in [0, 15]$, $x_2 \in [0, 7]$
+However, binary encodings also introduce specific problems that must be addressed in practice:
 \begin{itemize}
-    \item $x_1$: 4 bits
-    \item $x_2$: 3 bits
-    \item Combined: 7-bit string $x_1x_2$
-    \item String $1011001$: $x_1 = 1011_2 = 11$, $x_2 = 001_2 = 1$
+    \item \textbf{Hamming cliffs and locality:} Adjacent numeric values can differ in many bits under standard binary positional encodings, breaking locality. Gray codes are a common remedy when preserving adjacency is important.
+    \item \textbf{Precision versus length:} High precision requires long bit-strings, which increases the search space exponentially and can make positional recombination disruptive.
+    \item \textbf{Epistasis:} Bit positions may interact non-linearly with respect to phenotype quality; correlated bits reduce the effectiveness of simple recombination.
 \end{itemize}
 
-\subsection{Advantages of Binary Encoding}
+Practical recommendations for binary encodings:
 \begin{itemize}
-    \item Simple and easy to implement
-    \item Well-studied theoretical foundation
-    \item Standard crossover and mutation operators available
-    \item Schema theory directly applicable
-\end{itemize}
-
-\subsection{Disadvantages of Binary Encoding}
-\begin{itemize}
-    \item Hamming cliff problem (adjacent values may have large Hamming distance)
-    \item Fixed precision may be inadequate
-    \item Long strings for high precision
-    \item Epistasis between variables
-    \item Not natural for many problems with real-valued features
-    \item Often requires correction after genetic operations
+    \item Choose length \(l\) from the desired resolution \(\Delta\) and range \([x_{\min},x_{\max}]\) using \(2^l-1 \ge (x_{\max}-x_{\min})/\Delta\).
+    \item If adjacency matters, consider Gray coding for integer variables and convert to binary only for procedures that work on bitstrings.
+    \item Use procedure choices that respect gene boundaries for multi-variable concatenations (e.g. align recombination points to variable boundaries when appropriate).
+    \item Tune per-bit modification rates as a starting heuristic; decrease when using local search or strong selective dynamics.
 \end{itemize}
 
 \section{Overview of Encoding Types}
 
-\subsection{Problem Identification and Formulation}
-One thing to consider when using genetic algorithms is how we represent the data we are studying. Therefore, we must determine which encoding is most suitable for the problem we face. Like other search or learning methods, how encoding is done on candidate solutions is one of, if not the most important factor in the success of the genetic algorithm itself. Most genetic algorithm applications use bit strings with predetermined length and order. However, recently many experiments have been conducted with other types of encoding.
+Encodings can be organised according to the structure of \(G\) and the intended phenotype domain \(P\). Below we summarise principal families and their canonical use-cases, with practical guidance for representation design and common pitfalls.
 
-\subsection{What is Encoding}
-Encoding is the process of representing individual genes. This process can be done with bits, numbers, trees, arrays, lists, or any other object. The encoding is primarily dependent on how the related object is solved. For example, encoding can be done with integers or real numbers.
-
-\subsection{Encoding Type Categories}
-
-\subsubsection{1. Binary Encoding}
-Binary encoding, i.e., bit strings, is the simplest and most widely used type of encoding. Many renowned researchers use binary encoding in their problems, for example Holland, as in the Holland schema. Each chromosome is encoded as a binary string. Each bit in it represents a feature or characteristic of that solution. Binary encoding can store a lot of information with a minimal number of alleles (e.g., 0 or 1, compared to decimal which has many alleles).
-
-Here are some examples of chromosomes with binary encoding:
+\subsection*{Taxonomy and mapping to problem classes}
 \begin{itemize}
-    \item Chromosome 1: 1 1 0 1 0 0 0 1 1 0 1 0
-    \item Chromosome 2: 0 1 1 1 1 1 1 1 1 1 0 0
+    \item \textbf{Binary (bit-strings):} \(G=\{0,1\}^l\). Good for combinatorial choices and when schema analysis is desired. Use Gray code or problem-specific bit ordering to improve locality for numeric phenotypes.
+    \item \textbf{Integer (value) encodings:} Vectors of integers; natural for count and allocation problems. Use integer-aware variation procedures (random reset, creep) and discrete recombination methods.
+    \item \textbf{Real-valued encodings:} Continuous vectors \(\mathbb{R}^n\). Preferable for continuous optimisation; supports arithmetic combination and BLX-$\alpha$ style recombination, stochastic perturbations, and gradient-informed hybrids.
+    \item \textbf{Permutation encodings:} Represent orderings (TSP, scheduling). Require specialised variation procedures (e.g. order-preserving transforms, mapping-based procedures, local reordering moves) that preserve permutation feasibility.
+    \item \textbf{Tree and graph encodings:} Variable-size structures used in genetic programming, evolving expressions, or circuit topologies. Use subtree exchange and constrained growth controls to avoid bloat.
+    \item \textbf{Indirect / developmental encodings:} Genotypes specify construction rules or grammars that generate phenotypes; useful when compact genotypes should produce structured phenotypes (e.g. neural architectures, L-systems).
 \end{itemize}
 
-\begin{figure}[h]
-\centering
-\includegraphics[width=0.7\textwidth]{figures/buku_ajar_page_12.png}
-\caption{Binary encoding examples and characteristics}
-\label{fig:binary_encoding_example}
-\end{figure}
-
-On the other hand, this encoding is not natural and difficult to implement for most problems that generally have features in the form of real numbers, and corrections often have to be made after genetic operations are completed.
-
-\subsubsection{2. Value Encoding}
-Problems generally have complex values. Values like these are quite difficult to represent in binary form. This is where value encoding is used. Each chromosome is a string of values, where the value in each string itself can be anything related to the problem. This includes integers, letters, real numbers, and other values.
-
-Here are some examples of chromosomes with value encoding:
+\subsection*{Choosing an encoding}
+Select an encoding by matching the problem's combinatorial structure, constraint set, and desired procedure toolkit. Key questions:
 \begin{itemize}
-    \item Chromosome A: 1.2324, 5.3242, 0.4556, 2.3293, 2.4545
-    \item Chromosome B: ABDJEIFJDHDIERJFDLDFLEGT
-    \item Chromosome C: (back), (back), (right), (forward), (left)
+    \item Does the problem require an ordering, a multiset, or real-valued parameters? Choose permutation, integer/multiset, or real encodings respectively.
+    \item Are feasibility constraints hard (must be satisfied) or soft (violations penalised)? For hard constraints prefer sound encodings or constructive decoders; for soft constraints penalisation may be acceptable.
+    \item Is locality important for effective recombination? If so, prefer encodings (or transformations, e.g. Gray) that increase correlation between small genotypic and phenotypic changes.
+    \item Will procedures be custom or standard? Use encodings that keep procedure implementation simple unless domain structure mandates otherwise.
 \end{itemize}
 
-\subsubsection{3. Permutation Encoding}
-There are some special problems that do not look at chromosomes from their individual gene values. They look at the position of occurrence of each gene, as in ordering problems. Each gene can be an integer or real, representing numbers in a sequence.
+\subsection*{Operator compatibility and empirical validation}
+An encoding is only useful if paired with procedures that preserve useful structure. After selecting an encoding, design or choose variation procedures that maintain feasibility, limit destructive epistasis, and respect meaningful gene boundaries. Finally, validate encoding choices empirically: compare performance across a small benchmark (different encodings, procedure sets, and variation rates) and select the combination that gives robust progress on representative instances.
 
-Here are some examples of chromosomes with permutation encoding:
-\begin{itemize}
-    \item Chromosome A: 1 5 3 2 6 4 7 9 8
-    \item Chromosome B: 8 5 6 7 2 3 1 4 9
-\end{itemize}
-
-\subsubsection{4. Tree Encoding}
-Tree encoding is most often used in program expressions that constantly change in genetic programming. Each chromosome is a tree of an object such as a function or command from a programming language. Tree encoding has a number of advantages, one of which is enabling an open search space, because basically trees of any size can be formed through crossover and mutation.
-
-However, this openness can be one of the weaknesses of this encoding method. The formed tree can become too large without being controlled, thus hindering the formation of more structured and hierarchical solution candidates. In addition, the resulting tree tends to be difficult to interpret and simplify due to its large size.
-
-\begin{figure}[h]
-\centering
-\includegraphics[width=0.8\textwidth]{figures/buku_ajar_page_13.png}
-\caption{Various encoding types: Value, Permutation, and Tree encoding}
-\label{fig:encoding_types}
-\end{figure}
-
-\section{Gray Code Encoding}
-
-Gray code addresses the Hamming cliff problem by ensuring adjacent values differ by only one bit~\cite{haupt2004practical, michalewicz1996genetic}.
-
-\subsection{Binary to Gray Code Conversion}
-\begin{algorithm}
-\caption{Binary to Gray Code}
-\begin{algorithmic}
-\STATE $g_0 = b_0$ (most significant bit)
-\FOR{$i = 1$ to $n-1$}
-    \STATE $g_i = b_{i-1} \oplus b_i$ (XOR operation)
-\ENDFOR
-\end{algorithmic}
-\end{algorithm}
-
-\subsection{Gray Code to Binary Conversion}
-\begin{algorithm}
-\caption{Gray Code to Binary}
-\begin{algorithmic}
-\STATE $b_0 = g_0$
-\FOR{$i = 1$ to $n-1$}
-    \STATE $b_i = b_{i-1} \oplus g_i$
-\ENDFOR
-\end{algorithmic}
-\end{algorithm}
-
-\subsection{Example: 4-bit Gray Code}
-\begin{table}[H]
-\centering
-\begin{tabular}{ccc}
-\toprule
-Decimal & Binary & Gray Code \\
-\midrule
-0 & 0000 & 0000 \\
-1 & 0001 & 0001 \\
-2 & 0010 & 0011 \\
-3 & 0011 & 0010 \\
-4 & 0100 & 0110 \\
-5 & 0101 & 0111 \\
-6 & 0110 & 0101 \\
-7 & 0111 & 0100 \\
-\bottomrule
-\end{tabular}
-\caption{Binary vs Gray Code Representation}
-\end{table}
+The following sections give concrete representational examples and references for the main encoding families discussed here.
 
 \section{Real-valued Encoding}
 
-Real-valued encoding directly represents solutions as vectors of real numbers~\cite{back1996evolutionary, michalewicz1996genetic}.
+Real-valued encoding represents individuals as vectors in $\mathbb{R}^n$, i.e. \(\mathbf{x}=(x_1,\dots,x_n)\) with each coordinate taking values on a continuous domain. This direct representation is the natural choice for continuous optimisation problems and for parameter tuning tasks where the phenotype is inherently numeric. By operating in a continuous space, real-valued encodings avoid the quantisation artefacts of fixed-length binary encodings and allow variation operators to express arbitrarily small adjustments to candidate solutions (subject to floating-point precision limits)~\cite{back1996evolutionary,michalewicz1996genetic}.
 
-\subsection{Representation}
-Individual: $\mathbf{x} = (x_1, x_2, \ldots, x_n)$ where $x_i \in \mathbb{R}$
+The principal practical advantage of real-valued encodings is operator compatibility: arithmetic recombination (weighted averages), BLX-$\alpha$ style interval recombination, simulated binary crossover (SBX) and Gaussian or Cauchy perturbation mutations all act naturally on real vectors and can be designed to respect bounds or known structure. These operators produce offspring that lie in the convex hull (or a controlled extension) of the parents, which typically yields smoother search trajectories and better exploitation of local gradients in the fitness landscape. Evolution Strategies (ES) and many modern continuous optimisers exploit these properties by combining self-adaptive step-size control with recombination to navigate rugged but differentiable landscapes efficiently~\cite{back1996evolutionary}.
 
-\textbf{Example}: Function optimization $f(x_1, x_2) = x_1^2 + x_2^2$
-Individual: $(2.5, -1.7)$
+There are, however, theoretical and practical trade-offs. Classical schema arguments developed for binary representations do not carry over directly to continuous encodings: building-block notions must be reformulated in terms of regions of $\mathbb{R}^n$ and operator-induced correlations between coordinates. Real encodings also place greater emphasis on algorithmic choices for step-size control and constraint handling — poor mutation scales or unbounded recombination can lead to slow progress or numerical instability. Consequently, practitioners must tune or adapt mutation magnitudes (fixed schedules, self-adaptation, or covariance matrix adaptation) and choose recombination parameters that match problem smoothness and scale.
 
-\subsection{Advantages}
-\begin{itemize}
-    \item Natural representation for continuous problems
-    \item No precision limitations
-    \item More compact than binary encoding
-    \item Smooth fitness landscapes
-\end{itemize}
+From an implementation viewpoint, several pragmatic recommendations improve robustness and performance. Always normalise or scale variables to comparable ranges before applying generic operators; this prevents single coordinates from dominating recombination statistics and simplifies parameter transfer between problems. Use bounded operators or projection schemes when constraints are present, and prefer adaptive mutation strategies (e.g. log-normal step-size adaptation or CMA-style covariance updates) when the search landscape exhibits anisotropy. When local gradients are available or can be approximated cheaply, hybridising evolutionary updates with gradient-based refinement often accelerates convergence while preserving global exploration.
 
-\subsection{Disadvantages}
-\begin{itemize}
-    \item Requires specialized operators
-    \item Loss of building block analysis
-    \item Parameter tuning for operators
-\end{itemize}
+Finally, like any encoding choice, real-valued representations should be validated empirically against alternatives. For many smooth, low-to-moderate dimensional continuous problems they substantially outperform binary encodings in both convergence speed and final solution quality; for highly multimodal or combinatorial problems a real-valued parameterisation may be inappropriate. We therefore recommend starting with a simple real-valued operator set (arithmetic/BLX recombination and Gaussian mutation with a tuned standard deviation), run small factorial experiments to select adaptation mechanisms, and escalate to more sophisticated adaptations (self-adaptive step sizes, CMA) when warranted by problem scale or observed search behaviour.
 
-\subsection{Real-valued Crossover Operators}
-
-\subsubsection{Arithmetic Crossover}
-\begin{equation}
-\begin{aligned}
-\text{Offspring}_1 &= \alpha \times \text{Parent}_1 + (1-\alpha) \times \text{Parent}_2 \\
-\text{Offspring}_2 &= (1-\alpha) \times \text{Parent}_1 + \alpha \times \text{Parent}_2
-\end{aligned}
-\end{equation}
-
-where $\alpha \in [0, 1]$ is a random number.
-
-\subsubsection{BLX-$\alpha$ Crossover}
-For parents $x_1$ and $x_2$:
-\begin{equation}
-\text{Offspring} \sim U[x_{\min} - \alpha \cdot I, x_{\max} + \alpha \cdot I]
-\end{equation}
-
-where:
-\begin{itemize}
-    \item $x_{\min} = \min(x_1, x_2)$
-    \item $x_{\max} = \max(x_1, x_2)$
-    \item $I = x_{\max} - x_{\min}$
-    \item $\alpha = 0.5$ typically
-\end{itemize}
-
-\subsection{Real-valued Mutation Operators}
-
-\subsubsection{Gaussian Mutation}
-\begin{equation}
-x'_i = x_i + \mathcal{N}(0, \sigma^2)
-\end{equation}
-
-where $\mathcal{N}(0, \sigma^2)$ is Gaussian noise with mean 0 and variance $\sigma^2$.
-
-\subsubsection{Non-uniform Mutation}
-\begin{equation}
-x'_i = \begin{cases}
-x_i + \Delta(t, x_{\max} - x_i) & \text{if random bit is 0} \\
-x_i - \Delta(t, x_i - x_{\min}) & \text{if random bit is 1}
-\end{cases}
-\end{equation}
-
-where:
-\begin{equation}
-\Delta(t, y) = y \times \left(1 - r^{(1-t/T)^b}\right)
-\end{equation}
 
 \section{Integer Encoding}
 
-For problems with integer variables.
+Integer encoding represents solutions whose variables take discrete integer values. Formally an individual is a vector
+\(\mathbf{x}=(x_1,\dots,x_n)\) with each coordinate $x_i\in\mathbb{Z}$ and, in practice, bounded to a finite domain $[a_i,b_i]\cap\mathbb{Z}$. This representation is appropriate for allocation problems, counts, and many combinatorial substructures (for example quantities in knapsack-like models, resource allocations, and discretised control parameters). The discrete nature of the variables changes the character of the search: neighbourhoods are naturally defined by integer steps, and the search landscape is inherently non-continuous and often non-convex.
 
-\subsection{Representation}
-Individual: $\mathbf{x} = (x_1, x_2, \ldots, x_n)$ where $x_i \in \mathbb{Z}$
+Operators for integer encodings must respect integrality and any problem-specific bounds or feasibility constraints. Common mutation strategies include random-reset mutation (replace a coordinate with a uniformly sampled integer in its domain) and small-step or "creep" mutation (increment or decrement by a small integer drawn from a short-tailed distribution). Recombination can be performed directly in the integer domain (for example, discrete uniform crossover or coordinate-wise selection), or by temporarily lifting values to a continuous surrogate (arithmetic recombination followed by rounding) when an operator that benefits from averaging is desirable. When using surrogate continuous recombination, stochastic rounding or bias-corrected rounding helps reduce systematic rounding artefacts.
 
-\textbf{Example}: Knapsack problem with item quantities
-Individual: $(3, 0, 2, 1, 4)$ represents taking 3 of item 1, 0 of item 2, etc.
+Integer encodings present trade-offs compared to real-valued representations. Because the domain is discrete, many analytical assumptions (e.g. smooth gradients or continuous convexity) do not apply, and standard continuous step-size adaptation mechanisms require adaptation to discrete step scales. On the other hand, integer representations can encode feasibility directly, avoiding expensive repair procedures: e.g. representing quantities with integrality enforces natural constraints, and specialised discrete crossover/mutation operators can be designed to preserve feasibility or near-feasibility by construction.
 
-\subsection{Integer Crossover}
-\begin{itemize}
-    \item Discrete uniform crossover
-    \item Arithmetic crossover with rounding
-    \item Two-point crossover
-\end{itemize}
+From an algorithm design and implementation perspective several pragmatic recommendations improve robustness. First, exploit problem structure: if variables have small integer ranges prefer enumerative neighbourhood moves and small-step local search hybrids; if ranges are large, favour operators that explore broadly (random-reset, large-step proposals) combined with adaptive reduction in step magnitude. Second, enforce bounds and invariants in the decoder or by projection after variation rather than relying on implicit truncation; explicit constraint-aware operators are usually clearer and less error prone. Third, when mixing integer and continuous variables use mixed-integer operators or decoupled schedules so that each variable type receives appropriately scaled variation.
 
-\subsection{Integer Mutation}
-\begin{itemize}
-    \item Random resetting: $x_i = \text{random integer in range}$
-    \item Creep mutation: $x_i = x_i \pm \text{small integer}$
-    \item Gaussian mutation with rounding
-\end{itemize}
+Finally, validate encoding choices empirically. Compare a direct integer encoding to alternatives (binary-encoded integers, real-valued surrogate with rounding) on small representative instances to measure convergence speed, robustness, and the cost of constraint handling. In many allocation or scheduling tasks a well-chosen integer representation plus tailored discrete operators outperforms generic continuous surrogates; however, for problems where fine-grained search behaviour is important, surrogate continuous strategies with careful rounding and step-size adaptation can be competitive. Use these empirical results to select mutation/recombination scales and to decide whether to hybridise the evolutionary loop with deterministic local search on integer neighbourhoods.
 
 \section{Permutation Encoding}
 
-For problems where solution is an ordering of elements.
+Permutation encoding represents candidate solutions as permutations of a finite set of elements, i.e. the genotype space is the set of bijections on \{1,\dots,n\}. The genotype--phenotype mapping \(\phi\) is usually the identity map: a permutation directly specifies an ordering that is interpreted by the problem-specific evaluator (for example a tour in the travelling salesman problem, a job sequence in single-machine scheduling, or an ordered list of tasks for a flow line). Because permutations inherently enforce ordering constraints, permutation encodings are sound for ordering problems and avoid many feasibility repairs required by naive encodings.
 
-\subsection{Representation}
-Individual: Permutation of $\{1, 2, \ldots, n\}$
+Although permutations are formally one-to-one with respect to orderings, practical representations often introduce equivalence classes and redundancies that must be recognised. A circular tour (as in symmetric TSP) admits rotational symmetry: cyclic shifts of a permutation represent the same tour and reflections may also be equivalent. Such symmetries do not change validity but affect sampling and selection probabilities; designers should either choose a canonical representative (fixing the first city) or use operators and fitness comparisons that account for the equivalence class to avoid representational bias.
 
-\textbf{Example}: Traveling Salesman Problem
-Individual: $(3, 1, 4, 2, 5)$ represents visiting cities in order 3→1→4→2→5→3
+Distance and locality in permutation spaces differ markedly from vector spaces. Hamming distance or simple positional metrics do not capture meaningful neighbourhood structure for order-based problems. Distances such as Kendall tau (number of pairwise disagreements), inversion distance, or edge-based metrics (number of differing adjacency relationships) better reflect the kinds of small, interpretable changes that preserve problem structure. Operator design should therefore be guided by which aspects of a permutation constitute useful building blocks for the problem — position-based blocks, adjacency/edge blocks, or precedence relations — because different operators preserve different structures.
 
-\subsection{Permutation Crossover Operators}
+Variation operators for permutation encodings must preserve feasibility (i.e. produce valid permutations) and ideally respect the chosen notion of locality. Typical mutation moves are swap, insert (take-one-and-insert-at-another-position), and inversion/reversal of a subsequence; these have clear interpretations as small, local reorders. Recombination operators are designed to combine parent orderings while maintaining permutation validity: examples include partially mapped crossover (PMX), order crossover (OX), cycle crossover (CX), and edge recombination. Each emphasises different preserved structures (position, order, or adjacency) and the choice should match problem-specific building blocks (for instance, edge-based recombiners are natural for TSP where edges matter more than absolute positions).
 
-\subsubsection{Order Crossover (OX)}
-\begin{enumerate}
-    \item Select random substring from parent 1
-    \item Copy substring to offspring in same positions
-    \item Fill remaining positions with elements from parent 2 in order they appear
-\end{enumerate}
+An alternative is to use indirect encodings and constructive decoders when constraints or constructive heuristics are important. Priority or random-key encodings map real-valued keys to a permutation via a stable sorting decoder; constructive decoders build feasible schedules or tours greedily from a genotype that encodes preferences. Indirect encodings can drastically reduce design complexity by separating the genetic search from feasibility enforcement and can incorporate domain heuristics directly into the decoder, but they shift the design burden to the decoder and may obscure locality properties of the genetic operators.
 
-\textbf{Example}:
-\begin{align}
-\text{Parent 1:} &\quad (1, 2, 3, 4, 5, 6, 7, 8, 9) \\
-\text{Parent 2:} &\quad (9, 3, 7, 8, 2, 6, 5, 1, 4) \\
-\text{Selected:} &\quad (\_, \_, 3, 4, 5, 6, \_, \_, \_) \\
-\text{Offspring:} &\quad (7, 8, 3, 4, 5, 6, 2, 1, 9)
-\end{align}
-
-\subsubsection{Partially Mapped Crossover (PMX)}
-\begin{enumerate}
-    \item Select two crossover points
-    \item Exchange segments between parents
-    \item Resolve conflicts using mapping relationship
-\end{enumerate}
-
-\subsubsection{Cycle Crossover (CX)}
-Preserves position information from both parents by identifying cycles.
-
-\subsection{Permutation Mutation Operators}
-
-\subsubsection{Swap Mutation}
-Randomly select two positions and swap their values.
-
-\subsubsection{Insert Mutation}
-Remove element from one position and insert at another position.
-
-\subsubsection{Inversion Mutation}
-Reverse order of elements in randomly selected substring.
-
-\subsubsection{Scramble Mutation}
-Randomly shuffle elements in selected substring.
+Practical recommendations: initialise populations using a mixture of random permutations and problem-specific heuristics to seed useful structure; measure diversity with permutation-aware metrics (Kendall tau or edge overlap) rather than Hamming distance; prefer operators that preserve the notion of building blocks relevant to your problem; and combine global permutation-based search with local optimisation (e.g. 2-opt or 3-opt for TSP, or specialised neighbourhood search for scheduling) to exploit fine-grained improvements. When symmetries exist, use canonicalisation or equivalence-aware evaluation to avoid bias. Finally, validate choices empirically on representative instances, since operator effectiveness is strongly problem-dependent in permutation spaces.
 
 \section{Tree Encoding}
 
-For problems with hierarchical or tree structures.
+Tree encoding represents genotypes as labelled, rooted trees whose nodes carry symbols drawn from one or more alphabets (for example function/operator symbols for internal nodes and terminal symbols for leaves). The phenotype is obtained by interpreting the tree according to problem semantics: in genetic programming the tree denotes an expression or program, in syntactic optimisation it denotes a parse tree, and in hierarchical design it denotes a composition of components. Formally the genotype space is the set of finite ordered trees over a ranked alphabet, and the decoder \(\phi\) is the evaluation or instantiation function that maps a tree to the problem-specific object in \(P\).
 
-\subsection{Applications}
-\begin{itemize}
-    \item Genetic programming
-    \item Decision trees
-    \item Parse trees
-    \item Circuit design
-\end{itemize}
+Tree encodings introduce representational choices that strongly affect operator behaviour and search dynamics. One must decide on the node alphabets (typed or untyped), arity constraints (fixed or variable arity), and linearisation for storage (pointer structures, bracketed strings, prefix/postfix notations, or explicit child lists). Typed (strongly-typed) trees enforce syntactic constraints at the representation level, preventing many invalid offspring and reducing the need for repair; untyped trees are more flexible but often require additional feasibility checks or decoders. Representation impacts locality: small subtree replacements may induce large semantic changes when node semantics are non-linear or context-sensitive.
 
-\subsection{Representation}
-Trees with:
-\begin{itemize}
-    \item Internal nodes: operators/functions
-    \item Leaf nodes: terminals/variables
-    \item Variable tree size and shape
-\end{itemize}
+A central concern with tree encodings is bloat — unbounded growth in tree size without commensurate fitness improvement. Bloat arises from neutral or weakly selective regions where larger trees are not penalised, and it degrades performance by increasing evaluation cost and reducing effective population variability. Common countermeasures include static limits on depth/size, parsimony pressure (explicit size or complexity penalties in the fitness), and operator-aware controls (limiting offspring size in crossover and mutation). When using growth controls, balance is required: overly aggressive pruning can eliminate useful structural variation, while permissive settings lead to resource exhaustion.
 
-\subsection{Tree Crossover}
-Exchange randomly selected subtrees between parents.
+Variation operators for trees must preserve tree well-formedness. Standard operators include subtree crossover (swap subtrees between parents), point mutation (replace a node or small subtree with a randomly generated subtree), and hoist mutation (replace a tree by one of its subtrees to reduce size). There are also context-preserving operators designed for typed languages or grammars (constrained subtree exchange, grammar-guided mutation) that maintain syntactic correctness by construction. Operator design should align with the semantics of the node alphabets: for expression trees, promoting commutative/associative-aware recombination or algebraic simplifications can increase meaningful offspring generation.
 
-\subsection{Tree Mutation}
-\begin{itemize}
-    \item Replace subtree with randomly generated subtree
-    \item Change node value
-    \item Grow or shrink tree
-\end{itemize}
+Indirect and grammar-based encodings are especially useful when the phenotype must satisfy rich syntactic or semantic constraints. In grammatical evolution and grammar-guided GP the genotype typically encodes a derivation or a sequence of production choices, and a deterministic decoder maps this to a tree that is guaranteed syntactically valid. These indirect encodings can produce compact genotypes and enable incorporation of domain knowledge, but they may obscure the locality properties of operators and require careful decoder design to avoid biased sampling of the phenotype space.
 
-\section{Problem-specific Encodings}
-
-\subsection{Graph Coloring}
-Individual: $(c_1, c_2, \ldots, c_n)$ where $c_i$ is color of vertex $i$
-
-\subsection{Job Scheduling}
-Individual: Priority list or schedule representation
-
-\subsection{Neural Network Weights}
-Individual: Vector of real-valued connection weights
-
-\section{Choosing the Right Encoding}
-
-\subsection{Factors to Consider}
-\begin{itemize}
-    \item Problem domain and constraints
-    \item Required precision
-    \item Search space characteristics
-    \item Available operators
-    \item Computational efficiency
-\end{itemize}
-
-\subsection{Guidelines}
-\begin{itemize}
-    \item Use natural representation when possible
-    \item Ensure all solutions are reachable
-    \item Minimize epistasis between variables
-    \item Consider hybrid approaches
-    \item Test multiple encodings empirically
-\end{itemize}
+Practical recommendations: enforce feasibility early using typing or grammar constraints when the domain requires syntactic correctness; combine global tree-based search with local simplification passes (constant folding, algebraic reductions) to improve evaluation efficiency; use mixed initialisation strategies (ramped half-and-half, grow/full) to seed diverse tree sizes and shapes; and adopt explicit complexity control (parsimony pressure, depth limits, or adaptive operator bias) to manage bloat. Finally, validate operator choices empirically on representative instances and instrument tree-size, depth, and evaluation cost during experiments to detect emergent bloat or pathological behaviours.
 
 \section{Chapter Summary}
 
@@ -394,7 +167,7 @@ This chapter covered various encoding schemes for genetic algorithms. The choice
 \begin{itemize}
     \item Encoding requirements: completeness, soundness, non-redundancy
     \item Binary vs Gray code encoding
-    \item Real-valued representation and operators
+    \item Real-valued representation and procedures
     \item Permutation encoding for ordering problems
     \item Tree encoding for hierarchical structures
     \item Problem-specific encoding considerations

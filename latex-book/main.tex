@@ -19,6 +19,8 @@
 \usepackage{tikz}
 \usepackage{pgfplots}
 \usepackage{subcaption}
+\usepackage{enumitem}
+
 
 % Page setup
 \geometry{margin=2.5cm}
@@ -30,8 +32,15 @@
 \fancyhead[RE]{\leftmark}
 
 % Title formatting
-\titleformat{\chapter}[display]
-{\normalfont\huge\bfseries}{\chaptertitlename\ \thechapter}{20pt}{\Huge}
+% Reduce vertical gaps for chapter headings:
+% In the \titleformat command the 4th argument is the separation between label and title — reduce it.
+	\titleformat{\chapter}[display]
+{\normalfont\huge\bfseries}{\chaptertitlename\ \thechapter}{0pt}{\Huge}
+
+% Tighten spacing before and after chapter titles. If this is still too large,
+% you can try smaller 'before' or 'after' values, but avoid negative values unless necessary.
+% Format: \titlespacing*{<command>}{<left>}{<before>}{<after>}
+	\titlespacing*{\chapter}{0pt}{10pt}{2pt}
 
 % Code styling
 \lstset{
@@ -93,8 +102,8 @@
 \input{chapters/chapter04-encoding}
 \input{chapters/chapter05-selection}
 \input{chapters/chapter06-crossover}
-\input{chapters/chapter07-applications}
-\input{chapters/chapter08-mutation-update}
+\input{chapters/chapter07-mutation-update}
+\input{chapters/chapter08-applications}
 
 % Appendices
 \appendix

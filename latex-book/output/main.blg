@@ -3,7 +3,6 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: main.aux
 The style file: plain.bst
 Database file #1: references.bib
-Warning--to sort, need author or key in course_week2
 Warning--to sort, need author or key in obitko_selection
 Warning--to sort, need author or key in course_week4_crossover
 Warning--to sort, need author or key in course_week9
@@ -11,45 +10,45 @@ Warning--empty journal in de1975analysis
 Warning--empty journal in haupt2004practical
 Warning--empty journal in michalewicz1996genetic
 Warning--empty journal in smith1998replacement
-You've used 49 entries,
+You've used 47 entries,
             2118 wiz_defined-function locations,
-            750 strings with 11617 characters,
-and the built_in function-call counts, 14225 in all, are:
-= -- 1410
-> -- 571
+            743 strings with 11385 characters,
+and the built_in function-call counts, 13753 in all, are:
+= -- 1363
+> -- 557
 < -- 7
-+ -- 242
-- -- 182
-* -- 844
-:= -- 2346
-add.period$ -- 151
-call.type$ -- 49
-change.case$ -- 229
++ -- 236
+- -- 178
+* -- 815
+:= -- 2277
+add.period$ -- 146
+call.type$ -- 47
+change.case$ -- 221
 chr.to.int$ -- 0
-cite$ -- 57
-duplicate$ -- 569
-empty$ -- 1202
-format.name$ -- 182
-if$ -- 3009
+cite$ -- 54
+duplicate$ -- 551
+empty$ -- 1154
+format.name$ -- 178
+if$ -- 2906
 int.to.chr$ -- 0
-int.to.str$ -- 49
-missing$ -- 50
-newline$ -- 252
-num.names$ -- 90
-pop$ -- 319
+int.to.str$ -- 47
+missing$ -- 49
+newline$ -- 243
+num.names$ -- 88
+pop$ -- 305
 preamble$ -- 1
-purify$ -- 189
+purify$ -- 183
 quote$ -- 0
-skip$ -- 398
+skip$ -- 384
 stack$ -- 0
-substring$ -- 823
-swap$ -- 102
+substring$ -- 794
+swap$ -- 100
 text.length$ -- 7
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 174
-warning$ -- 8
-while$ -- 141
-width$ -- 51
-write$ -- 521
-(There were 8 warnings)
+type$ -- 166
+warning$ -- 7
+while$ -- 137
+width$ -- 49
+write$ -- 503
+(There were 7 warnings)

@@ -7,19 +7,17 @@
 \babel@aux{english}{}
 \citation{spears1993crossover}
 \citation{schaffer1989study}
+\citation{goldberg1989genetic}
 \@writefile{toc}{\contentsline {chapter}{\numberline {1}Introduction to Optimization and Evolutionary Computation}{1}{chapter.1}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {1.1}Overview}{1}{section.1.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {1.2}What is Optimization?}{1}{section.1.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {1.3}Types of Optimization Problems}{1}{section.1.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {1.3.1}Based on Variable Types}{1}{subsection.1.3.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {1.1}{\ignorespaces Traditional gradient-based methods follow the local gradient and become trapped in local optima, unable to escape to find the global optimum.}}{2}{figure.caption.4}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {1.2}{\ignorespaces Functions with discontinuities, sharp corners, or discrete jumps cannot be optimized using gradient-based methods.}}{2}{figure.caption.5}\protected@file@percent }
 \citation{holland1975adaptation}
 \citation{eiben2015introduction}
-\@writefile{toc}{\contentsline {subsection}{\numberline {1.3.2}Based on Problem Characteristics}{2}{subsection.1.3.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {1.4}Traditional Optimization Methods}{2}{section.1.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {1.4.1}Limitations of Traditional Methods}{2}{subsection.1.4.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {1.5}Introduction to Evolutionary Computation}{2}{section.1.5}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {1.3}{\ignorespaces Traditional optimization methods often exhibit exponential or high polynomial growth in computation time as problem dimensionality increases, making them impractical for large-scale problems.}}{3}{figure.caption.6}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {1.4}{\ignorespaces Comprehensive comparison showing how GAs address the fundamental limitations of traditional optimization methods.}}{3}{figure.caption.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {1.1}Introduction to Evolutionary Computation}{3}{section.1.1}\protected@file@percent }
 \citation{holland1975adaptation}
 \citation{goldberg1989genetic}
 \citation{back1996evolutionary}
@@ -34,671 +32,582 @@
 \citation{murad2025hybrid}
 \citation{gu2022hybrid}
 \citation{fajrin2020multi}
-\@writefile{toc}{\contentsline {subsection}{\numberline {1.5.1}Advantages of Evolutionary Approaches}{3}{subsection.1.5.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {1.6}Types of Evolutionary Algorithms}{3}{section.1.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {1.7}Applications of Evolutionary Computation}{3}{section.1.7}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {1.8}Simple Examples of Genetic Algorithm Applications}{3}{section.1.8}\protected@file@percent }
-\citation{mitchell1996introduction}
-\citation{goldberg1989genetic}
-\citation{fajrin2020multi}
-\citation{gu2022hybrid}
-\citation{reeves1998genetic}
-\@writefile{toc}{\contentsline {subsection}{\numberline {1.8.1}Maximizing a Quadratic Function}{4}{subsection.1.8.1}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {1.1}{\ignorespaces Illustration of GA cycle and variations}}{4}{figure.caption.4}\protected@file@percent }
-\providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
-\newlabel{fig:ga_intro_cycle}{{1.1}{4}{Illustration of GA cycle and variations}{figure.caption.4}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {1.8.2}Travelling Salesman Problem}{4}{subsection.1.8.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {1.9}Genetic Algorithms for Real-World Problems}{4}{section.1.9}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {1.9.1}Scheduling}{4}{subsection.1.9.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {1.9.2}Telecommunication Network Design}{5}{subsection.1.9.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {1.9.3}VLSI Design (Very Large Scale Integration)}{5}{subsection.1.9.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {1.10}Genetic Algorithm Flow}{5}{section.1.10}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.1.1}Advantages of Evolutionary Approaches}{4}{subsection.1.1.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.1.2}Types of Evolutionary Algorithms}{4}{subsection.1.1.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.1.3}Applications of Evolutionary Computation}{4}{subsection.1.1.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.1.4}Simple Examples of Genetic Algorithm Applications}{4}{subsection.1.1.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.1.5}Maximizing a Quadratic Function}{4}{subsection.1.1.5}\protected@file@percent }
 \citation{majhi2025novel}
 \citation{murad2025hybrid}
+\@writefile{lof}{\contentsline {figure}{\numberline {1.5}{\ignorespaces Illustration of GA cycle and variations}}{5}{figure.caption.8}\protected@file@percent }
+\providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
+\newlabel{fig:ga_intro_cycle}{{1.5}{5}{Illustration of GA cycle and variations}{figure.caption.8}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.1.6}Travelling Salesman Problem}{5}{subsection.1.1.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {1.2}Genetic Algorithm Flow}{5}{section.1.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {1.3}Genetic Algorithm Variations}{5}{section.1.3}\protected@file@percent }
 \citation{shams2025resolving}
 \citation{srinivas1994genetic}
-\@writefile{toc}{\contentsline {section}{\numberline {1.11}Genetic Algorithm Variations}{6}{section.1.11}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {1.11.1}Hybrid GA}{6}{subsection.1.11.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {1.11.2}Adaptive GA}{6}{subsection.1.11.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {1.11.3}Parallel GA}{6}{subsection.1.11.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {1.12}Chapter Summary}{6}{section.1.12}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {1.13}Key Concepts}{6}{section.1.13}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {1.14}Further Reading}{7}{section.1.14}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.3.1}Hybrid GA}{6}{subsection.1.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.3.2}Adaptive GA}{6}{subsection.1.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.3.3}Parallel GA}{6}{subsection.1.3.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {1.4}Chapter Summary}{6}{section.1.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {1.5}Key Concepts}{6}{section.1.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {1.6}Further Reading}{6}{section.1.6}\protected@file@percent }
 \citation{holland1975adaptation}
 \citation{goldberg1989genetic}
+\citation{holland1975adaptation}
 \citation{mitchell1996introduction}
+\citation{eiben2015introduction}
 \@writefile{toc}{\contentsline {chapter}{\numberline {2}What is a Genetic Algorithm?}{9}{chapter.2}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{toc}{\contentsline {section}{\numberline {2.1}Introduction}{9}{section.2.1}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {2.1}{\ignorespaces Initial Population Example}}{9}{table.caption.5}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {2.1}{\ignorespaces Initial Population Example}}{9}{table.caption.9}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {2.2}Biological Inspiration}{9}{section.2.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {2.3}Basic Terminology}{9}{section.2.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.1}Genetic Algorithm Terms}{9}{subsection.2.3.1}\protected@file@percent }
+\citation{mitchell1996introduction}
+\citation{goldberg1989genetic}
+\citation{eiben2015introduction}
+\citation{holland1975adaptation}
+\citation{mitchell1996introduction}
+\citation{eiben2015introduction}
+\citation{goldberg1989genetic}
+\citation{eiben2015introduction}
+\@writefile{toc}{\contentsline {section}{\numberline {2.3}Basic Terminology}{10}{section.2.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.1}Genetic Algorithm Terms}{10}{subsection.2.3.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {2.4}Basic Structure of a Genetic Algorithm}{10}{section.2.4}\protected@file@percent }
-\@writefile{loa}{\contentsline {algorithm}{\numberline {1}{\ignorespaces Basic Genetic Algorithm}}{10}{algorithm.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {2.5}Key Components of GA}{10}{section.2.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.5.1}Representation}{10}{subsection.2.5.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.5.2}Fitness Function}{10}{subsection.2.5.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.5.3}Selection}{11}{subsection.2.5.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.5.4}Crossover (Recombination)}{11}{subsection.2.5.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.5.5}Mutation}{11}{subsection.2.5.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {2.6}Example: Maximizing a Simple Function}{11}{section.2.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.6.1}Step 1: Representation}{11}{subsection.2.6.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.6.2}Step 2: Initial Population}{11}{subsection.2.6.2}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {2.2}{\ignorespaces Initial Population Example}}{11}{table.caption.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.6.3}Step 3: Selection}{11}{subsection.2.6.3}\protected@file@percent }
+\citation{mitchell1996introduction}
+\citation{goldberg1989genetic}
 \citation{goldberg1989genetic}
 \citation{eiben2015introduction}
 \citation{sivanandam2008introduction}
 \citation{mitchell1996introduction}
 \citation{haupt2004practical}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.6.4}Step 4: Crossover}{12}{subsection.2.6.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.6.5}Step 5: Mutation}{12}{subsection.2.6.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {2.7}Advantages of Genetic Algorithms}{12}{section.2.7}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {2.8}Disadvantages of Genetic Algorithms}{12}{section.2.8}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {2.9}When to Use Genetic Algorithms}{12}{section.2.9}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {2.10}Variations of Genetic Algorithms}{13}{section.2.10}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {2.11}Chapter Summary}{13}{section.2.11}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {2.12}Key Concepts}{13}{section.2.12}\protected@file@percent }
+\citation{mitchell1996introduction}
+\@writefile{toc}{\contentsline {section}{\numberline {2.5}Advantages of Genetic Algorithms}{11}{section.2.5}\protected@file@percent }
+\citation{eiben2015introduction}
+\citation{goldberg1989genetic}
+\citation{eiben2015introduction}
+\citation{haupt2004practical}
+\citation{mitchell1996introduction}
+\citation{sivanandam2008introduction}
+\citation{deb2002fast}
+\citation{eiben2015introduction}
+\@writefile{toc}{\contentsline {section}{\numberline {2.6}Disadvantages of Genetic Algorithms}{12}{section.2.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {2.7}When to Use Genetic Algorithms}{12}{section.2.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {2.8}Chapter Summary}{13}{section.2.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {2.9}Key Concepts}{13}{section.2.9}\protected@file@percent }
 \@writefile{toc}{\contentsline {chapter}{\numberline {3}GA Cycle and Holland Schema Theory}{15}{chapter.3}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{toc}{\contentsline {section}{\numberline {3.1}The Genetic Algorithm Cycle}{15}{section.3.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.1}Detailed GA Cycle}{16}{subsection.3.1.1}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {3.1}{\ignorespaces Genetic Algorithm Cycle}}{16}{figure.caption.7}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.2}Phase 1: Initialization}{16}{subsection.3.1.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.3}Phase 2: Evaluation}{16}{subsection.3.1.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.4}Phase 3: Termination Check}{16}{subsection.3.1.4}\protected@file@percent }
-\citation{holland1975adaptation}
-\citation{holland1975adaptation}
-\citation{goldberg1989genetic}
-\citation{course_week2}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.5}Phase 4: Selection}{17}{subsection.3.1.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.6}Phase 5: Crossover}{17}{subsection.3.1.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.7}Phase 6: Mutation}{17}{subsection.3.1.7}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.8}Phase 7: Replacement}{17}{subsection.3.1.8}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {3.2}Holland Schema Theory}{17}{section.3.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.1}What is a Schema?}{18}{subsection.3.2.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.2}Schema Properties}{18}{subsection.3.2.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Order of a Schema}{18}{subsection.3.2.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Defining Length}{18}{equation.3.2.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.3}Schema Theorem (Fundamental Theorem)}{18}{subsection.3.2.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Selection Effect}{19}{subsection.3.2.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Crossover Effect}{19}{equation.3.2.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Mutation Effect}{19}{equation.3.2.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Combined Schema Theorem}{19}{equation.3.2.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.4}Building Block Hypothesis}{19}{subsection.3.2.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Characteristics of Good Building Blocks}{19}{subsection.3.2.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.5}Role of Schema Order in Genetic Algorithms}{20}{subsection.3.2.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Pattern Specificity Level}{20}{subsection.3.2.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Survival Probability in Evolution}{20}{subsection.3.2.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Relationship with Selection}{20}{subsection.3.2.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.6}Relationship Between Holland Schema and Genome}{21}{subsection.3.2.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.7}Schema Functions in Genetic Algorithms}{21}{subsection.3.2.7}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {3.3}Implicit Parallelism}{21}{section.3.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {3.4}Deception and Schema Theory}{21}{section.3.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.4.1}Deceptive Problems}{21}{subsection.3.4.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.4.2}Overcoming Deception}{21}{subsection.3.4.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {3.5}Practical Implications}{22}{section.3.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.5.1}Encoding Design}{22}{subsection.3.5.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.5.2}Parameter Settings}{22}{subsection.3.5.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {3.6}Limitations of Schema Theory}{22}{section.3.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {3.7}Modern Extensions}{22}{section.3.7}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.7.1}Walsh Analysis}{22}{subsection.3.7.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.7.2}Fitness Landscapes}{22}{subsection.3.7.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.7.3}No Free Lunch Theorem}{22}{subsection.3.7.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {3.8}Chapter Summary}{22}{section.3.8}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {3.9}Key Concepts}{23}{section.3.9}\protected@file@percent }
-\citation{goldberg1989genetic}
-\citation{michalewicz1996genetic}
-\citation{holland1975adaptation}
-\citation{goldberg1989genetic}
-\@writefile{toc}{\contentsline {chapter}{\numberline {4}Genetic Algorithm Encoding}{25}{chapter.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.1}Detailed GA Cycle}{15}{subsection.3.1.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3.1}{\ignorespaces Genetic Algorithm Cycle}}{16}{figure.caption.10}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.2}What is a Schema?}{17}{subsection.3.1.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.3}Schema Properties}{18}{subsection.3.1.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Order of a Schema}{18}{subsection.3.1.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Defining Length}{18}{equation.3.1.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.4}Schema Theorem (Fundamental Theorem)}{19}{subsection.3.1.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Selection Effect}{19}{subsection.3.1.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Crossover Effect}{19}{equation.3.1.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Mutation Effect}{19}{equation.3.1.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Combined Schema Theorem}{20}{equation.3.1.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.5}Building Block Hypothesis}{20}{subsection.3.1.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.6}Role of Schema Order in Genetic Algorithms}{20}{subsection.3.1.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Pattern Specificity Level}{20}{subsection.3.1.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Survival Probability in Evolution}{21}{subsection.3.1.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Relationship with Selection}{21}{subsection.3.1.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.7}Relationship Between Holland Schema and Genome}{21}{subsection.3.1.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.8}Schema Functions in Genetic Algorithms}{22}{subsection.3.1.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3.2}Implicit Parallelism}{22}{section.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3.3}Deception and Schema Theory}{24}{section.3.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.1}Deceptive Problems}{24}{subsection.3.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.2}Why Deception Matters for Schema Theory}{24}{subsection.3.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.3}Detecting and Measuring Deception}{25}{subsection.3.3.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.4}Strategies to Overcome Deception}{25}{subsection.3.3.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.5}Limitations and Practical Advice}{26}{subsection.3.3.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3.4}Practical Implications}{26}{section.3.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4.1}Encoding and Representation}{26}{subsection.3.4.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4.2}Operator and Parameter Choices}{27}{subsection.3.4.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4.3}Practical Monitoring and Diagnostics}{27}{subsection.3.4.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3.5}Limitations of Schema Theory}{27}{section.3.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.5.1}Expectation vs finite-population dynamics}{28}{subsection.3.5.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.5.2}Operator dependence and representation sensitivity}{28}{subsection.3.5.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.5.3}Limited handling of epistasis and complex interactions}{28}{subsection.3.5.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.5.4}Restriction to simple alphabets and fixed-length encodings}{28}{subsection.3.5.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.5.5}Lack of prescriptive specificity}{28}{subsection.3.5.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.5.6}Practical takeaway}{28}{subsection.3.5.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.5.7}Deeper Limitations and Practical Consequences}{29}{subsection.3.5.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Stochastic fluctuations and reliability}{29}{subsection.3.5.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Difficulty of measuring schemas in practice}{29}{subsection.3.5.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Finite-population bounds and worst-case behaviour}{29}{subsection.3.5.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Operator modelling limitations}{29}{subsection.3.5.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Interpretation pitfalls}{29}{subsection.3.5.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.5.8}Connections to alternative analytic frameworks}{30}{subsection.3.5.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.5.9}Recommended empirical protocol}{30}{subsection.3.5.9}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.5.10}No Free Lunch Theorem}{30}{subsection.3.5.10}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3.6}Chapter Summary}{30}{section.3.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3.7}Key Concepts}{31}{section.3.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {4}Genetic Algorithm Encoding}{33}{chapter.4}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {4.1}Introduction to Encoding}{25}{section.4.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {4.2}Requirements for Good Encoding}{25}{section.4.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.1}Completeness}{25}{subsection.4.2.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.2}Soundness}{25}{subsection.4.2.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.3}Non-redundancy}{25}{subsection.4.2.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.4}Locality}{25}{subsection.4.2.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {4.3}Binary Encoding}{25}{section.4.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.1}Basic Binary Encoding}{26}{subsection.4.3.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.2}Decoding Binary Strings}{26}{subsection.4.3.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.3}Multi-variable Binary Encoding}{26}{subsection.4.3.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.4}Advantages of Binary Encoding}{26}{subsection.4.3.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.5}Disadvantages of Binary Encoding}{26}{subsection.4.3.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {4.4}Overview of Encoding Types}{27}{section.4.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.1}Problem Identification and Formulation}{27}{subsection.4.4.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.2}What is Encoding}{27}{subsection.4.4.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.3}Encoding Type Categories}{27}{subsection.4.4.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{1. Binary Encoding}{27}{subsection.4.4.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{2. Value Encoding}{27}{figure.caption.8}\protected@file@percent }
-\citation{haupt2004practical}
-\citation{michalewicz1996genetic}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.1}{\ignorespaces Binary encoding examples and characteristics}}{28}{figure.caption.8}\protected@file@percent }
-\newlabel{fig:binary_encoding_example}{{4.1}{28}{Binary encoding examples and characteristics}{figure.caption.8}{}}
-\@writefile{toc}{\contentsline {subsubsection}{3. Permutation Encoding}{28}{figure.caption.8}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{4. Tree Encoding}{28}{figure.caption.8}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {4.5}Gray Code Encoding}{28}{section.4.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.5.1}Binary to Gray Code Conversion}{28}{subsection.4.5.1}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {4.2}{\ignorespaces Various encoding types: Value, Permutation, and Tree encoding}}{29}{figure.caption.9}\protected@file@percent }
-\newlabel{fig:encoding_types}{{4.2}{29}{Various encoding types: Value, Permutation, and Tree encoding}{figure.caption.9}{}}
-\@writefile{loa}{\contentsline {algorithm}{\numberline {2}{\ignorespaces Binary to Gray Code}}{29}{algorithm.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.5.2}Gray Code to Binary Conversion}{29}{subsection.4.5.2}\protected@file@percent }
-\@writefile{loa}{\contentsline {algorithm}{\numberline {3}{\ignorespaces Gray Code to Binary}}{29}{algorithm.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4.1}Introduction to Encoding}{33}{section.4.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4.2}Requirements for Good Encoding}{33}{section.4.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.1}Completeness}{33}{subsection.4.2.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.2}Soundness}{34}{subsection.4.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.3}Non-redundancy}{34}{subsection.4.2.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.4}Locality}{34}{subsection.4.2.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.5}Additional Practical Requirements}{34}{subsection.4.2.5}\protected@file@percent }
+\citation{holland1975adaptation}
+\citation{goldberg1989genetic}
+\@writefile{toc}{\contentsline {section}{\numberline {4.3}Binary Encoding}{35}{section.4.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4.4}Overview of Encoding Types}{36}{section.4.4}\protected@file@percent }
 \citation{back1996evolutionary}
 \citation{michalewicz1996genetic}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.5.3}Example: 4-bit Gray Code}{30}{subsection.4.5.3}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {4.1}{\ignorespaces Binary vs Gray Code Representation}}{30}{table.caption.10}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {4.6}Real-valued Encoding}{30}{section.4.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.6.1}Representation}{30}{subsection.4.6.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.6.2}Advantages}{30}{subsection.4.6.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.6.3}Disadvantages}{30}{subsection.4.6.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.6.4}Real-valued Crossover Operators}{30}{subsection.4.6.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Arithmetic Crossover}{30}{subsection.4.6.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{BLX-$\alpha $ Crossover}{31}{equation.4.6.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.6.5}Real-valued Mutation Operators}{31}{subsection.4.6.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Gaussian Mutation}{31}{subsection.4.6.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Non-uniform Mutation}{31}{equation.4.6.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {4.7}Integer Encoding}{31}{section.4.7}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.7.1}Representation}{31}{subsection.4.7.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.7.2}Integer Crossover}{31}{subsection.4.7.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.7.3}Integer Mutation}{32}{subsection.4.7.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {4.8}Permutation Encoding}{32}{section.4.8}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.8.1}Representation}{32}{subsection.4.8.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.8.2}Permutation Crossover Operators}{32}{subsection.4.8.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Order Crossover (OX)}{32}{subsection.4.8.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Partially Mapped Crossover (PMX)}{32}{equation.4.8.11}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Cycle Crossover (CX)}{32}{Item.9}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.8.3}Permutation Mutation Operators}{32}{subsection.4.8.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Swap Mutation}{32}{subsection.4.8.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Insert Mutation}{33}{subsection.4.8.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Inversion Mutation}{33}{subsection.4.8.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Scramble Mutation}{33}{subsection.4.8.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {4.9}Tree Encoding}{33}{section.4.9}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.9.1}Applications}{33}{subsection.4.9.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.9.2}Representation}{33}{subsection.4.9.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.9.3}Tree Crossover}{33}{subsection.4.9.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.9.4}Tree Mutation}{33}{subsection.4.9.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {4.10}Problem-specific Encodings}{34}{section.4.10}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.10.1}Graph Coloring}{34}{subsection.4.10.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.10.2}Job Scheduling}{34}{subsection.4.10.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.10.3}Neural Network Weights}{34}{subsection.4.10.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {4.11}Choosing the Right Encoding}{34}{section.4.11}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.11.1}Factors to Consider}{34}{subsection.4.11.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.11.2}Guidelines}{34}{subsection.4.11.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {4.12}Chapter Summary}{34}{section.4.12}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {4.13}Key Concepts}{35}{section.4.13}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{\numberline {5}Selection Methods in Genetic Algorithms}{37}{chapter.5}\protected@file@percent }
+\citation{back1996evolutionary}
+\@writefile{toc}{\contentsline {section}{\numberline {4.5}Real-valued Encoding}{37}{section.4.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4.6}Integer Encoding}{38}{section.4.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4.7}Permutation Encoding}{39}{section.4.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4.8}Tree Encoding}{40}{section.4.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4.9}Chapter Summary}{41}{section.4.9}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4.10}Key Concepts}{41}{section.4.10}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {5}Selection Methods in Genetic Algorithms}{43}{chapter.5}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {5.1}Introduction to Selection}{37}{section.5.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.1.1}Definition and Function of Selection Operator}{37}{subsection.5.1.1}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {5.1}{\ignorespaces Basic selection process in Genetic Algorithms}}{37}{figure.caption.11}\protected@file@percent }
-\newlabel{fig:selection_basic_process}{{5.1}{37}{Basic selection process in Genetic Algorithms}{figure.caption.11}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.1.2}Selection Pressure}{37}{subsection.5.1.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.1}Introduction to Selection}{43}{section.5.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.1}{\ignorespaces Basic selection process in Genetic Algorithms}}{43}{figure.caption.11}\protected@file@percent }
+\newlabel{fig:selection_basic_process}{{5.1}{43}{Basic selection process in Genetic Algorithms}{figure.caption.11}{}}
 \citation{holland1975adaptation}
 \citation{goldberg1989genetic}
 \citation{goldberg1989genetic}
 \citation{obitko_selection}
 \citation{algorithmafternoon_selection}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.1.3}Types of Selection Operators}{38}{subsection.5.1.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {5.2}Selection Pressure}{38}{section.5.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {5.3}Fitness Proportionate Selection (FPS)}{38}{section.5.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.1}Roulette Wheel Selection}{38}{subsection.5.3.1}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {5.1}{\ignorespaces Selection probability and fitness value (from Buku Ajar)}}{39}{table.caption.12}\protected@file@percent }
-\newlabel{tab:selection_probability}{{5.1}{39}{Selection probability and fitness value (from Buku Ajar)}{table.caption.12}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.2}{\ignorespaces Roulette-wheel selection process with sample trials}}{39}{figure.caption.13}\protected@file@percent }
-\newlabel{fig:roulette_wheel_selection}{{5.2}{39}{Roulette-wheel selection process with sample trials}{figure.caption.13}{}}
-\@writefile{toc}{\contentsline {subsubsection}{Algorithm}{39}{figure.caption.13}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Selection Probability}{39}{ALC@unique.28}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.2}Selection Pressure}{44}{section.5.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.3}Fitness Proportionate Selection (FPS)}{44}{section.5.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.1}Roulette Wheel Selection}{44}{subsection.5.3.1}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {5.1}{\ignorespaces Selection probability and fitness value (from Buku Ajar)}}{45}{table.caption.12}\protected@file@percent }
+\newlabel{tab:selection_probability}{{5.1}{45}{Selection probability and fitness value (from Buku Ajar)}{table.caption.12}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.2}{\ignorespaces Roulette-wheel selection process with sample trials}}{45}{figure.caption.13}\protected@file@percent }
+\newlabel{fig:roulette_wheel_selection}{{5.2}{45}{Roulette-wheel selection process with sample trials}{figure.caption.13}{}}
+\@writefile{toc}{\contentsline {subsubsection}{Algorithm}{45}{figure.caption.13}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Selection Probability}{45}{ALC@unique.10}\protected@file@percent }
 \citation{baker1987reducing}
 \citation{baker1987reducing}
-\@writefile{loa}{\contentsline {algorithm}{\numberline {4}{\ignorespaces Roulette Wheel Selection}}{40}{algorithm.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Example}{40}{equation.5.3.1}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {5.2}{\ignorespaces Roulette Wheel Selection Example}}{40}{table.caption.14}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Advantages}{40}{table.caption.14}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Disadvantages}{40}{table.caption.14}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.2}Stochastic Universal Sampling (SUS)}{40}{subsection.5.3.2}\protected@file@percent }
+\@writefile{loa}{\contentsline {algorithm}{\numberline {1}{\ignorespaces Roulette Wheel Selection}}{46}{algorithm.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Example}{46}{equation.5.3.1}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {5.2}{\ignorespaces Roulette Wheel Selection Example}}{46}{table.caption.14}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Advantages}{46}{table.caption.14}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Disadvantages}{46}{table.caption.14}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.2}Stochastic Universal Sampling (SUS)}{46}{subsection.5.3.2}\protected@file@percent }
 \citation{grefenstette1986optimization}
 \citation{algorithmafternoon_ranked}
-\@writefile{toc}{\contentsline {subsubsection}{Baker's SUS}{41}{subsection.5.3.2}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {5.3}{\ignorespaces Stochastic universal sampling with equally spaced pointers}}{41}{figure.caption.15}\protected@file@percent }
-\newlabel{fig:sus_selection}{{5.3}{41}{Stochastic universal sampling with equally spaced pointers}{figure.caption.15}{}}
-\@writefile{toc}{\contentsline {subsubsection}{Algorithm}{41}{figure.caption.15}\protected@file@percent }
-\@writefile{loa}{\contentsline {algorithm}{\numberline {5}{\ignorespaces Stochastic Universal Sampling}}{41}{algorithm.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Advantages over Roulette Wheel}{41}{ALC@unique.35}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {5.4}Rank-based Selection}{41}{section.5.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.1}Overview}{42}{subsection.5.4.1}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {5.4}{\ignorespaces How the situation changes after converting fitness to order number (rank)}}{42}{figure.caption.16}\protected@file@percent }
-\newlabel{fig:rank_based_selection}{{5.4}{42}{How the situation changes after converting fitness to order number (rank)}{figure.caption.16}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.2}Linear Ranking}{42}{subsection.5.4.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.3}Exponential Ranking}{42}{subsection.5.4.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Baker's SUS}{47}{subsection.5.3.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.3}{\ignorespaces Stochastic universal sampling with equally spaced pointers}}{47}{figure.caption.15}\protected@file@percent }
+\newlabel{fig:sus_selection}{{5.3}{47}{Stochastic universal sampling with equally spaced pointers}{figure.caption.15}{}}
+\@writefile{toc}{\contentsline {subsubsection}{Algorithm}{47}{figure.caption.15}\protected@file@percent }
+\@writefile{loa}{\contentsline {algorithm}{\numberline {2}{\ignorespaces Stochastic Universal Sampling}}{47}{algorithm.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Advantages over Roulette Wheel}{47}{ALC@unique.17}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.4}Rank-based Selection}{47}{section.5.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.1}Overview}{48}{subsection.5.4.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.4}{\ignorespaces How the situation changes after converting fitness to order number (rank)}}{48}{figure.caption.16}\protected@file@percent }
+\newlabel{fig:rank_based_selection}{{5.4}{48}{How the situation changes after converting fitness to order number (rank)}{figure.caption.16}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.2}Linear Ranking}{48}{subsection.5.4.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.3}Exponential Ranking}{48}{subsection.5.4.3}\protected@file@percent }
 \citation{goldberg1989genetic}
 \citation{baeldung_tournament}
 \citation{baeldung_tournament}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.4}Advantages of Rank Selection}{43}{subsection.5.4.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.5}Disadvantages}{43}{subsection.5.4.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {5.5}Tournament Selection}{43}{section.5.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.5.1}Overview}{43}{subsection.5.5.1}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {5.5}{\ignorespaces Tournament selection mechanism}}{43}{figure.caption.17}\protected@file@percent }
-\newlabel{fig:tournament_selection}{{5.5}{43}{Tournament selection mechanism}{figure.caption.17}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.5.2}Tournament Selection Mechanism}{44}{subsection.5.5.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.5.3}Binary Tournament}{44}{subsection.5.5.3}\protected@file@percent }
-\@writefile{loa}{\contentsline {algorithm}{\numberline {6}{\ignorespaces Binary Tournament Selection}}{44}{algorithm.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.5.4}k-Tournament Selection}{44}{subsection.5.5.4}\protected@file@percent }
-\@writefile{loa}{\contentsline {algorithm}{\numberline {7}{\ignorespaces k-Tournament Selection}}{44}{algorithm.7}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.5.5}Tournament Size Effects}{44}{subsection.5.5.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.5.6}Selection Probability}{45}{subsection.5.5.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.5.7}Advantages}{45}{subsection.5.5.7}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.5.8}Disadvantages}{45}{subsection.5.5.8}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {5.6}Truncation Selection}{45}{section.5.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.6.1}Algorithm}{45}{subsection.5.6.1}\protected@file@percent }
-\@writefile{loa}{\contentsline {algorithm}{\numberline {8}{\ignorespaces Truncation Selection}}{45}{algorithm.8}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.6.2}Selection Ratio}{45}{subsection.5.6.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.6.3}Advantages}{46}{subsection.5.6.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.6.4}Disadvantages}{46}{subsection.5.6.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {5.7}Boltzmann Selection}{46}{section.5.7}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.7.1}Formula}{46}{subsection.5.7.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.7.2}Temperature Schedule}{46}{subsection.5.7.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.7.3}Advantages}{46}{subsection.5.7.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.7.4}Disadvantages}{46}{subsection.5.7.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {5.8}Elitist Selection}{47}{section.5.8}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.8.1}Pure Elitism}{47}{subsection.5.8.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.8.2}Elitist Replacement}{47}{subsection.5.8.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.8.3}Benefits}{47}{subsection.5.8.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.8.4}Drawbacks}{47}{subsection.5.8.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {5.9}Diversity-Preserving Selection}{47}{section.5.9}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.9.1}Fitness Sharing}{47}{subsection.5.9.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.9.2}Crowding}{47}{subsection.5.9.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.9.3}Speciation}{47}{subsection.5.9.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {5.10}Multi-objective Selection}{48}{section.5.10}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.10.1}Pareto Dominance}{48}{subsection.5.10.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.10.2}Non-dominated Sorting}{48}{subsection.5.10.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.10.3}NSGA-II Selection}{48}{subsection.5.10.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {5.11}Selection Comparison}{48}{section.5.11}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {5.3}{\ignorespaces Comparison of Selection Methods}}{48}{table.caption.18}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {5.12}Selection Guidelines}{48}{section.5.12}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.12.1}Problem Characteristics}{48}{subsection.5.12.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.12.2}Population Size}{48}{subsection.5.12.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.12.3}Generation Number}{49}{subsection.5.12.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {5.13}Hybrid Selection Strategies}{49}{section.5.13}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.13.1}Adaptive Selection}{49}{subsection.5.13.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.13.2}Multi-level Selection}{49}{subsection.5.13.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.13.3}Combined Methods}{49}{subsection.5.13.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {5.14}Chapter Summary}{49}{section.5.14}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {5.15}Key Concepts}{49}{section.5.15}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.4}Advantages of Rank Selection}{49}{subsection.5.4.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.5}Disadvantages}{49}{subsection.5.4.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.5}Tournament Selection}{49}{section.5.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.5.1}Overview}{49}{subsection.5.5.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.5}{\ignorespaces Tournament selection mechanism}}{49}{figure.caption.17}\protected@file@percent }
+\newlabel{fig:tournament_selection}{{5.5}{49}{Tournament selection mechanism}{figure.caption.17}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.5.2}Tournament Selection Mechanism}{50}{subsection.5.5.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.5.3}Binary Tournament}{50}{subsection.5.5.3}\protected@file@percent }
+\@writefile{loa}{\contentsline {algorithm}{\numberline {3}{\ignorespaces Binary Tournament Selection}}{50}{algorithm.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.5.4}k-Tournament Selection}{50}{subsection.5.5.4}\protected@file@percent }
+\@writefile{loa}{\contentsline {algorithm}{\numberline {4}{\ignorespaces k-Tournament Selection}}{50}{algorithm.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.5.5}Tournament Size Effects}{50}{subsection.5.5.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.5.6}Selection Probability}{51}{subsection.5.5.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.5.7}Advantages}{51}{subsection.5.5.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.5.8}Disadvantages}{51}{subsection.5.5.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.6}Truncation Selection}{51}{section.5.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.7}Boltzmann Selection}{52}{section.5.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.8}Elitist Selection}{52}{section.5.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.9}Diversity-Preserving Selection}{53}{section.5.9}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.10}Multi-objective Selection}{54}{section.5.10}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.11}Selection Comparison}{55}{section.5.11}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {5.3}{\ignorespaces Comparison of Selection Methods}}{55}{table.caption.18}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.12}Selection Guidelines}{56}{section.5.12}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.13}Hybrid Selection Strategies}{57}{section.5.13}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.14}Chapter Summary}{57}{section.5.14}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.15}Key Concepts}{57}{section.5.15}\protected@file@percent }
 \citation{holland1975adaptation}
 \citation{goldberg1989genetic}
 \citation{mitchell1996introduction}
-\@writefile{toc}{\contentsline {chapter}{\numberline {6}Crossover (Recombination) in Genetic Algorithms}{51}{chapter.6}\protected@file@percent }
-\@writefile{lof}{\addvspace {10\p@ }}
-\@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {6.1}Introduction to Crossover}{51}{section.6.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {6.2}Biological Inspiration}{51}{section.6.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {6.3}Crossover Principles}{51}{section.6.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.3.1}Exploration vs. Exploitation}{51}{subsection.6.3.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.3.2}Crossover Probability}{51}{subsection.6.3.2}\protected@file@percent }
 \citation{geeksforgeeks_crossover}
 \citation{tutorialspoint_crossover}
 \citation{course_week4_crossover}
-\@writefile{toc}{\contentsline {section}{\numberline {6.4}Binary Crossover Operators}{52}{section.6.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.4.1}Definition and Function of Crossover Operator}{52}{subsection.6.4.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.4.2}One-Point Crossover}{52}{subsection.6.4.2}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {6.1}{\ignorespaces Single-Point Crossover for binary chromosomes}}{52}{figure.caption.19}\protected@file@percent }
-\newlabel{fig:binary_single_point}{{6.1}{52}{Single-Point Crossover for binary chromosomes}{figure.caption.19}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.4.3}One-Point Crossover}{52}{subsection.6.4.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Algorithm}{53}{subsection.6.4.3}\protected@file@percent }
-\@writefile{loa}{\contentsline {algorithm}{\numberline {9}{\ignorespaces One-Point Crossover}}{53}{algorithm.9}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Example}{53}{ALC@unique.54}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Characteristics}{53}{equation.6.4.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.4.4}Two-Point Crossover}{53}{subsection.6.4.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Algorithm}{53}{figure.caption.20}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {6}Crossover (Recombination) in Genetic Algorithms}{59}{chapter.6}\protected@file@percent }
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\@writefile{toc}{\contentsline {section}{\numberline {6.1}Introduction to Crossover}{59}{section.6.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6.2}Biological Inspiration}{59}{section.6.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6.3}Crossover Principles}{59}{section.6.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.3.1}Exploration vs. Exploitation}{59}{subsection.6.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.3.2}Crossover Probability}{59}{subsection.6.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6.4}Binary Crossover Operators}{60}{section.6.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.4.1}Definition and Function of Crossover Operator}{60}{subsection.6.4.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.4.2}One-Point Crossover}{60}{subsection.6.4.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {6.1}{\ignorespaces Single-Point Crossover for binary chromosomes}}{60}{figure.caption.19}\protected@file@percent }
+\newlabel{fig:binary_single_point}{{6.1}{60}{Single-Point Crossover for binary chromosomes}{figure.caption.19}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.4.3}One-Point Crossover}{60}{subsection.6.4.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Algorithm}{60}{subsection.6.4.3}\protected@file@percent }
+\@writefile{loa}{\contentsline {algorithm}{\numberline {5}{\ignorespaces One-Point Crossover}}{61}{algorithm.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Example}{61}{ALC@unique.33}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Characteristics}{61}{equation.6.4.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.4.4}Two-Point Crossover}{61}{subsection.6.4.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Algorithm}{61}{figure.caption.20}\protected@file@percent }
+\@writefile{loa}{\contentsline {algorithm}{\numberline {6}{\ignorespaces Two-Point Crossover}}{61}{algorithm.6}\protected@file@percent }
 \citation{spears1993crossover}
 \citation{eshelman1991chc}
-\@writefile{lof}{\contentsline {figure}{\numberline {6.2}{\ignorespaces Multi-point Crossover for binary chromosomes}}{54}{figure.caption.20}\protected@file@percent }
-\newlabel{fig:binary_multi_point}{{6.2}{54}{Multi-point Crossover for binary chromosomes}{figure.caption.20}{}}
-\@writefile{loa}{\contentsline {algorithm}{\numberline {10}{\ignorespaces Two-Point Crossover}}{54}{algorithm.10}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Example}{54}{ALC@unique.58}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Advantages}{54}{equation.6.4.8}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.4.5}Uniform Crossover}{54}{subsection.6.4.5}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {6.3}{\ignorespaces Uniform Crossover for binary chromosomes}}{55}{figure.caption.21}\protected@file@percent }
-\newlabel{fig:binary_uniform}{{6.3}{55}{Uniform Crossover for binary chromosomes}{figure.caption.21}{}}
-\@writefile{toc}{\contentsline {subsubsection}{Algorithm}{55}{figure.caption.21}\protected@file@percent }
-\@writefile{loa}{\contentsline {algorithm}{\numberline {11}{\ignorespaces Uniform Crossover}}{55}{algorithm.11}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Example with Mask}{55}{ALC@unique.66}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Properties}{55}{equation.6.4.13}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.4.6}Multi-Point Crossover}{56}{subsection.6.4.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Characteristics}{56}{subsection.6.4.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {6.5}Integer Chromosome Crossover}{56}{section.6.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.5.1}Single-Point Crossover for Integer}{56}{subsection.6.5.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.5.2}Multi-point Crossover for Integer}{56}{subsection.6.5.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.5.3}Uniform Crossover for Integer}{56}{subsection.6.5.3}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {6.4}{\ignorespaces Single-Point Crossover for integer chromosomes}}{57}{figure.caption.22}\protected@file@percent }
-\newlabel{fig:integer_single_point}{{6.4}{57}{Single-Point Crossover for integer chromosomes}{figure.caption.22}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {6.6}Real-Valued Crossover Operators}{57}{section.6.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.6.1}Arithmetic Crossover}{57}{subsection.6.6.1}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {6.5}{\ignorespaces Multi-point Crossover for integer chromosomes}}{58}{figure.caption.23}\protected@file@percent }
-\newlabel{fig:integer_multi_point}{{6.5}{58}{Multi-point Crossover for integer chromosomes}{figure.caption.23}{}}
-\@writefile{toc}{\contentsline {subsubsection}{Single Arithmetic Crossover}{58}{subsection.6.6.1}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {6.6}{\ignorespaces Uniform Crossover for integer chromosomes}}{59}{figure.caption.24}\protected@file@percent }
-\newlabel{fig:integer_uniform}{{6.6}{59}{Uniform Crossover for integer chromosomes}{figure.caption.24}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6.7}{\ignorespaces Single Arithmetic Crossover for real chromosomes}}{59}{figure.caption.25}\protected@file@percent }
-\newlabel{fig:real_single_arithmetic}{{6.7}{59}{Single Arithmetic Crossover for real chromosomes}{figure.caption.25}{}}
-\@writefile{toc}{\contentsline {subsubsection}{Simple Arithmetic Crossover}{59}{figure.caption.25}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {6.8}{\ignorespaces Simple Arithmetic Crossover for real chromosomes}}{59}{figure.caption.26}\protected@file@percent }
-\newlabel{fig:real_simple_arithmetic}{{6.8}{59}{Simple Arithmetic Crossover for real chromosomes}{figure.caption.26}{}}
-\@writefile{toc}{\contentsline {subsubsection}{Whole Arithmetic Crossover}{60}{figure.caption.26}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {6.9}{\ignorespaces Whole Arithmetic Crossover for real chromosomes}}{60}{figure.caption.27}\protected@file@percent }
-\newlabel{fig:real_whole_arithmetic}{{6.9}{60}{Whole Arithmetic Crossover for real chromosomes}{figure.caption.27}{}}
-\@writefile{toc}{\contentsline {subsubsection}{Whole Arithmetic Crossover}{60}{figure.caption.27}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Simple Arithmetic Crossover}{60}{equation.6.6.15}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Single Arithmetic Crossover}{60}{equation.6.6.15}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Example}{60}{equation.6.6.15}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.6.2}BLX-$\alpha $ Crossover (Blend Crossover)}{60}{subsection.6.6.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {6.2}{\ignorespaces Multi-point Crossover for binary chromosomes}}{62}{figure.caption.20}\protected@file@percent }
+\newlabel{fig:binary_multi_point}{{6.2}{62}{Multi-point Crossover for binary chromosomes}{figure.caption.20}{}}
+\@writefile{toc}{\contentsline {subsubsection}{Example}{62}{ALC@unique.37}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Advantages}{62}{equation.6.4.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.4.5}Uniform Crossover}{62}{subsection.6.4.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Algorithm}{62}{figure.caption.21}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {6.3}{\ignorespaces Uniform Crossover for binary chromosomes}}{63}{figure.caption.21}\protected@file@percent }
+\newlabel{fig:binary_uniform}{{6.3}{63}{Uniform Crossover for binary chromosomes}{figure.caption.21}{}}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {7}{\ignorespaces Uniform Crossover}}{63}{algorithm.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Example with Mask}{63}{ALC@unique.45}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Properties}{63}{equation.6.4.13}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.4.6}Multi-Point Crossover}{63}{subsection.6.4.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Characteristics}{64}{subsection.6.4.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6.5}Integer Chromosome Crossover}{64}{section.6.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.5.1}Single-Point Crossover for Integer}{64}{subsection.6.5.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.5.2}Multi-point Crossover for Integer}{64}{subsection.6.5.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.5.3}Uniform Crossover for Integer}{64}{subsection.6.5.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6.6}Real-Valued Crossover Operators}{64}{section.6.6}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {6.4}{\ignorespaces Single-Point Crossover for integer chromosomes}}{65}{figure.caption.22}\protected@file@percent }
+\newlabel{fig:integer_single_point}{{6.4}{65}{Single-Point Crossover for integer chromosomes}{figure.caption.22}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.6.1}Arithmetic Crossover}{65}{subsection.6.6.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Single Arithmetic Crossover}{65}{subsection.6.6.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {6.5}{\ignorespaces Multi-point Crossover for integer chromosomes}}{66}{figure.caption.23}\protected@file@percent }
+\newlabel{fig:integer_multi_point}{{6.5}{66}{Multi-point Crossover for integer chromosomes}{figure.caption.23}{}}
+\@writefile{toc}{\contentsline {subsubsection}{Simple Arithmetic Crossover}{66}{figure.caption.25}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {6.6}{\ignorespaces Uniform Crossover for integer chromosomes}}{67}{figure.caption.24}\protected@file@percent }
+\newlabel{fig:integer_uniform}{{6.6}{67}{Uniform Crossover for integer chromosomes}{figure.caption.24}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6.7}{\ignorespaces Single Arithmetic Crossover for real chromosomes}}{67}{figure.caption.25}\protected@file@percent }
+\newlabel{fig:real_single_arithmetic}{{6.7}{67}{Single Arithmetic Crossover for real chromosomes}{figure.caption.25}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6.8}{\ignorespaces Simple Arithmetic Crossover for real chromosomes}}{67}{figure.caption.26}\protected@file@percent }
+\newlabel{fig:real_simple_arithmetic}{{6.8}{67}{Simple Arithmetic Crossover for real chromosomes}{figure.caption.26}{}}
+\@writefile{toc}{\contentsline {subsubsection}{Whole Arithmetic Crossover}{67}{figure.caption.26}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {6.9}{\ignorespaces Whole Arithmetic Crossover for real chromosomes}}{68}{figure.caption.27}\protected@file@percent }
+\newlabel{fig:real_whole_arithmetic}{{6.9}{68}{Whole Arithmetic Crossover for real chromosomes}{figure.caption.27}{}}
+\@writefile{toc}{\contentsline {subsubsection}{Whole Arithmetic Crossover}{68}{figure.caption.27}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Simple Arithmetic Crossover}{68}{equation.6.6.15}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Single Arithmetic Crossover}{68}{equation.6.6.15}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Example}{68}{equation.6.6.15}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.6.2}BLX-$\alpha $ Crossover (Blend Crossover)}{68}{subsection.6.6.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Algorithm}{68}{subsection.6.6.2}\protected@file@percent }
 \citation{oliver1987study}
 \citation{larranaga1999genetic}
 \citation{goldberg1989genetic}
 \citation{larranaga1999genetic}
-\@writefile{toc}{\contentsline {subsubsection}{Algorithm}{61}{subsection.6.6.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Parameters}{61}{Item.35}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.6.3}SBX (Simulated Binary Crossover)}{61}{subsection.6.6.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Formula}{61}{subsection.6.6.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {6.7}Permutation Crossover Operators}{61}{section.6.7}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.7.1}Order Crossover (OX)}{61}{subsection.6.7.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Algorithm}{61}{subsection.6.7.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Example}{61}{ALC@unique.69}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Parameters}{69}{Item.20}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.6.3}SBX (Simulated Binary Crossover)}{69}{subsection.6.6.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Formula}{69}{subsection.6.6.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6.7}Permutation Crossover Operators}{69}{section.6.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.7.1}Order Crossover (OX)}{69}{subsection.6.7.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Algorithm}{69}{subsection.6.7.1}\protected@file@percent }
+\@writefile{loa}{\contentsline {algorithm}{\numberline {8}{\ignorespaces Order Crossover}}{69}{algorithm.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Example}{69}{ALC@unique.48}\protected@file@percent }
 \citation{oliver1987study}
 \citation{reeves1993modern}
-\@writefile{loa}{\contentsline {algorithm}{\numberline {12}{\ignorespaces Order Crossover}}{62}{algorithm.12}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.7.2}Partially Mapped Crossover (PMX)}{62}{subsection.6.7.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Algorithm}{62}{subsection.6.7.2}\protected@file@percent }
-\@writefile{loa}{\contentsline {algorithm}{\numberline {13}{\ignorespaces Partially Mapped Crossover}}{62}{algorithm.13}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Example}{62}{ALC@unique.72}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.7.3}Cycle Crossover (CX)}{62}{subsection.6.7.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Algorithm}{62}{subsection.6.7.3}\protected@file@percent }
-\@writefile{loa}{\contentsline {algorithm}{\numberline {14}{\ignorespaces Cycle Crossover}}{62}{algorithm.14}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.7.4}Edge Recombination Crossover}{62}{subsection.6.7.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Algorithm}{62}{subsection.6.7.4}\protected@file@percent }
-\@writefile{loa}{\contentsline {algorithm}{\numberline {15}{\ignorespaces Edge Recombination}}{63}{algorithm.15}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {6.8}Crossover Analysis}{63}{section.6.8}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.8.1}Schema Disruption}{63}{subsection.6.8.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{One-Point Crossover}{63}{subsection.6.8.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Two-Point Crossover}{63}{equation.6.8.31}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Uniform Crossover}{63}{equation.6.8.32}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.8.2}Building Block Preservation}{63}{subsection.6.8.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {6.9}Advanced Crossover Techniques}{63}{section.6.9}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.9.1}Adaptive Crossover}{63}{subsection.6.9.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.7.2}Partially Mapped Crossover (PMX)}{70}{subsection.6.7.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Algorithm}{70}{subsection.6.7.2}\protected@file@percent }
+\@writefile{loa}{\contentsline {algorithm}{\numberline {9}{\ignorespaces Partially Mapped Crossover}}{70}{algorithm.9}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Example}{70}{ALC@unique.51}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.7.3}Cycle Crossover (CX)}{70}{subsection.6.7.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Algorithm}{70}{subsection.6.7.3}\protected@file@percent }
+\@writefile{loa}{\contentsline {algorithm}{\numberline {10}{\ignorespaces Cycle Crossover}}{70}{algorithm.10}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.7.4}Edge Recombination Crossover}{70}{subsection.6.7.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Algorithm}{70}{subsection.6.7.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6.8}Crossover Analysis}{70}{section.6.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.8.1}Schema Disruption}{70}{subsection.6.8.1}\protected@file@percent }
 \citation{elsayed2011ga}
 \citation{yassen2012multi}
 \citation{fajrin2020multi}
 \citation{chen2013multiple}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {11}{\ignorespaces Edge Recombination}}{71}{algorithm.11}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{One-Point Crossover}{71}{subsection.6.8.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Two-Point Crossover}{71}{equation.6.8.31}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Uniform Crossover}{71}{equation.6.8.32}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.8.2}Building Block Preservation}{71}{subsection.6.8.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6.9}Advanced Crossover Techniques}{71}{section.6.9}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.9.1}Adaptive Crossover}{71}{subsection.6.9.1}\protected@file@percent }
 \citation{spears1993crossover}
 \citation{schaffer1989study}
 \citation{spears1993crossover}
 \citation{schaffer1989study}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.9.2}Multiple Parent Crossover}{64}{subsection.6.9.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.9.3}Problem-Specific Crossover}{64}{subsection.6.9.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {6.10}Crossover Guidelines}{64}{section.6.10}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.10.1}Choosing Crossover Type}{64}{subsection.6.10.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.10.2}Parameter Setting}{64}{subsection.6.10.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.10.3}Empirical Testing}{64}{subsection.6.10.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {6.11}Crossover vs. Mutation}{65}{section.6.11}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {6.1}{\ignorespaces Crossover vs. Mutation Comparison~\cite  {spears1993crossover, schaffer1989study}}}{65}{table.caption.28}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {6.12}Chapter Summary}{65}{section.6.12}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {6.13}Key Concepts}{65}{section.6.13}\protected@file@percent }
-\citation{gen2007genetic}
-\citation{sivanandam2008introduction}
-\citation{eiben2015introduction}
-\citation{montana1989training}
-\citation{koza1992genetic}
-\@writefile{toc}{\contentsline {chapter}{\numberline {7}Real-World Applications and Visual Examples}{67}{chapter.7}\protected@file@percent }
-\@writefile{lof}{\addvspace {10\p@ }}
-\@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{ch:applications}{{7}{67}{Real-World Applications and Visual Examples}{chapter.7}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {7.1}Game AI and Entertainment}{67}{section.7.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.1.1}Super Mario Bros Level Learning}{67}{subsection.7.1.1}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {7.1}{\ignorespaces Genetic Algorithm Learning to Play Super Mario Bros at 4x Speed}}{67}{figure.caption.29}\protected@file@percent }
-\newlabel{fig:mario-ga}{{7.1}{67}{Genetic Algorithm Learning to Play Super Mario Bros at 4x Speed}{figure.caption.29}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.1.2}Tower Defense Game Balancing}{67}{subsection.7.1.2}\protected@file@percent }
-\citation{larranaga1999genetic}
-\citation{deb2001multi}
-\citation{deb2002fast}
-\citation{horn1994niched}
-\@writefile{toc}{\contentsline {section}{\numberline {7.2}Pathfinding and Navigation}{68}{section.7.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.2.1}Maze Navigation}{68}{subsection.7.2.1}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {7.2}{\ignorespaces Cat Navigating Circular Maze to Reach Cheese Using Genetic Algorithm}}{68}{figure.caption.30}\protected@file@percent }
-\newlabel{fig:maze-navigation}{{7.2}{68}{Cat Navigating Circular Maze to Reach Cheese Using Genetic Algorithm}{figure.caption.30}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.2.2}Robot Navigation}{68}{subsection.7.2.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {7.3}Evolution Simulation}{68}{section.7.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.3.1}Simulated Evolution of Creatures}{68}{subsection.7.3.1}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {7.3}{\ignorespaces Simulated Evolution Using Genetic Algorithm - Creatures Adapting Over Generations}}{68}{figure.caption.31}\protected@file@percent }
-\newlabel{fig:creature-evolution}{{7.3}{68}{Simulated Evolution Using Genetic Algorithm - Creatures Adapting Over Generations}{figure.caption.31}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {7.4}{\ignorespaces Human Movement Evolution: From Sitting to Athletic Performance}}{69}{figure.caption.32}\protected@file@percent }
-\newlabel{fig:human-evolution}{{7.4}{69}{Human Movement Evolution: From Sitting to Athletic Performance}{figure.caption.32}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {7.4}Human Analogy Examples}{69}{section.7.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.4.1}Evolution of Movement}{69}{subsection.7.4.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.4.2}Work Journey Optimization}{69}{subsection.7.4.2}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {7.5}{\ignorespaces Optimizing Daily Commute Route Using GA Principles}}{69}{figure.caption.33}\protected@file@percent }
-\newlabel{fig:work-journey}{{7.5}{69}{Optimizing Daily Commute Route Using GA Principles}{figure.caption.33}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {7.5}Academic Context}{69}{section.7.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.5.1}GA in Computational Intelligence}{69}{subsection.7.5.1}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {7.6}{\ignorespaces Position of Genetic Algorithms in Machine Learning and Soft Computing Landscape}}{69}{figure.caption.34}\protected@file@percent }
-\newlabel{fig:ga-context}{{7.6}{69}{Position of Genetic Algorithms in Machine Learning and Soft Computing Landscape}{figure.caption.34}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {7.7}{\ignorespaces Comparison of Lamarck vs Darwin-Wallace Evolution Theories Using Giraffe Example}}{70}{figure.caption.35}\protected@file@percent }
-\newlabel{fig:evolution-theories}{{7.7}{70}{Comparison of Lamarck vs Darwin-Wallace Evolution Theories Using Giraffe Example}{figure.caption.35}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {7.6}Historical Perspective}{70}{section.7.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.6.1}Natural Selection Theories}{70}{subsection.7.6.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {7.7}Summary}{70}{section.7.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.9.2}Multiple Parent Crossover}{72}{subsection.6.9.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.9.3}Problem-Specific Crossover}{72}{subsection.6.9.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6.10}Crossover Guidelines}{72}{section.6.10}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.10.1}Choosing Crossover Type}{72}{subsection.6.10.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.10.2}Parameter Setting}{72}{subsection.6.10.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.10.3}Empirical Testing}{72}{subsection.6.10.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6.11}Crossover vs. Mutation}{73}{section.6.11}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {6.1}{\ignorespaces Crossover vs. Mutation Comparison~\cite  {spears1993crossover, schaffer1989study}}}{73}{table.caption.28}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6.12}Chapter Summary}{73}{section.6.12}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6.13}Key Concepts}{73}{section.6.13}\protected@file@percent }
 \citation{course_week9}
 \citation{tutorialspoint_mutation}
 \citation{goldberg1989genetic}
 \citation{mitchell1996introduction}
 \citation{back1996evolutionary}
-\@writefile{toc}{\contentsline {chapter}{\numberline {8}Mutation and Generation Update}{71}{chapter.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {7}Mutation and Generation Update}{75}{chapter.7}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{ch:mutation-update}{{8}{71}{Mutation and Generation Update}{chapter.8}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {8.1}Introduction to Mutation}{71}{section.8.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {8.1.1}What is Mutation?}{71}{subsection.8.1.1}\protected@file@percent }
+\newlabel{ch:mutation-update}{{7}{75}{Mutation and Generation Update}{chapter.7}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {7.1}Introduction to Mutation}{75}{section.7.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.1.1}What is Mutation?}{75}{subsection.7.1.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.1.2}Mutation in Evolutionary Algorithms vs. Biological Evolution}{75}{subsection.7.1.2}\protected@file@percent }
 \citation{michalewicz1996genetic}
 \citation{back1996evolutionary}
 \citation{haupt2004practical}
-\@writefile{toc}{\contentsline {subsection}{\numberline {8.1.2}Mutation in Evolutionary Algorithms vs. Biological Evolution}{72}{subsection.8.1.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {8.2}Mutation for Different Representations}{72}{section.8.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {8.2.1}Mutation for Binary Representation}{72}{subsection.8.2.1}\protected@file@percent }
-\newlabel{sec:binary-mutation}{{8.2.1}{72}{Mutation for Binary Representation}{subsection.8.2.1}{}}
-\@writefile{toc}{\contentsline {subsubsection}{Bit-Flip Mutation}{72}{subsection.8.2.1}\protected@file@percent }
-\@writefile{loa}{\contentsline {algorithm}{\numberline {16}{\ignorespaces Bit-Flip Mutation}}{72}{algorithm.16}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {8.2.2}Mutation for Integer Representation}{73}{subsection.8.2.2}\protected@file@percent }
-\newlabel{sec:integer-mutation}{{8.2.2}{73}{Mutation for Integer Representation}{subsection.8.2.2}{}}
-\@writefile{toc}{\contentsline {subsubsection}{Integer Value Flipping}{73}{subsection.8.2.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Random Value Selection}{73}{subsection.8.2.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Creep Mutation}{73}{subsection.8.2.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {8.2.3}Mutation for Real-Valued Representation}{73}{subsection.8.2.3}\protected@file@percent }
-\newlabel{sec:real-mutation}{{8.2.3}{73}{Mutation for Real-Valued Representation}{subsection.8.2.3}{}}
-\@writefile{toc}{\contentsline {subsubsection}{Uniform Mutation}{73}{subsection.8.2.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Non-Uniform Mutation with Fixed Distribution}{74}{equation.8.2.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {8.2.4}Mutation for Permutation Representation}{74}{subsection.8.2.4}\protected@file@percent }
-\newlabel{sec:permutation-mutation}{{8.2.4}{74}{Mutation for Permutation Representation}{subsection.8.2.4}{}}
-\@writefile{toc}{\contentsline {subsubsection}{Swap Mutation}{74}{subsection.8.2.4}\protected@file@percent }
-\@writefile{loa}{\contentsline {algorithm}{\numberline {17}{\ignorespaces Swap Mutation}}{74}{algorithm.17}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {7.2}Mutation for Different Representations}{76}{section.7.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.2.1}Mutation for Binary Representation}{76}{subsection.7.2.1}\protected@file@percent }
+\newlabel{sec:binary-mutation}{{7.2.1}{76}{Mutation for Binary Representation}{subsection.7.2.1}{}}
+\@writefile{toc}{\contentsline {subsubsection}{Bit-Flip Mutation}{76}{subsection.7.2.1}\protected@file@percent }
+\@writefile{loa}{\contentsline {algorithm}{\numberline {12}{\ignorespaces Bit-Flip Mutation}}{76}{algorithm.12}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.2.2}Mutation for Integer Representation}{76}{subsection.7.2.2}\protected@file@percent }
+\newlabel{sec:integer-mutation}{{7.2.2}{76}{Mutation for Integer Representation}{subsection.7.2.2}{}}
+\@writefile{toc}{\contentsline {subsubsection}{Integer Value Flipping}{77}{subsection.7.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Random Value Selection}{77}{subsection.7.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Creep Mutation}{77}{subsection.7.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.2.3}Mutation for Real-Valued Representation}{77}{subsection.7.2.3}\protected@file@percent }
+\newlabel{sec:real-mutation}{{7.2.3}{77}{Mutation for Real-Valued Representation}{subsection.7.2.3}{}}
+\@writefile{toc}{\contentsline {subsubsection}{Uniform Mutation}{77}{subsection.7.2.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Non-Uniform Mutation with Fixed Distribution}{78}{equation.7.2.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.2.4}Mutation for Permutation Representation}{78}{subsection.7.2.4}\protected@file@percent }
+\newlabel{sec:permutation-mutation}{{7.2.4}{78}{Mutation for Permutation Representation}{subsection.7.2.4}{}}
+\@writefile{toc}{\contentsline {subsubsection}{Swap Mutation}{78}{subsection.7.2.4}\protected@file@percent }
+\@writefile{loa}{\contentsline {algorithm}{\numberline {13}{\ignorespaces Swap Mutation}}{78}{algorithm.13}\protected@file@percent }
 \citation{holland1975adaptation}
 \citation{goldberg1989genetic}
-\@writefile{toc}{\contentsline {subsubsection}{Insert Mutation}{75}{ALC@unique.93}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Scramble Mutation}{75}{ALC@unique.93}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Inversion Mutation}{75}{ALC@unique.93}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {8.3}Generation Update Mechanisms}{75}{section.8.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {8.3.1}Holland's Original Model (Generational Replacement)}{75}{subsection.8.3.1}\protected@file@percent }
-\newlabel{sec:holland-update}{{8.3.1}{75}{Holland's Original Model (Generational Replacement)}{subsection.8.3.1}{}}
+\@writefile{toc}{\contentsline {subsubsection}{Insert Mutation}{79}{ALC@unique.72}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Scramble Mutation}{79}{ALC@unique.72}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Inversion Mutation}{79}{ALC@unique.72}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {7.3}Generation Update Mechanisms}{79}{section.7.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.3.1}Holland's Original Model (Generational Replacement)}{79}{subsection.7.3.1}\protected@file@percent }
+\newlabel{sec:holland-update}{{7.3.1}{79}{Holland's Original Model (Generational Replacement)}{subsection.7.3.1}{}}
 \citation{de1975analysis}
 \citation{whitley1994genetic}
 \citation{whitley1994genetic}
 \citation{smith1998replacement}
-\@writefile{toc}{\contentsline {subsection}{\numberline {8.3.2}Generational Model with Elitism}{76}{subsection.8.3.2}\protected@file@percent }
-\newlabel{sec:elitism}{{8.3.2}{76}{Generational Model with Elitism}{subsection.8.3.2}{}}
-\@writefile{loa}{\contentsline {algorithm}{\numberline {18}{\ignorespaces Generational Model with Elitism}}{76}{algorithm.18}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {8.3.3}Steady-State Update}{76}{subsection.8.3.3}\protected@file@percent }
-\newlabel{sec:steady-state}{{8.3.3}{76}{Steady-State Update}{subsection.8.3.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.3.2}Generational Model with Elitism}{80}{subsection.7.3.2}\protected@file@percent }
+\newlabel{sec:elitism}{{7.3.2}{80}{Generational Model with Elitism}{subsection.7.3.2}{}}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {14}{\ignorespaces Generational Model with Elitism}}{80}{algorithm.14}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.3.3}Steady-State Update}{80}{subsection.7.3.3}\protected@file@percent }
+\newlabel{sec:steady-state}{{7.3.3}{80}{Steady-State Update}{subsection.7.3.3}{}}
 \citation{grefenstette1986optimization}
 \citation{schaffer1989study}
 \citation{de1975analysis}
-\@writefile{toc}{\contentsline {subsection}{\numberline {8.3.4}Continuous Update}{77}{subsection.8.3.4}\protected@file@percent }
-\newlabel{sec:continuous-update}{{8.3.4}{77}{Continuous Update}{subsection.8.3.4}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {8.4}GA Parameters}{77}{section.8.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {8.4.1}Crossover Probability ($P_c$)}{77}{subsection.8.4.1}\protected@file@percent }
-\newlabel{sec:crossover-probability}{{8.4.1}{77}{Crossover Probability ($P_c$)}{subsection.8.4.1}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {8.4.2}Mutation Probability ($P_m$)}{78}{subsection.8.4.2}\protected@file@percent }
-\newlabel{sec:mutation-probability}{{8.4.2}{78}{Mutation Probability ($P_m$)}{subsection.8.4.2}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {8.4.3}Population Size ($N$)}{78}{subsection.8.4.3}\protected@file@percent }
-\newlabel{sec:population-size}{{8.4.3}{78}{Population Size ($N$)}{subsection.8.4.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.3.4}Continuous Update}{81}{subsection.7.3.4}\protected@file@percent }
+\newlabel{sec:continuous-update}{{7.3.4}{81}{Continuous Update}{subsection.7.3.4}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {7.4}GA Parameters}{81}{section.7.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.4.1}Crossover Probability ($P_c$)}{81}{subsection.7.4.1}\protected@file@percent }
+\newlabel{sec:crossover-probability}{{7.4.1}{81}{Crossover Probability ($P_c$)}{subsection.7.4.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.4.2}Mutation Probability ($P_m$)}{82}{subsection.7.4.2}\protected@file@percent }
+\newlabel{sec:mutation-probability}{{7.4.2}{82}{Mutation Probability ($P_m$)}{subsection.7.4.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.4.3}Population Size ($N$)}{82}{subsection.7.4.3}\protected@file@percent }
+\newlabel{sec:population-size}{{7.4.3}{82}{Population Size ($N$)}{subsection.7.4.3}{}}
 \citation{wolpert1997no}
 \citation{grefenstette1986optimization}
-\@writefile{toc}{\contentsline {subsection}{\numberline {8.4.4}Number of Generations ($G$)}{79}{subsection.8.4.4}\protected@file@percent }
-\newlabel{sec:num-generations}{{8.4.4}{79}{Number of Generations ($G$)}{subsection.8.4.4}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {8.4.5}General Parameter Setting Guidelines}{79}{subsection.8.4.5}\protected@file@percent }
-\newlabel{sec:parameter-guidelines}{{8.4.5}{79}{General Parameter Setting Guidelines}{subsection.8.4.5}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {8.5}Parameter Observation Study}{79}{section.8.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {8.5.1}Test Problem}{80}{subsection.8.5.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {8.5.2}Experimental Setup}{80}{subsection.8.5.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {8.5.3}Sample Results}{80}{subsection.8.5.3}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {8.1}{\ignorespaces GA Parameter Observation Results}}{80}{table.caption.36}\protected@file@percent }
-\newlabel{tab:ga-parameters}{{8.1}{80}{GA Parameter Observation Results}{table.caption.36}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {8.6}Summary and Conclusions}{81}{section.8.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {8.7}Exercises}{82}{section.8.7}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{\numberline {A}Algorithm Implementations}{85}{appendix.A}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.4.4}Number of Generations ($G$)}{83}{subsection.7.4.4}\protected@file@percent }
+\newlabel{sec:num-generations}{{7.4.4}{83}{Number of Generations ($G$)}{subsection.7.4.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.4.5}General Parameter Setting Guidelines}{83}{subsection.7.4.5}\protected@file@percent }
+\newlabel{sec:parameter-guidelines}{{7.4.5}{83}{General Parameter Setting Guidelines}{subsection.7.4.5}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {7.5}Parameter Observation Study}{83}{section.7.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.5.1}Test Problem}{84}{subsection.7.5.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.5.2}Experimental Setup}{84}{subsection.7.5.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.5.3}Sample Results}{84}{subsection.7.5.3}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {7.1}{\ignorespaces GA Parameter Observation Results}}{84}{table.caption.29}\protected@file@percent }
+\newlabel{tab:ga-parameters}{{7.1}{84}{GA Parameter Observation Results}{table.caption.29}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {7.6}Summary and Conclusions}{85}{section.7.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {7.7}Exercises}{86}{section.7.7}\protected@file@percent }
+\citation{gen2007genetic}
+\citation{sivanandam2008introduction}
+\citation{eiben2015introduction}
+\citation{montana1989training}
+\citation{koza1992genetic}
+\citation{larranaga1999genetic}
+\@writefile{toc}{\contentsline {chapter}{\numberline {8}Real-World Applications and Visual Examples}{89}{chapter.8}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {A.1}Basic Genetic Algorithm Implementation}{85}{section.A.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {A.1.1}Python Implementation}{85}{subsection.A.1.1}\protected@file@percent }
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {A.1}{\ignorespaces Basic Genetic Algorithm in Python}}{85}{lstlisting.A.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {A.2}Real-Valued Genetic Algorithm}{89}{section.A.2}\protected@file@percent }
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {A.2}{\ignorespaces Real-Valued GA Implementation}}{89}{lstlisting.A.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {A.3}Traveling Salesman Problem GA}{92}{section.A.3}\protected@file@percent }
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {A.3}{\ignorespaces TSP with Genetic Algorithm}}{92}{lstlisting.A.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {A.4}NSGA-II for Multi-Objective Optimization}{97}{section.A.4}\protected@file@percent }
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {A.4}{\ignorespaces NSGA-II Implementation}}{97}{lstlisting.A.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{\numberline {B}Practical Examples and Case Studies}{105}{appendix.B}\protected@file@percent }
+\newlabel{ch:applications}{{8}{89}{Real-World Applications and Visual Examples}{chapter.8}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {8.1}Game AI and Entertainment}{89}{section.8.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.1.1}Super Mario Bros Level Learning}{89}{subsection.8.1.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {8.1}{\ignorespaces Genetic Algorithm Learning to Play Super Mario Bros at 4x Speed}}{89}{figure.caption.30}\protected@file@percent }
+\newlabel{fig:mario-ga}{{8.1}{89}{Genetic Algorithm Learning to Play Super Mario Bros at 4x Speed}{figure.caption.30}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.1.2}Tower Defense Game Balancing}{89}{subsection.8.1.2}\protected@file@percent }
+\citation{deb2001multi}
+\citation{deb2002fast}
+\citation{horn1994niched}
+\@writefile{lof}{\contentsline {figure}{\numberline {8.2}{\ignorespaces Cat Navigating Circular Maze to Reach Cheese Using Genetic Algorithm}}{90}{figure.caption.31}\protected@file@percent }
+\newlabel{fig:maze-navigation}{{8.2}{90}{Cat Navigating Circular Maze to Reach Cheese Using Genetic Algorithm}{figure.caption.31}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {8.2}Pathfinding and Navigation}{90}{section.8.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.2.1}Maze Navigation}{90}{subsection.8.2.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.2.2}Robot Navigation}{90}{subsection.8.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {8.3}Evolution Simulation}{90}{section.8.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.3.1}Simulated Evolution of Creatures}{90}{subsection.8.3.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {8.3}{\ignorespaces Simulated Evolution Using Genetic Algorithm - Creatures Adapting Over Generations}}{90}{figure.caption.32}\protected@file@percent }
+\newlabel{fig:creature-evolution}{{8.3}{90}{Simulated Evolution Using Genetic Algorithm - Creatures Adapting Over Generations}{figure.caption.32}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8.4}{\ignorespaces Human Movement Evolution: From Sitting to Athletic Performance}}{91}{figure.caption.33}\protected@file@percent }
+\newlabel{fig:human-evolution}{{8.4}{91}{Human Movement Evolution: From Sitting to Athletic Performance}{figure.caption.33}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {8.4}Human Analogy Examples}{91}{section.8.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.4.1}Evolution of Movement}{91}{subsection.8.4.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.4.2}Work Journey Optimization}{91}{subsection.8.4.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {8.5}{\ignorespaces Optimizing Daily Commute Route Using GA Principles}}{91}{figure.caption.34}\protected@file@percent }
+\newlabel{fig:work-journey}{{8.5}{91}{Optimizing Daily Commute Route Using GA Principles}{figure.caption.34}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {8.5}Academic Context}{91}{section.8.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.5.1}GA in Computational Intelligence}{91}{subsection.8.5.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {8.6}{\ignorespaces Position of Genetic Algorithms in Machine Learning and Soft Computing Landscape}}{91}{figure.caption.35}\protected@file@percent }
+\newlabel{fig:ga-context}{{8.6}{91}{Position of Genetic Algorithms in Machine Learning and Soft Computing Landscape}{figure.caption.35}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8.7}{\ignorespaces Comparison of Lamarck vs Darwin-Wallace Evolution Theories Using Giraffe Example}}{92}{figure.caption.36}\protected@file@percent }
+\newlabel{fig:evolution-theories}{{8.7}{92}{Comparison of Lamarck vs Darwin-Wallace Evolution Theories Using Giraffe Example}{figure.caption.36}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {8.6}Historical Perspective}{92}{section.8.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.6.1}Natural Selection Theories}{92}{subsection.8.6.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {8.7}Summary}{92}{section.8.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {A}Algorithm Implementations}{93}{appendix.A}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {B.1}Function Optimization Problems}{105}{section.B.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {B.1.1}OneMax Problem}{105}{subsection.B.1.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Problem Definition}{105}{subsection.B.1.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Expected Performance}{105}{equation.B.1.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{GA Configuration}{105}{equation.B.1.1}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {B.1}{\ignorespaces OneMax GA Configuration}}{105}{table.caption.37}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {B.1.2}Sphere Function}{106}{subsection.B.1.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Problem Definition}{106}{subsection.B.1.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Characteristics}{106}{equation.B.1.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {B.1.3}Rastrigin Function}{106}{subsection.B.1.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Problem Definition}{106}{subsection.B.1.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Characteristics}{106}{equation.B.1.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{GA Challenges}{106}{equation.B.1.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {B.1.4}Rosenbrock Function}{107}{subsection.B.1.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Problem Definition}{107}{subsection.B.1.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Characteristics}{107}{equation.B.1.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {B.2}Combinatorial Optimization Problems}{107}{section.B.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {B.2.1}Traveling Salesman Problem (TSP)}{107}{subsection.B.2.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Problem Description}{107}{subsection.B.2.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Mathematical Formulation}{107}{subsection.B.2.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{GA Representation}{107}{equation.B.2.8}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Specialized Operators}{108}{equation.B.2.8}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Performance Tips}{108}{equation.B.2.8}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {B.2.2}Knapsack Problem}{108}{subsection.B.2.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Problem Description}{108}{subsection.B.2.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{0/1 Knapsack Formulation}{108}{subsection.B.2.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{GA Approach}{108}{equation.B.2.11}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Penalty Function Example}{108}{equation.B.2.11}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {B.3}Real-World Applications}{109}{section.B.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {B.3.1}Neural Network Training}{109}{subsection.B.3.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Problem Setup}{109}{subsection.B.3.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Representation}{109}{subsection.B.3.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Fitness Function}{109}{subsection.B.3.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Advantages over Backpropagation}{109}{equation.B.3.13}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {B.3.2}Feature Selection}{109}{subsection.B.3.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Problem Description}{109}{subsection.B.3.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{GA Approach}{109}{subsection.B.3.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Multi-objective Formulation}{109}{subsection.B.3.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {B.3.3}Job Shop Scheduling}{110}{subsection.B.3.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Problem Description}{110}{subsection.B.3.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Representation Options}{110}{subsection.B.3.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Constraints}{110}{Item.79}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {B.4}Parameter Tuning Guidelines}{110}{section.B.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {B.4.1}Population Size}{110}{subsection.B.4.1}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {B.2}{\ignorespaces Population Size Guidelines}}{110}{table.caption.38}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {B.4.2}Crossover and Mutation Rates}{110}{subsection.B.4.2}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {B.3}{\ignorespaces Crossover and Mutation Rate Guidelines}}{110}{table.caption.39}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {B.4.3}Selection Pressure}{111}{subsection.B.4.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {B.5}Performance Analysis}{111}{section.B.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {B.5.1}Convergence Metrics}{111}{subsection.B.5.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {B.5.2}Statistical Testing}{111}{subsection.B.5.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {B.5.3}Comparison with Other Methods}{111}{subsection.B.5.3}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {B.4}{\ignorespaces Algorithm Comparison}}{111}{table.caption.40}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {B.6}Common Pitfalls and Solutions}{111}{section.B.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {B.6.1}Premature Convergence}{111}{subsection.B.6.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {B.6.2}Slow Convergence}{112}{subsection.B.6.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {B.6.3}Constraint Handling Issues}{112}{subsection.B.6.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {B.7}Advanced Techniques}{113}{section.B.7}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {B.7.1}Hybrid Genetic Algorithms}{113}{subsection.B.7.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {B.7.2}Adaptive Parameter Control}{113}{subsection.B.7.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {B.7.3}Parallel Genetic Algorithms}{113}{subsection.B.7.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {B.8}Implementation Best Practices}{113}{section.B.8}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {B.8.1}Code Organization}{113}{subsection.B.8.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {B.8.2}Testing and Validation}{113}{subsection.B.8.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {B.8.3}Documentation}{114}{subsection.B.8.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {B.9}Chapter Summary}{114}{section.B.9}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {B.10}Key Takeaways}{114}{section.B.10}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {A.1}Basic Genetic Algorithm Implementation}{93}{section.A.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {A.1.1}Python Implementation}{93}{subsection.A.1.1}\protected@file@percent }
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {A.1}{\ignorespaces Basic Genetic Algorithm in Python}}{93}{lstlisting.A.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {A.2}Real-Valued Genetic Algorithm}{97}{section.A.2}\protected@file@percent }
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {A.2}{\ignorespaces Real-Valued GA Implementation}}{97}{lstlisting.A.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {A.3}Traveling Salesman Problem GA}{100}{section.A.3}\protected@file@percent }
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {A.3}{\ignorespaces TSP with Genetic Algorithm}}{100}{lstlisting.A.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {A.4}NSGA-II for Multi-Objective Optimization}{105}{section.A.4}\protected@file@percent }
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {A.4}{\ignorespaces NSGA-II Implementation}}{105}{lstlisting.A.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {B}Practical Examples and Case Studies}{113}{appendix.B}\protected@file@percent }
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\@writefile{toc}{\contentsline {section}{\numberline {B.1}Function Optimization Problems}{113}{section.B.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {B.1.1}OneMax Problem}{113}{subsection.B.1.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Problem Definition}{113}{subsection.B.1.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Expected Performance}{113}{equation.B.1.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{GA Configuration}{113}{equation.B.1.1}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {B.1}{\ignorespaces OneMax GA Configuration}}{113}{table.caption.37}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {B.1.2}Sphere Function}{113}{subsection.B.1.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Problem Definition}{114}{subsection.B.1.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Characteristics}{114}{equation.B.1.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {B.1.3}Rastrigin Function}{114}{subsection.B.1.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Problem Definition}{114}{subsection.B.1.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Characteristics}{114}{equation.B.1.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{GA Challenges}{114}{equation.B.1.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {B.1.4}Rosenbrock Function}{114}{subsection.B.1.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Problem Definition}{115}{subsection.B.1.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Characteristics}{115}{equation.B.1.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {B.2}Combinatorial Optimization Problems}{115}{section.B.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {B.2.1}Traveling Salesman Problem (TSP)}{115}{subsection.B.2.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Problem Description}{115}{subsection.B.2.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Mathematical Formulation}{115}{subsection.B.2.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{GA Representation}{115}{equation.B.2.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Specialized Operators}{115}{equation.B.2.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Performance Tips}{116}{equation.B.2.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {B.2.2}Knapsack Problem}{116}{subsection.B.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Problem Description}{116}{subsection.B.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{0/1 Knapsack Formulation}{116}{subsection.B.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{GA Approach}{116}{equation.B.2.11}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Penalty Function Example}{116}{equation.B.2.11}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {B.3}Real-World Applications}{116}{section.B.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {B.3.1}Neural Network Training}{116}{subsection.B.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Problem Setup}{116}{subsection.B.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Representation}{117}{subsection.B.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Fitness Function}{117}{subsection.B.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Advantages over Backpropagation}{117}{equation.B.3.13}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {B.3.2}Feature Selection}{117}{subsection.B.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Problem Description}{117}{subsection.B.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{GA Approach}{117}{subsection.B.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Multi-objective Formulation}{117}{subsection.B.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {B.3.3}Job Shop Scheduling}{117}{subsection.B.3.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Problem Description}{117}{subsection.B.3.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Representation Options}{117}{subsection.B.3.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Constraints}{118}{Item.64}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {B.4}Parameter Tuning Guidelines}{118}{section.B.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {B.4.1}Population Size}{118}{subsection.B.4.1}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {B.2}{\ignorespaces Population Size Guidelines}}{118}{table.caption.38}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {B.4.2}Crossover and Mutation Rates}{118}{subsection.B.4.2}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {B.3}{\ignorespaces Crossover and Mutation Rate Guidelines}}{118}{table.caption.39}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {B.4.3}Selection Pressure}{118}{subsection.B.4.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {B.5}Performance Analysis}{119}{section.B.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {B.5.1}Convergence Metrics}{119}{subsection.B.5.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {B.5.2}Statistical Testing}{119}{subsection.B.5.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {B.5.3}Comparison with Other Methods}{119}{subsection.B.5.3}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {B.4}{\ignorespaces Algorithm Comparison}}{119}{table.caption.40}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {B.6}Common Pitfalls and Solutions}{119}{section.B.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {B.6.1}Premature Convergence}{119}{subsection.B.6.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {B.6.2}Slow Convergence}{120}{subsection.B.6.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {B.6.3}Constraint Handling Issues}{120}{subsection.B.6.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {B.7}Advanced Techniques}{121}{section.B.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {B.7.1}Hybrid Genetic Algorithms}{121}{subsection.B.7.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {B.7.2}Adaptive Parameter Control}{121}{subsection.B.7.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {B.7.3}Parallel Genetic Algorithms}{121}{subsection.B.7.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {B.8}Implementation Best Practices}{121}{section.B.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {B.8.1}Code Organization}{121}{subsection.B.8.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {B.8.2}Testing and Validation}{121}{subsection.B.8.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {B.8.3}Documentation}{122}{subsection.B.8.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {B.9}Chapter Summary}{122}{section.B.9}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {B.10}Key Takeaways}{122}{section.B.10}\protected@file@percent }
 \bibstyle{plain}
 \bibdata{references}
-\bibcite{course_week2}{1}
-\bibcite{course_week4_crossover}{2}
-\bibcite{course_week9}{3}
-\bibcite{obitko_selection}{4}
-\bibcite{algorithmafternoon_selection}{5}
-\bibcite{algorithmafternoon_ranked}{6}
-\bibcite{back1996evolutionary}{7}
-\bibcite{baeldung_tournament}{8}
-\bibcite{baker1987reducing}{9}
-\bibcite{chen2013multiple}{10}
-\bibcite{de1975analysis}{11}
-\bibcite{deb2001multi}{12}
-\bibcite{deb2002fast}{13}
-\bibcite{eiben2015introduction}{14}
-\bibcite{elsayed2011ga}{15}
-\bibcite{eshelman1991chc}{16}
-\bibcite{fajrin2020multi}{17}
-\bibcite{fogel1995evolutionary}{18}
-\bibcite{fogel2006evolutionary}{19}
-\bibcite{geeksforgeeks_crossover}{20}
-\bibcite{gen2007genetic}{21}
-\bibcite{goldberg1989genetic}{22}
-\bibcite{grefenstette1986optimization}{23}
-\bibcite{gu2022hybrid}{24}
-\bibcite{haupt2004practical}{25}
-\bibcite{holland1975adaptation}{26}
-\bibcite{horn1994niched}{27}
-\bibcite{koza1992genetic}{28}
-\bibcite{larranaga1999genetic}{29}
-\bibcite{majhi2025novel}{30}
-\bibcite{michalewicz1996genetic}{31}
-\bibcite{mitchell1996introduction}{32}
-\bibcite{montana1989training}{33}
-\bibcite{murad2025hybrid}{34}
-\bibcite{oliver1987study}{35}
-\bibcite{reeves1998genetic}{36}
-\bibcite{reeves1993modern}{37}
-\bibcite{schaffer1989study}{38}
-\bibcite{shams2025resolving}{39}
-\bibcite{sivanandam2008introduction}{40}
-\bibcite{smith1998replacement}{41}
-\bibcite{spears1993crossover}{42}
-\bibcite{srinivas1994genetic}{43}
-\bibcite{tutorialspoint_crossover}{44}
-\bibcite{tutorialspoint_mutation}{45}
-\bibcite{whitley1994genetic}{46}
-\bibcite{wolpert1997no}{47}
-\bibcite{yassen2012multi}{48}
-\bibcite{yildiz2023novel}{49}
-\gdef \@abspage@last{132}
+\bibcite{course_week4_crossover}{1}
+\bibcite{course_week9}{2}
+\bibcite{obitko_selection}{3}
+\bibcite{algorithmafternoon_selection}{4}
+\bibcite{algorithmafternoon_ranked}{5}
+\bibcite{back1996evolutionary}{6}
+\bibcite{baeldung_tournament}{7}
+\bibcite{baker1987reducing}{8}
+\bibcite{chen2013multiple}{9}
+\bibcite{de1975analysis}{10}
+\bibcite{deb2001multi}{11}
+\bibcite{deb2002fast}{12}
+\bibcite{eiben2015introduction}{13}
+\bibcite{elsayed2011ga}{14}
+\bibcite{eshelman1991chc}{15}
+\bibcite{fajrin2020multi}{16}
+\bibcite{fogel1995evolutionary}{17}
+\bibcite{fogel2006evolutionary}{18}
+\bibcite{geeksforgeeks_crossover}{19}
+\bibcite{gen2007genetic}{20}
+\bibcite{goldberg1989genetic}{21}
+\bibcite{grefenstette1986optimization}{22}
+\bibcite{gu2022hybrid}{23}
+\bibcite{haupt2004practical}{24}
+\bibcite{holland1975adaptation}{25}
+\bibcite{horn1994niched}{26}
+\bibcite{koza1992genetic}{27}
+\bibcite{larranaga1999genetic}{28}
+\bibcite{majhi2025novel}{29}
+\bibcite{michalewicz1996genetic}{30}
+\bibcite{mitchell1996introduction}{31}
+\bibcite{montana1989training}{32}
+\bibcite{murad2025hybrid}{33}
+\bibcite{oliver1987study}{34}
+\bibcite{reeves1993modern}{35}
+\bibcite{schaffer1989study}{36}
+\bibcite{shams2025resolving}{37}
+\bibcite{sivanandam2008introduction}{38}
+\bibcite{smith1998replacement}{39}
+\bibcite{spears1993crossover}{40}
+\bibcite{srinivas1994genetic}{41}
+\bibcite{tutorialspoint_crossover}{42}
+\bibcite{tutorialspoint_mutation}{43}
+\bibcite{whitley1994genetic}{44}
+\bibcite{wolpert1997no}{45}
+\bibcite{yassen2012multi}{46}
+\bibcite{yildiz2023novel}{47}
+\gdef \@abspage@last{138}

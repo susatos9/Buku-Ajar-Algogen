@@ -5,13 +5,20 @@ The genetic algorithm follows a cyclic process that mimics natural evolution. Un
 
 \subsection{Detailed GA Cycle}
 
+
+The genetic algorithm follows a cyclic process that mimics natural evolution and is designed to iteratively improve a population of candidate solutions. This process begins with a population of potential solutions and repeatedly applies evaluation and variation operators to move toward higher-quality solutions. The overall cycle is intentionally modular: initialization sets up the search, evaluation measures current quality, selection favors promising solutions, crossover and mutation introduce new genetic combinations, and replacement forms the next generation. These steps together form a loop that continues until a termination condition is met.
+
+The flow of operations is illustrated by the diagram below, which captures the typical order of actions in a classical GA: initialize, evaluate, check termination, select parents, apply crossover and mutation, perform replacement, and return to evaluation. Each step has many possible implementations and parameters that influence exploration and exploitation; for example, population size, selection pressure, crossover type, and mutation rate all affect how the search navigates the solution space. Although the diagram shows a straightforward sequence, practical algorithms often include enhancements such as elitism, adaptive rates, or steady-state updates that change details of how offspring and parents are combined.
+
+The figure that follows summarizes this canonical cycle and highlights where control decisions occur (for instance, whether the termination condition has been reached). Keep in mind that the figure is a conceptual guide: different problem domains and representations may require tailored operators or additional bookkeeping (such as maintaining constraints or auxiliary data). Nevertheless, the high-level structure depicted is useful as a template when designing or analyzing GA behavior.
+
 \begin{figure}[H]
 \centering
 \begin{tikzpicture}[node distance=2cm, auto]
     % Define styles
-    \tikzstyle{process} = [rectangle, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=blue!20]
-    \tikzstyle{decision} = [diamond, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=green!20]
-    \tikzstyle{arrow} = [thick,->,>=stealth]
+    	\tikzstyle{process} = [rectangle, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=blue!20]
+    	\tikzstyle{decision} = [diamond, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=green!20]
+    	\tikzstyle{arrow} = [thick,->,>=stealth]
     
     % Nodes
     \node [process] (init) {Initialize Population};
@@ -37,80 +44,41 @@ The genetic algorithm follows a cyclic process that mimics natural evolution. Un
 \caption{Genetic Algorithm Cycle}
 \end{figure}
 
-\subsection{Phase 1: Initialization}
-\begin{itemize}
-    \item Create initial population of size $N$
-    \item Generate individuals randomly or using heuristics
-    \item Ensure population diversity
-    \item Set generation counter $t = 0$
-\end{itemize}
+Initialization is the first practical step of the GA and determines the starting points for the search. An initial population of size $N$ can be generated randomly to provide broad coverage of the search space, or it can be seeded using problem-specific heuristics to give the search a head start near promising regions. Ensuring diversity in the initial population is important because it reduces the risk of premature convergence and increases the chances that useful building blocks are present at the start. In addition to the candidate solutions themselves, initialization commonly includes setting any algorithm-level counters or parameters, such as the generation index $t = 0$, and recording any state needed for adaptive operators.
 
-\subsection{Phase 2: Evaluation}
-\begin{itemize}
-    \item Calculate fitness for each individual
-    \item Identify best and worst individuals
-    \item Compute population statistics (average, variance)
-\end{itemize}
+Evaluation quantifies how well each individual solves the problem at hand and converts raw solutions into fitness values used by the GA. This step typically computes an objective or fitness function for every member of the population, and may also collect summary statistics such as the population mean, variance, and the best and worst fitnesses. Those statistics are useful for monitoring progress, diagnosing issues like stagnation, and driving adaptive mechanisms (for example, adjusting mutation rates if diversity drops). Because evaluation is often the most expensive part of a GA—especially when each fitness computation involves simulation or complex calculations—practitioners pay close attention to efficient evaluation and to reusing computations where possible.
 
-\subsection{Phase 3: Termination Check}
-Common termination criteria:
-\begin{itemize}
-    \item Maximum number of generations reached
-    \item Fitness threshold achieved
-    \item Population convergence (low diversity)
-    \item No improvement for specified generations
-    \item Maximum function evaluations reached
-\end{itemize}
+Termination is a control decision checked after evaluation to decide whether the algorithm should stop or continue. Common stopping conditions include reaching a pre-set maximum number of generations, achieving a fitness threshold that is satisfactory for the application, observing population convergence or very low diversity, detecting no improvement for a fixed number of generations, or exhausting a budget of function evaluations. Choosing a termination criterion is a trade-off between computational cost and solution quality: stopping too early risks missing better solutions, while running too long wastes resources with diminishing returns. In practice it is common to combine several conditions (for example, stop when either the target fitness is reached or the generation limit is exceeded).
 
-\subsection{Phase 4: Selection}
-\begin{itemize}
-    \item Choose parents for reproduction
-    \item Bias selection toward fitter individuals
-    \item Maintain population diversity
-\end{itemize}
+Selection chooses which individuals will contribute genetic material to the next generation by biasing reproduction toward fitter solutions while attempting to preserve useful variation. Selection methods vary—tournament selection, roulette-wheel (fitness-proportionate) selection, rank selection, and stochastic universal sampling are common examples—but they all aim to increase the proportion of above-average individuals over time. Well-designed selection balances exploitation (amplifying good solutions) with exploration (keeping diversity) so that the search does not lock prematurely onto suboptimal regions. Additional mechanisms such as fitness sharing or diversity preservation can be incorporated to maintain a healthy variety of candidates.
 
-\subsection{Phase 5: Crossover}
-\begin{itemize}
-    \item Combine genetic material from selected parents
-    \item Create offspring with traits from both parents
-    \item Apply with probability $p_c$ (typically 0.6-0.9)
-\end{itemize}
+Crossover (recombination) is the operator that combines genetic material from selected parents to form new offspring, exchanging pieces of parent chromosomes to create novel solutions. The specific crossover operator (one-point, two-point, uniform, PMX, cycle crossover, etc.) and the crossover probability $p_c$ control how often and how aggressively information is mixed. Crossover facilitates the combination of good building blocks discovered in different individuals, enabling the GA to assemble higher-quality solutions from simpler parts. However, crossover can also disrupt beneficial structures, so its design and application rate are tuned to the representation and problem characteristics.
 
-\subsection{Phase 6: Mutation}
-\begin{itemize}
-    \item Introduce random changes to offspring
-    \item Maintain genetic diversity
-    \item Apply with probability $p_m$ (typically 0.001-0.1)
-\end{itemize}
+Mutation introduces small, random changes to offspring to maintain genetic diversity and to allow the algorithm to explore regions of the search space that recombination alone might not reach. Mutation typically operates with a low per-bit probability $p_m$ so that it makes conservative changes, preventing wholesale destruction of promising solutions while still enabling occasional novel innovations. Properly calibrated mutation helps the GA escape local optima, complements crossover by exploring orthogonal directions, and supports long-term adaptability of the population.
 
-\subsection{Phase 7: Replacement}
-\begin{itemize}
-    \item Form new population from parents and offspring
-    \item Increment generation counter $t = t + 1$
-    \item Return to evaluation phase
-\end{itemize}
-
-\section{Holland Schema Theory}
-
-Schema theory, developed by John Holland~\cite{holland1975adaptation}, provides a theoretical foundation for understanding why genetic algorithms work effectively.
+Replacement forms the population that will be evaluated in the next generation by deciding how parents and offspring are combined. Strategies range from generational replacement—where the entire population is replaced by the offspring—to steady-state or elitist schemes that retain some parents or the best individuals across generations. Replacement policy affects convergence speed, genetic diversity, and the risk of losing high-quality solutions; for example, elitism guarantees that the best found solution is never lost, while other policies may emphasize turnover and exploration. After replacement the generation counter is incremented ($t = t + 1$) and the cycle returns to evaluation for the next iteration.
 
 \subsection{What is a Schema?}
-A schema is a template describing a subset of strings with similarities at certain positions~\cite{holland1975adaptation, goldberg1989genetic, course_week2}. It uses three symbols:
-\begin{itemize}
-    \item \textbf{0}: Fixed bit value 0
-    \item \textbf{1}: Fixed bit value 1
-    \item \textbf{*}: Don't care symbol (wild card)
-\end{itemize}
+A schema is a formal template defined over the alphabet $\{0,1,*\}$. For a fixed string length $l$ a schema
+\[ H \in \{0,1,*\}^l \]
+specifies required values at some loci and leaves other loci unspecified (the ``don't care'' positions). Let $\Sigma = \{0,1\}$ and denote by $\Sigma^l$ the set of all length-$l$ binary strings. We say a concrete string $s\in\Sigma^l$ matches schema $H$ (write $s\in[H]$) exactly when every defined position of $H$ agrees with $s$:
+\begin{equation}
+s \in [H] \quad:\!\Leftrightarrow\quad \forall i\in\{1,\dots,l\},\; H_i \neq * \Rightarrow s_i = H_i.
+\end{equation}
 
-\textbf{Example}: Schema $H = 1*0*1$ represents all 5-bit strings with:
-\begin{itemize}
-    \item First bit = 1
-    \item Third bit = 0
-    \item Fifth bit = 1
-    \item Second and fourth bits can be anything
-\end{itemize}
+The set $[H] = \{s\in\Sigma^l : s\text{ matches }H\}$ is the equivalence class of concrete genomes represented by $H$. If $k(H)$ denotes the number of don't-care symbols in $H$ (so $k(H)=|\{i:\;H_i=*\}|$), then the cardinality of this class is
+\begin{equation}
+|[H]| = 2^{k(H)}.
+\end{equation}
 
-Strings matching this schema: 10001, 10011, 11001, 11011
+Two other commonly used quantities are the order and the defining length. The order $o(H)$ equals the number of fixed positions (non-* symbols), so $o(H)=l-k(H)$. If $i_{\min}$ and $i_{\max}$ are the indices of the first and last fixed positions in $H$, the defining length is
+\begin{equation}
+\delta(H) = i_{\max} - i_{\min}.
+\end{equation}
+
+Example (preserved): for $H=1*0*1$ with $l=5$ we have fixed positions at indices $1,3,5$, $k(H)=2$, $o(H)=3$, and
+\[ |[H]|=2^{2}=4, \qquad \delta(H)=5-1=4,\]
+with the matching strings $\{10001,10011,11001,11011\}$.
 
 \subsection{Schema Properties}
 
@@ -123,10 +91,14 @@ o(H) = \text{number of defined bits in } H
 For $H = 1*0*1$: $o(H) = 3$
 
 \subsubsection{Defining Length}
-The defining length $\delta(H)$ is the distance between the first and last fixed positions:
+The defining length $\delta(H)$ of a schema measures the span between the earliest and latest fixed (non-* ) positions in the pattern. Intuitively, it captures how spread out the important bits of the schema are along the chromosome and therefore how exposed the schema is to recombination events. Formally, it is computed as the index difference between the last and first fixed positions:
 \begin{equation}
 \delta(H) = \text{last fixed position} - \text{first fixed position}
 \end{equation}
+
+A small defining length means the schema's fixed bits are clustered closely together. Such clustering tends to make a schema more robust under common crossover operators because fewer crossover cut points lie between the fixed positions; consequently the schema is less likely to be split apart during recombination. By contrast, a schema with a large defining length distributes its fixed bits across a longer region of the chromosome and thus has a higher probability of being disrupted by crossover, even if each fixed bit individually is unlikely to mutate.
+
+The practical significance of defining length is closely tied to the building-block view of genetic algorithms: short, tightly-linked blocks of genes that confer above-average fitness are easier for a GA to preserve and recombine successfully. When designing encodings or choosing crossover operators, minimizing unnecessary spread of interdependent genes can reduce the effective defining lengths of useful schemas and improve the likelihood that beneficial combinations survive and propagate.
 
 For $H = 1*0*1$: $\delta(H) = 5 - 1 = 4$
 
@@ -142,7 +114,7 @@ For $H = 1*0*1$: $\delta(H) = 5 - 1 = 4$
 % \includegraphics[width=0.2\textwidth]{figures/buku_ajar_page_8.png}
 % \caption{Schema characteristics: Order and Defining Length examples}
 % \label{fig:schema_characteristics}
-% \end{figure}
+% \end{figure}g
 
 \subsection{Schema Theorem (Fundamental Theorem)}
 
@@ -190,19 +162,19 @@ E[m(H,t+1)] \geq m(H,t) \cdot \frac{f(H)}{\bar{f}} \cdot \left(1 - p_c \cdot \fr
 
 \subsection{Building Block Hypothesis}
 
-The building block hypothesis states that:
-\begin{itemize}
-    \item Short, low-order, above-average schemas (building blocks) increase exponentially
-    \item GA combines these building blocks to form optimal solutions
-    \item Good solutions contain good building blocks
-\end{itemize}
+The building-block hypothesis can be stated precisely in terms of Holland's schema formalism: a building block is a schema $H$ with small defining length $\delta(H)$, low order $o(H)$, and above-average fitness $f(H) > \bar f$. The schema theorem gives a quantitative criterion for such a schema to grow in expectation from generation $t$ to $t+1$:
+\begin{equation}
+E[m(H,t+1)] \ge m(H,t) \cdot \frac{f(H)}{\bar f} \cdot \left(1 - p_c\frac{\delta(H)}{l-1}\right) \cdot (1-p_m)^{o(H)}.
+\end{equation}
+Consequently, a necessary (but not sufficient) condition for expected growth of $H$ is that the multiplicative factor on the right-hand side exceeds one. Rearranging gives the informal threshold condition
+\begin{equation}
+\frac{f(H)}{\bar f} > \frac{1}{\left(1 - p_c\frac{\delta(H)}{l-1}\right) (1-p_m)^{o(H)}}.
+\end{equation}
+This inequality makes explicit the trade-offs: higher relative fitness, smaller defining length, lower order, smaller crossover probability (or tightly clustered loci), and lower mutation rate all improve the chance that a schema will multiply.
 
-\subsubsection{Characteristics of Good Building Blocks}
-\begin{enumerate}
-    \item \textbf{Short defining length}: $\delta(H)$ is small
-    \item \textbf{Low order}: $o(H)$ is small
-    \item \textbf{Above-average fitness}: $f(H) > \bar{f}$
-\end{enumerate}
+Two additional quantitative constraints are important for the hypothesis to be operational. First, the population must initially sample the schema with sufficient multiplicity: for a random initialisation the expected initial count is $E[m(H,0)] = n\,2^{-o(H)}$, so $n$ must be large enough that $m(H,0)$ is not effectively zero for all useful building blocks. Second, crossover must be able to assemble complementary building blocks: if two short schemas $H_1$ and $H_2$ occur on disjoint loci and survive disruption, recombination can produce individuals that contain both, enabling a constructive ``assembly'' mechanism that builds higher-order structure from lower-order pieces.
+
+Finally, the hypothesis is not an unconditional theorem; it describes a plausible mechanism rather than a universal guarantee. Finite-population sampling noise, strong epistasis (tight interactions among distant loci), and deliberately deceptive fitness functions can violate the premises above. In practice the building-block perspective remains valuable because it highlights representation and operator choices: encodings and crossover operators that keep interdependent genes close (reducing $\delta$), maintain adequate sampling (sufficient $n$), and balance $p_c$ and $p_m$ to favour preservation-and-recombination will be more likely to exploit short, fit schemas effectively.
 
 \subsection{Role of Schema Order in Genetic Algorithms}
 
@@ -234,70 +206,172 @@ Examples:
 \end{itemize}
 
 \subsection{Schema Functions in Genetic Algorithms}
-\begin{itemize}
-    \item Provides a powerful and compact way to represent well-defined similarities among strings
-    \item Serves as the theoretical basis for explaining how good (fit) patterns in the population can be maintained and multiplied through crossover and mutation
-    \item Helps understand that Genetic Algorithms work not only on individual strings, but also on classes of strings that share patterns (schemas)
-\end{itemize}
+
+Schemas perform several distinct functions in the analysis and practice of genetic algorithms. Formally, a schema $H$ defines an equivalence class $[H]\subseteq\Sigma^l$ of concrete genomes; the population-level quantity $m(H,t)$ (the number of individuals matching $H$ at generation $t$) summarizes how the GA samples that class. By operating on these counts and their expectations rather than on individual genotypes, schema-based analysis compresses a population's combinatorial structure into tractable quantities that can be used to prove bounds (for example, the schema theorem) and to reason about the aggregate effects of selection, crossover, and mutation.
+
+Second, schemas provide an explanatory bridge between micro-level operators and macro-level behaviour. The combined schema theorem expresses how selection amplifies above-average patterns while crossover and mutation attenuate them; this lets us write expected-update formulas for $m(H,t)$ and identify the parameter regimes in which particular schemas are likely to increase. That analytic viewpoint underpins the notion of implicit parallelism: a single population of size $n$ simultaneously samples an exponentially large set of schemas, and the GA's operators act on many of these equivalence classes in parallel through their effect on the underlying individuals.
+
+Third, schema thinking informs algorithm design and diagnostics. Monitoring $m(H,t)$ for candidate schemas helps detect whether useful patterns are being discovered and preserved; choosing encodings and crossover operators that reduce defining lengths for interdependent loci increases the survivability of important schemas; and linkage-learning methods or estimation-of-distribution algorithms can be seen as modern generalisations that explicitly model and exploit schema-like dependencies rather than relying on blind recombination. In practice, schema-level measures also motivate choices for population size and mutation rate because they make sampling and disruption risks explicit.
+
+Finally, it is important to recognise the limitations of schema functions as an analysis tool. Schema counts discard detailed positional interactions and so can obscure strong epistatic effects where the contribution of a locus depends nonlinearly on distant loci; they are most informative for low-order, short-defining-length patterns and for binary encodings. Consequently, while schemas are powerful for explaining certain GA behaviours and for guiding representation/operator decisions, they are not a universal modelling device—empirical evaluation and, where appropriate, richer dependency models are required to handle deception, dense epistasis, or non-binary representations.
 
 \section{Implicit Parallelism}
+GAs operate on populations of concrete genomes, but each concrete genome simultaneously instantiates an exponential family of schemata. Concretely, for a binary string of length $l$ there are $3^l$ possible schemata in total (each position may be 0, 1, or ``don't care''). A single length-$l$ string matches exactly $2^l$ distinct schemata because each locus may either be left fixed or replaced by a don't-care symbol. Consequently, a population of size $n$ provides direct instances of at most $n2^l$ schemata (counting multiplicity), and—ignoring overlaps between individuals—this number can be exponentially large in $l$. This combinatorial fact underpins the intuitive idea that a GA evaluates many schemata in parallel.
 
-GAs process many schemas simultaneously. For a population of size $n$ with string length $l$:
-\begin{itemize}
-    \item Number of possible schemas: $3^l$
-    \item Useful schemas processed: $O(n^3)$
-\end{itemize}
+A more refined accounting groups schemata by their order (the number of fixed loci). The number of schemata of order $r$ equals
+\begin{equation}
+\binom{l}{r}2^{r},
+\end{equation}
+since one chooses which $r$ loci are fixed and then assigns a bit (0 or 1) to each fixed locus. The number of schemata whose order does not exceed $k$ is therefore
+\begin{equation}
+S_k = \sum_{r=0}^k \binom{l}{r}2^{r},
+\end{equation}
+which, for fixed small $k$, grows polynomially in $l$ (degree $k$) rather than exponentially. This observation is central: the schema theorem and the building-block hypothesis emphasise short, low-order schemata (small $o(H)$ and small defining length) because those are both numerous enough to be sampled and robust enough to survive recombination and mutation with reasonable probability.
 
-This massive implicit parallelism is a key strength of GAs.
+Holland's celebrated phrase ``implicit parallelism'' summarises the heuristic that a population of modest size can collectively evaluate and process a very large number of low-order, short-defining-length schemata in each generation. In his original exposition he offered the rule-of-thumb that a population of $n$ strings can effectively process on the order of $n^3$ schemata; this statement should be read as a heuristic, not a strict combinatorial identity. The $O(n^3)$ figure arises from assumptions about the typical orders and defining lengths of schemata that materially influence fitness, together with plausible estimates of how many distinct short schemata a population samples and how selection amplifies above-average instances. Different choices of $n$, $l$, representation, and operator settings change the constant factors and the practical reach of this parallelism.
+
+The practical implication is twofold. First, by working with a population rather than a single search trajectory, a GA can explore and propagate many candidate building blocks simultaneously, enabling constructive recombination of useful short patterns. Second, this implicit coverage is selective: the algorithm gives effective processing power to schemata that are both sufficiently sampled (appear often enough in the population) and sufficiently resilient (have small defining length and low order so that crossover and mutation do not destroy them). As a result, implicit parallelism is not a magic bullet that inspects every possible schema equally; instead, it directs computational effort toward a large, structured subset of schemata that are most relevant under the chosen encoding and operators.
+
+Finally, it is important to recognise limitations. Finite-population sampling error, strong epistasis (where fitness depends on complex interactions among distant loci), deceptive fitness functions, and inappropriate operator settings can all undermine the effective parallelism a GA achieves in practice. Therefore, exploiting implicit parallelism requires careful encoding, a sensible population size, and operator choices that favour the preservation and recombination of short, meaningful building blocks.
 
 \section{Deception and Schema Theory}
 
 \subsection{Deceptive Problems}
-Problems where low-order building blocks mislead the search away from the global optimum. 
+Deception occurs when selection, operating on short-term fitness cues, systematically drives the population away from genotypes that lead to the global optimum. Informally, a fitness function is deceptive with respect to a set of low-order schemata when the schemata that appear to be ``best'' locally (i.e. have above-average fitness among their instances) are those whose recombination does not assemble the global solution but rather promotes genotypes that are hard to improve upon. In other words, selection rewards building blocks that guide the search toward local optima instead of toward the global optimum.
 
-\textbf{Example}: Trap function where building blocks point toward local optima.
+This phenomenon can be expressed in schema terms. Consider two disjoint schema classes $H_1$ and $H_2$ defined on disjoint sets of loci. If the most fit instances of $H_1$ and $H_2$ tend to produce offspring whose combined fitness is lower than alternative combinations (or if combining them is unlikely under the chosen operators), then selection acting on $H_1$ and $H_2$ may increase their frequency even though their joint presence is unfavourable for reaching the global optimum. Such a mismatch between short-term schema fitness and long-term constructive value is the essence of deception.
 
-\subsection{Overcoming Deception}
+A canonical benchmark that illustrates deception is the concatenated deceptive-trap problem. The genome is partitioned into $m$ disjoint blocks of size $k$. Each block contributes a block-wise fitness that is maximal for a specific configuration (the block's global optimum) but otherwise assigns higher fitness to a locally-attractive configuration that is not on the path to the block optimum. When blocks are simple and independent, recombination can assemble block optima; when blocks are deceptive, selection preferentially amplifies wrong local configurations and recombination alone may not rescue the global solution.
+
+While the term ``deceptive'' has a precise intent, it is not an absolute property of a fitness function alone but of the combination of function, representation, population size, and operators. A partition that appears deceptive for one recombination operator may not be deceptive for another that respects linkage; likewise, increasing population size or changing selection pressure can alter whether a particular problem instance behaves deceptively in practice.
+
+\subsection{Why Deception Matters for Schema Theory}
+Schema theory predicts that low-order, short-defining-length schemata with above-average fitness will increase in expectation under selection and survive recombination/mutation with non-negligible probability. Deception subverts this reasoning by making the locally above-average schemata lead away from genotypes that contain the globally optimal combination of building blocks. Thus, although the schema theorem's algebraic statement remains valid as an expectation, its constructive interpretation (that selection will assemble good building blocks into better solutions) can fail when the sampled short schemata are misleading.
+
+Two concrete consequences follow:
 \begin{itemize}
-    \item Increase population size
-    \item Use diversity-preserving techniques
-    \item Apply linkage learning
-    \item Use multi-objective approaches
+    \item Sampling risk: finite populations may not sample the rare, globally-useful schemata often enough for recombination to assemble them before deceptive schemata dominate.
+    \item Misleading gradients: selection amplifies schemata that locally increase fitness even if these schemata decrease the probability of reaching the global optimum when combined.
 \end{itemize}
+
+\subsection{Detecting and Measuring Deception}
+Practically, deception is assessed by analysing how local improvements correlate with global progress. Common diagnostics include:
+\begin{itemize}
+    \item Fitness-distance correlation (FDC): the correlation between fitness and distance to a known global optimum. Strong negative correlation suggests easier search; weak or positive correlation may signal deception.
+    \item Empirical block analysis: for decomposable problems (e.g. concatenated traps), studying the block-wise fitness landscape (unitation plots) reveals whether local optima attract search within blocks.
+    \item Performance sensitivity: measuring success probability as a function of population size and operator settings can indicate whether modest changes remove or expose deceptive behaviour.
+\end{itemize}
+
+\subsection{Strategies to Overcome Deception}
+Because deception arises from a mismatch between representation, operators, and the problem's modular structure, countermeasures generally fall into three categories: improve sampling, preserve or encourage useful diversity, and increase the algorithm's ability to respect or learn linkage.
+\begin{itemize}
+    \item \textbf{Increase effective sampling:} Larger populations and conservative selection pressure reduce the chance that deceptive schemata quickly fix, giving recombination and mutation more opportunity to assemble globally-useful combinations.
+    \item \textbf{Diversity-preserving methods:} Niching (fitness sharing, crowding), island models, and restricted tournament selection retain multiple competing alleles or subpopulations so that alternative building-block combinations are not lost prematurely.
+    \item \textbf{Linkage-aware recombination:} Using crossover operators that respect known linkage, or designing encodings that keep interdependent loci close, reduces the probability that crossover breaks important combinations and thereby reduces apparent deception.
+    \item \textbf{Linkage learning and estimation methods:} Algorithms that learn dependencies—messy GAs, linkage-tree GAs, hierarchical Bayesian optimization algorithm (hBOA), and dependency-structure modelling—explicitly detect and preserve interacting genes instead of relying on blind recombination.
+    \item \textbf{Hybridisation and local search:} Combining GAs with problem-specific local search (memetic algorithms) or constructive heuristics helps repair or complete partial solutions that pure recombination cannot assemble.
+    \item \textbf{Adaptive operators and parameter control:} Dynamically tuning mutation rates, crossover rates, and selection pressure in response to measured diversity or progress can mitigate regimes in which deception is most damaging.
+\end{itemize}
+
+\subsection{Limitations and Practical Advice}
+No single remedy eliminates deception in every domain — the phenomenon is problem-dependent. The No-Free-Lunch theorems imply that algorithmic choices trade off performance across problem classes, so the right countermeasure depends on prior knowledge about structure (if available) or on adaptive techniques that infer structure during the run. In practice, good engineering steps are:
+\begin{itemize}
+    \item Prefer encodings and operators that keep suspected interacting loci linked.
+    \item Use modestly large populations and conservative selection until building blocks are reliably sampled.
+    \item Monitor diversity and performance metrics (e.g. FDC, genotypic/phenotypic variance) and apply linkage learning or niching when signs of premature convergence appear.
+\end{itemize}
+
+Understanding deception and planning for it when designing encodings and operators is essential for applying GAs to problems with strong epistasis or deliberately deceptive structure.
 
 \section{Practical Implications}
 
-\subsection{Encoding Design}
+\subsection{Encoding and Representation}
+Representation is the single most important design choice when attempting to exploit schema-like behaviour. The following principles are recommended:
 \begin{itemize}
-    \item Minimize epistasis (gene interactions)
-    \item Keep related variables close together
-    \item Use appropriate representation for building blocks
+    \item \textbf{Reduce unnecessary epistasis:} Wherever possible, choose encodings that make the contribution of a small set of loci to fitness approximately additive. Lower epistasis reduces the chance that short schemata are misleading and increases the utility of recombination.
+    \item \textbf{Preserve linkage of interacting loci:} Place genes that interact closely in the problem domain near each other in the representation, or use positional encodings that respect natural modularity. Doing so reduces defining lengths $\delta(H)$ for important schemata and raises their survivability under common crossover operators.
+    \item \textbf{Prefer modular encodings:} When a problem decomposes into largely independent subproblems, design encodings (or problem decompositions) that reflect those modules so that recombination can assemble global solutions from block-wise building blocks.
+    \item \textbf{Mind the genotype–phenotype map:} Nonlinear mappings from genotype to phenotype (e.g. big-radix encodings, Gray codes, or indirect encodings) change the effective schema structure and must be evaluated empirically for how they affect building-block preservation.
 \end{itemize}
 
-\subsection{Parameter Settings}
+\subsection{Operator and Parameter Choices}
+Schema-level reasoning suggests particular trade-offs when choosing operators and their parameters:
 \begin{itemize}
-    \item Low mutation rate to preserve building blocks
-    \item Moderate crossover rate for effective recombination
-    \item Sufficient population size for schema sampling
+    \item \textbf{Population size ($n$):} Larger populations reduce sampling noise and increase the probability that useful low-order schemata are present in sufficient multiplicity. Use population-sizing rules or experiments to ensure reliable sampling for the expected order of important schemata.
+    \item \textbf{Selection pressure:} Strong selection accelerates exploitation but increases the risk of premature loss of diversity (and of useful schemata). Moderate selection or tournament sizes and techniques like fitness scaling can balance exploration and exploitation.
+    \item \textbf{Crossover rate and type ($p_c$):} High crossover frequency promotes recombination of building blocks but also increases disruption of long defining-length schemata. Choose crossover operators that respect problem linkage (e.g. blockwise or problem-specific crossover) when possible.
+    \item \textbf{Mutation rate ($p_m$):} Keep mutation low enough to avoid destroying short, beneficial schemata but high enough to introduce necessary variation and help escape local optima. Adaptive mutation schedules can be effective when problem structure is unknown.
+    \item \textbf{Elitism and replacement:} Elitism preserves best-so-far solutions and thus protects discovered building blocks; however, excessive elitism can reduce diversity. Use small elitist fractions to balance stability and exploration.
+\end{itemize}
+
+\subsection{Practical Monitoring and Diagnostics}
+To apply schema-informed design in practice, monitor population statistics regularly:
+\begin{itemize}
+    \item Track genotypic diversity (e.g. per-locus allele frequencies) and phenotypic variance to detect premature convergence.
+    \item Compute simple schema counts or sample candidate schemata to verify whether expected building blocks are being found and preserved.
+    \item Measure progress metrics (best, median, and mean fitness) alongside diversity indicators; slow improvement with collapsed diversity often signals that schema recombination is failing.
 \end{itemize}
 
 \section{Limitations of Schema Theory}
 
+Schema theory provides a valuable conceptual and analytic framework, but its assumptions and scope impose important limitations that practitioners must recognise.
+
+\subsection{Expectation vs finite-population dynamics}
+The core algebraic statements of schema theory are statements about expectations. In finite populations, stochastic sampling noise, genetic drift, and sampling error can cause realised dynamics to deviate substantially from expectation. Consequently, schema-theoretic predictions should be interpreted as tendencies rather than deterministic outcomes.
+
+\subsection{Operator dependence and representation sensitivity}
+Results derived from schema analysis depend on the choice of representation and genetic operators. The survival probabilities and constructive recombination arguments assume particular crossover and mutation models; different operators (or nonstandard genotype–phenotype maps) change these probabilities and may invalidate naive conclusions.
+
+\subsection{Limited handling of epistasis and complex interactions}
+Schema theory is most informative for low-order, short-defining-length patterns. When fitness arises from high-order interactions (strong epistasis) or from complex, distributed dependencies among loci, schema counts obscure the relevant structure and offer limited predictive power.
+
+\subsection{Restriction to simple alphabets and fixed-length encodings}
+Classical schema analyses assume binary alphabets and fixed-length strings. Extensions to richer alphabets, variable-length genomes, or indirect encodings require careful reformulation; naive application of binary-based intuition can be misleading.
+
+\subsection{Lack of prescriptive specificity}
+While schema theory explains why short, fit building blocks can be useful, it does not provide a general, prescriptive algorithm for discovering the best representation or operators for an arbitrary problem. Modern methods—linkage learning, estimation-of-distribution algorithms (EDAs), and probabilistic model-building approaches—explicitly attempt to learn and exploit problem structure that schema counts alone cannot reveal.
+
+\subsection{Practical takeaway}
+Schema theory remains a useful lens for understanding GA behaviour and for guiding design choices (representation, linkage, population sizing, and operator tuning). However, effective application requires empirical validation, diagnostic monitoring, and, when necessary, methods that explicitly learn and preserve dependencies rather than relying solely on blind recombination.
+
+\subsection{Deeper Limitations and Practical Consequences}
+Beyond the conceptual caveats above, there are several deeper limitations that affect both theoretical analysis and practical algorithm design.
+
+\subsubsection{Stochastic fluctuations and reliability}
+Because the schema theorem is an expectation, single-run trajectories can differ widely from the expected behaviour. This is not merely a small-sample issue: genetic drift, sampling variance, and the discrete nature of selection events can produce systematic divergences (for example, loss of a useful low-frequency schema by chance). Practitioners should therefore treat schema-based predictions as probabilistic statements and quantify reliability via multiple independent runs, confidence intervals on observed schema counts, or resampling (bootstrap) methods.
+
+\subsubsection{Difficulty of measuring schemas in practice}
+Explicitly tracking large numbers of schemata is computationally expensive and of limited usefulness unless the tracked schemata are chosen carefully. The number of possible schemata grows combinatorially with $l$, and naive enumeration is infeasible for realistic genome sizes. Practical measurements therefore focus on low-order schemata, sampled candidate patterns, or aggregate statistics (allele frequencies, linkage disequilibrium measures). Any empirical claim about schema dynamics should specify the sampling protocol, statistical uncertainty, and potential biases introduced by the choice of monitored schemata.
+
+\subsubsection{Finite-population bounds and worst-case behaviour}
+While the schema theorem gives lower bounds on expected schema counts under simplified operator models, it does not provide tight finite-population guarantees or worst-case complexity results. There exist problem instances (deceptive or highly epistatic) where the runtime to discover the global optimum grows exponentially in problem size for many GA variants. Where possible, complement schema-theoretic intuition with finite-population analyses, convergence proofs (for restricted algorithm variants), or empirically-derived scaling laws for the specific problem class.
+
+\subsubsection{Operator modelling limitations}
+Common schema-theoretic derivations assume simple, memoryless operators (single- or two-point crossover, independent bit-flip mutation, generational replacement) and ignore implementation details such as selection with replacement, stochastic universal sampling, or repair procedures for constraint handling. These implementation choices alter survival probabilities and the effective recombination patterns; hence, conclusions drawn under idealised operator models must be revalidated for production implementations.
+
+\subsubsection{Interpretation pitfalls}
+It is easy to overinterpret the schema theorem as a prescriptive justification for arbitrary GA design choices. For example, citing the schema theorem to justify an arbitrary low mutation rate or a particular crossover operator without reference to empirical evidence or problem structure risks poor performance. Use schema reasoning as a guide for hypotheses to be tested, not as a substitute for empirical validation.
+
+\subsection{Connections to alternative analytic frameworks}
+Because of the limitations above, modern theoretical and practical work often complements schema thinking with other frameworks:
 \begin{itemize}
-    \item Assumes infinite population size
-    \item Ignores finite population effects
-    \item Doesn't account for epistasis
-    \item Limited to binary representations
-    \item Overlooks linkage effects
+    \item Markov-chain and dynamical-systems analyses that characterise full-population dynamics under specific operators.
+    \item Probabilistic model-building approaches (EDAs, hBOA) that explicitly learn and exploit dependency structure instead of relying on the passive effects of crossover.
+    \item Linkage-detection and hierarchical decomposition methods that aim to discover interacting variable groups and preserve them explicitly during recombination.
+\end{itemize}
+These perspectives provide more actionable mechanisms for domains with strong epistasis or where blind recombination fails.
+
+\subsection{Recommended empirical protocol}
+When using schema-based reasoning to guide algorithm design, follow an empirical protocol that reduces the risk of incorrect conclusions:
+\begin{itemize}
+    \item Run multiple independent trials and report variance, not just mean performance.
+    \item Use controlled ablation studies to measure the effect of representation and operator choices on sampling and survival of candidate schemata.
+    \item When feasible, visualise allele-frequency trajectories and block-wise unitation plots to diagnose where and when useful schemata are lost or preserved.
+    \item Compare with model-building baselines (simple EDAs, linkage-aware GAs) to evaluate whether blind recombination suffices for the target problem.
 \end{itemize}
 
-\section{Modern Extensions}
+These steps help translate schema-theoretic insights into reliable engineering decisions.
 
-\subsection{Walsh Analysis}
-Mathematical framework extending schema theory using Walsh functions.
-
-\subsection{Fitness Landscapes}
-Analysis of problem difficulty using landscape topology.
 
 \subsection{No Free Lunch Theorem}
 States that no algorithm is superior across all possible problems.

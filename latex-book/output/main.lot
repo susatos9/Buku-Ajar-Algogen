@@ -1,23 +1,21 @@
 \babel@toc {english}{}\relax 
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {2.1}{\ignorespaces Initial Population Example}}{9}{table.caption.5}%
-\contentsline {table}{\numberline {2.2}{\ignorespaces Initial Population Example}}{11}{table.caption.6}%
+\contentsline {table}{\numberline {2.1}{\ignorespaces Initial Population Example}}{9}{table.caption.9}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {4.1}{\ignorespaces Binary vs Gray Code Representation}}{30}{table.caption.10}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {5.1}{\ignorespaces Selection probability and fitness value (from Buku Ajar)}}{39}{table.caption.12}%
-\contentsline {table}{\numberline {5.2}{\ignorespaces Roulette Wheel Selection Example}}{40}{table.caption.14}%
-\contentsline {table}{\numberline {5.3}{\ignorespaces Comparison of Selection Methods}}{48}{table.caption.18}%
+\contentsline {table}{\numberline {5.1}{\ignorespaces Selection probability and fitness value (from Buku Ajar)}}{45}{table.caption.12}%
+\contentsline {table}{\numberline {5.2}{\ignorespaces Roulette Wheel Selection Example}}{46}{table.caption.14}%
+\contentsline {table}{\numberline {5.3}{\ignorespaces Comparison of Selection Methods}}{55}{table.caption.18}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {6.1}{\ignorespaces Crossover vs. Mutation Comparison~\cite {spears1993crossover, schaffer1989study}}}{65}{table.caption.28}%
+\contentsline {table}{\numberline {6.1}{\ignorespaces Crossover vs. Mutation Comparison~\cite {spears1993crossover, schaffer1989study}}}{73}{table.caption.28}%
 \addvspace {10\p@ }
-\addvspace {10\p@ }
-\contentsline {table}{\numberline {8.1}{\ignorespaces GA Parameter Observation Results}}{80}{table.caption.36}%
+\contentsline {table}{\numberline {7.1}{\ignorespaces GA Parameter Observation Results}}{84}{table.caption.29}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {B.1}{\ignorespaces OneMax GA Configuration}}{105}{table.caption.37}%
-\contentsline {table}{\numberline {B.2}{\ignorespaces Population Size Guidelines}}{110}{table.caption.38}%
-\contentsline {table}{\numberline {B.3}{\ignorespaces Crossover and Mutation Rate Guidelines}}{110}{table.caption.39}%
-\contentsline {table}{\numberline {B.4}{\ignorespaces Algorithm Comparison}}{111}{table.caption.40}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {B.1}{\ignorespaces OneMax GA Configuration}}{113}{table.caption.37}%
+\contentsline {table}{\numberline {B.2}{\ignorespaces Population Size Guidelines}}{118}{table.caption.38}%
+\contentsline {table}{\numberline {B.3}{\ignorespaces Crossover and Mutation Rate Guidelines}}{118}{table.caption.39}%
+\contentsline {table}{\numberline {B.4}{\ignorespaces Algorithm Comparison}}{119}{table.caption.40}%

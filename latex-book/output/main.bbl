@@ -1,9 +1,5 @@
 \begin{thebibliography}{10}
 
-\bibitem{course_week2}
-Course material week 2 - cycle of genetic algorithm and holland schema.
-\newblock Course material.
-
 \bibitem{course_week4_crossover}
 Course material week 4 - crossover.
 \newblock Course material.
@@ -203,12 +199,6 @@ IM~Oliver, DJ~Smith, and John~RC Holland.
   problem.
 \newblock {\em Proceedings of the Second International Conference on Genetic
   Algorithms}, pages 224--230, 1987.
-
-\bibitem{reeves1998genetic}
-Colin Reeves and Takeshi Yamada.
-\newblock Genetic algorithms, path relinking and the flowshop sequencing
-  problem.
-\newblock {\em Evolutionary Computation}, 6(1):45--60, 1998.
 
 \bibitem{reeves1993modern}
 Colin~R Reeves.
