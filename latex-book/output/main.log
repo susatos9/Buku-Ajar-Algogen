@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.5.3)  30 NOV 2025 15:18
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.5.3)  30 NOV 2025 16:57
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1064,18 +1064,18 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2
 
-] (output/main.toc [3] [4] [5] [6]
-[7])
+] (output/main.toc [3] [4] [5] [6])
 \tf@toc=\write5
 \openout5 = `main.toc'.
 
- [8] (output/main.lof)
+
+[7] [8
+
+] (output/main.lof)
 \tf@lof=\write6
 \openout6 = `main.lof'.
 
- [9
-
-] [10
+ [9] [10
 
 ] (output/main.lot)
 \tf@lot=\write7
@@ -1112,25 +1112,16 @@ Package fancyhdr Warning: \headheight is too small (27.05pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-0.00003pt}.
 
-[2]
-Underfull \vbox (badness 1067) has occurred while \output is active []
-
- [3]
-
-Package fancyhdr Warning: \headheight is too small (27.05pt): 
-(fancyhdr)                Make it at least 27.05003pt, for example:
-(fancyhdr)                \setlength{\headheight}{27.05003pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-0.00003pt}.
-
-[4]
-<figures/buku_ajar_page_4.png, id=1387, 1059.96pt x 453.695pt>
+[2] [3]
+<figures/buku_ajar_page_4.png, id=1117, 1059.96pt x 453.695pt>
 File: figures/buku_ajar_page_4.png Graphic file (type png)
 <use figures/buku_ajar_page_4.png>
-Package pdftex.def Info: figures/buku_ajar_page_4.png  used on input line 231.
+Package pdftex.def Info: figures/buku_ajar_page_4.png  used on input line 222.
 (pdftex.def)             Requested size: 318.66948pt x 136.4003pt.
- [5 <./figures/buku_ajar_page_4.png>]) (./chapters/chapter02-what-is-ga.tex
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
 
 Package fancyhdr Warning: \headheight is too small (27.05pt): 
 (fancyhdr)                Make it at least 27.05003pt, for example:
@@ -1139,7 +1130,7 @@ Package fancyhdr Warning: \headheight is too small (27.05pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-0.00003pt}.
 
-[6] [7]
+[4] [5 <./figures/buku_ajar_page_4.png>]) (./chapters/chapter02-what-is-ga.tex
 
 Package fancyhdr Warning: \headheight is too small (27.05pt): 
 (fancyhdr)                Make it at least 27.05003pt, for example:
@@ -1148,93 +1139,29 @@ Package fancyhdr Warning: \headheight is too small (27.05pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-0.00003pt}.
 
-[8
+[6]
+Chapter 2.
+[7
 
 ]
-Chapter 2.
-[9]
 
-LaTeX Warning: Reference `sec:introduction' on page 10 undefined on input line 
-45.
+LaTeX Warning: Reference `sec:introduction' on page 8 undefined on input line 4
+5.
 
-[10] [11] [12]) (./chapters/chapter03-ga-cycle-schema.tex [13] [14
+[8] [9] [10]) (./chapters/chapter03-ga-cycle-schema.tex [11] [12
 
 ]
 Chapter 3.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [15]
-[16] [17] [18] [19] [20] [21] [22] [23] [24] [25] [26] [27] [28] [29] [30])
-(./chapters/chapter04-encoding.tex [31] [32
-
-]
+ [13]
+[14] [15] [16] [17] [18] [19] [20] [21] [22] [23] [24] [25] [26] [27])
+(./chapters/chapter04-encoding.tex [28]
 Chapter 4.
-[33]
-! Missing $ inserted.
-<inserted text> 
-                $
-l.33 ...d produce small phenotypic changes. Let d_
-                                                  G and d_P be distance meas...
+[29
 
-? 
-
-! LaTeX Error: Bad math environment delimiter.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.34 \[
-       d_G(g_1,g_2)\ \text{small}\ \Rightarrow\ d_P(\phi(g_1),\phi(g_2))\ \t...
-
-? 
-! Missing \endgroup inserted.
-<inserted text> 
-                \endgroup 
-l.34 ... d_P(\phi(g_1),\phi(g_2))\ \text{small}.\]
-                                                  
-? 
-
-! LaTeX Error: \begin{document} ended by \end{equation*}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.34 ... d_P(\phi(g_1),\phi(g_2))\ \text{small}.\]
-                                                  
-? 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.34 ... d_P(\phi(g_1),\phi(g_2))\ \text{small}.\]
-                                                  
-? 
-! Extra \endgroup.
-<recently read> \endgroup 
-                          
-l.34 ... d_P(\phi(g_1),\phi(g_2))\ \text{small}.\]
-                                                  
-? 
-
-Overfull \hbox (60.06503pt too wide) in paragraph at lines 33--36
-\OT1/cmr/m/n/12 typic changes. Let d$[]\OML/cmm/m/it/12 andd[]bedistancemeasure
-sonGandPrespectively\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 e:g:Hammingdistanceonbit 
-\OMS/cmsy/m/n/12 ^^@
- []
-
-
-Overfull \hbox (101.5103pt too wide) in paragraph at lines 33--36
-\OML/cmm/m/it/12 strings; Euclideandistanceonrealvectors\OT1/cmr/m/n/12 )\OML/c
-mm/m/it/12 :Highlocalitymeansthatd[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 g[]; g[]\
-OT1/cmr/m/n/12 ) []  \OMS/cmsy/m/n/12 )  \OML/cmm/m/it/12 d[]\OT1/cmr/m/n/12 (\
-OML/cmm/m/it/12 ^^^\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 g[]\OT1/cmr/m/n/12 )\OML/c
-mm/m/it/12 ; ^^^\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 g[]\OT1/cmr/m/n/12 )) []\OML/
-cmm/m/it/12 :$$$
- []
-
-[34] [35] [36] [37] [38]
+] [30] [31] [32] [33] [34]
 LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 1
 36.
 
@@ -1243,10 +1170,12 @@ File: omscmr.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 136.
- [39] [40] [41])
-(./chapters/chapter05-selection.tex [42]
+ [35] [36])
+(./chapters/chapter05-selection.tex [37] [38
+
+]
 Chapter 5.
-<figures/buku_ajar_page_16.png, id=1610, 1431.3475pt x 333.245pt>
+<figures/buku_ajar_page_16.png, id=1344, 1431.3475pt x 333.245pt>
 File: figures/buku_ajar_page_16.png Graphic file (type png)
 <use figures/buku_ajar_page_16.png>
 Package pdftex.def Info: figures/buku_ajar_page_16.png  used on input line 13.
@@ -1254,44 +1183,42 @@ Package pdftex.def Info: figures/buku_ajar_page_16.png  used on input line 13.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [43
-
- <./figures/buku_ajar_page_16.png>]
+ [39 <./figures/buku_ajar_page_16.png>]
 Overfull \hbox (13.11774pt too wide) in paragraph at lines 27--28
 \OT1/cmr/m/n/12 The Ge-netic Al-go-rithm de-vel-oped by Hol-land uses Fit-ness 
 Pro-por-tion-ate Se-lec-tion (FPS) [[],
  []
 
-[44]
-<figures/buku_ajar_page_18.png, id=1628, 1278.7775pt x 262.9825pt>
+[40]
+<figures/buku_ajar_page_18.png, id=1362, 1278.7775pt x 262.9825pt>
 File: figures/buku_ajar_page_18.png Graphic file (type png)
 <use figures/buku_ajar_page_18.png>
 Package pdftex.def Info: figures/buku_ajar_page_18.png  used on input line 67.
 (pdftex.def)             Requested size: 386.96027pt x 79.57751pt.
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
 put line 76.
- [45 <./figures/buku_ajar_page_18.png>] [46]
-<figures/buku_ajar_page_19.png, id=1653, 1270.7475pt x 262.9825pt>
+ [41 <./figures/buku_ajar_page_18.png>] [42]
+<figures/buku_ajar_page_19.png, id=1386, 1270.7475pt x 262.9825pt>
 File: figures/buku_ajar_page_19.png Graphic file (type png)
 <use figures/buku_ajar_page_19.png>
 Package pdftex.def Info: figures/buku_ajar_page_19.png  used on input line 135.
 
 (pdftex.def)             Requested size: 386.96027pt x 80.08313pt.
- [47 <./figures/buku_ajar_page_19.png>]
-<figures/buku_ajar_page_20.png, id=1670, 1270.7475pt x 353.32pt>
+ [43 <./figures/buku_ajar_page_19.png>]
+<figures/buku_ajar_page_20.png, id=1404, 1270.7475pt x 353.32pt>
 File: figures/buku_ajar_page_20.png Graphic file (type png)
 <use figures/buku_ajar_page_20.png>
 Package pdftex.def Info: figures/buku_ajar_page_20.png  used on input line 172.
 
 (pdftex.def)             Requested size: 364.19667pt x 101.26332pt.
- [48 <./figures/buku_ajar_page_20.png>]
-<figures/buku_ajar_page_21.png, id=1681, 1668.2325pt x 525.965pt>
+ [44 <./figures/buku_ajar_page_20.png>]
+<figures/buku_ajar_page_21.png, id=1415, 1668.2325pt x 525.965pt>
 File: figures/buku_ajar_page_21.png Graphic file (type png)
 <use figures/buku_ajar_page_21.png>
 Package pdftex.def Info: figures/buku_ajar_page_21.png  used on input line 217.
 
 (pdftex.def)             Requested size: 318.66948pt x 100.46407pt.
- [49 <./figures/buku_ajar_page_21.png>] [50] [51] [52] [53]
+ [45 <./figures/buku_ajar_page_21.png>] [46] [47] [48] [49]
 Overfull \hbox (5.1322pt too wide) in paragraph at lines 343--344
 \OT1/cmr/m/n/12 de-scribed by a vec-tor of ob-jec-tives rather than a sin-gle s
 calar. Let $\OT1/cmr/bx/n/12 f\OT1/cmr/m/n/12 (\OT1/cmr/bx/n/12 x\OT1/cmr/m/n/1
@@ -1300,52 +1227,55 @@ calar. Let $\OT1/cmr/bx/n/12 f\OT1/cmr/m/n/12 (\OT1/cmr/bx/n/12 x\OT1/cmr/m/n/1
 )$
  []
 
-[54] [55] [56]
+[50] [51] [52]
 Overfull \hbox (13.44547pt too wide) in paragraph at lines 397--398
 []\OT1/cmr/m/n/12 Combined meth-ods ex-plic-itly mix se-lec-tion op-er-a-tors t
 o ex-ploit com-ple-men-tary strengths.
  []
 
-[57]) (./chapters/chapter06-crossover.tex [58]
+) (./chapters/chapter06-crossover.tex [53] [54
+
+]
 Chapter 6.
 
 Overfull \hbox (5.15976pt too wide) in paragraph at lines 1--1
 |\OT1/cmr/bx/n/24.88 Crossover (Re-com-bi-na-tion) in Ge-netic
  []
 
-[59
-
-]
-<figures/buku_ajar_page_24.png, id=1765, 1445.4pt x 762.85pt>
+[55]
+<figures/buku_ajar_page_24.png, id=1496, 1445.4pt x 762.85pt>
 File: figures/buku_ajar_page_24.png Graphic file (type png)
 <use figures/buku_ajar_page_24.png>
-Package pdftex.def Info: figures/buku_ajar_page_24.png  used on input line 52.
+Package pdftex.def Info: figures/buku_ajar_page_24.png  used on input line 34.
 (pdftex.def)             Requested size: 318.66948pt x 168.18835pt.
- [60 <./figures/buku_ajar_page_24.png>]
-<figures/buku_ajar_page_25.png, id=1776, 1445.4pt x 762.85pt>
+ [56 <./figures/buku_ajar_page_24.png>]
+<figures/buku_ajar_page_25.png, id=1504, 1445.4pt x 762.85pt>
 File: figures/buku_ajar_page_25.png Graphic file (type png)
 <use figures/buku_ajar_page_25.png>
-Package pdftex.def Info: figures/buku_ajar_page_25.png  used on input line 98.
+Package pdftex.def Info: figures/buku_ajar_page_25.png  used on input line 74.
 (pdftex.def)             Requested size: 318.66948pt x 168.18835pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[61]
+[57]
 File: figures/buku_ajar_page_25.png Graphic file (type png)
 <use figures/buku_ajar_page_25.png>
-Package pdftex.def Info: figures/buku_ajar_page_25.png  used on input line 140.
+Package pdftex.def Info: figures/buku_ajar_page_25.png  used on input line 111.
 
 (pdftex.def)             Requested size: 318.66948pt x 168.18835pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[62 <./figures/buku_ajar_page_25.png>] [63]
-<figures/buku_ajar_page_28.png, id=1825, 590.205pt x 780.9175pt>
+
+Underfull \vbox (badness 7415) has occurred while \output is active []
+
+ [58 <./figures/buku_ajar_page_25.png>] [59]
+<figures/buku_ajar_page_28.png, id=1552, 590.205pt x 780.9175pt>
 File: figures/buku_ajar_page_28.png Graphic file (type png)
 <use figures/buku_ajar_page_28.png>
-Package pdftex.def Info: figures/buku_ajar_page_28.png  used on input line 199.
+Package pdftex.def Info: figures/buku_ajar_page_28.png  used on input line 160.
 
 (pdftex.def)             Requested size: 318.66948pt x 421.64151pt.
 
@@ -1354,171 +1284,169 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 File: figures/buku_ajar_page_28.png Graphic file (type png)
 <use figures/buku_ajar_page_28.png>
-Package pdftex.def Info: figures/buku_ajar_page_28.png  used on input line 211.
+Package pdftex.def Info: figures/buku_ajar_page_28.png  used on input line 172.
 
 (pdftex.def)             Requested size: 318.66948pt x 421.64151pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<figures/buku_ajar_page_29.png, id=1826, 837.1275pt x 210.7875pt>
+<figures/buku_ajar_page_29.png, id=1553, 837.1275pt x 210.7875pt>
 File: figures/buku_ajar_page_29.png Graphic file (type png)
 <use figures/buku_ajar_page_29.png>
-Package pdftex.def Info: figures/buku_ajar_page_29.png  used on input line 223.
+Package pdftex.def Info: figures/buku_ajar_page_29.png  used on input line 184.
 
 (pdftex.def)             Requested size: 318.66948pt x 80.23837pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[64] [65 <./figures/buku_ajar_page_28.png>]
-<figures/buku_ajar_page_31.png, id=1837, 917.4275pt x 466.74374pt>
+[60] [61 <./figures/buku_ajar_page_28.png>]
+<figures/buku_ajar_page_31.png, id=1565, 917.4275pt x 466.74374pt>
 File: figures/buku_ajar_page_31.png Graphic file (type png)
 <use figures/buku_ajar_page_31.png>
-Package pdftex.def Info: figures/buku_ajar_page_31.png  used on input line 254.
+Package pdftex.def Info: figures/buku_ajar_page_31.png  used on input line 215.
 
 (pdftex.def)             Requested size: 318.66948pt x 162.12354pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[66]
-<figures/buku_ajar_page_32.png, id=1846, 1558.82375pt x 460.72125pt>
+[62]
+<figures/buku_ajar_page_32.png, id=1574, 1558.82375pt x 460.72125pt>
 File: figures/buku_ajar_page_32.png Graphic file (type png)
 <use figures/buku_ajar_page_32.png>
-Package pdftex.def Info: figures/buku_ajar_page_32.png  used on input line 276.
+Package pdftex.def Info: figures/buku_ajar_page_32.png  used on input line 237.
 
 (pdftex.def)             Requested size: 318.66948pt x 94.18132pt.
- [67 <./figures/buku_ajar_page_29.png> <./figures/buku_ajar_page_31.png> <./fig
-ures/buku_ajar_page_32.png>]
 File: figures/buku_ajar_page_32.png Graphic file (type png)
 <use figures/buku_ajar_page_32.png>
-Package pdftex.def Info: figures/buku_ajar_page_32.png  used on input line 297.
+Package pdftex.def Info: figures/buku_ajar_page_32.png  used on input line 258.
 
 (pdftex.def)             Requested size: 318.66948pt x 94.18132pt.
 
 
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 324.
+LaTeX Warning: `h' float specifier changed to `ht'.
 
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\alpha' on input line 324.
-
+[63 <./figures/buku_ajar_page_29.png> <./figures/buku_ajar_page_31.png> <./figu
+res/buku_ajar_page_32.png>]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 324.
+(hyperref)                removing `math shift' on input line 285.
 
-[68] [69] [70] [71] [72]) (./chapters/chapter07-mutation-update.tex [73]
-[74
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\alpha' on input line 285.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 285.
+
+[64] [65]
+Underfull \vbox (badness 3872) has occurred while \output is active []
+
+ [66]
+[67] [68]) (./chapters/chapter07-mutation-update.tex [69] [70
 
 ]
 Chapter 7.
-[75] [76] [77] [78] [79] [80]
+
+Underfull \vbox (badness 3838) has occurred while \output is active []
+
+ [71]
+[72] [73] [74] [75] [76]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 326.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 326.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 326.
+(hyperref)                removing `math shift' on input line 253.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 345.
+(hyperref)                removing `subscript' on input line 253.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 345.
+(hyperref)                removing `math shift' on input line 253.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 345.
-
-[81]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 374.
+(hyperref)                removing `math shift' on input line 259.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 374.
+(hyperref)                removing `subscript' on input line 259.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 394.
+(hyperref)                removing `math shift' on input line 259.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 394.
+(hyperref)                removing `math shift' on input line 280.
 
-[82]
-Overfull \hbox (9.8122pt too wide) in paragraph at lines 427--428
-[]\OT1/cmr/m/n/12 Chromosome rep-re-sen-ta-tion: Bi-na-ry/In-te-ger/Re-al/Per-m
-u-ta-tion (problem-dependent) 
- []
 
-[83] [84] [85] [86]) (./chapters/chapter08-applications.tex [87] [88
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 280.
 
-]
+[77]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 286.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 286.
+
+[78] [79]) (./chapters/chapter08-applications.tex [80]
 Chapter 8.
-[89]
-Overfull \hbox (45.4502pt too wide) in paragraph at lines 66--67
-\OT1/cmr/m/n/12 The course ref-er-ences sim-u-lated evo-lu-tion ex-am-ples from
- \OT1/cmtt/m/n/12 http://www.wreck.devisland.net/ga/\OT1/cmr/m/n/12 : 
- []
+) [81
 
-[90] [91]) (./chapters/appendix-algorithms.tex [92]
+] (./chapters/appendix-algorithms.tex [82]
 Appendix A.
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
 nput line 7.
-[93
+[83
 
 ]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [94]
+ [84]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [95]
+ [85]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [86]
+[87]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [88]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [89]
+[90]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [91]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [92]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [93]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [94]
+[95]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [96]
-[97]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [97]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [98]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [99]
-[100]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [101]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [102]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [103]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [104]
-[105]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [106]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [107]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [108]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [109]
 Overfull \hbox (75.24478pt too wide) in paragraph at lines 796--797
 [][] 
  []
@@ -1526,15 +1454,15 @@ Overfull \hbox (75.24478pt too wide) in paragraph at lines 796--797
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [110]
+ [100]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [111])
-(./chapters/appendix-examples.tex [112]
+ [101])
+(./chapters/appendix-examples.tex [102]
 Appendix B.
-[113
+[103
 
-] [114] [115] [116] [117] [118] [119] [120] [121]) [122] (output/main.bbl
+] [104] [105] [106] [107] [108] [109] [110] [111]) [112] (output/main.bbl
 Underfull \hbox (badness 10000) in paragraph at lines 19--24
 []\OT1/cmr/m/n/12 Algorithm Af-ter-noon.  Chap-ter 4 - se-lec-tion strate-gies.
   [][]$\OT1/cmtt/m/n/12 https : / /
@@ -1558,10 +1486,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 26--31
 genetic _ algorithm/$[][]\OT1/cmr/m/n/12 .
  []
 
-[123
+[113
 
 
-] [124] [125]) [126] (output/main.aux)
+] [114] [115]) [116] (output/main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
@@ -1570,58 +1498,40 @@ L3 programming layer <2024-01-22>
 
 LaTeX Warning: There were undefined references.
 
-
-Package rerunfilecheck Warning: File `main.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `main.out':
-(rerunfilecheck)             Before: 7EAFB04AEC9E05B6CDF36D78176EE411;44491
-(rerunfilecheck)             After:  04A21D747F93ECF71F6B80AC6823190F;44012.
+Package rerunfilecheck Info: File `main.out' has not changed.
+(rerunfilecheck)             Checksum: B51E9C3C9A0DCFB7550257329B7D2765;36615.
  ) 
 Here is how much of TeX's memory you used:
- 41468 strings out of 474222
- 932904 string characters out of 5748734
+ 41351 strings out of 474222
+ 931403 string characters out of 5748734
  2294975 words of memory out of 5000000
- 61516 multiletter control sequences out of 15000+600000
+ 61465 multiletter control sequences out of 15000+600000
  571640 words of font info for 87 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,19n,87p,1085b,2235s stack positions out of 10000i,1000n,20000p,200000b,200000s
-
-pdfTeX warning (dest): name{subsection.5.13.3} has been referenced but does not
- exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.5.13.2} has been referenced but does not
- exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.5.13.1} has been referenced but does not
- exist, replaced by a fixed one
-
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/
-share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/t
-exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf
--dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/t
-ype1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
-blic/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
-sfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
-m/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10
-.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></
-usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/sha
-re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/tex
-live/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/share/texlive/texmf-d
-ist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-di
-st/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf/fonts/type1
-/public/cm-super/sfbx1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfr
-m1200.pfb>
-Output written on output/main.pdf (138 pages, 1273772 bytes).
+ 84i,19n,87p,1103b,2235s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share
+/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy
+10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb>
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/s
+hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/t
+exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texlive
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/share/texlive/texmf
+-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-
+dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf/fonts/typ
+e1/public/cm-super/sfbx1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/s
+frm1200.pfb>
+Output written on output/main.pdf (128 pages, 1261901 bytes).
 PDF statistics:
- 3600 PDF objects out of 4296 (max. 8388607)
- 3372 compressed objects within 34 object streams
- 1567 named destinations out of 1728 (max. 500000)
- 1953 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 3289 PDF objects out of 3580 (max. 8388607)
+ 3076 compressed objects within 31 object streams
+ 1501 named destinations out of 1728 (max. 500000)
+ 1585 words of extra memory for PDF output out of 10000 (max. 10000000)
 

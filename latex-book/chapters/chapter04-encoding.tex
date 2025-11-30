@@ -30,8 +30,8 @@ Non-redundancy means reducing (or eliminating) multiple distinct genotypes that 
 However, redundancy is sometimes deliberately introduced for robustness (e.g. neutral networks that allow neutral drift) or to simplify representation. When redundancy is present, it should be understood and controlled: quantify the degree of redundancy and consider its interaction with search dynamics and variation.
 
 \subsection{Locality}
-Locality formalises the intuition that small genotypic changes should produce small phenotypic changes. Let d_G and d_P be distance measures on G and P respectively (e.g. Hamming distance on bit-strings, Euclidean distance on real vectors). High locality means that
-\[d_G(g_1,g_2)\ \text{small}\ \Rightarrow\ d_P(\phi(g_1),\phi(g_2))\ \text{small}.\]
+Locality formalises the intuition that small genotypic changes should produce small phenotypic changes. Let $d_G$ and $d_P$ be distance measures on $G$ and $P$ respectively (e.g. Hamming distance on bit-strings, Euclidean distance on real vectors). High locality means that
+\[d_G(g_1,g_2)\ \text{is small}\ \Rightarrow\ d_P(\phi(g_1),\phi(g_2))\ \text{is small}.\]
 Locality is important because common variation procedures make small changes in G; if these do not correspond to small, correlated changes in P the search becomes effectively random and building-block recombination fails. Encoding choices such as Gray coding for integers or real-valued representations aim to improve locality.
 
 Locality cannot always be achieved with other desirable properties; for example, injective, compact encodings with perfect locality may not exist for some combinatorial domains. Designers should therefore prioritise which properties matter most for the problem and for the procedures they plan to use.
@@ -159,16 +159,3 @@ Indirect and grammar-based encodings are especially useful when the phenotype mu
 
 Practical recommendations: enforce feasibility early using typing or grammar constraints when the domain requires syntactic correctness; combine global tree-based search with local simplification passes (constant folding, algebraic reductions) to improve evaluation efficiency; use mixed initialisation strategies (ramped half-and-half, grow/full) to seed diverse tree sizes and shapes; and adopt explicit complexity control (parsimony pressure, depth limits, or adaptive operator bias) to manage bloat. Finally, validate operator choices empirically on representative instances and instrument tree-size, depth, and evaluation cost during experiments to detect emergent bloat or pathological behaviours.
 
-\section{Chapter Summary}
-
-This chapter covered various encoding schemes for genetic algorithms. The choice of encoding is crucial and should match the problem characteristics. Binary encoding provides theoretical foundation, real-valued encoding suits continuous optimization, permutation encoding handles ordering problems, and specialized encodings address domain-specific requirements.
-
-\section{Key Concepts}
-\begin{itemize}
-    \item Encoding requirements: completeness, soundness, non-redundancy
-    \item Binary vs Gray code encoding
-    \item Real-valued representation and procedures
-    \item Permutation encoding for ordering problems
-    \item Tree encoding for hierarchical structures
-    \item Problem-specific encoding considerations
-\end{itemize}

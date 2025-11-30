@@ -1,56 +1,38 @@
 \chapter{Crossover (Recombination) in Genetic Algorithms}
 
 \section{Introduction to Crossover}
-Crossover, also known as recombination, is the primary genetic operator in genetic algorithms~\cite{holland1975adaptation, goldberg1989genetic, mitchell1996introduction}. It combines genetic material from two or more parent solutions to create offspring, potentially inheriting beneficial traits from multiple parents. Crossover exploits existing solutions to explore new regions of the search space.
+Crossover, or recombination, is the primary genetic operator in genetic algorithms: it constructs new candidate solutions by combining genetic material from two (or more) parents. By recombining existing solutions, crossover leverages useful partial solutions—so-called building blocks—to produce offspring that may inherit and amplify beneficial traits while exploring nearby regions of the search space. In practice, crossover works together with selection and mutation to drive population-level search toward better solutions.
 
-\section{Biological Inspiration}
-In nature, sexual reproduction combines genetic material from two parents:
-\begin{itemize}
-    \item \textbf{Crossing over}: Exchange of genetic segments between homologous chromosomes
-    \item \textbf{Independent assortment}: Random distribution of chromosomes
-    \item \textbf{Genetic diversity}: Offspring differ from parents
-    \item \textbf{Building blocks}: Beneficial gene combinations are preserved and mixed
-\end{itemize}
+Biologically, crossover is inspired by sexual reproduction where chromosomes exchange segments during meiosis and genes assort independently into gametes. These natural mechanisms generate variation: offspring differ from their parents, which increases diversity and the raw material upon which selection can act. The analogy emphasizes two useful ideas for algorithms: mixing parental material to preserve and combine advantageous substructures, and introducing variation to avoid premature convergence.
 
-\section{Crossover Principles}
+Key phenomena from biology map directly to algorithm design. Crossing over swaps contiguous genetic segments (preserving local structure), independent assortment randomizes combinations of chromosomes (promoting novel mixes), and the resulting genetic diversity helps populations escape local optima. The notion of building blocks suggests that compact, high-quality gene combinations should be protected and recombined rather than destroyed by overly disruptive operators.
 
-\subsection{Exploration vs. Exploitation}
-\begin{itemize}
-    \item \textbf{Exploitation}: Combines good building blocks from parents
-    \item \textbf{Exploration}: Creates new combinations not present in parents
-    \item \textbf{Heritability}: Offspring resemble parents but with variations
-\end{itemize}
+Crossover typically proceeds in three conceptual steps: select parents for mating (usually biased by fitness), choose one or more crossover points or a recombination scheme, and exchange genetic material to form offspring. Implementation details (where the cut points are placed or whether genes are blended arithmetically) determine how much structure is preserved versus how much novelty is introduced; these choices critically shape the search dynamics.
 
-\subsection{Crossover Probability}
-Crossover is typically applied with probability $p_c$ (usually 0.6-0.9):
-\begin{itemize}
-    \item High $p_c$: More exploration, faster convergence
-    \item Low $p_c$: More exploitation of current solutions
-    \item $p_c = 1.0$: Always apply crossover
-    \item $p_c = 0.0$: No crossover (mutation-only evolution)
-\end{itemize}
+A practical control over crossover is its application probability $p_c$: the fraction of selected parent pairs that actually undergo recombination. Common practice places $p_c$ in the range $0.6$–$0.9$. High $p_c$ increases exploration by producing many new combinations each generation and can speed convergence when useful building blocks exist, while low $p_c$ places more emphasis on exploiting existing individuals and relies more on mutation and selection to introduce variation.
+
+Crossover mediates the trade-off between exploration and exploitation. Exploitation arises when the operator successfully combines and preserves good substructures from parents, accelerating progress toward high-quality solutions. Exploration occurs when recombination produces novel configurations not present in either parent, increasing the chance of discovering better regions of the search space. Effective algorithm design tunes the operator so that both behaviors occur in balance.
+
+The risk of schema disruption—breaking apart useful gene combinations—depends on how crossover is implemented and where cuts occur. Less disruptive schemes preserve adjacent relationships and short schemas, while more disruptive schemes (or many cut points) can destroy long, coadapted gene patterns even as they increase diversity. Awareness of these effects guides the choice of crossover style and its parameters for a given problem domain.
+
+In practice, designers choose crossover type and rate based on representation, problem structure, and empirical testing: start with standard $p_c$ values (around $0.8$), monitor diversity and progress, and adjust to favor either preservation of building blocks or increased exploration as needed. Because crossover interacts with selection, population size, and mutation, tuning should be done holistically and validated by experiments on representative problem instances.
 
 \section{Binary Crossover Operators}
 
 \subsection{Definition and Function of Crossover Operator}
 Crossover is a genetic operator used to vary the arrangement of chromosomes from one generation to the next~\cite{geeksforgeeks_crossover, tutorialspoint_crossover, course_week4_crossover}. The crossover method used depends on the encoding method applied.
 
-Crossover occurs in three stages:
-\begin{enumerate}
-    \item The reproduction operator randomly selects a pair of individual strings for the mating process.
-    \item A cross site is randomly selected along the length of the string.
-    \item The values after the cross site are exchanged between the two strings to form new offspring.
-\end{enumerate}
+In practice, crossover occurs in three stages: the reproduction operator selects a pair of individuals for mating, a crossover site is chosen along the length of the string, and the values after that site are exchanged between the two parents to form new offspring.
 
 In binary chromosome representation, each individual in the population is represented as a sequence of bits (0 and 1) that express a potential solution to a problem.
 
 \subsection{One-Point Crossover}
-Single-point crossover is the simplest form of crossover. One crossover position is randomly selected, then the part of the two parents after that position is exchanged to form two new offspring. The strings resulting from this process have Positional Bias characteristics.
+Single point crossover is the simplest form of crossover. One crossover position is randomly selected, then the part of the two parents after that position is exchanged to form two new offspring. The strings resulting from this process have Positional Bias characteristics.
 
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.7\textwidth]{figures/buku_ajar_page_24.png}
-\caption{Single-Point Crossover for binary chromosomes}
+\caption{Single Point Crossover for binary chromosomes}
 \label{fig:binary_single_point}
 \end{figure}
 
@@ -58,13 +40,12 @@ Single-point crossover is the simplest form of crossover. One crossover position
 Single crossover point divides chromosomes into two segments.
 
 \subsubsection{Algorithm}
-\begin{algorithm}
+\begin{algorithm}[H]
 \caption{One-Point Crossover}
 \begin{algorithmic}
-\STATE Select random crossover point $k \in [1, l-1]$
-\STATE Create offspring:
-\STATE $child_1 = parent_1[1:k] + parent_2[k+1:l]$
-\STATE $child_2 = parent_2[1:k] + parent_1[k+1:l]$
+\STATE $k \leftarrow$ RandomInteger(1, $l-1$)
+\STATE $child1 \leftarrow parent1[1{:}k] \mathbin{+} parent2[k+1{:}l]$
+\STATE $child2 \leftarrow parent2[1{:}k] \mathbin{+} parent1[k+1{:}l]$
 \end{algorithmic}
 \end{algorithm}
 
@@ -79,12 +60,7 @@ Single crossover point divides chromosomes into two segments.
 Crossover point at position 1.
 
 \subsubsection{Characteristics}
-\begin{itemize}
-    \item Simple and efficient
-    \item Preserves long building blocks near chromosome ends
-    \item May disrupt building blocks crossing the crossover point
-    \item Positional bias (end positions less likely to be separated)
-\end{itemize}
+Single-point crossover is simple and efficient; it tends to preserve long building blocks near chromosome ends but may disrupt blocks that cross the crossover point, producing a positional bias where end positions are less likely to be separated.
 
 \subsection{Two-Point Crossover}
 Two crossover points create three segments.
@@ -101,13 +77,12 @@ The objectives of multi-point crossover include increasing genetic diversity in 
 \end{figure}
 
 \subsubsection{Algorithm}
-\begin{algorithm}
+\begin{algorithm}[H]
 \caption{Two-Point Crossover}
 \begin{algorithmic}
-\STATE Select two random points $k_1, k_2$ where $1 \leq k_1 < k_2 \leq l-1$
-\STATE Create offspring:
-\STATE $child_1 = parent_1[1:k_1] + parent_2[k_1+1:k_2] + parent_1[k_2+1:l]$
-\STATE $child_2 = parent_2[1:k_1] + parent_1[k_1+1:k_2] + parent_2[k_2+1:l]$
+\STATE $(k_1,k_2) \leftarrow$ Two distinct random integers with $1 \le k_1 < k_2 \le l-1$
+\STATE $child1 \leftarrow parent1[1{:}k_1] \mathbin{+} parent2[k_1+1{:}k_2] \mathbin{+} parent1[k_2+1{:}l]$
+\STATE $child2 \leftarrow parent2[1{:}k_1] \mathbin{+} parent1[k_1+1{:}k_2] \mathbin{+} parent2[k_2+1{:}l]$
 \end{algorithmic}
 \end{algorithm}
 
@@ -122,11 +97,7 @@ The objectives of multi-point crossover include increasing genetic diversity in 
 Crossover points at positions 2 and 5.
 
 \subsubsection{Advantages}
-\begin{itemize}
-    \item Reduces positional bias
-    \item Can preserve building blocks at chromosome ends
-    \item More disruptive than one-point crossover
-\end{itemize}
+Two-point crossover reduces positional bias and can preserve building blocks at chromosome ends, although it is generally more disruptive than one-point crossover.
 
 \subsection{Uniform Crossover}
 Each gene is independently chosen from either parent~\cite{spears1993crossover, eshelman1991chc}.
@@ -143,15 +114,15 @@ This method provides equal opportunity for each gene to be inherited from one of
 \end{figure}
 
 \subsubsection{Algorithm}
-\begin{algorithm}
+\begin{algorithm}[H]
 \caption{Uniform Crossover}
 \begin{algorithmic}
-\FOR{each gene position $i$}
-    \STATE Generate random number $r \in [0,1]$
+\FOR{$i = 1$ to $l$}
+    \STATE $r \leftarrow$ UniformRandom(0,1)
     \IF{$r < 0.5$}
-        \STATE $child_1[i] = parent_1[i]$, $child_2[i] = parent_2[i]$
+        \STATE $child1[i] \leftarrow parent1[i]$; $child2[i] \leftarrow parent2[i]$
     \ELSE
-        \STATE $child_1[i] = parent_2[i]$, $child_2[i] = parent_1[i]$
+        \STATE $child1[i] \leftarrow parent2[i]$; $child2[i] \leftarrow parent1[i]$
     \ENDIF
 \ENDFOR
 \end{algorithmic}
@@ -169,23 +140,13 @@ This method provides equal opportunity for each gene to be inherited from one of
 Mask bit 1: take from Parent 1, Mask bit 0: take from Parent 2.
 
 \subsubsection{Properties}
-\begin{itemize}
-    \item Maximum disruption potential
-    \item No positional bias
-    \item Good for problems where gene positions are independent
-    \item May destroy long building blocks
-\end{itemize}
+Uniform crossover has a high disruption potential and eliminates positional bias; it is useful when gene positions are independent but can destroy long building blocks.
 
 \subsection{Multi-Point Crossover}
 Generalization with $k$ crossover points.
 
 \subsubsection{Characteristics}
-\begin{itemize}
-    \item $k = 0$: No crossover (copy parents)
-    \item $k = 1$: One-point crossover
-    \item $k = l-1$: Uniform crossover (in expectation)
-    \item As $k$ increases, approaches uniform crossover
-\end{itemize}
+Multi-point crossover generalizes from no crossover ($k=0$, copy parents) through one-point ($k=1$) up to the limit $k=l-1$ which approaches uniform crossover in expectation; increasing $k$ moves the operator closer to uniform recombination.
 
 \section{Integer Chromosome Crossover}
 
@@ -325,13 +286,17 @@ Apply arithmetic crossover to one randomly selected gene.
 Creates offspring in an interval around the parents.
 
 \subsubsection{Algorithm}
-For each gene $i$:
-\begin{enumerate}
-    \item Calculate $c_{min} = \min(parent_{1i}, parent_{2i})$
-    \item Calculate $c_{max} = \max(parent_{1i}, parent_{2i})$
-    \item Calculate interval $I = c_{max} - c_{min}$
-    \item Generate offspring in $[c_{min} - \alpha \cdot I, c_{max} + \alpha \cdot I]$
-\end{enumerate}
+\begin{algorithm}[H]
+\caption{BLX-$\alpha$ Crossover}
+\begin{algorithmic}
+\FOR{$i = 1$ to $n$}
+    \STATE $c_{min} \leftarrow \min(parent1[i], parent2[i])$
+    \STATE $c_{max} \leftarrow \max(parent1[i], parent2[i])$
+    \STATE $I \leftarrow c_{max} - c_{min}$
+    \STATE Sample $child[i]$ uniformly from $[c_{min} - \alpha I,\; c_{max} + \alpha I]$
+\ENDFOR
+\end{algorithmic}
+\end{algorithm}
 
 \subsubsection{Parameters}
 \begin{itemize}
@@ -365,12 +330,18 @@ $u_i \sim U[0,1]$ and $\eta_c$ is the distribution index.
 Preserves relative order of elements from one parent~\cite{oliver1987study, larranaga1999genetic}.
 
 \subsubsection{Algorithm}
-\begin{algorithm}
-\caption{Order Crossover}
+\begin{algorithm}[H]
+\caption{Order Crossover (OX)}
 \begin{algorithmic}
-\STATE Select two random crossover points
-\STATE Copy segment between points from Parent 1 to Child
-\STATE Fill remaining positions with elements from Parent 2 in order they appear, skipping already placed elements
+\STATE Choose two crossover points $a,b$ with $1 \le a < b \le n$
+\STATE Copy segment $parent1[a{:}b]$ into $child[a{:}b]$
+\STATE $pos \leftarrow b+1$ (wrap to 1 if $> n$)
+\FOR{each element $x$ in $parent2$ in order}
+    \IF{$x$ not in $child$}
+        \STATE $child[pos] \leftarrow x$
+        \STATE $pos \leftarrow pos+1$ (wrap to 1 if $> n$)
+    \ENDIF
+\ENDFOR
 \end{algorithmic}
 \end{algorithm}
 
@@ -386,12 +357,20 @@ Preserves relative order of elements from one parent~\cite{oliver1987study, larr
 Creates mapping between elements in the crossover segment~\cite{goldberg1989genetic, larranaga1999genetic}.
 
 \subsubsection{Algorithm}
-\begin{algorithm}
-\caption{Partially Mapped Crossover}
+\begin{algorithm}[H]
+\caption{Partially Mapped Crossover (PMX)}
 \begin{algorithmic}
-\STATE Select two crossover points
-\STATE Exchange segments between parents
-\STATE For conflicts outside segment, use mapping relationship to resolve
+\STATE Choose two crossover points $a,b$ with $1 \le a < b \le n$
+\STATE Copy $parent1[a{:}b]$ into $child1[a{:}b]$ and $parent2[a{:}b]$ into $child2[a{:}b]$
+\STATE Create mapping pairs from exchanged segments
+\FOR{each position $i$ outside $[a,b]$}
+    \STATE $val \leftarrow parent1[i]$
+    \WHILE{$val$ is already in $child1[a{:}b]$}
+        \STATE $val \leftarrow$ mapping of $val$ (follow mapping until an unused value found)
+    \ENDWHILE
+    \STATE $child1[i] \leftarrow val$
+    \COMMENT{Repeat symmetrically for $child2$}
+\ENDFOR
 \end{algorithmic}
 \end{algorithm}
 
@@ -407,14 +386,17 @@ Creates mapping between elements in the crossover segment~\cite{goldberg1989gene
 Preserves absolute positions of elements from both parents~\cite{oliver1987study, reeves1993modern}.
 
 \subsubsection{Algorithm}
-\begin{algorithm}
-\caption{Cycle Crossover}
+\begin{algorithm}[H]
+\caption{Cycle Crossover (CX)}
 \begin{algorithmic}
-\STATE Start with first element of Parent 1
-\STATE Follow cycle: find element in Parent 2 at same position, locate it in Parent 1, repeat
-\STATE Copy cycle elements from Parent 1
-\STATE Copy non-cycle elements from Parent 2
-\STATE Create second child by swapping parent roles
+\STATE Initialize all positions as unassigned
+\STATE $cycleStart \leftarrow 1$
+\WHILE{there are unassigned positions}
+    \STATE $i \leftarrow cycleStart$
+    \STATE Build cycle: add $i$ to cycle; set $i \leftarrow$ position of $parent1[i]$ in $parent2$; repeat until returning to $cycleStart$
+    \STATE For indices in cycle assign values from $parent1$ to $child1$ and from $parent2$ to $child2$
+    \STATE Choose next unassigned position as new $cycleStart$
+\ENDWHILE
 \end{algorithmic}
 \end{algorithm}
 
@@ -422,16 +404,21 @@ Preserves absolute positions of elements from both parents~\cite{oliver1987study
 Preserves edge information from both parents (useful for TSP).
 
 \subsubsection{Algorithm}
-\begin{algorithm}
-\caption{Edge Recombination}
+\begin{algorithm}[H]
+\caption{Edge Recombination Crossover}
 \begin{algorithmic}
-\STATE Create edge table from both parents
-\STATE Start with element having fewest edges
-\STATE Add element to offspring
-\STATE Remove element from all edge lists
-\STATE Move to element with fewest remaining edges
-\STATE If tied, choose randomly
-\STATE If no edges remain, choose unused element randomly
+\STATE Build edge table: for each element list its neighbors from both parents (no duplicates)
+\STATE $current \leftarrow$ element with fewest edges (break ties randomly)
+\FOR{$pos = 1$ to $n$}
+    \STATE $child[pos] \leftarrow current$
+    \STATE Remove $current$ from all edge lists
+    \IF{edge table of $current$ has any neighbors}
+        \STATE $next \leftarrow$ neighbor of $current$ with fewest edges (break ties randomly)
+    \ELSE
+        \STATE $next \leftarrow$ random unused element
+    \ENDIF
+    \STATE $current \leftarrow next$
+\ENDFOR
 \end{algorithmic}
 \end{algorithm}
 
@@ -456,95 +443,27 @@ P_{disruption} = p_c \cdot \left(1 - \left(\frac{1}{2}\right)^{o(H)-1}\right)
 \end{equation}
 
 \subsection{Building Block Preservation}
-\begin{itemize}
-    \item \textbf{Short schemas}: Better preserved by all crossover types
-    \item \textbf{Long schemas}: More disrupted, especially by uniform crossover
-    \item \textbf{Tightly linked}: Order crossover preserves adjacency relationships
-\end{itemize}
+Short schemas are generally better preserved by crossover operators, while long schemas are more likely to be disrupted (particularly by uniform crossover); tightly linked genes benefit from permutation operators such as order crossover which preserve adjacency relationships.
 
 \section{Advanced Crossover Techniques}
 
 \subsection{Adaptive Crossover}
-Adjust crossover parameters based on:
-\begin{itemize}
-    \item Population diversity
-    \item Fitness improvement rate
-    \item Generation number
-    \item Individual fitness levels
-\end{itemize}
+Adaptive crossover adjusts parameters dynamically based on signals such as population diversity, fitness improvement rate, generation number, and individual fitness levels.
 
 \subsection{Multiple Parent Crossover}
-Combine genetic material from more than two parents~\cite{elsayed2011ga, yassen2012multi, fajrin2020multi, chen2013multiple}:
-\begin{itemize}
-    \item \textbf{Scanning crossover}: Scan through multiple parents
-    \item \textbf{Voting crossover}: Majority vote among parents
-    \item \textbf{Averaging crossover}: Average values from multiple parents
-\end{itemize}
+Multiple-parent crossover combines material from more than two parents (see \cite{elsayed2011ga, yassen2012multi, fajrin2020multi, chen2013multiple}); examples include scanning crossovers that traverse parents sequentially, voting crossovers that use a majority rule, and averaging crossovers that compute averages of parent gene values.
 
 \subsection{Problem-Specific Crossover}
-Design crossover operators for specific problem domains:
-\begin{itemize}
-    \item \textbf{Graph problems}: Preserve graph properties
-    \item \textbf{Scheduling}: Maintain temporal constraints
-    \item \textbf{Neural networks}: Preserve network topology
-\end{itemize}
+Problem-specific crossover operators are designed to preserve domain constraints and useful structure: for graph problems preserve graph properties, for scheduling preserve temporal constraints, and for neural networks preserve network topology.
 
 \section{Crossover Guidelines}
 
 \subsection{Choosing Crossover Type}
-\begin{itemize}
-    \item \textbf{Binary representation}: One-point, two-point, or uniform
-    \item \textbf{Real-valued}: Arithmetic, BLX-$\alpha$, or SBX
-    \item \textbf{Permutation}: OX, PMX, or CX depending on problem structure
-    \item \textbf{Variable-length}: Specialized operators required
-\end{itemize}
+Choose crossover type to match the representation: for binary use one-point, two-point, or uniform; for real-valued use arithmetic, BLX-$\alpha$, or SBX; for permutations use OX, PMX, or CX depending on problem structure; variable-length representations require specialized operators.
 
 \subsection{Parameter Setting}
-\begin{itemize}
-    \item \textbf{Crossover rate}: Start with $p_c = 0.8-0.9$
-    \item \textbf{Population size}: Larger populations can handle higher crossover rates
-    \item \textbf{Problem difficulty}: Harder problems may need lower rates
-\end{itemize}
+Typical parameter suggestions: start with crossover rate $p_c\approx0.8$--$0.9$; larger populations can tolerate higher crossover rates; harder problems may benefit from lower rates and more conservative recombination.
 
 \subsection{Empirical Testing}
-\begin{itemize}
-    \item Test multiple crossover operators
-    \item Vary crossover parameters
-    \item Measure diversity and convergence
-    \item Consider problem-specific metrics
-\end{itemize}
+Empirical testing should compare multiple crossover operators, vary parameters, measure diversity and convergence, and include problem-specific metrics to validate choices.
 
-\section{Crossover vs. Mutation}
-
-\begin{table}[H]
-\centering
-\begin{tabular}{lcc}
-\toprule
-Aspect & Crossover & Mutation \\
-\midrule
-Primary function & Exploitation & Exploration \\
-Information source & Multiple parents & Random changes \\
-Building blocks & Combines existing & Creates new \\
-Search behavior & Convergent & Divergent \\
-Application rate & High (0.6-0.9) & Low (0.001-0.1) \\
-Population effect & Homogenization & Diversification \\
-\bottomrule
-\end{tabular}
-\caption{Crossover vs. Mutation Comparison~\cite{spears1993crossover, schaffer1989study}}
-\end{table}
-
-\section{Chapter Summary}
-
-This chapter covered crossover operators for genetic algorithms across different representation types. Crossover is the primary exploitative operator that combines beneficial traits from multiple parents. The choice of crossover operator depends on the representation and problem characteristics. Proper balance between crossover and mutation is essential for effective genetic algorithm performance.
-
-\section{Key Concepts}
-\begin{itemize}
-    \item Crossover principles and biological inspiration
-    \item Binary crossover: one-point, two-point, uniform
-    \item Real-valued crossover: arithmetic, BLX-$\alpha$, SBX
-    \item Permutation crossover: OX, PMX, CX
-    \item Schema disruption analysis
-    \item Building block preservation
-    \item Adaptive and problem-specific crossover
-    \item Guidelines for crossover selection and parameter setting
-\end{itemize}

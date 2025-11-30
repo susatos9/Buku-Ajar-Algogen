@@ -4,42 +4,24 @@
 In the previous chapters, we have covered the fundamental operations of Genetic Algorithms (GA) including encoding, fitness evaluation, selection, and crossover. This chapter completes the discussion of GA operators by examining \textbf{mutation} and \textbf{generation update mechanisms}~\cite{course_week9, tutorialspoint_mutation}. These operations are crucial for maintaining genetic diversity and ensuring the algorithm's ability to explore the search space effectively.
 
 \section{Introduction to Mutation}
-
-After the recombination (crossover) stage has been applied to all pairs of chromosomes in the mating pool, producing $N$ chromosomes (where $N$ is the population size), the GA executes the mutation operator on each of these chromosomes. Mutation is a critical operator that:
-
-\begin{itemize}
-    \item Prevents premature convergence to local optima
-    \item Maintains genetic diversity in the population
-    \item Introduces new genetic material that may not have been present in the initial population
-    \item Provides a mechanism for escaping local optima
-\end{itemize}
+After the recombination (crossover) stage has been applied to all pairs of chromosomes in the mating pool, producing $N$ chromosomes (where $N$ is the population size), the GA executes the mutation operator on each of these chromosomes. Mutation is a critical operator that prevents premature convergence to local optima, maintains genetic diversity in the population, introduces new genetic material that may not have been present in the initial population, and provides a mechanism for escaping local optima.
+Mutation plays a critical role immediately after recombination. By introducing stochastic changes to one or more genes, mutation reduces the risk of premature convergence, sustains genetic diversity across generations, and injects new alleles that may not exist in the initial population. These effects together provide a mechanism for escaping local optima and for exploring regions of the search space that recombination alone cannot reach. Although the mutated population is not guaranteed to be fitter than its predecessors, mutation is an essential exploration tool in the GA toolbox.
 
 \subsection{What is Mutation?}
 
-Mutation is the process of changing the value of one or more genes in a genome~\cite{goldberg1989genetic, mitchell1996introduction, back1996evolutionary}. More specifically, it involves:
-
-\begin{itemize}
-    \item Changing the allele of a gene at a specific locus with another allele
-    \item Avoiding premature convergence, which is reaching a suboptimal result that is not the global maximum
-    \item Creating offspring that are not necessarily better than their parents
-\end{itemize}
+Mutation is the process of changing the value of one or more genes in a genome~\cite{goldberg1989genetic, mitchell1996introduction, back1996evolutionary}. More specifically, it may change the allele of a gene at a specific locus to another allele, help avoid premature convergence (which is reaching a suboptimal result that is not the global maximum), and create offspring that are not necessarily better than their parents.
+Concretely, a mutation alters one or more gene values (alleles) at chosen loci. This alteration can be random or follow a simple stochastic rule; its primary purpose is to maintain variation in the population so that the search process can continue to explore promising and novel regions of the fitness landscape. Mutations sometimes produce inferior offspring, but they are often the only mechanism capable of introducing novel building blocks that lead to future improvements.
 
 \textbf{Important Note:} The new population resulting from mutation is not guaranteed to be better than the previous population. However, mutation provides the essential mechanism for maintaining diversity and exploring new regions of the search space.
 
 \subsection{Mutation in Evolutionary Algorithms vs. Biological Evolution}
 
 In biological evolution, mutation is typically considered harmful because complex organisms have highly interdependent systems. However, in Evolutionary Algorithms (EAs):
-
-\begin{itemize}
-    \item Mutation can often lead to improvement
-    \item Individual representations in EAs are much simpler than biological organisms
-    \item Mutating a small portion of genes may result in better individuals
-    \item The simplified representation makes beneficial mutations more likely
-\end{itemize}
+Although biological mutations are often deleterious in complex organisms, the situation in Evolutionary Algorithms is different. Representations used in EAs are typically far simpler and more modular than biological genomes, so small, localized changes can produce constructive variations. As a result, mutation in EAs can frequently generate beneficial diversity: mutating a small subset of genes may yield improved offspring without disrupting other functional components of the solution.
 
 \section{Mutation for Different Representations}
 
-Many mutation methods have been proposed in the literature~\cite{michalewicz1996genetic, back1996evolutionary, haupt2004practical}. Each method has special characteristics and may only be applicable to certain types of representations. The choice of mutation operator must be compatible with the chromosome encoding scheme.
+Many mutation methods have been proposed in the literature~\cite{michalewicz1996genetic, back1996evolutionary, haupt2004practical}. Each method has special characteristics and may only be applicable to certain types of representations. The choice of mutation operator must be compatible with the chromosome encoding scheme. 
 
 \subsection{Mutation for Binary Representation}
 \label{sec:binary-mutation}
@@ -47,13 +29,8 @@ Many mutation methods have been proposed in the literature~\cite{michalewicz1996
 Binary representation uses the simplest form of mutation: \textbf{bit-flip mutation}.
 
 \subsubsection{Bit-Flip Mutation}
-
-In bit-flip mutation, each bit in the chromosome has a probability $P_m$ (mutation probability) of being flipped:
-
-\begin{itemize}
-    \item $1 \rightarrow 0$
-    \item $0 \rightarrow 1$
-\end{itemize}
+In bit-flip mutation, each bit in the chromosome has a probability $P_m$ (mutation probability) of being flipped: a bit with value $1$ becomes $0$, and a bit with value $0$ becomes $1$.
+In binary encodings the simplest mutation is bit-flip: each bit is independently flipped with probability $P_m$, so a 1 becomes 0 and vice versa. This operator is minimal and unbiased, and when $P_m$ is small it provides rare but meaningful perturbations to otherwise stable bit-strings.
 
 \textbf{Example:}
 \begin{verbatim}
@@ -80,7 +57,7 @@ In this example, bits at positions 3 and 6 were selected for mutation and flippe
 \subsection{Mutation for Integer Representation}
 \label{sec:integer-mutation}
 
-Integer representations require different mutation strategies. Three common approaches are:
+Integer representations require different mutation strategies. Common approaches include integer value flipping, random value selection, and creep mutation.
 
 \subsubsection{Integer Value Flipping}
 
@@ -126,7 +103,6 @@ This method makes small, gradual changes and is particularly useful for fine-tun
 Real-valued representations have different characteristics from binary and integer representations. Values of genes in real representations are continuous, whereas binary and integer representations are discrete. Therefore, real representations require specialized mutation operators.
 
 \subsubsection{Uniform Mutation}
-
 In uniform mutation, selected genes are replaced with values drawn from a uniform random distribution within the valid range $[a, b]$:
 
 \begin{equation}
@@ -142,9 +118,7 @@ where:
 
 \subsubsection{Non-Uniform Mutation with Fixed Distribution}
 
-This is the most commonly used mutation for real-valued representations. It is similar to the creep method for integer representation but uses real-valued additions instead of integer values.
-
-The mutated value is calculated as:
+This mutation is similar to the creep method for integer representations but uses real-valued additions. The mutated value is calculated as:
 
 \begin{equation}
 x_i' = x_i + \mathcal{N}(0, \sigma^2)
@@ -167,7 +141,7 @@ Offspring: 2.45  7.89  3.45  9.01  5.67
 \subsection{Mutation for Permutation Representation}
 \label{sec:permutation-mutation}
 
-Mutation on permutation representations must ensure that the resulting chromosome remains valid. This means that after mutation, all elements must still appear exactly once. Several specialized methods have been developed:
+Mutation on permutation representations must ensure that the resulting chromosome remains valid (all elements appear exactly once). Specialized methods have been developed to preserve validity while introducing variation.
 
 \subsubsection{Swap Mutation}
 
@@ -233,38 +207,18 @@ The segment $\{5, 2, 7, 6\}$ is reversed to $\{6, 7, 2, 5\}$.
 
 \section{Generation Update Mechanisms}
 
-After selection, crossover, and mutation operations have been applied to a population, a generation update mechanism determines which individuals survive to the next generation. This process is also called \textbf{survivor selection} or \textbf{replacement strategy}.
+After selection, crossover, and mutation operations have been applied to a population, a generation update mechanism determines which individuals survive to the next generation. This process is also called \textbf{survivor selection} or \textbf{replacement strategy}. 
 
 \subsection{Holland's Original Model (Generational Replacement)}
 \label{sec:holland-update}
-
-In Holland's original GA~\cite{holland1975adaptation, goldberg1989genetic}:
-
-\begin{itemize}
-    \item All offspring replace the entire parent population
-    \item Parents are considered "dead" and removed from the population
-    \item The new population consists entirely of offspring
-    \item This creates distinct, non-overlapping generations
-\end{itemize}
-
-\textbf{Characteristics:}
-\begin{itemize}
-    \item Simple and straightforward
-    \item Clear separation between generations
-    \item May lose good solutions if not careful
-    \item Often combined with elitism to preserve best solutions
-\end{itemize}
+In Holland's original GA~\cite{holland1975adaptation, goldberg1989genetic} all offspring replace the entire parent population. Parents are considered "dead" and removed, so the new population consists entirely of offspring and generations are distinct and non-overlapping.
+In Holland's original generational replacement model, the offspring population entirely replaces the parents, producing distinct, non-overlapping generations. The model is simple and easy to implement and provides a clear separation between generations. A practical drawback is the potential loss of high-quality parents unless mechanisms such as elitism are used to preserve them.
 
 \subsection{Generational Model with Elitism}
 \label{sec:elitism}
 
-A population of size $N$ chromosomes in one generation is replaced by $N$ new individuals in the next generation~\cite{de1975analysis, whitley1994genetic}. However, to preserve the best solutions:
-
-\begin{itemize}
-    \item The best $k$ chromosomes (elites) from the parent generation are copied directly to the next generation
-    \item The remaining $N-k$ positions are filled with offspring
-    \item This ensures that the best solution never gets worse across generations
-\end{itemize}
+In the generational model with elitism, a population of size $N$ chromosomes in one generation is replaced by $N$ new individuals in the next generation~\cite{de1975analysis, whitley1994genetic}. However, to preserve the best solutions, the best $k$ chromosomes (elites) from the parent generation are copied directly to the next generation while the remaining $N-k$ positions are filled with offspring; this ensures that the best solution never gets worse across generations.
+In the generational model with elitism, the top $k$ individuals from the parent generation are carried forward unchanged and the remaining $N-k$ positions are filled by newly generated offspring. This simple modification guarantees that the best-so-far solutions are not lost, which stabilizes the search and often speeds convergence. Typical choices of $k$ are small (e.g. 1 or 2), balancing preservation and exploration.
 
 \textbf{Algorithm:}
 \begin{algorithm}[H]
@@ -283,78 +237,30 @@ A population of size $N$ chromosomes in one generation is replaced by $N$ new in
 \subsection{Steady-State Update}
 \label{sec:steady-state}
 
-In the steady-state model~\cite{whitley1994genetic, smith1998replacement}:
-
-\begin{itemize}
-    \item Not all chromosomes are replaced in each generation
-    \item Only $M$ chromosomes are replaced, where $M < N$
-    \item Often $M = 2$ (one mating produces 2 offspring, which replace 2 individuals)
-\end{itemize}
-
-\textbf{Replacement strategies for selecting which individuals to replace:}
-
-\begin{enumerate}
-    \item \textbf{Replace parents:} The two offspring replace their two parents
-    \item \textbf{Replace worst:} The two offspring replace the two worst individuals in the population
-    \item \textbf{Replace oldest:} The two offspring replace the two oldest individuals in the population
-\end{enumerate}
-
-\textbf{Characteristics:}
-\begin{itemize}
-    \item Allows good individuals to participate in multiple matings
-    \item More gradual evolution
-    \item Parents and offspring coexist in the same population
-    \item Can be more efficient computationally
-\end{itemize}
+In the steady-state model~\cite{whitley1994genetic, smith1998replacement} not all chromosomes are replaced in each generation; only $M$ chromosomes are replaced where $M < N$ (often $M = 2$, when one mating produces two offspring which replace two individuals). Replacement strategies include: \textbf{replace parents} (the two offspring replace their two parents), \textbf{replace worst} (the two offspring replace the two worst individuals), and \textbf{replace oldest} (the two offspring replace the two oldest individuals). This model allows good individuals to participate in multiple matings, produces more gradual evolution, lets parents and offspring coexist in the same population, and can be more efficient computationally.
+In steady-state update schemes only a small number $M$ of individuals (with $M<N$) are replaced at each step, which permits parents and offspring to coexist and allows high-quality individuals to be reused in multiple matings. Common replacement strategies are replacing the parents of the offspring, replacing the worst individuals found in the population, or replacing the oldest individuals; each strategy emphasizes different trade-offs between preserving diversity and intensifying selection. The steady-state approach typically yields more gradual evolution and can be computationally efficient when $M$ is small.
 
 \subsection{Continuous Update}
 \label{sec:continuous-update}
 
-In continuous update:
-
-\begin{itemize}
-    \item Offspring and parents can coexist in the same generation
-    \item Individuals are selected randomly from both groups for the next generation
-    \item Provides maximum overlap between generations
-    \item Less commonly used than other methods
-\end{itemize}
+In continuous update offspring and parents can coexist in the same generation; individuals are selected randomly from both groups for the next generation, providing maximum overlap between generations. This method is less commonly used than other update methods.
+Continuous update schemes allow full coexistence of parents and offspring and typically select individuals for survival from the combined set. This produces maximum generational overlap and a highly mixed population, though in practice such schemes are less commonly employed compared to generational or steady-state replacements.
 
 \section{GA Parameters}
 
-The performance of a Genetic Algorithm heavily depends on proper parameter settings~\cite{grefenstette1986optimization, schaffer1989study, de1975analysis}. The main parameters that need to be configured are:
+The performance of a Genetic Algorithm heavily depends on proper parameter settings~\cite{grefenstette1986optimization, schaffer1989study, de1975analysis}. The main parameters that need to be configured are: 
 
 \subsection{Crossover Probability ($P_c$)}
 \label{sec:crossover-probability}
 
-$P_c$ is the probability that two parents will undergo crossover.
-
-\textbf{Effects:}
-\begin{itemize}
-    \item $P_c = 100\%$: All offspring are produced through crossover
-    \item $P_c = 0\%$: No crossover occurs; offspring are exact copies of parents
-    \item Typical range: $P_c \in [0.65, 0.90]$ (65\% to 90\%)
-\end{itemize}
-
-\textbf{Recommendations:}
-\begin{itemize}
-    \item Higher values (0.8-0.9) encourage exploration
-    \item Lower values preserve good solutions but reduce diversity
-    \item Standard setting: $P_c = 0.8$
-\end{itemize}
+$P_c$ is the probability that two parents will undergo crossover. If $P_c=100\%$, all offspring are produced through crossover; if $P_c=0\%$, no crossover occurs and offspring are exact copies of parents. Typical values lie in the range $P_c\in[0.65,0.90]$. Higher values (0.8–0.9) encourage exploration, while lower values preserve good solutions but reduce diversity; a standard starting setting is $P_c=0.8$.
+The crossover probability $P_c$ controls how often recombination occurs. Values near 1 (e.g. 0.8–0.9) encourage aggressive mixing of parental material and therefore exploration of the search space, while lower values conserve parental structures and slow the creation of novel combinations. A commonly used default is $P_c\approx0.8$, but the final choice depends on problem characteristics and empirical tuning.
 
 \subsection{Mutation Probability ($P_m$)}
 \label{sec:mutation-probability}
 
-$P_m$ is the probability that a gene in an offspring chromosome will undergo mutation.
-
-\textbf{Effects:}
-\begin{itemize}
-    \item $P_m = 100\%$: All genes are mutated (chaos)
-    \item $P_m = 0\%$: No mutation occurs; no new genetic material
-    \item Typical range: $P_m \in [0.005, 0.01]$ (0.5\% to 1\%)
-\end{itemize}
-
-\textbf{Common formulas:}
+$P_m$ is the probability that a gene in an offspring chromosome will undergo mutation. When $P_m=100\%$ all genes are mutated (leading to chaos), and when $P_m=0\%$ no mutation occurs and no new genetic material is introduced. Typical values are small, e.g. $P_m\in[0.005,0.01]$ (0.5%–1%). Common formulas are
+Typical mutation probabilities are very small so that mutations occur infrequently; values in the range $0.5\%$ to $1\%$ per gene are common starting points. Two commonly used heuristics are $P_m=1/L$ (one mutation per chromosome on average) or $P_m=1/(N\times L)$ when scaling mutation relative to total evaluations. Setting $P_m$ too high destroys useful structure, while setting it too low can allow premature convergence through loss of diversity.
 \begin{equation}
 P_m = \frac{1}{L}
 \end{equation}
@@ -374,68 +280,19 @@ where:
 \subsection{Population Size ($N$)}
 \label{sec:population-size}
 
-The population size should be proportional to the volume of the search space.
-
-\textbf{Effects:}
-\begin{itemize}
-    \item Too small: Difficult to reach global optimum; may converge to local optimum
-    \item Too large: Heavy computational burden; inconsistent with evolutionary principles
-    \item Should not approach the size of the entire search space
-\end{itemize}
-
-\textbf{Recommendations:}
-\begin{itemize}
-    \item Typical range: $N \in [50, 100]$
-    \item Determined through experimentation
-    \item Larger populations for larger, more complex problems
-    \item Consider computational resources available
-\end{itemize}
+The population size should be proportional to the volume of the search space. If the population is too small it may be difficult to reach the global optimum and the search may converge to local optima; if the population is too large it imposes heavy computational cost and can be unnecessary. Typical ranges are $N\in[50,100]$, but the exact value should be determined through experimentation and chosen according to problem complexity and available computational resources.
+Population size $N$ mediates the trade-off between exploratory coverage of the search space and computational cost. Small populations can fail to represent sufficient diversity and may converge to local optima, while excessively large populations increase runtime without proportional gains. As a practical guideline, many problems start with $N$ between 50 and 100 and then adjust based on empirical performance and available compute resources.
 
 \subsection{Number of Generations ($G$)}
 \label{sec:num-generations}
 
 The number of generations should be proportional to population size and search space size.
-
-\textbf{Example calculation:}
-\begin{itemize}
-    \item If $N = 100$ and search space size $\approx 10^5$
-    \item Then $G = 100$ might be appropriate
-\end{itemize}
-
-\textbf{Stopping criteria alternatives:}
-\begin{enumerate}
-    \item Fixed number of generations
-    \item Maximum number of fitness evaluations
-    \item No improvement for $k$ consecutive generations
-    \item Target fitness value reached
-    \item Combination of the above
-\end{enumerate}
+The number of generations $G$ should be chosen in relation to $N$ and the complexity of the search space: larger or more complex problems typically require more generations to converge. Common stopping criteria include a fixed number of generations, a maximum number of fitness evaluations, no improvement for $k$ consecutive generations, reaching a target fitness, or a suitable combination of these conditions.
 
 \subsection{General Parameter Setting Guidelines}
 \label{sec:parameter-guidelines}
 
-\textbf{Important Note:} There are no definitive rules for setting GA parameters~\cite{wolpert1997no, grefenstette1986optimization}. Parameter selection relies on:
-
-\begin{itemize}
-    \item Intuition and experience
-    \item Experimentation (trial and error)
-    \item Problem-specific characteristics
-\end{itemize}
-
-\textbf{Common starting configuration:}
-\begin{itemize}
-    \item Chromosome representation: Binary/Integer/Real/Permutation (problem-dependent)
-    \item Number of bits per variable: Based on desired precision
-    \item Population size: $N = 50$ to $100$
-    \item Crossover probability: $P_c = 0.8$
-    \item Mutation probability: $P_m = \frac{1}{L}$ to $\frac{1}{N \times L}$
-\end{itemize}
-
-where:
-\begin{itemize}
-    \item $N$ = Population size
-    \item $L$ = Chromosome length (number of genes)
-\end{itemize}
+	extbf{Important Note:} There are no universal rules for choosing GA parameters~\cite{wolpert1997no, grefenstette1986optimization}. Good settings are typically found through a combination of theoretical heuristics, prior experience, and systematic experimentation. A reasonable starting configuration is to choose a representation suited to the problem (binary, integer, real or permutation), set population size $N$ in the tens to low hundreds (e.g. 50–100), use $P_c\approx0.8$, and set mutation heuristics such as $P_m\approx1/L$ (or scaled variants like $1/(N\times L)$) with subsequent tuning based on results.
 
 \section{Parameter Observation Study}
 
@@ -458,20 +315,7 @@ where $x_1, x_2 \in [-10, 10]$
 The constant 0.001 is added to avoid division by zero at the optimal point $(0, 0)$.
 
 \subsection{Experimental Setup}
-
-\textbf{Parameter variations tested:}
-\begin{itemize}
-    \item Population size: $[50, 100, 200]$
-    \item Number of bits per variable: $[10, 50, 90]$
-    \item Crossover probability: $[0.5, 0.7, 0.9]$
-    \item Mutation probability: $[0.5/L, 1/L, 2/L]$ where $L$ is total chromosome length
-\end{itemize}
-
-\textbf{Fairness criterion:}
-\begin{itemize}
-    \item Maximum number of individuals evaluated: 20,000
-    \item Each configuration run 30 times for statistical validity
-\end{itemize}
+	extbf{Experimental setup:} The study varied population size (50, 100, 200), bit precision per variable (10, 50, 90), crossover probability ($P_c\in\{0.5,0.7,0.9\}$), and mutation probability relative to chromosome length (e.g. $0.5/L,\;1/L,\;2/L$). To ensure fair comparisons, each configuration was constrained by a maximum of 20,000 evaluated individuals and was repeated 30 times to obtain reliable statistics.
 
 \subsection{Sample Results}
 
@@ -498,81 +342,7 @@ Table~\ref{tab:ga-parameters} shows selected results from the parameter study:
 \end{tabular}
 \end{table}
 
-\textbf{Key observations:}
-
-\begin{enumerate}
-    \item \textbf{Best configuration:} Population size = 50, Bits = 90, $P_c = 0.7$, $P_m = 0.0056$
-    \begin{itemize}
-        \item Achieved optimal fitness (1000.00)
-        \item Required only 8780 evaluations on average
-        \item Most efficient configuration
-    \end{itemize}
-    
-    \item \textbf{Effect of bit precision:}
-    \begin{itemize}
-        \item 10 bits: Often failed to reach optimum
-        \item 50-90 bits: Consistently reached optimum
-        \item Higher precision enables finer search granularity
-    \end{itemize}
-    
-    \item \textbf{Effect of population size:}
-    \begin{itemize}
-        \item Smaller populations (50) can be very efficient
-        \item Larger populations (200) more robust but slower
-        \item Trade-off between speed and reliability
-    \end{itemize}
-    
-    \item \textbf{Effect of crossover probability:}
-    \begin{itemize}
-        \item $P_c = 0.7$ performed best overall
-        \item Moderate values balance exploration and exploitation
-    \end{itemize}
-    
-    \item \textbf{Effect of mutation probability:}
-    \begin{itemize}
-        \item Low mutation rates ($\sim 1/L$) worked best
-        \item Too high mutation causes chaos
-        \item Too low mutation loses diversity
-    \end{itemize}
-\end{enumerate}
-
-\section{Summary and Conclusions}
-
-This chapter has covered the essential components for completing the GA cycle:
-
-\begin{enumerate}
-    \item \textbf{Mutation operators} provide genetic diversity and prevent premature convergence:
-    \begin{itemize}
-        \item Binary: Bit-flip mutation
-        \item Integer: Flipping, random selection, creep mutation
-        \item Real: Uniform mutation, Gaussian mutation
-        \item Permutation: Swap, insert, scramble, inversion mutation
-    \end{itemize}
-    
-    \item \textbf{Generation update mechanisms} determine how populations evolve:
-    \begin{itemize}
-        \item Generational replacement (with elitism)
-        \item Steady-state update
-        \item Continuous update
-    \end{itemize}
-    
-    \item \textbf{Parameter selection} is crucial for GA performance:
-    \begin{itemize}
-        \item No universal rules exist
-        \item Requires experimentation and tuning
-        \item Starting guidelines provide reasonable defaults
-    \end{itemize}
-\end{enumerate}
-
-\textbf{Key principles:}
-\begin{itemize}
-    \item Parent selection and survivor selection do not depend on chromosome representation
-    \item Recombination and mutation operators must match the chromosome representation
-    \item Parameter settings should be tailored to the specific problem
-    \item Experimentation is essential for finding optimal configurations
-\end{itemize}
-
-With the completion of this chapter, we have now covered all the fundamental components of Genetic Algorithms: encoding, fitness evaluation, selection, crossover, mutation, and generation update. The next chapters will explore advanced topics and practical applications of GAs.
+	extbf{Key observations:} The most efficient configuration in these experiments was population size 50 with 90 bits per variable, $P_c=0.7$ and $P_m\approx0.0056$, which consistently reached the optimum (fitness 1000.00) while requiring only about 8780 evaluations on average. Regarding precision, 10 bits were often insufficient to reach the optimum, while 50–90 bits provided the necessary granularity for reliable convergence. Smaller populations (e.g. 50) proved efficient in this test problem, whereas larger populations (e.g. 200) offered more robustness at greater computational cost — a classic speed-versus-reliability trade-off. Crossover probabilities around 0.7 tended to balance exploration and exploitation effectively. Finally, low mutation rates on the order of $1/L$ worked best: rates that were too high introduced disruptive randomness, while rates that were too low reduced diversity and risked premature convergence.
 
 \section{Exercises}
 

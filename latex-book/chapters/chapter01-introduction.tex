@@ -205,26 +205,17 @@
   \end{figure}
 
   \section{Introduction to Evolutionary Computation}
-  Evolutionary computation is a family of algorithms inspired by biological evolution~\cite{holland1975adaptation, eiben2015introduction}. These algorithms use mechanisms such as selection, which implements the principle of survival of the fittest, reproduction for creating offspring, mutation to introduce random changes, and crossover for combining genetic material from different individuals.
+  Evolutionary computation is a family of stochastic, population-based search algorithms inspired by the principles of biological evolution~\cite{holland1975adaptation, eiben2015introduction}. Members of this family operate on a population of candidate solutions and repeatedly apply selection (the principle of survival of the fittest), recombination or crossover (to exchange information between solutions), and mutation (to introduce novel variation). These mechanisms allow evolutionary algorithms to retain and recombine useful solution components while continuously exploring new regions of the search space.
 
-  \subsection{Advantages of Evolutionary Approaches}
-  Evolutionary approaches offer several compelling advantages that make them attractive for complex optimization problems. They require no gradient information, which is particularly valuable when dealing with black-box optimization scenarios. These algorithms can effectively handle discontinuous, noisy, and multi-modal functions that would challenge traditional optimization methods. Their versatility extends to both continuous and discrete optimization problems, making them applicable across diverse domains. The population-based search strategy provides inherent robustness against local optima, and when properly configured, these algorithms can find global optima in challenging search spaces.
+  These properties give evolutionary approaches a number of practical advantages for difficult optimization problems. Because they are derivative-free and only require function evaluations, evolutionary methods are naturally suited to black-box optimization problems, including objective functions that are discontinuous, noisy, non-differentiable, or subject to discrete jumps. Their population-based search confers robustness against local optima and permits straightforward parallel evaluation of candidate solutions, which is valuable for expensive fitness evaluations. While evolutionary algorithms do not generally provide formal optimality guarantees, with appropriate representation and operators they offer reliable heuristic performance across a wide variety of continuous, discrete, and mixed-variable domains.
 
-  \subsection{Types of Evolutionary Algorithms}
-  The field of evolutionary computation encompasses several distinct algorithmic families, each with its own characteristics and strengths. Genetic Algorithms (GA) are inspired by natural selection and were among the first evolutionary approaches developed~\cite{holland1975adaptation, goldberg1989genetic}. Evolution Strategies (ES) focus specifically on real-valued optimization problems and have proven particularly effective in continuous domains~\cite{back1996evolutionary}. Evolutionary Programming (EP) places emphasis on behavioral evolution rather than genetic representations~\cite{fogel1995evolutionary, fogel2006evolutionary}. Finally, Genetic Programming (GP) extends evolutionary principles to the evolution of computer programs themselves, enabling the automatic generation of code~\cite{koza1992genetic}.
+  The field of evolutionary computation includes several well-established families, each emphasizing different design choices. Genetic Algorithms (GAs) were among the earliest and most influential formulations, emphasizing fixed-length encodings and biologically inspired crossover and mutation operators~\cite{holland1975adaptation, goldberg1989genetic}. Evolution Strategies (ES) concentrate on self-adaptive mutation strategies and are especially effective for real-valued, continuous optimization~\cite{back1996evolutionary}. Evolutionary Programming (EP) historically focused on the evolution of behavioral models and stochastic mutation schemes rather than explicit recombination~\cite{fogel1995evolutionary, fogel2006evolutionary}. Genetic Programming (GP) extends the framework to variable-length structures such as computer programs and expression trees, enabling automatic program synthesis~\cite{koza1992genetic}.
 
-  \subsection{Applications of Evolutionary Computation}
-  Evolutionary algorithms have demonstrated remarkable success across a wide range of practical applications~\cite{gen2007genetic, sivanandam2008introduction, eiben2015introduction}. In engineering design optimization, they have been used to find optimal configurations for complex systems~\cite{yildiz2023novel}. The field of machine learning has benefited from evolutionary approaches, particularly in neural network training where they can optimize both architectures and weights~\cite{montana1989training, murad2025hybrid}. Scheduling and timetabling problems, which are notoriously difficult combinatorial optimization challenges, have been successfully addressed using evolutionary methods~\cite{gu2022hybrid, fajrin2020multi}. Beyond these areas, evolutionary algorithms have found applications in financial modeling, bioinformatics, and game playing strategy development, demonstrating their versatility across diverse problem domains.
+  Evolutionary algorithms have been applied successfully across engineering, science, and business. In engineering design they are used to optimize configurations of complex systems where objective evaluations may be expensive or non-differentiable~\cite{yildiz2023novel}. In machine learning, evolutionary methods have been used both to evolve neural network architectures and to optimize weights when gradient information is unavailable or unreliable~\cite{montana1989training, murad2025hybrid}. Scheduling, timetabling, routing (including the Travelling Salesman Problem), and other combinatorial problems are natural applications because of flexible encodings and bespoke recombination operators that respect problem structure~\cite{gu2022hybrid, fajrin2020multi}. Beyond these domains, evolutionary computation has found roles in bioinformatics, financial modeling, and automated game-play strategy design, demonstrating broad practical utility~\cite{gen2007genetic, sivanandam2008introduction, eiben2015introduction}.
 
+  To make these ideas concrete, consider two compact examples commonly used for pedagogical illustration. A simple toy problem is maximizing the quadratic function $f(x)=x^2$ on the discrete domain $0\leq x\leq31$. With a binary encoding (5-bit chromosomes), repeated cycles of selection, crossover, and mutation concentrate building blocks that represent higher values of $x$ until, typically within a few generations, individuals encoding the optimum ($x=31$) dominate the population. This example highlights how recombination accumulates useful partial solutions (building blocks) even when the initial population is random.
 
-  \subsection{Simple Examples of Genetic Algorithm Applications}
-
-  Genetic Algorithms possess an extraordinary capability in finding optimal solutions for problems with vast search spaces.
-
-  \subsection{Maximizing a Quadratic Function}
-  A classic example often used to illustrate how Genetic Algorithms work is the problem of maximizing a simple quadratic function, such as $f(x) = x^2$ in the range $0 \leq x \leq 31$. In this case, the optimal solution is clear: $x = 31$, yielding $f(x) = 961$. However, this problem is used to demonstrate how Genetic Algorithms, despite starting with a random population (for example, four 5-bit binary chromosomes), can gradually combine features (building blocks) from existing solutions to achieve better results.
-
-  Through cycles of selection, crossover, and mutation, Genetic Algorithms show how both the maximum and average performance of the population increases from one generation to the next. Within a few generations, individuals representing $x = 31$ (binary 11111) will dominate the population.
+  In a more challenging combinatorial example, the Travelling Salesman Problem (TSP) asks for a shortest tour visiting a set of cities. Genetic Algorithms for TSP use representations and crossover operators that preserve city-order properties (for example, order- or position-based crossovers) and mutation operators that perform local perturbations of tours. While GAs do not guarantee optimality for NP-hard problems like the TSP, they often produce high-quality approximate solutions quickly and can be combined with local search (hybrid approaches) for further improvement.
 
   \begin{figure}[h]
   \centering
@@ -233,44 +224,28 @@
   \label{fig:ga_intro_cycle}
   \end{figure}
 
-  \subsection{Travelling Salesman Problem}
-  Another example of genetic algorithm application is the Travelling Salesman Problem (TSP), where Genetic Algorithms are used to find the shortest route visiting a number of cities—a highly complex combinatorial optimization problem.
-
 
     % Note: the detailed, domain-specific examples that previously followed (scheduling, network design, VLSI) were removed here to avoid repetition with the earlier "Applications" section. Key examples remain in the "Applications of Evolutionary Computation" section above.
 
-  \section{Genetic Algorithm Flow}
 
-  Genetic algorithms maintain a population of individuals, denoted as $P(t)$ for generation $t$, where each individual represents a potential solution to the problem at hand. This cycle runs iteratively through steps that mimic the evolution process.
+  Although the Simple Generational Genetic Algorithm serves as the basic framework, various modifications have been developed to improve performance in dealing with problem complexity. Some of these modifications include the following well-studied variants.
 
-  After the initial population $P(0)$ is initialized and its fitness evaluated, the selection process begins, where fitter individuals are probabilistically selected to enter the mating pool. Selected individuals then undergo stochastic transformation through genetic operators. The crossover operator is responsible for exploiting the best information from parents, while mutation is tasked with exploring the search space by introducing new genetic material.
+  Hybrid Genetic Algorithms combine global evolutionary search with targeted local improvement procedures to exploit the complementary strengths of both paradigms. Typical hybrid designs use a GA for broad exploration while applying deterministic or stochastic local searches (for example, hill-climbing, tabu search, or problem-specific heuristics) to refine selected individuals or the best solutions found so far. By coupling diversification and intensification, hybrid methods often achieve faster convergence and higher-quality results on practical optimization tasks~\cite{majhi2025novel, murad2025hybrid}.
 
-  Newly generated individuals, called offspring $C(t)$, are then evaluated for their fitness. A new population $P(t+1)$ is formed by selecting fitter individuals from both the parent and offspring populations through a replacement scheme. This process is repeated for several generations until the algorithm converges, pointing to the best individual, which is expected to represent an optimal or suboptimal solution to the problem.
+  Adaptive Genetic Algorithms modify control parameters online using feedback from population statistics such as fitness improvement rates, operator success, or measures of genetic diversity. Adaptation can be implemented externally via control rules or internally by encoding parameters within individuals so that evolution itself selects effective settings. These mechanisms reduce manual tuning and help maintain a productive exploration–exploitation balance across different phases of the search~\cite{shams2025resolving, srinivas1994genetic}.
 
-  \section{Genetic Algorithm Variations}
+  Parallel Genetic Algorithms exploit modern parallel hardware by distributing computation and/or population structure. Coarse-grained (island) models hold sub-populations on different processors with occasional migration to share information; fine-grained or master–slave models parallelize fitness evaluations to reduce wall-clock time. Parallelism not only accelerates computation but can also enhance search robustness by preserving multiple niches and reducing premature convergence~\cite{eiben2015introduction}.
+    \section{Genetic Algorithm Variations}
 
-  Although the Simple Generational Genetic Algorithm serves as the basic framework, various modifications have been developed to improve performance in dealing with problem complexity. Some of these modifications include:
+    Although the simple generational Genetic Algorithm serves as the basic framework, various modifications have been developed to improve performance on complex problems. Common variations include:
 
-  \subsection{Hybrid GA}
-  Hybrid GA (HGA) combines Genetic Algorithms with conventional local search techniques~\cite{majhi2025novel, murad2025hybrid}. In a hybrid approach, Genetic Algorithms perform global exploration across the population, while local search is used for refinement around promising solutions. This approach often outperforms single methods because it leverages the complementary advantages of both search techniques.
+    \subsection{Overview}
+    \begin{itemize}
+        \item \textbf{Hybrid GA:} Combines Genetic Algorithms with local search or other optimization methods to refine promising solutions after global exploration~\cite{majhi2025novel, murad2025hybrid}.
+        \item \textbf{Adaptive GA:} Dynamically adjusts parameters such as crossover and mutation probabilities based on population feedback to balance exploration and exploitation~\cite{shams2025resolving, srinivas1994genetic}.
+        \item \textbf{Parallel GA:} Splits the population into sub-populations across processors (island models, master-slave, etc.) and periodically exchanges individuals to speed up search and maintain diversity.
+    \end{itemize}
 
-  \subsection{Adaptive GA}
-  Adaptive GA (AGA) is a Genetic Algorithm where strategic parameters (such as crossover or mutation probabilities) are dynamically adjusted during the evolution process, often using feedback from population performance to balance exploitation and exploration effectively~\cite{shams2025resolving, srinivas1994genetic}.
-
-  \subsection{Parallel GA}
-  Parallel Genetic Algorithms divide the population into different sub-populations across various processors, allowing periodic information exchange (migration) to increase diversity and convergence speed.
-
-  \section{Chapter Summary}
-  This chapter introduced the fundamental concepts of optimization and evolutionary computation. We explored the limitations of traditional optimization methods and highlighted the advantages of evolutionary approaches. We also examined specific examples of GA applications including function optimization, TSP, scheduling, network design, and VLSI design. The GA flow and various modifications were discussed to provide a comprehensive understanding of genetic algorithms.
-
-  \section{Key Concepts}
-  \begin{itemize}
-      \item Optimization problem formulation
-      \item Objective functions and constraints
-      \item Local vs. global optima
-      \item Evolutionary computation principles
-      \item Population-based search
-  \end{itemize}
 
   \section{Further Reading}
   \begin{itemize}

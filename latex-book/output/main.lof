@@ -7,32 +7,25 @@
 \contentsline {figure}{\numberline {1.5}{\ignorespaces Illustration of GA cycle and variations}}{5}{figure.caption.8}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Genetic Algorithm Cycle}}{16}{figure.caption.10}%
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Genetic Algorithm Cycle}}{14}{figure.caption.10}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Basic selection process in Genetic Algorithms}}{43}{figure.caption.11}%
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Roulette-wheel selection process with sample trials}}{45}{figure.caption.13}%
-\contentsline {figure}{\numberline {5.3}{\ignorespaces Stochastic universal sampling with equally spaced pointers}}{47}{figure.caption.15}%
-\contentsline {figure}{\numberline {5.4}{\ignorespaces How the situation changes after converting fitness to order number (rank)}}{48}{figure.caption.16}%
-\contentsline {figure}{\numberline {5.5}{\ignorespaces Tournament selection mechanism}}{49}{figure.caption.17}%
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Basic selection process in Genetic Algorithms}}{39}{figure.caption.11}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Roulette-wheel selection process with sample trials}}{41}{figure.caption.13}%
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Stochastic universal sampling with equally spaced pointers}}{43}{figure.caption.15}%
+\contentsline {figure}{\numberline {5.4}{\ignorespaces How the situation changes after converting fitness to order number (rank)}}{44}{figure.caption.16}%
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Tournament selection mechanism}}{45}{figure.caption.17}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {6.1}{\ignorespaces Single-Point Crossover for binary chromosomes}}{60}{figure.caption.19}%
-\contentsline {figure}{\numberline {6.2}{\ignorespaces Multi-point Crossover for binary chromosomes}}{62}{figure.caption.20}%
-\contentsline {figure}{\numberline {6.3}{\ignorespaces Uniform Crossover for binary chromosomes}}{63}{figure.caption.21}%
-\contentsline {figure}{\numberline {6.4}{\ignorespaces Single-Point Crossover for integer chromosomes}}{65}{figure.caption.22}%
-\contentsline {figure}{\numberline {6.5}{\ignorespaces Multi-point Crossover for integer chromosomes}}{66}{figure.caption.23}%
-\contentsline {figure}{\numberline {6.6}{\ignorespaces Uniform Crossover for integer chromosomes}}{67}{figure.caption.24}%
-\contentsline {figure}{\numberline {6.7}{\ignorespaces Single Arithmetic Crossover for real chromosomes}}{67}{figure.caption.25}%
-\contentsline {figure}{\numberline {6.8}{\ignorespaces Simple Arithmetic Crossover for real chromosomes}}{67}{figure.caption.26}%
-\contentsline {figure}{\numberline {6.9}{\ignorespaces Whole Arithmetic Crossover for real chromosomes}}{68}{figure.caption.27}%
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Single Point Crossover for binary chromosomes}}{56}{figure.caption.19}%
+\contentsline {figure}{\numberline {6.2}{\ignorespaces Multi-point Crossover for binary chromosomes}}{58}{figure.caption.20}%
+\contentsline {figure}{\numberline {6.3}{\ignorespaces Uniform Crossover for binary chromosomes}}{59}{figure.caption.21}%
+\contentsline {figure}{\numberline {6.4}{\ignorespaces Single-Point Crossover for integer chromosomes}}{61}{figure.caption.22}%
+\contentsline {figure}{\numberline {6.5}{\ignorespaces Multi-point Crossover for integer chromosomes}}{62}{figure.caption.23}%
+\contentsline {figure}{\numberline {6.6}{\ignorespaces Uniform Crossover for integer chromosomes}}{63}{figure.caption.24}%
+\contentsline {figure}{\numberline {6.7}{\ignorespaces Single Arithmetic Crossover for real chromosomes}}{63}{figure.caption.25}%
+\contentsline {figure}{\numberline {6.8}{\ignorespaces Simple Arithmetic Crossover for real chromosomes}}{63}{figure.caption.26}%
+\contentsline {figure}{\numberline {6.9}{\ignorespaces Whole Arithmetic Crossover for real chromosomes}}{64}{figure.caption.27}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {8.1}{\ignorespaces Genetic Algorithm Learning to Play Super Mario Bros at 4x Speed}}{89}{figure.caption.30}%
-\contentsline {figure}{\numberline {8.2}{\ignorespaces Cat Navigating Circular Maze to Reach Cheese Using Genetic Algorithm}}{90}{figure.caption.31}%
-\contentsline {figure}{\numberline {8.3}{\ignorespaces Simulated Evolution Using Genetic Algorithm - Creatures Adapting Over Generations}}{90}{figure.caption.32}%
-\contentsline {figure}{\numberline {8.4}{\ignorespaces Human Movement Evolution: From Sitting to Athletic Performance}}{91}{figure.caption.33}%
-\contentsline {figure}{\numberline {8.5}{\ignorespaces Optimizing Daily Commute Route Using GA Principles}}{91}{figure.caption.34}%
-\contentsline {figure}{\numberline {8.6}{\ignorespaces Position of Genetic Algorithms in Machine Learning and Soft Computing Landscape}}{91}{figure.caption.35}%
-\contentsline {figure}{\numberline {8.7}{\ignorespaces Comparison of Lamarck vs Darwin-Wallace Evolution Theories Using Giraffe Example}}{92}{figure.caption.36}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
